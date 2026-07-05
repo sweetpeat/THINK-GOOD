@@ -149,8 +149,9 @@ export function NodeBox({
         )}
       </g>
       {caption && (
+        // truncated to stay inside one stratified column (slot ≈ 240px)
         <text className="node-caption" x={0} y={vm.h + 14}>
-          {caption.length > 50 ? `⚠ ${caption.slice(0, 49)}…` : `⚠ ${caption}`}
+          {caption.length > 42 ? `⚠ ${caption.slice(0, 41)}…` : `⚠ ${caption}`}
         </text>
       )}
       {interactive && (
