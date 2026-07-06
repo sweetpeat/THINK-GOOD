@@ -8,7 +8,7 @@ import { graphStore } from '../model/graphStore';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
 import type { AnyNode, EdgeType, NodeType, QuestionNode } from '../model/types';
-import { validEdgeTypes } from '../model/types';
+import { edgeTargetsFrom, validEdgeTypes } from '../model/types';
 import { displayedEdges, displayedNodes, weakestInput } from '../model/derive';
 import { EDGE_TYPE_LABELS, NODE_TYPE_LABELS } from '../model/labels';
 import { buildNodeVM, type NodeVM } from './nodeVM';
@@ -413,6 +413,20 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
 
   const linkSource = linking ? rectOf(linking.fromId) : null;
 
+  // While a link is armed, tell the user exactly what to aim at — and, if the
+  // canvas has no node this source can validly point to, say so plainly.
+  const linkGuide = (() => {
+    if (!linking) return null;
+    const from = g.nodes[linking.fromId];
+    if (!from) return null;
+    const targetTypes = edgeTargetsFrom(from.type);
+    const targetLabels = targetTypes.map((t) => `${NODE_TYPE_LABELS[t].toLowerCase()}s`).join(' or ');
+    const hasTarget = nodes.some(
+      (n) => n.id !== from.id && !n.deletedAt && validEdgeTypes(from.type, n.type).length > 0,
+    );
+    return { fromLabel: NODE_TYPE_LABELS[from.type], targetLabels, targetTypes, hasTarget };
+  })();
+
   return (
     <div className="canvas-wrap" ref={wrapRef}>
       <svg
@@ -456,6 +470,37 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
         </g>
       </svg>
 
+      {linkGuide && (
+        <div className={`link-banner${linkGuide.hasTarget ? '' : ' warn'}`}>
+          {linkGuide.targetTypes.length === 0 ? (
+            <>
+              A <b>{linkGuide.fromLabel.toLowerCase()}</b> can’t start a link. Draw links
+              <b> from evidence</b> (to a claim) or <b>from a claim</b> (to an assumption or question).
+              <button className="link-banner-x" onClick={() => setLinking(null)}>
+                Cancel (Esc)
+              </button>
+            </>
+          ) : linkGuide.hasTarget ? (
+            <>
+              Linking from this <b>{linkGuide.fromLabel.toLowerCase()}</b> — now click{' '}
+              <b>{linkGuide.targetLabels}</b> to connect to it.
+              <button className="link-banner-x" onClick={() => setLinking(null)}>
+                Cancel (Esc)
+              </button>
+            </>
+          ) : (
+            <>
+              Nothing to link to yet: a <b>{linkGuide.fromLabel.toLowerCase()}</b> links to{' '}
+              <b>{linkGuide.targetLabels}</b>, and there are none on this canvas. Press{' '}
+              <kbd>{linkGuide.targetTypes[0][0].toUpperCase()}</kbd> to add one first.
+              <button className="link-banner-x" onClick={() => setLinking(null)}>
+                Cancel (Esc)
+              </button>
+            </>
+          )}
+        </div>
+      )}
+
       {view === 'canvas' && (
         <div className="toolbar">
           {(['question', 'claim', 'assumption', 'evidence'] as const).map((t) => (
@@ -484,7 +529,7 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
       <div className="canvas-hint">
         {view === 'canvas' ? (
           <>
-            <kbd>Q</kbd> <kbd>C</kbd> <kbd>A</kbd> <kbd>E</kbd> create at cursor · drag ○ or <kbd>L</kbd> link ·{' '}
+            <kbd>Q</kbd> <kbd>C</kbd> <kbd>A</kbd> <kbd>E</kbd> create at cursor · drag ⊕ or <kbd>L</kbd> link ·{' '}
             <kbd>T</kbd> retype · double-click a sub-question descends
           </>
         ) : (
@@ -553,9 +598,21 @@ function CanvasPicker({
             ))}
           </>
         ) : (
-          <div className="title">
-            No valid link from {NODE_TYPE_LABELS[from?.type ?? 'claim'].toLowerCase()} to{' '}
-            {NODE_TYPE_LABELS[to?.type ?? 'claim'].toLowerCase()} (§2.3)
+          <div className="title" style={{ maxWidth: 220, whiteSpace: 'normal' }}>
+            A {NODE_TYPE_LABELS[from?.type ?? 'claim'].toLowerCase()} can’t link to a{' '}
+            {NODE_TYPE_LABELS[to?.type ?? 'claim'].toLowerCase()}.
+            {from && edgeTargetsFrom(from.type).length > 0 ? (
+              <>
+                {' '}
+                It links to{' '}
+                {edgeTargetsFrom(from.type)
+                  .map((t) => `${NODE_TYPE_LABELS[t].toLowerCase()}s`)
+                  .join(' or ')}
+                . Try linking the other way round.
+              </>
+            ) : (
+              <> Start links from evidence or claims instead.</>
+            )}
           </div>
         )}
       </div>
