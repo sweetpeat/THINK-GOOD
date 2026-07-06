@@ -42,7 +42,10 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
   const [transform, setTransform] = useState<Transform>({ x: 0, y: 0, k: 1 });
   const [panning, setPanning] = useState(false);
   const [createForm, setCreateForm] = useState<CreateFormState | null>(null);
-  const [linking, setLinking] = useState<{ fromId: string; x: number; y: number } | null>(null);
+  // via 'drag' = from the ○ handle; 'click' = L key or click-click linking
+  const [linking, setLinking] = useState<{ fromId: string; x: number; y: number; via: 'drag' | 'click' } | null>(null);
+  const linkMoved = useRef(false);
+  const linkStart = useRef({ x: 0, y: 0 });
   const [picker, setPicker] = useState<Picker | null>(null);
   const [dragOverride, setDragOverride] = useState<{ id: string; x: number; y: number } | null>(null);
   const cursorSvg = useRef({ x: 200, y: 160 });
@@ -176,7 +179,7 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
   const panStart = useRef<{ px: number; py: number; tx: number; ty: number } | null>(null);
   const onBgPointerDown = (e: React.PointerEvent) => {
     if (e.button !== 0) return;
-    if (linking) return void setLinking(null);
+    if (linking) return; // the pointerup decides whether this is a drop or a cancel
     setPicker(null);
     select(null);
     panStart.current = { px: e.clientX, py: e.clientY, tx: transform.x, ty: transform.y };
@@ -185,7 +188,12 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
   };
   const onBgPointerMove = (e: React.PointerEvent) => {
     cursorSvg.current = clientToSvg(e.clientX, e.clientY);
-    if (linking) setLinking({ ...linking, ...cursorSvg.current });
+    if (linking) {
+      if (Math.hypot(e.clientX - linkStart.current.x, e.clientY - linkStart.current.y) > 6) {
+        linkMoved.current = true;
+      }
+      setLinking({ ...linking, ...cursorSvg.current });
+    }
     if (panStart.current) {
       setTransform((t) => ({
         ...t,
@@ -194,9 +202,24 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
       }));
     }
   };
-  const onBgPointerUp = () => {
+  // One svg-level pointerup resolves link drops by hit-testing data-node-id,
+  // so drops land no matter which node part (or the rubber line's cursor spot)
+  // sits under the pointer.
+  const onBgPointerUp = (e: React.PointerEvent) => {
     panStart.current = null;
     setPanning(false);
+    if (!linking) return;
+    const targetId = (e.target as Element).closest?.('[data-node-id]')?.getAttribute('data-node-id');
+    if (targetId && targetId !== linking.fromId) {
+      const at = clientToWrap(e.clientX, e.clientY);
+      setPicker({ kind: 'edge', fromId: linking.fromId, toId: targetId, x: at.x, y: at.y });
+      setLinking(null);
+    } else if (targetId === linking.fromId && linking.via === 'drag' && !linkMoved.current) {
+      // released the initial handle click without dragging — stay armed, click-click
+      setLinking({ ...linking, via: 'click' });
+    } else if (linking.via === 'click' || linkMoved.current) {
+      setLinking(null); // released over empty canvas (or back on the source)
+    }
   };
 
   // ----- node drag / select (canvas only) -----
@@ -244,16 +267,6 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
     window.addEventListener('pointerup', up);
   };
 
-  const onNodePointerUp = (node: AnyNode) => (e: React.PointerEvent) => {
-    if (!linking) return;
-    e.stopPropagation();
-    const at = clientToWrap(e.clientX, e.clientY);
-    if (node.id !== linking.fromId) {
-      setPicker({ kind: 'edge', fromId: linking.fromId, toId: node.id, x: at.x, y: at.y });
-    }
-    setLinking(null);
-  };
-
   const onNodeDoubleClick = (node: AnyNode) => () => {
     // double-click descends into a sub-question's own thread (§2.6)
     if (node.type === 'question' && node.id !== threadId) openThread(node.id);
@@ -261,8 +274,10 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
 
   const startLink = (node: AnyNode) => (e: React.PointerEvent) => {
     e.stopPropagation();
+    linkMoved.current = false;
+    linkStart.current = { x: e.clientX, y: e.clientY };
     const p = clientToSvg(e.clientX, e.clientY);
-    setLinking({ fromId: node.id, x: p.x, y: p.y });
+    setLinking({ fromId: node.id, x: p.x, y: p.y, via: 'drag' });
   };
 
   // ----- keyboard (§5.1: every mouse action has a keyboard path) -----
@@ -277,7 +292,8 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
       openCreateForm(type);
       e.preventDefault();
     } else if (key === 'l' && selectedId) {
-      setLinking({ fromId: selectedId, ...cursorSvg.current });
+      linkMoved.current = false;
+      setLinking({ fromId: selectedId, ...cursorSvg.current, via: 'click' });
       e.preventDefault();
     } else if (key === 't' && selectedId) {
       const p = posOf(selectedId);
@@ -380,7 +396,7 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
       if (lensMatch?.has(n.id) && lensDef?.caption) caption = lensDef.caption(n, g);
       else if (view === 'stratified' && n.type === 'claim') caption = weakestInput(g, n.id)?.caption ?? null;
       return (
-        <g key={n.id} transform={`translate(${p.x},${p.y})`}>
+        <g key={n.id} data-node-id={n.id} transform={`translate(${p.x},${p.y})`}>
           <NodeBox
             vm={vm}
             selected={selectedId === n.id}
@@ -388,7 +404,6 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
             caption={caption}
             interactive={view === 'canvas'}
             onPointerDown={onNodePointerDown(n)}
-            onPointerUp={onNodePointerUp(n)}
             onDoubleClick={onNodeDoubleClick(n)}
             onLinkStart={startLink(n)}
           />
