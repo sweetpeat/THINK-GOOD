@@ -95,9 +95,14 @@ only receive them. Press **Esc** to cancel a link in progress.
 **Edit a link** — click the edge line: switch consistent↔inconsistent or
 remove it.
 
+**The right panel** has two parts: the **Inspector** on top (the selected
+node's text, note, and judgement dropdowns — it scrolls if the form is long),
+and a permanently-open **"How to"** legend pinned below it, explaining the node
+types, edge types, views, and lenses. Keep it open as a reference while you work.
+
 **Everything else:**
-- **Click** a node to open it in the Inspector (right panel) — text, note, and
-  all judgement dropdowns live there
+- **Click** a node to open it in the Inspector (top of the right panel) — text,
+  note, and all judgement dropdowns live there
 - **Drag** a node body to reposition (positions are yours; they never change meaning)
 - **T** — retype the selected node (its old judgements are preserved in the log; the Inspector shows its type history)
 - **Delete / Backspace** — soft-delete (the log keeps a snapshot)

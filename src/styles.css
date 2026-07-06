@@ -411,21 +411,33 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
 .picker button:hover { background: var(--hover); }
 .picker .title { font-size: 11px; color: var(--muted); padding: 2px 8px 4px; }
 
-/* ---------- inspector ---------- */
+/* ---------- right panel: inspector (top, scrolls) + how-to (pinned bottom) ---------- */
 
-.inspector {
-  width: clamp(240px, 22vw, 300px);
+.right-panel {
+  width: clamp(250px, 23vw, 312px);
   flex: none;
   background: var(--surface);
   border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.inspector-slot {
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
+}
+.inspector-body {
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-height: 100%;
 }
-.inspector .head { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
-.inspector textarea {
+.inspector .head,
+.inspector-body .head { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.inspector textarea,
+.inspector-body textarea {
   width: 100%;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
@@ -434,15 +446,16 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
   min-height: 52px;
   background: var(--surface);
 }
-.inspector .field { display: flex; flex-direction: column; gap: 3px; }
-.inspector .field > span { font-size: 11px; color: var(--muted); }
-.inspector .stale-note {
+.inspector-body .field { display: flex; flex-direction: column; gap: 3px; }
+.inspector-body .field > span { font-size: 11px; color: var(--muted); }
+.inspector-body .stale-note {
   border: 1px dashed var(--stale);
   border-radius: var(--radius);
   padding: 7px 9px;
   background: repeating-linear-gradient(45deg, transparent 0 6px, rgba(138, 131, 120, 0.07) 6px 9px);
   font-size: 12px;
 }
+.inspector-body .subhead,
 .inspector .subhead {
   font-size: 10.5px;
   letter-spacing: 0.1em;
@@ -450,10 +463,74 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
   color: var(--faint);
   margin-top: 4px;
 }
-.inspector .history { font-size: 12px; color: var(--muted); }
-.inspector .history li { margin-bottom: 2px; }
-.inspector ul { margin: 0; padding-left: 16px; }
+.inspector-body .history { font-size: 12px; color: var(--muted); }
+.inspector-body .history li { margin-bottom: 2px; }
+.inspector-body ul { margin: 0; padding-left: 16px; }
 .checkline { display: flex; gap: 6px; align-items: center; font-size: 12.5px; }
+
+/* ---------- how-to legend ---------- */
+
+.howto {
+  flex: none;
+  height: min(46vh, 460px);
+  border-top: 2px solid var(--line-strong);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.howto-title {
+  margin: 0;
+  padding: 9px 12px 8px;
+  font-size: 13px;
+  font-weight: 650;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  flex: none;
+}
+.howto-scroll {
+  overflow-y: auto;
+  padding: 4px 12px 14px;
+}
+.howto-scroll h3 {
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 14px 0 4px;
+}
+.howto-scroll h3:first-of-type { margin-top: 10px; }
+.howto-lead { margin: 0 0 6px; color: var(--muted); font-size: 12px; }
+.howto-note {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11.5px;
+  border-top: 1px dotted var(--line-strong);
+  padding-top: 6px;
+}
+.howto-scroll kbd { background: var(--surface); }
+.howto-nodes { list-style: none; margin: 0; padding: 0; }
+.howto-nodes li {
+  display: flex;
+  gap: 7px;
+  align-items: baseline;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.howto-nodes .chip { flex: none; }
+.howto-edges { list-style: none; margin: 0; padding: 0; }
+.howto-edges li {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+.howto-edge-name { color: var(--ink); font-weight: 600; }
+.howto-edge-dir { color: var(--muted); font-size: 10.5px; }
+.howto-edge-text { color: var(--muted); }
+.howto-defs { list-style: none; margin: 0; padding: 0; }
+.howto-defs li { margin-bottom: 6px; font-size: 12px; line-height: 1.4; }
+.howto-defs b { font-weight: 600; }
 
 /* ---------- queue panel ---------- */
 
