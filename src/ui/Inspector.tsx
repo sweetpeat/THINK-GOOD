@@ -101,13 +101,13 @@ export function Inspector({ threadId }: { threadId: string }) {
 
   if (!node || node.deletedAt) {
     return (
-      <aside className="inspector">
+      <div className="inspector-body">
         <div className="subhead">Inspector</div>
         <p style={{ color: 'var(--muted)' }}>
           Select a node to see its judgements. Every value here is declared by you — the
           system never computes one.
         </p>
-      </aside>
+      </div>
     );
   }
 
@@ -120,7 +120,7 @@ export function Inspector({ threadId }: { threadId: string }) {
     : null;
 
   return (
-    <aside className="inspector">
+    <div className="inspector-body">
       <div className="head">
         <span className={`chip ${node.type}`}>{NODE_TYPE_LABELS[node.type]}</span>
         <RetypeControl node={node} />
@@ -263,7 +263,7 @@ export function Inspector({ threadId }: { threadId: string }) {
           Delete node
         </button>
       </div>
-    </aside>
+    </div>
   );
 }
 

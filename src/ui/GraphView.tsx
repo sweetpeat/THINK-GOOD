@@ -184,7 +184,11 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
     select(null);
     panStart.current = { px: e.clientX, py: e.clientY, tx: transform.x, ty: transform.y };
     setPanning(true);
-    (e.currentTarget as Element).setPointerCapture(e.pointerId);
+    try {
+      (e.currentTarget as Element).setPointerCapture(e.pointerId);
+    } catch {
+      // pointer id may already be released (e.g. synthetic events); harmless
+    }
   };
   const onBgPointerMove = (e: React.PointerEvent) => {
     cursorSvg.current = clientToSvg(e.clientX, e.clientY);

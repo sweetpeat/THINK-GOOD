@@ -8,7 +8,7 @@ import { TopBar } from './ui/TopBar';
 import { GraphView } from './ui/GraphView';
 import { MatrixView } from './ui/MatrixView';
 import { AuditView } from './ui/AuditView';
-import { Inspector } from './ui/Inspector';
+import { RightPanel } from './ui/RightPanel';
 import { QueuePanel } from './ui/QueuePanel';
 import { CeremonyModal } from './ui/CeremonyModal';
 import { Briefing } from './ui/Briefing';
@@ -76,7 +76,7 @@ function Shell() {
           <BriefingGate rootId={rootId} threadId={threadId} />
           {queueOpen && <QueuePanel rootThreadId={rootId} />}
         </div>
-        <Inspector threadId={threadId} />
+        <RightPanel threadId={threadId} />
       </div>
       {ceremonyClaimId && <CeremonyModal claimId={ceremonyClaimId} />}
       {toast && <ToastEl />}
