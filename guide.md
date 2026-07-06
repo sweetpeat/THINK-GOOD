@@ -73,15 +73,24 @@ Press **Tab** to grade it inline before committing — every dropdown is
 skippable. **Esc** cancels. The time from keypress to commit is logged, so
 capture stays fast and honest.
 
-**Link two nodes** — three equivalent ways:
-1. **Drag** the small ○ handle on a node's right edge onto another node.
-2. **Click** the ○ handle, then click the target node.
+**Link two nodes.** A link always connects **two** nodes, so you need at least
+two on the canvas — a lone node has nothing to link to. Three equivalent ways
+to draw one:
+1. **Drag** the small ⊕ handle on a node's right edge onto another node.
+2. **Click** the ⊕ handle, then click the target node.
 3. Select a node and press **L**, then click the target.
 
-A picker appears listing only the edge types valid for that pair (e.g.
-evidence → claim offers *consistent* / *inconsistent*). If nothing is offered,
-the direction is wrong — e.g. drag from the claim to the assumption for
-*rests on*, not the reverse. Press **Esc** to cancel a link in progress.
+Once you start a link, a **banner across the top tells you what to aim at**
+(e.g. "Linking from this claim — now click assumptions or questions"). A picker
+then appears listing only the edge types valid for that pair.
+
+**Direction matters** — links only flow one way, so *start from the right end*:
+- **from evidence** → to a claim (*consistent* / *inconsistent with*)
+- **from a claim** → to an assumption (*rests on*) or a question (*answers*)
+
+So to say "this evidence supports my claim," start the link **from the
+evidence**, not the claim. Questions and assumptions never start links — they
+only receive them. Press **Esc** to cancel a link in progress.
 
 **Edit a link** — click the edge line: switch consistent↔inconsistent or
 remove it.

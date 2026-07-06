@@ -128,6 +128,16 @@ export function validEdgeTypes(fromType: NodeType, toType: NodeType): EdgeType[]
   );
 }
 
+/** The node types a given type may link *to* (outgoing edges only). Used to
+    tell the user what to aim a link at before they draw it. */
+export function edgeTargetsFrom(fromType: NodeType): NodeType[] {
+  const targets = new Set<NodeType>();
+  for (const t of Object.keys(EDGE_VALIDITY) as EdgeType[]) {
+    if (EDGE_VALIDITY[t].from === fromType) targets.add(EDGE_VALIDITY[t].to);
+  }
+  return [...targets];
+}
+
 // Core judgement fields per type: these are what "fully graded" (§2.2) means,
 // what staling watches, and what declaring/affirming clears (§2.7).
 export const JUDGEMENT_FIELDS: Record<NodeType, string[]> = {

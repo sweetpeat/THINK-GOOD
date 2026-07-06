@@ -148,16 +148,12 @@ export function NodeBox({
         </text>
       )}
       {interactive && (
-        <circle
-          className="link-handle"
-          cx={vm.w}
-          cy={vm.h / 2}
-          r={6}
-          strokeWidth={1.4}
-          onPointerDown={onLinkStart}
-        >
-          <title>Drag to another node to link (or press L)</title>
-        </circle>
+        <g className="link-handle-g" onPointerDown={onLinkStart}>
+          <circle className="link-handle" cx={vm.w} cy={vm.h / 2} r={8} strokeWidth={1.4} />
+          <line className="link-plus" x1={vm.w - 3.5} y1={vm.h / 2} x2={vm.w + 3.5} y2={vm.h / 2} />
+          <line className="link-plus" x1={vm.w} y1={vm.h / 2 - 3.5} x2={vm.w} y2={vm.h / 2 + 3.5} />
+          <title>Drag to another node to link (or select this node and press L)</title>
+        </g>
       )}
     </g>
   );

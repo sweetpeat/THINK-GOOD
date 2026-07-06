@@ -259,6 +259,43 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
 }
 .canvas-hint kbd { background: transparent; }
 
+/* guidance banner shown while a link is armed */
+.link-banner {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 620px;
+  background: var(--c-claim);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 7px 12px;
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 45;
+}
+.link-banner.warn { background: var(--assumption, var(--c-assumption)); }
+.link-banner b { font-weight: 650; }
+.link-banner kbd {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+.link-banner-x {
+  margin-left: auto;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: #fff;
+  border-radius: 4px;
+  padding: 1px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.link-banner-x:hover { background: rgba(255, 255, 255, 0.15); }
+
 .toolbar {
   position: absolute;
   top: 10px;
@@ -325,8 +362,17 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
 .node-g .body { transition: filter 120ms; }
 .node-g:hover .body { filter: brightness(0.985); }
 .node-g.selected .sel-ring { stroke: var(--ink); }
-.link-handle { fill: var(--surface); stroke: var(--line-strong); cursor: crosshair; }
-.link-handle:hover { fill: var(--c-claim-tint); stroke: var(--c-claim); }
+/* the ○ link handle: dim until you hover the node, then it lights up as a
+   clear "+" affordance so linking is discoverable */
+.link-handle-g { cursor: crosshair; }
+.link-handle { fill: var(--surface); stroke: var(--line-strong); opacity: 0.55; transition: opacity 120ms; }
+.link-plus { stroke: var(--line-strong); stroke-width: 1.4; opacity: 0.55; pointer-events: none; transition: opacity 120ms; }
+.node-g:hover .link-handle,
+.node-g:hover .link-plus { opacity: 1; }
+.node-g:hover .link-handle { fill: var(--c-claim-tint); stroke: var(--c-claim); }
+.node-g:hover .link-plus { stroke: var(--c-claim); }
+.link-handle-g:hover .link-handle { fill: var(--c-claim); stroke: var(--c-claim); }
+.link-handle-g:hover .link-plus { stroke: #fff; opacity: 1; }
 
 /* inline create form + pickers on canvas */
 .overlay-pop {
