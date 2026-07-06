@@ -43,7 +43,6 @@ export interface NodeBoxProps {
   caption?: string | null;
   interactive?: boolean;
   onPointerDown?: (e: React.PointerEvent) => void;
-  onPointerUp?: (e: React.PointerEvent) => void;
   onDoubleClick?: (e: React.MouseEvent) => void;
   onLinkStart?: (e: React.PointerEvent) => void;
 }
@@ -56,7 +55,6 @@ export function NodeBox({
   caption,
   interactive,
   onPointerDown,
-  onPointerUp,
   onDoubleClick,
   onLinkStart,
 }: NodeBoxProps) {
@@ -113,12 +111,7 @@ export function NodeBox({
         strokeWidth={1.5}
         strokeDasharray="3 3"
       />
-      <g
-        className="body"
-        onPointerDown={onPointerDown}
-        onPointerUp={onPointerUp}
-        onDoubleClick={onDoubleClick}
-      >
+      <g className="body" onPointerDown={onPointerDown} onDoubleClick={onDoubleClick}>
         <rect
           width={vm.w}
           height={vm.h}
