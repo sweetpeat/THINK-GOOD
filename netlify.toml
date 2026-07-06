@@ -1,0 +1,13 @@
+# Netlify config. For drag-and-drop you don't need this — you just drop the
+# dist/ folder. It matters if you later connect this repo to Netlify for
+# automatic rebuilds, and the redirect keeps the single-page app working.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA fallback: every route serves index.html (the app has no server routes).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
