@@ -1,45 +1,107 @@
 // Permanently-open reference legend, pinned to the bottom of the right panel.
-// Static text: the vocabulary of the tool (node types, edge types), the four
-// views, and the six lenses. Never reacts to selection — it's a legend you can
-// always read while you work.
+// Written to be worked from, not just read: the loop first, then the
+// vocabulary, then the tradecraft this tool is built on. The Tutorial button
+// re-runs the first-visit walkthrough from anywhere.
 
-const NODE_ROWS: { chip: string; cls: string; text: string }[] = [
-  { chip: 'Q', cls: 'question', text: 'Question — what you’re trying to answer. Anchors a canvas; sub-questions nest inside.' },
-  { chip: 'C', cls: 'claim', text: 'Claim — a candidate answer. Carries a likelihood and your confidence; can be adopted.' },
-  { chip: 'A', cls: 'assumption', text: 'Assumption — something taken as given. Has a validity; a keystone marks a linchpin.' },
-  { chip: 'E', cls: 'evidence', text: 'Evidence — an observation, graded on the Admiralty scale (e.g. B2).' },
+import type { ReactNode } from 'react';
+import { useUI } from './uiStore';
+
+const NODE_ROWS: { chip: string; cls: string; text: ReactNode }[] = [
+  {
+    chip: 'Q',
+    cls: 'question',
+    text: <><b>Question</b> — what you're trying to answer. Every canvas hangs off one; sub-questions nest inside and report back.</>,
+  },
+  {
+    chip: 'C',
+    cls: 'claim',
+    text: <><b>Claim</b> — a possible answer. You grade how likely it is and how confident you are; adopting one as your judgement is a deliberate, logged act.</>,
+  },
+  {
+    chip: 'A',
+    cls: 'assumption',
+    text: <><b>Assumption</b> — what you're taking on trust to proceed. Grade its validity honestly, and flag the linchpins your whole case leans on.</>,
+  },
+  {
+    chip: 'E',
+    cls: 'evidence',
+    text: <><b>Evidence</b> — what you've actually observed. Grade the source A–F and the information 1–6, so “B2” reads as data, not vibes.</>,
+  },
 ];
 
 const EDGE_ROWS: { name: string; dir: string; text: string }[] = [
-  { name: 'consistent with', dir: 'evidence → claim', text: 'the evidence fits the claim' },
-  { name: 'inconsistent with', dir: 'evidence → claim', text: 'the evidence is hard to square with the claim' },
-  { name: 'rests on', dir: 'claim → assumption', text: 'the claim depends on the assumption' },
+  { name: 'consistent with', dir: 'evidence → claim', text: 'this observation fits the claim' },
+  { name: 'inconsistent with', dir: 'evidence → claim', text: 'this observation cuts against it' },
+  { name: 'rests on', dir: 'claim → assumption', text: 'if the assumption falls, the claim falls' },
   { name: 'answers', dir: 'claim → question', text: 'the claim is a candidate answer' },
 ];
 
 const VIEW_ROWS: { name: string; text: string }[] = [
-  { name: 'Canvas', text: 'Freeform capture. Your node positions are yours and mean nothing to the machine.' },
-  { name: 'Stratified', text: 'The same nodes in bands — Question, Claims, Assumptions, then a waterline above Evidence. Each claim is captioned with its weakest input.' },
-  { name: 'Matrix', text: 'ACH grid over a set of rival claims. Cells mark evidence as consistent (C) or inconsistent (I); rows that fit every claim grey out as non-diagnostic.' },
-  { name: 'Audit', text: 'The full append-only log, newest first — every act on the record, filterable by node.' },
+  { name: 'Canvas', text: 'think freely — position is yours and means nothing to the machine.' },
+  { name: 'Stratified', text: 'the argument by role: question over claims over assumptions, evidence below the waterline. Every claim is captioned with its weakest input.' },
+  { name: 'Matrix', text: 'the honesty table. Does each piece of evidence actually discriminate between rivals? Grey rows fit everything and prove nothing; the footer shows who has never faced disconfirmation.' },
+  { name: 'Audit', text: 'every act you took, timestamped, unerasable.' },
 ];
 
 const LENS_ROWS: { name: string; text: string }[] = [
-  { name: 'Assumptions', text: 'Just the assumptions, each captioned with its validity and linchpin status.' },
-  { name: 'Spine / Answers', text: 'The adopted claims and the questions they answer — your through-line.' },
-  { name: 'Gaps', text: 'Open questions that have a priority or sit among competing claims.' },
-  { name: 'Disconfirming only', text: 'Evidence that contradicts something, plus its inconsistent-with links.' },
-  { name: 'On shaky ground', text: 'Claims whose weakest input is an unsupported assumption or a stale node.' },
-  { name: 'Needs attention', text: 'Everything stale — mirrors the queue, laid out in place.' },
+  { name: 'Assumptions', text: 'only the load-bearing beliefs — check each validity still holds.' },
+  { name: 'Spine / Answers', text: 'the judgements you\'ve adopted and the questions they settle.' },
+  { name: 'Gaps', text: 'open questions worth collecting against.' },
+  { name: 'Disconfirming only', text: 'the evidence that says no. If this view is empty, worry.' },
+  { name: 'On shaky ground', text: 'claims standing on unsupported assumptions or stale inputs.' },
+  { name: 'Needs attention', text: 'everything stale, shown in place — the Queue, spatially.' },
+];
+
+const THEORY_ROWS: { name: string; href: string; text: string }[] = [
+  {
+    name: 'Analysis of Competing Hypotheses',
+    href: 'https://en.wikipedia.org/wiki/Analysis_of_competing_hypotheses',
+    text: 'Heuer\'s method behind the Matrix: line up rival explanations and let disconfirming evidence do the judging.',
+  },
+  {
+    name: 'Key Assumptions Check',
+    href: 'https://www.cia.gov/resources/csi/static/Tradecraft-Primer-apr09.pdf',
+    text: 'CIA tradecraft behind the validity grades: assumptions are Supported, Caveated, or Unsupported — and unsupported ones become collection priorities.',
+  },
+  {
+    name: 'PHIA Probability Yardstick',
+    href: 'https://www.gov.uk/government/publications/explaining-uncertainty-in-uk-intelligence-assessment/explaining-uncertainty-in-uk-intelligence-assessment',
+    text: 'The UK standard behind the seven likelihood terms — and the separate low/moderate/high confidence scale.',
+  },
+  {
+    name: 'Admiralty system',
+    href: 'https://en.wikipedia.org/wiki/Admiralty_code',
+    text: 'NATO\'s two-axis evidence grading: source reliability (A–F) × information credibility (1–6).',
+  },
 ];
 
 export function HowTo() {
+  const setTutorialStep = useUI((s) => s.setTutorialStep);
   return (
     <section className="howto" aria-label="How to">
-      <h2 className="howto-title">How to</h2>
+      <div className="howto-titlebar">
+        <h2 className="howto-title">How to</h2>
+        <button
+          className="btn small"
+          onClick={() => setTutorialStep(0)}
+          title="Re-run the guided walkthrough"
+        >
+          Tutorial
+        </button>
+      </div>
       <div className="howto-scroll">
+        <h3>The loop</h3>
+        <p className="howto-lead">
+          <b>Capture → link → matrix → review → export.</b> Get thoughts down fast, wire them
+          into an argument, test claims against evidence, walk the lenses, then hand over a
+          word-picture someone can actually audit. The <b>Tutorial</b> button above walks it live.
+        </p>
+
         <h3>Nodes</h3>
-        <p className="howto-lead">Four kinds of thought, each a colour and a glyph. Press its key on the canvas to create one.</p>
+        <p className="howto-lead">
+          Four kinds of thought. Press the key on the canvas, type, <kbd>Enter</kbd>. Every
+          judgement on them is yours — the tool never computes one.
+        </p>
         <ul className="howto-nodes">
           {NODE_ROWS.map((r) => (
             <li key={r.chip}>
@@ -49,14 +111,14 @@ export function HowTo() {
           ))}
         </ul>
         <p className="howto-note">
-          Solid fill = adopted claim · hatched border = stale (undeclared or undermined) ·
-          keystone = linchpin · chain-link = promoted from a sub-thread.
+          Reading a node: solid fill = adopted · hatched border = stale · keystone = linchpin ·
+          chain-link = promoted from a sub-thread.
         </p>
 
         <h3>Edges</h3>
         <p className="howto-lead">
-          Links flow one way, so start from the right end — drag the ⊕ handle, or select a node
-          and press <kbd>L</kbd>.
+          Four links, fixed directions. Evidence and claims <em>give</em>; questions and
+          assumptions <em>receive</em> — so start the drag (⊕ or <kbd>L</kbd>) from the giving end.
         </p>
         <ul className="howto-edges">
           {EDGE_ROWS.map((r) => (
@@ -69,7 +131,9 @@ export function HowTo() {
         </ul>
 
         <h3>Views</h3>
-        <p className="howto-lead">One graph, four renderings. Switching never changes data.</p>
+        <p className="howto-lead">
+          Four renderings of the same graph — switching never touches your data.
+        </p>
         <ul className="howto-defs">
           {VIEW_ROWS.map((r) => (
             <li key={r.name}>
@@ -80,13 +144,29 @@ export function HowTo() {
 
         <h3>Lenses</h3>
         <p className="howto-lead">
-          Ephemeral filters over the current view — they dim or hide, never edit. <kbd>Esc</kbd>{' '}
-          clears. The <b>Review</b> button walks all six in order.
+          Six ways to interrogate the canvas. They dim or hide, never edit; <kbd>Esc</kbd>{' '}
+          clears. <b>Review</b> (top bar) walks all six in order — do it before you export.
         </p>
         <ul className="howto-defs">
           {LENS_ROWS.map((r) => (
             <li key={r.name}>
               <b>{r.name}</b> — {r.text}
+            </li>
+          ))}
+        </ul>
+
+        <h3>Where this comes from</h3>
+        <p className="howto-lead">
+          Nothing here is invented. The tool is a working surface for four pieces of
+          published analytic tradecraft:
+        </p>
+        <ul className="howto-defs howto-theory">
+          {THEORY_ROWS.map((r) => (
+            <li key={r.name}>
+              <a href={r.href} target="_blank" rel="noopener noreferrer">
+                {r.name}
+              </a>{' '}
+              — {r.text}
             </li>
           ))}
         </ul>

@@ -27,9 +27,9 @@ to move work between them.
 
 **First run:** a guided tour offers itself automatically — it loads the worked
 example and walks the intended workflow (capture → link → matrix → review →
-export) in ten spotlight steps. You can rerun it any time from the **Tutorial**
-button on the home screen. Or skip it and click **Load example** to explore the
-intrusion-attribution demo yourself.
+export) in ten spotlight steps. Rerun it any time from the **Tutorial** button —
+on the home screen, or in the "How to" panel header inside any thread. Or skip
+it and click **Load example** to explore the intrusion-attribution demo yourself.
 
 ---
 
@@ -98,8 +98,10 @@ remove it.
 
 **The right panel** has two parts: the **Inspector** on top (the selected
 node's text, note, and judgement dropdowns — it scrolls if the form is long),
-and a permanently-open **"How to"** legend pinned below it, explaining the node
-types, edge types, views, and lenses. Keep it open as a reference while you work.
+and a permanently-open **"How to"** legend pinned below it: the workflow loop,
+node and edge types, views, lenses, and links to the analytic tradecraft the
+tool is built on (ACH, Key Assumptions Check, the PHIA yardstick, Admiralty
+grading). Its header also carries the **Tutorial** button.
 
 **Everything else:**
 - **Click** a node to open it in the Inspector (top of the right panel) — text,

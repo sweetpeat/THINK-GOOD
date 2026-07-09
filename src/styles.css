@@ -479,15 +479,26 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
   flex-direction: column;
   min-height: 0;
 }
-.howto-title {
-  margin: 0;
-  padding: 9px 12px 8px;
-  font-size: 13px;
-  font-weight: 650;
+.howto-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
   border-bottom: 1px solid var(--line);
   background: var(--surface);
   flex: none;
 }
+.howto-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 650;
+}
+.howto-theory a {
+  color: var(--c-claim);
+  text-decoration: none;
+  font-weight: 600;
+}
+.howto-theory a:hover { text-decoration: underline; }
 .howto-scroll {
   overflow-y: auto;
   padding: 4px 12px 14px;
