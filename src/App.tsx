@@ -14,6 +14,8 @@ import { CeremonyModal } from './ui/CeremonyModal';
 import { Briefing } from './ui/Briefing';
 import { WordPictureView } from './ui/WordPictureView';
 import { StatsView } from './ui/StatsView';
+import { Tutorial } from './ui/Tutorial';
+import { ReviewStrip } from './ui/ReviewStrip';
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -33,6 +35,7 @@ function Shell() {
       <div className="app">
         <Home />
         {toast && <ToastEl />}
+        <Tutorial />
       </div>
     );
   }
@@ -75,11 +78,13 @@ function Shell() {
           {view === 'audit' && <AuditView rootThreadId={rootId} />}
           <BriefingGate rootId={rootId} threadId={threadId} />
           {queueOpen && <QueuePanel rootThreadId={rootId} />}
+          <ReviewStrip />
         </div>
         <RightPanel threadId={threadId} />
       </div>
       {ceremonyClaimId && <CeremonyModal claimId={ceremonyClaimId} />}
       {toast && <ToastEl />}
+      <Tutorial />
     </div>
   );
 

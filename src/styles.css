@@ -786,6 +786,70 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
 .stat-card .v { font-family: var(--mono); font-size: 20px; margin-top: 2px; }
 .stat-card .v small { font-size: 12px; color: var(--muted); }
 
+/* ---------- first-run tour ---------- */
+
+.tour-spotlight {
+  position: fixed;
+  z-index: 200;
+  border-radius: 9px;
+  border: 1.5px solid var(--c-claim);
+  box-shadow: 0 0 0 9999px rgba(32, 29, 25, 0.48);
+  pointer-events: none;
+  transition: all 260ms ease;
+}
+.tour-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(32, 29, 25, 0.48);
+}
+.tour-blocker {
+  position: fixed;
+  inset: 0;
+  z-index: 201;
+  cursor: pointer;
+}
+.tour-box {
+  position: fixed;
+  z-index: 202;
+  width: 340px;
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: var(--shadow-modal);
+  padding: 14px 16px;
+  transition: left 260ms ease, top 260ms ease;
+}
+.tour-box h3 { margin: 0 0 6px; font-size: 14px; }
+.tour-box p { margin: 0 0 12px; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.tour-row { display: flex; align-items: center; justify-content: space-between; }
+.tour-dots { font-family: var(--mono); font-size: 11px; color: var(--faint); }
+.tour-actions { display: flex; gap: 6px; }
+
+/* ---------- review strip ---------- */
+
+.review-strip {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 720px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-modal);
+  padding: 8px 12px;
+  font-size: 12.5px;
+}
+.review-count { color: var(--faint); font-size: 11px; white-space: nowrap; }
+.review-text { color: var(--muted); }
+.review-text b { color: var(--ink); }
+.review-actions { display: flex; gap: 6px; white-space: nowrap; }
+.review-btn.active-review { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+
 /* ---------- toast ---------- */
 
 .toast {

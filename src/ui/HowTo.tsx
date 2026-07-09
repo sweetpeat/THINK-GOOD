@@ -80,7 +80,8 @@ export function HowTo() {
 
         <h3>Lenses</h3>
         <p className="howto-lead">
-          Ephemeral filters over the current view — they dim or hide, never edit. <kbd>Esc</kbd> clears.
+          Ephemeral filters over the current view — they dim or hide, never edit. <kbd>Esc</kbd>{' '}
+          clears. The <b>Review</b> button walks all six in order.
         </p>
         <ul className="howto-defs">
           {LENS_ROWS.map((r) => (

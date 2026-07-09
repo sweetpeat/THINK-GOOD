@@ -49,12 +49,47 @@ export function MatrixView({ rootThreadId }: { rootThreadId: string }) {
   }, [g, q]);
 
   if (!q || !isLiveSet(set)) {
+    // Smart empty-state (friend feedback #2): say exactly what's missing.
+    const root = g.nodes[rootThreadId];
+    const rootSet = competingSet(g, rootThreadId);
+    const unlinkedClaims = displayedNodes(g, rootThreadId).filter(
+      (n) => n.type === 'claim' && !rootSet.some((c) => c.id === n.id),
+    );
     return (
       <div className="matrix-wrap">
-        <p style={{ color: 'var(--muted)', maxWidth: 480 }}>
-          The matrix opens when a question has a live competing set — at least two claims
-          with an <em>answers</em> edge to it. Add rival claims on the canvas first.
-        </p>
+        <div style={{ maxWidth: 520 }}>
+          <h3 style={{ margin: '0 0 6px', fontSize: 14 }}>The matrix needs rival claims</h3>
+          <p style={{ color: 'var(--muted)', margin: '0 0 10px' }}>
+            It opens when a question has a <b>live competing set</b>: at least two claims
+            linked to it with <em>answers</em> edges. Right now
+            {rootSet.length === 0 ? (
+              <> no claim answers ‘{root?.text}’.</>
+            ) : (
+              <> only ‘{rootSet[0].text}’ answers ‘{root?.text}’ — it has no rival.</>
+            )}
+          </p>
+          <ol style={{ color: 'var(--muted)', margin: 0, paddingLeft: 18, lineHeight: 1.7 }}>
+            {unlinkedClaims.length > 0 && (
+              <li>
+                You already have {unlinkedClaims.length} unlinked claim
+                {unlinkedClaims.length === 1 ? '' : 's'} on the canvas (e.g. ‘
+                {unlinkedClaims[0].text.slice(0, 40)}’) — link {unlinkedClaims.length === 1 ? 'it' : 'each'} to the
+                question: drag its ⊕ handle onto the question and pick <em>answers</em>.
+              </li>
+            )}
+            <li>
+              On the Canvas, press <kbd>C</kbd> to add {rootSet.length ? 'a rival' : 'competing'} claim
+              {rootSet.length ? '' : 's'} — every plausible explanation, not just your favourite.
+            </li>
+            <li>
+              Drag each claim’s ⊕ handle onto the question → <em>answers</em>.
+            </li>
+            <li>
+              Come back here: claims become columns, evidence becomes rows, and cells mark
+              C (consistent) or I (inconsistent).
+            </li>
+          </ol>
+        </div>
       </div>
     );
   }

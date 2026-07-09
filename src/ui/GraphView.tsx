@@ -324,8 +324,11 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
         setPicker(null);
         setCreateForm(null);
       } else if (linking) setLinking(null);
-      else if (lens) useUI.getState().setLens(null);
-      else select(null);
+      else if (lens) {
+        const ui = useUI.getState();
+        if (ui.reviewIndex != null) ui.endReview();
+        else ui.setLens(null);
+      } else select(null);
     }
   };
 
@@ -526,6 +529,20 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
           <div className="sep" />
           <button title="Fit view (F)" onClick={fit}>
             ⤢
+          </button>
+          <button
+            title="Arrange nodes into the stratified layout (replaces your manual positions)"
+            onClick={() => {
+              if (!window.confirm('Arrange all nodes into the stratified layout? This replaces your manual positions — you can still drag them afterwards.')) return;
+              const l = stratify([...vms.values()], edges);
+              for (const [id, p] of l.positions) {
+                if (id === threadId && (g.nodes[id] as QuestionNode).parentThreadId) continue; // pinned anchor
+                void repo.moveNode(id, p.x, p.y);
+              }
+              setTimeout(fit, 80);
+            }}
+          >
+            ▦
           </button>
         </div>
       )}

@@ -1,12 +1,13 @@
 // Home (§2.6): the list of root threads. New question, load example, import.
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as repo from '../model/repo';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
 import type { StoreSnapshot } from '../model/types';
 import { ownNodes, rootQuestions, subQuestionsOf } from '../model/derive';
 import { timeAgo } from './eventText';
+import { tutorialDone } from './Tutorial';
 import exampleFixture from '../../fixtures/example.rcanvas.json';
 
 export function Home() {
@@ -15,6 +16,14 @@ export function Home() {
   const [text, setText] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
   const roots = rootQuestions(g);
+
+  // First visit with an empty store: offer the walkthrough (friend feedback #1).
+  useEffect(() => {
+    if (!tutorialDone() && rootQuestions(g).length === 0 && useUI.getState().tutorialStep == null) {
+      useUI.getState().setTutorialStep(0);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const createThread = async () => {
     if (!text.trim()) return;
@@ -115,6 +124,9 @@ export function Home() {
         </button>
         <button className="btn small" onClick={() => go({ screen: 'stats' })}>
           Stats
+        </button>
+        <button className="btn small" onClick={() => useUI.getState().setTutorialStep(0)}>
+          Tutorial
         </button>
         {roots.length > 0 && (
           <button className="btn small" onClick={() => void loadExample()}>

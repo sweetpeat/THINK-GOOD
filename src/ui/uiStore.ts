@@ -14,6 +14,16 @@ export interface Toast {
   action?: { label: string; run: () => void };
 }
 
+/** Review mode (§ friend feedback): walks the six lenses in a deliberate order. */
+export const REVIEW_ORDER: LensId[] = [
+  'assumptions',
+  'disconfirming',
+  'shaky',
+  'gaps',
+  'attention',
+  'spine',
+];
+
 interface UIState {
   route: Route;
   selectedId: string | null;
@@ -25,6 +35,10 @@ interface UIState {
   matrixFocusEvidenceId: string | null;
   /** root threads whose briefing was dismissed this app session */
   briefingDismissed: Record<string, boolean>;
+  /** guided lens walk; index into REVIEW_ORDER, null = off */
+  reviewIndex: number | null;
+  /** first-run walkthrough; step index, null = off */
+  tutorialStep: number | null;
 
   go: (route: Route) => void;
   openThread: (threadId: string, view?: ViewId) => void;
@@ -36,6 +50,10 @@ interface UIState {
   showToast: (toast: Toast | null) => void;
   dismissBriefing: (rootId: string) => void;
   setMatrixFocus: (evidenceId: string | null) => void;
+  startReview: () => void;
+  stepReview: (dir: 1 | -1) => void;
+  endReview: () => void;
+  setTutorialStep: (step: number | null) => void;
 }
 
 export const useUI = create<UIState>((set) => ({
@@ -47,14 +65,16 @@ export const useUI = create<UIState>((set) => ({
   toast: null,
   matrixFocusEvidenceId: null,
   briefingDismissed: {},
+  reviewIndex: null,
+  tutorialStep: null,
 
-  go: (route) => set({ route, selectedId: null, lens: null, toast: null }),
+  go: (route) => set({ route, selectedId: null, lens: null, toast: null, reviewIndex: null }),
   openThread: (threadId, view = 'canvas') =>
-    set({ route: { screen: 'thread', threadId, view }, selectedId: null, lens: null }),
-  // switching view clears lenses (§5.3)
+    set({ route: { screen: 'thread', threadId, view }, selectedId: null, lens: null, reviewIndex: null }),
+  // switching view clears lenses (§5.3) and therefore ends a review walk
   setView: (view) =>
     set((s) =>
-      s.route.screen === 'thread' ? { route: { ...s.route, view }, lens: null } : {},
+      s.route.screen === 'thread' ? { route: { ...s.route, view }, lens: null, reviewIndex: null } : {},
     ),
   select: (id) => set({ selectedId: id }),
   setLens: (lens) => set({ lens }),
@@ -64,4 +84,17 @@ export const useUI = create<UIState>((set) => ({
   dismissBriefing: (rootId) =>
     set((s) => ({ briefingDismissed: { ...s.briefingDismissed, [rootId]: true } })),
   setMatrixFocus: (evidenceId) => set({ matrixFocusEvidenceId: evidenceId }),
+
+  startReview: () =>
+    set({ reviewIndex: 0, lens: { id: REVIEW_ORDER[0], hide: false }, queueOpen: false }),
+  stepReview: (dir) =>
+    set((s) => {
+      if (s.reviewIndex == null) return {};
+      const next = s.reviewIndex + dir;
+      if (next < 0 || next >= REVIEW_ORDER.length) return { reviewIndex: null, lens: null };
+      return { reviewIndex: next, lens: { id: REVIEW_ORDER[next], hide: s.lens?.hide ?? false } };
+    }),
+  endReview: () => set({ reviewIndex: null, lens: null }),
+
+  setTutorialStep: (step) => set({ tutorialStep: step }),
 }));

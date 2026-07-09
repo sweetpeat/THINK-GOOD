@@ -4,8 +4,18 @@
 
 import { renderToStaticMarkup } from 'react-dom/server';
 import type { Graph } from '../model/graphStore';
-import type { QuestionNode } from '../model/types';
-import { displayedEdges, displayedNodes, threadEvents, weakestInput } from '../model/derive';
+import type { EvidenceNode, QuestionNode } from '../model/types';
+import {
+  competingSet,
+  disconfirmationCoverage,
+  displayedEdges,
+  displayedNodes,
+  isLiveSet,
+  isNonDiagnostic,
+  threadEvents,
+  weakestInput,
+} from '../model/derive';
+import { CONFIDENCE_LABELS, LIKELIHOOD_LABELS } from '../model/labels';
 import { buildNodeVM } from '../ui/nodeVM';
 import { GraphDefs, NodeBox } from '../ui/NodeBox';
 import { edgePath } from '../ui/geometry';
@@ -136,7 +146,9 @@ ul { margin:4px 0; } li { margin-bottom:3px; }
 .edge.answers { stroke-width:1.8; } .edge-tick { stroke:var(--danger); stroke-width:1.6; }
 details { margin-top:32px; } summary { cursor:pointer; color:var(--muted); }
 table { border-collapse:collapse; width:100%; font-size:12px; margin-top:12px; }
+th { text-align:left; font-weight:600; color:var(--muted); border-bottom:1px solid var(--line-strong); padding:4px 10px 4px 0; font-size:11px; }
 td { border-bottom:1px solid var(--line); padding:4px 10px 4px 0; vertical-align:top; }
+.nondiag-note { color:var(--muted); font-size:12px; }
 td.when { white-space:nowrap; color:var(--muted); font-family:var(--mono); font-size:11px; }
 td.etype { white-space:nowrap; font-family:var(--mono); font-size:11px; }
 `;
@@ -146,9 +158,53 @@ export function buildShareHtml(g: Graph, rootThreadId: string): string {
   const blocks = buildWordPicture(g, rootThreadId);
   const events = [...threadEvents(g, rootThreadId)].reverse();
 
+  const set = competingSet(g, rootThreadId);
+  const nonDiagnostic = displayedNodes(g, rootThreadId).filter(
+    (n): n is EvidenceNode => n.type === 'evidence' && isNonDiagnostic(g, n.id, set),
+  );
+
   const body = renderToStaticMarkup(
     <>
       <WordPictureHTML blocks={blocks} />
+      {isLiveSet(set) && (
+        <>
+          <h2>Competing claims</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Claim</th>
+                <th>Status</th>
+                <th>Assessed as</th>
+                <th>Inconsistent items</th>
+                <th>Disconfirmation attempted</th>
+              </tr>
+            </thead>
+            <tbody>
+              {set.map((c) => {
+                const cov = disconfirmationCoverage(g, c.id);
+                return (
+                  <tr key={c.id}>
+                    <td>{c.text}</td>
+                    <td>{c.status}</td>
+                    <td>
+                      {c.likelihood ? LIKELIHOOD_LABELS[c.likelihood] : 'undeclared'} ·{' '}
+                      {c.confidence ? CONFIDENCE_LABELS[c.confidence] : 'undeclared'}
+                    </td>
+                    <td>{cov.count}</td>
+                    <td>{cov.attempted ? 'yes' : 'no'}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          {nonDiagnostic.length > 0 && (
+            <p className="nondiag-note">
+              Non-diagnostic evidence (consistent with every claim, discriminates nothing):{' '}
+              {nonDiagnostic.map((e) => e.text).join('; ')}.
+            </p>
+          )}
+        </>
+      )}
       <h2>Stratified view</h2>
       <StaticStratifiedSVG g={g} rootThreadId={rootThreadId} />
       <details>

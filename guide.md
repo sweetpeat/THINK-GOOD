@@ -25,10 +25,11 @@ leaves your machine; there is no server and no network traffic. Different
 browsers (or profiles) have separate stores — use **Export ▾ → JSON backup**
 to move work between them.
 
-**First run:** the home screen is empty. Either type a question and press
-Enter, or click **Load example** to import a worked intrusion-attribution
-problem that demonstrates every feature (staleness, the queue, a sub-question,
-an ACH matrix, a promoted answer).
+**First run:** a guided tour offers itself automatically — it loads the worked
+example and walks the intended workflow (capture → link → matrix → review →
+export) in ten spotlight steps. You can rerun it any time from the **Tutorial**
+button on the home screen. Or skip it and click **Load example** to explore the
+intrusion-attribution demo yourself.
 
 ---
 
@@ -107,6 +108,8 @@ types, edge types, views, and lenses. Keep it open as a reference while you work
 - **T** — retype the selected node (its old judgements are preserved in the log; the Inspector shows its type history)
 - **Delete / Backspace** — soft-delete (the log keeps a snapshot)
 - **F** — fit the view · **scroll** to pan · **⌘/Ctrl + scroll** (or pinch) to zoom
+- **▦ Arrange** (toolbar) — snap all nodes into the stratified layout when the
+  canvas gets dense; positions stay yours to drag afterwards
 - **Esc** — close popup → cancel link → clear lens → deselect, in that order
 
 ## 5. Sub-questions and promotion
@@ -159,6 +162,11 @@ Switching views never changes data.
 Assumptions check · Spine · Gaps · Disconfirming only · On shaky ground ·
 Needs attention. Lenses are ephemeral — Esc or switching views clears them.
 
+**Review** (top right) walks all six lenses in a deliberate order — assumptions
+→ disconfirming → shaky → gaps → attention → spine — with a strip explaining
+each step. It's the end-of-session discipline: check what you're standing on
+before you export.
+
 ## 8. Adopting a judgement
 
 Claims start **open**. To adopt one as your judgement, use **"Adopt as
@@ -186,9 +194,10 @@ reverting the first.
 **Export ▾** (top right):
 - **Word-picture** — your spine rendered as prose from a fixed template; every
   sentence traces to a node, an enum label, or a logged act. Export as Markdown.
-- **Share file** — one self-contained HTML file: word-picture, stratified
-  SVG, and a collapsible audit appendix. Opens from disk, no network, no
-  JavaScript — the review artifact you send to a colleague.
+- **Share file** — one self-contained HTML briefing pack: word-picture,
+  competing-claims summary (status, likelihood, inconsistency counts,
+  disconfirmation coverage), stratified SVG, and a collapsible audit appendix.
+  Opens from disk, no network, no JavaScript — the artifact you send a colleague.
 - **JSON backup** — the complete store as `.rcanvas.json`; re-import from the
   home screen (import replaces the store and is itself logged).
 
