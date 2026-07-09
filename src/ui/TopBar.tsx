@@ -31,9 +31,15 @@ function useClickAway(onAway: () => void) {
 
 export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
   const g = useGraph();
-  const { go, openThread, setView, lens, setLens, toggleQueue, queueOpen } = useUI();
+  const { go, openThread, setView, lens, setLens, toggleQueue, queueOpen, startReview, reviewIndex } = useUI();
   const [openMenu, setOpenMenu] = useState<'lens' | 'export' | null>(null);
   const menuRef = useClickAway(() => setOpenMenu(null));
+
+  const beginReview = () => {
+    // review walks lenses, which only render on canvas/stratified
+    if (view === 'matrix' || view === 'audit') setView('canvas');
+    startReview();
+  };
 
   const crumbs = threadAncestry(g, threadId);
   const rootId = crumbs[0]?.id ?? threadId;
@@ -74,13 +80,21 @@ export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
           className={`queue-badge${qItems.length ? ' hot' : ''}`}
           onClick={() => toggleQueue()}
           aria-pressed={queueOpen}
-          title="Stale judgements needing attention"
+          title="Stale judgements: never declared, or undermined by an upstream change. Nothing here clears until you affirm or revisit it."
         >
           Queue <span className="count">{qItems.length}</span>
         </button>
 
+        <button
+          className={`btn review-btn${reviewIndex != null ? ' active-review' : ''}`}
+          onClick={beginReview}
+          title="Walk the six lenses in order: assumptions → disconfirming → shaky → gaps → attention → spine"
+        >
+          Review
+        </button>
+
         <div className="menu-wrap">
-          <button className="btn" onClick={() => setOpenMenu(openMenu === 'lens' ? null : 'lens')}>
+          <button className="btn lens-btn" onClick={() => setOpenMenu(openMenu === 'lens' ? null : 'lens')}>
             Lens{lens ? ` · ${LENSES.find((l) => l.id === lens.id)?.label.split(' ')[0]}` : ''} ▾
           </button>
           {openMenu === 'lens' && (
@@ -108,7 +122,7 @@ export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
         </div>
 
         <div className="menu-wrap">
-          <button className="btn" onClick={() => setOpenMenu(openMenu === 'export' ? null : 'export')}>
+          <button className="btn export-btn" onClick={() => setOpenMenu(openMenu === 'export' ? null : 'export')}>
             Export ▾
           </button>
           {openMenu === 'export' && (

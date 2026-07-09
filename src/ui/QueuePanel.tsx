@@ -29,6 +29,11 @@ export function QueuePanel({ rootThreadId }: { rootThreadId: string }) {
           Close
         </button>
       </div>
+      <p style={{ margin: '0 0 10px', color: 'var(--muted)', fontSize: 12 }}>
+        Two kinds of stale: <b>never declared</b> (judgements still empty) and{' '}
+        <b>undermined</b> (something upstream changed since you judged). Affirm a judgement
+        unchanged, or revisit it — nothing clears without your say-so.
+      </p>
       {items.length === 0 && <p style={{ color: 'var(--muted)' }}>Nothing stale. Every judgement is either fresh or affirmed.</p>}
 
       {[...groups.entries()].map(([causeId, group]) => {
