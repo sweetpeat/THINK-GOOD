@@ -133,9 +133,33 @@ export function NodeBox({
         >
           {TYPE_GLYPH[vm.node.type]}
         </text>
-        <text className={metaClass} x={PAD + 13} y={vm.h - PAD + 1}>
+        <text
+          className={metaClass}
+          x={PAD + 6 + TYPE_GLYPH[vm.node.type].length * 7}
+          y={vm.h - PAD + 1}
+        >
           {vm.meta.length > 34 ? `${vm.meta.slice(0, 33)}…` : vm.meta}
         </text>
+        {/* diamond_event role slots (diamond spec §3.1): filled = present, hollow = gap */}
+        {vm.roleSlots && (
+          <g transform={`translate(${vm.w - vm.roleSlots.length * 15 - 4}, -5)`}>
+            {vm.roleSlots.map((s, i) => (
+              <g key={s.role} transform={`translate(${i * 15 + 6},0)`}>
+                <rect
+                  x={-4}
+                  y={-4}
+                  width={8}
+                  height={8}
+                  transform="rotate(45)"
+                  fill={s.present ? `var(--c-${s.role})` : 'var(--surface)'}
+                  stroke={`var(--c-${s.role})`}
+                  strokeWidth={1.3}
+                />
+                <title>{`${s.role}: ${s.present ? 'present' : 'gap — no vertex linked'}`}</title>
+              </g>
+            ))}
+          </g>
+        )}
         {vm.linchpin && <Keystone x={vm.w - 22} y={-4} />}
         {vm.derivedBadge !== 'none' && (
           <ChainLink x={vm.w - (vm.linchpin ? 48 : 24)} y={vm.h - 16} changed={vm.derivedBadge === 'source_changed'} />

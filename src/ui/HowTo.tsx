@@ -52,6 +52,24 @@ const LENS_ROWS: { name: string; text: string }[] = [
   { name: 'Needs attention', text: 'everything stale, shown in place — the Queue, spatially.' },
 ];
 
+const DIAMOND_ROWS: { chip: string; cls: string; text: ReactNode }[] = [
+  {
+    chip: '◆',
+    cls: 'incident',
+    text: <><b>Incident</b> — the intrusion under investigation. Anchors a Diamond thread; closes by adopting an assessment.</>,
+  },
+  {
+    chip: 'D',
+    cls: 'diamond_event',
+    text: <><b>Event</b> — one adversary action. Graded with kill-chain phase, result, and direction; its four corners show which vertices are known.</>,
+  },
+  {
+    chip: 'Ad',
+    cls: 'adversary',
+    text: <><b>Adversary</b> · <b>Capability</b> · <b>Infrastructure</b> · <b>Victim</b> — the four vertices. Shared nodes: the same C2 host can characterize several events (that's the pivot). Grade your confidence in each identification; back it with evidence.</>,
+  },
+];
+
 const THEORY_ROWS: { name: string; href: string; text: string }[] = [
   {
     name: 'Analysis of Competing Hypotheses',
@@ -72,6 +90,16 @@ const THEORY_ROWS: { name: string; href: string; text: string }[] = [
     name: 'Admiralty system',
     href: 'https://en.wikipedia.org/wiki/Admiralty_code',
     text: 'NATO\'s two-axis evidence grading: source reliability (A–F) × information credibility (1–6).',
+  },
+  {
+    name: 'Diamond Model of Intrusion Analysis',
+    href: 'https://apps.dtic.mil/sti/pdfs/ADA586960.pdf',
+    text: 'Caltagirone, Pendergast & Betz (2013): every intrusion event has an adversary, capability, infrastructure, and victim — and events thread into activity chains.',
+  },
+  {
+    name: 'Cyber kill chain',
+    href: 'https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html',
+    text: 'Lockheed Martin\'s seven phases, from reconnaissance to actions on objectives — the ordering behind the Kill chain view.',
   },
 ];
 
@@ -129,6 +157,26 @@ export function HowTo() {
             </li>
           ))}
         </ul>
+
+        <h3>Diamond Model threads</h3>
+        <p className="howto-lead">
+          The second workflow, for intrusions: <b>capture events → link vertices → thread the
+          kill chain → close the gaps → adopt an assessment.</b> Hollow diamond corners are
+          intelligence gaps; the Queue lists them until you fill them.
+        </p>
+        <ul className="howto-nodes">
+          {DIAMOND_ROWS.map((r) => (
+            <li key={r.chip}>
+              <span className={`chip ${r.cls}`}>{r.chip}</span>
+              <span>{r.text}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="howto-note">
+          New links: a vertex <em>characterizes</em> an event; evidence is
+          consistent/inconsistent with a vertex; an assessment claim <em>answers</em> the
+          incident.
+        </p>
 
         <h3>Views</h3>
         <p className="howto-lead">

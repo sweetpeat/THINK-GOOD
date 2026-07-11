@@ -9,9 +9,10 @@ import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
 import type { AnyNode, EdgeType, NodeType, QuestionNode } from '../model/types';
 import { edgeTargetsFrom, validEdgeTypes } from '../model/types';
-import { displayedEdges, displayedNodes, weakestInput } from '../model/derive';
-import { EDGE_TYPE_LABELS, NODE_TYPE_LABELS } from '../model/labels';
-import { buildNodeVM, type NodeVM } from './nodeVM';
+import { displayedEdges, displayedNodes, threadWorkflow, weakestInput } from '../model/derive';
+import { EDGE_TYPE_LABELS, NODE_TYPE_LABELS, NODE_TYPE_PLURALS } from '../model/labels';
+import { PALETTES, keyFor, retypeOptions, typeForKey, type Workflow } from './palette';
+import { buildNodeVM, TYPE_COLOR, type NodeVM } from './nodeVM';
 import { GraphDefs, NodeBox } from './NodeBox';
 import { edgePath, type Rect } from './geometry';
 import { stratify } from './stratify';
@@ -50,6 +51,8 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
   const [dragOverride, setDragOverride] = useState<{ id: string; x: number; y: number } | null>(null);
   const cursorSvg = useRef({ x: 200, y: 160 });
 
+  const workflow = threadWorkflow(g, threadId);
+  const palette = PALETTES[workflow];
   const nodes = useMemo(() => displayedNodes(g, threadId), [g, threadId]);
   const edges = useMemo(() => displayedEdges(g, threadId), [g, threadId]);
   const vms = useMemo(() => {
@@ -289,11 +292,9 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
     const tag = (e.target as HTMLElement).tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
     const key = e.key.toLowerCase();
-    if (view === 'canvas' && ['q', 'c', 'a', 'e'].includes(key) && !e.metaKey && !e.ctrlKey) {
-      const type = ({ q: 'question', c: 'claim', a: 'assumption', e: 'evidence' } as const)[
-        key as 'q' | 'c' | 'a' | 'e'
-      ];
-      openCreateForm(type);
+    const paletteType = view === 'canvas' && !e.metaKey && !e.ctrlKey ? typeForKey(workflow, key) : null;
+    if (paletteType) {
+      openCreateForm(paletteType);
       e.preventDefault();
     } else if (key === 'l' && selectedId) {
       linkMoved.current = false;
@@ -427,7 +428,7 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
     const from = g.nodes[linking.fromId];
     if (!from) return null;
     const targetTypes = edgeTargetsFrom(from.type);
-    const targetLabels = targetTypes.map((t) => `${NODE_TYPE_LABELS[t].toLowerCase()}s`).join(' or ');
+    const targetLabels = targetTypes.map((t) => NODE_TYPE_PLURALS[t]).join(' or ');
     const hasTarget = nodes.some(
       (n) => n.id !== from.id && !n.deletedAt && validEdgeTypes(from.type, n.type).length > 0,
     );
@@ -481,8 +482,18 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
         <div className={`link-banner${linkGuide.hasTarget ? '' : ' warn'}`}>
           {linkGuide.targetTypes.length === 0 ? (
             <>
-              A <b>{linkGuide.fromLabel.toLowerCase()}</b> can’t start a link. Draw links
-              <b> from evidence</b> (to a claim) or <b>from a claim</b> (to an assumption or question).
+              A <b>{linkGuide.fromLabel.toLowerCase()}</b> can’t start a link.{' '}
+              {workflow === 'diamond' ? (
+                <>
+                  Draw links <b>from a vertex</b> (to an event), <b>from evidence</b> (to a vertex
+                  or assessment), or <b>from an assessment</b> (to the incident).
+                </>
+              ) : (
+                <>
+                  Draw links <b>from evidence</b> (to a claim) or <b>from a claim</b> (to an
+                  assumption or question).
+                </>
+              )}
               <button className="link-banner-x" onClick={() => setLinking(null)}>
                 Cancel (Esc)
               </button>
@@ -499,7 +510,7 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
             <>
               Nothing to link to yet: a <b>{linkGuide.fromLabel.toLowerCase()}</b> links to{' '}
               <b>{linkGuide.targetLabels}</b>, and there are none on this canvas. Press{' '}
-              <kbd>{linkGuide.targetTypes[0][0].toUpperCase()}</kbd> to add one first.
+              <kbd>{keyFor(workflow, linkGuide.targetTypes[0]).toUpperCase()}</kbd> to add one first.
               <button className="link-banner-x" onClick={() => setLinking(null)}>
                 Cancel (Esc)
               </button>
@@ -510,48 +521,55 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
 
       {view === 'canvas' && (
         <div className="toolbar">
-          {(['question', 'claim', 'assumption', 'evidence'] as const).map((t) => (
+          {palette.map((p) => (
             <button
-              key={t}
-              className={t[0]}
-              title={`New ${t} (${t[0].toUpperCase()})`}
+              key={p.type}
+              style={{ color: TYPE_COLOR[p.type] }}
+              title={`New ${p.label.toLowerCase()} (${p.key.toUpperCase()})`}
               onClick={() => {
                 cursorSvg.current = clientToSvg(
                   wrapRef.current!.getBoundingClientRect().left + 340,
                   wrapRef.current!.getBoundingClientRect().top + 200,
                 );
-                openCreateForm(t);
+                openCreateForm(p.type);
               }}
             >
-              {t[0].toUpperCase()}
+              {p.key.toUpperCase()}
             </button>
           ))}
           <div className="sep" />
           <button title="Fit view (F)" onClick={fit}>
             ⤢
           </button>
-          <button
-            title="Arrange nodes into the stratified layout (replaces your manual positions)"
-            onClick={() => {
-              if (!window.confirm('Arrange all nodes into the stratified layout? This replaces your manual positions — you can still drag them afterwards.')) return;
-              const l = stratify([...vms.values()], edges);
-              for (const [id, p] of l.positions) {
-                if (id === threadId && (g.nodes[id] as QuestionNode).parentThreadId) continue; // pinned anchor
-                void repo.moveNode(id, p.x, p.y);
-              }
-              setTimeout(fit, 80);
-            }}
-          >
-            ▦
-          </button>
+          {workflow === 'ach' && (
+            <button
+              title="Arrange nodes into the stratified layout (replaces your manual positions)"
+              onClick={() => {
+                if (!window.confirm('Arrange all nodes into the stratified layout? This replaces your manual positions — you can still drag them afterwards.')) return;
+                const l = stratify([...vms.values()], edges);
+                for (const [id, p] of l.positions) {
+                  if (id === threadId && (g.nodes[id] as QuestionNode).parentThreadId) continue; // pinned anchor
+                  void repo.moveNode(id, p.x, p.y);
+                }
+                setTimeout(fit, 80);
+              }}
+            >
+              ▦
+            </button>
+          )}
         </div>
       )}
 
       <div className="canvas-hint">
         {view === 'canvas' ? (
           <>
-            <kbd>Q</kbd> <kbd>C</kbd> <kbd>A</kbd> <kbd>E</kbd> create at cursor · drag ⊕ or <kbd>L</kbd> link ·{' '}
-            <kbd>T</kbd> retype · double-click a sub-question descends
+            {palette.map((p) => (
+              <span key={p.key}>
+                <kbd>{p.key.toUpperCase()}</kbd>{' '}
+              </span>
+            ))}
+            create at cursor · drag ⊕ or <kbd>L</kbd> link · <kbd>T</kbd> retype
+            {workflow === 'ach' && <> · double-click a sub-question descends</>}
           </>
         ) : (
           <>positions are computed here — arrange freely on the Canvas view</>
@@ -574,7 +592,7 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
         />
       )}
 
-      {picker && <CanvasPicker picker={picker} g={g} onClose={() => setPicker(null)} />}
+      {picker && <CanvasPicker picker={picker} g={g} workflow={workflow} onClose={() => setPicker(null)} />}
     </div>
   );
 }
@@ -584,10 +602,12 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
 function CanvasPicker({
   picker,
   g,
+  workflow,
   onClose,
 }: {
   picker: Picker;
   g: ReturnType<typeof useGraph>;
+  workflow: Workflow;
   onClose: () => void;
 }) {
   const style = { left: Math.max(8, picker.x), top: Math.max(8, picker.y) };
@@ -675,7 +695,7 @@ function CanvasPicker({
 
   const node = g.nodes[picker.nodeId];
   if (!node) return null;
-  const options = (['question', 'claim', 'assumption', 'evidence'] as const).filter((t) => t !== node.type);
+  const options = retypeOptions(workflow, node.type);
   return (
     <div className="overlay-pop picker" style={style}>
       <div className="title">Retype ‘{node.text.slice(0, 30)}’ to…</div>
@@ -689,7 +709,7 @@ function CanvasPicker({
             onClose();
           }}
         >
-          <span className={`chip ${t}`}>{t[0].toUpperCase()}</span> {NODE_TYPE_LABELS[t]}
+          <span className={`chip ${t}`}>{keyFor(workflow, t).toUpperCase()}</span> {NODE_TYPE_LABELS[t]}
         </button>
       ))}
     </div>

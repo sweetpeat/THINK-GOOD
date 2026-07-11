@@ -1,9 +1,11 @@
-// Queue panel + batch/cone affirmation (§5.6).
+// Queue panel + batch/cone affirmation (§5.6), plus the incident thread's
+// intelligence-gaps list (diamond spec §3.5): gap rows have no Affirm button —
+// a gap clears only by filling the missing vertex.
 
 import * as repo from '../model/repo';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
-import { coneReviews, queue, type QueueItem } from '../model/derive';
+import { coneReviews, diamondGaps, queue, threadWorkflow, type QueueItem } from '../model/derive';
 import { NODE_TYPE_LABELS } from '../model/labels';
 import { eventText, timeAgo } from './eventText';
 
@@ -64,7 +66,50 @@ export function QueuePanel({ rootThreadId }: { rootThreadId: string }) {
       {singles.map((item) => (
         <QueueRow key={item.node.id} item={item} onFocus={() => focus(item)} showCause g={g} />
       ))}
+
+      {threadWorkflow(g, rootThreadId) === 'diamond' && <GapsSection incidentId={rootThreadId} />}
     </div>
+  );
+}
+
+function GapsSection({ incidentId }: { incidentId: string }) {
+  const g = useGraph();
+  const { toggleQueue, select, openThread } = useUI();
+  // Ungraded diamond nodes already surface above as never-declared queue items;
+  // this section is the structural gaps — the vertices that don't exist yet.
+  const missing = diamondGaps(g, incidentId).filter((x) => x.kind === 'missing_vertex');
+  return (
+    <>
+      <h3 style={{ marginTop: 16 }}>
+        Intelligence gaps — {missing.length} missing vert{missing.length === 1 ? 'ex' : 'ices'}
+      </h3>
+      <p style={{ margin: '0 0 10px', color: 'var(--muted)', fontSize: 12 }}>
+        A diamond corner with no vertex. These don’t affirm away — they clear when you
+        identify the missing element and link it with <em>characterizes</em>.
+      </p>
+      {missing.length === 0 && (
+        <p style={{ color: 'var(--muted)' }}>Every event has all four vertices linked.</p>
+      )}
+      {missing.map((gap, i) =>
+        gap.kind === 'missing_vertex' ? (
+          <div
+            key={`${gap.event.id}-${gap.role}-${i}`}
+            className="queue-item"
+            onClick={() => {
+              openThread(gap.event.threadId);
+              select(gap.event.id);
+              toggleQueue(false);
+            }}
+          >
+            <div>
+              <span className={`chip ${gap.role}`}>{NODE_TYPE_LABELS[gap.role]}</span>{' '}
+              {gap.event.text.length > 60 ? `${gap.event.text.slice(0, 59)}…` : gap.event.text}
+            </div>
+            <div className="why">no {NODE_TYPE_LABELS[gap.role].toLowerCase()} vertex linked to this event</div>
+          </div>
+        ) : null,
+      )}
+    </>
   );
 }
 

@@ -3,11 +3,34 @@
 // everywhere (§5.1): type = colour + glyph; adopted = solid; stale = hatched
 // border; linchpin = keystone; derivedFrom = chain-link badge.
 
-import type { AnyNode, AssumptionNode, ClaimNode, EvidenceNode, QuestionNode } from '../model/types';
-import { staleStateOf } from '../model/types';
+import type {
+  AnyNode,
+  AssumptionNode,
+  ClaimNode,
+  DiamondEventNode,
+  EvidenceNode,
+  IncidentNode,
+  QuestionNode,
+  VertexNode,
+  VertexType,
+} from '../model/types';
+import { isVertexType, staleStateOf, VERTEX_TYPES } from '../model/types';
 import type { Graph } from '../model/graphStore';
-import { competingSet } from '../model/derive';
-import { admiraltyGrade, CONFIDENCE_LABELS, LIKELIHOOD_LABELS, VALIDITY_LABELS } from '../model/labels';
+import {
+  competingSet,
+  diamondEvents,
+  diamondGaps,
+  eventsCharacterizedBy,
+  missingRoles,
+} from '../model/derive';
+import {
+  admiraltyGrade,
+  CONFIDENCE_LABELS,
+  LIKELIHOOD_LABELS,
+  PHASE_LABELS,
+  RESULT_LABELS,
+  VALIDITY_LABELS,
+} from '../model/labels';
 
 export const NODE_W = 192;
 const PAD = 9;
@@ -51,6 +74,8 @@ export interface NodeVM {
   answerLines: string[];
   answerMeta: string | null;
   isThreadAnchor: boolean;
+  /** diamond_event only: the four roles, filled or gap (diamond spec §3.1) */
+  roleSlots: { role: VertexType; present: boolean }[] | null;
 }
 
 export function buildNodeVM(g: Graph, node: AnyNode, currentThreadId: string): NodeVM {
@@ -59,6 +84,7 @@ export function buildNodeVM(g: Graph, node: AnyNode, currentThreadId: string): N
   let meta = '';
   let adopted = false;
   let linchpin = false;
+  let roleSlots: NodeVM['roleSlots'] = null;
   const isCollapsedSub =
     node.type === 'question' && (node as QuestionNode).parentThreadId === currentThreadId;
   let answerLines: string[] = [];
@@ -90,9 +116,26 @@ export function buildNodeVM(g: Graph, node: AnyNode, currentThreadId: string): N
     const a = node as AssumptionNode;
     linchpin = a.linchpin;
     meta = a.validity ? VALIDITY_LABELS[a.validity] : 'validity undeclared';
-  } else {
+  } else if (node.type === 'evidence') {
     const e = node as EvidenceNode;
     meta = admiraltyGrade(e.sourceReliability, e.infoCredibility);
+  } else if (node.type === 'incident') {
+    const inc = node as IncidentNode;
+    const events = diamondEvents(g, inc.id);
+    const gapCount = diamondGaps(g, inc.id).length; // same count as home/briefing/ceremony
+    meta = `${inc.status} · ${events.length} event${events.length === 1 ? '' : 's'}`;
+    if (gapCount) meta += ` · ${gapCount} gap${gapCount === 1 ? '' : 's'}`;
+  } else if (node.type === 'diamond_event') {
+    const ev = node as DiamondEventNode;
+    const phase = ev.phase ? PHASE_LABELS[ev.phase] : 'phase undeclared';
+    meta = `${phase} · ${ev.result ? RESULT_LABELS[ev.result] : 'result?'}`;
+    const missing = new Set(missingRoles(g, node.id));
+    roleSlots = VERTEX_TYPES.map((role) => ({ role, present: !missing.has(role) }));
+  } else if (isVertexType(node.type)) {
+    const v = node as VertexNode;
+    const conf = v.confidence ? `${CONFIDENCE_LABELS[v.confidence]} confidence` : 'confidence undeclared';
+    const n = eventsCharacterizedBy(g, v.id).length;
+    meta = n ? `${conf} · ${n} event${n === 1 ? '' : 's'}` : conf;
   }
 
   let derivedBadge: NodeVM['derivedBadge'] = 'none';
@@ -125,7 +168,9 @@ export function buildNodeVM(g: Graph, node: AnyNode, currentThreadId: string): N
     isCollapsedSub,
     answerLines,
     answerMeta,
-    isThreadAnchor: node.type === 'question' && node.id === currentThreadId,
+    isThreadAnchor:
+      (node.type === 'question' || node.type === 'incident') && node.id === currentThreadId,
+    roleSlots,
   };
 }
 
@@ -134,16 +179,34 @@ export const TYPE_COLOR: Record<string, string> = {
   claim: 'var(--c-claim)',
   assumption: 'var(--c-assumption)',
   evidence: 'var(--c-evidence)',
+  incident: 'var(--c-incident)',
+  diamond_event: 'var(--c-event)',
+  adversary: 'var(--c-adversary)',
+  capability: 'var(--c-capability)',
+  infrastructure: 'var(--c-infrastructure)',
+  victim: 'var(--c-victim)',
 };
 export const TYPE_TINT: Record<string, string> = {
   question: 'var(--c-question-tint)',
   claim: 'var(--c-claim-tint)',
   assumption: 'var(--c-assumption-tint)',
   evidence: 'var(--c-evidence-tint)',
+  incident: 'var(--c-incident-tint)',
+  diamond_event: 'var(--c-event-tint)',
+  adversary: 'var(--c-adversary-tint)',
+  capability: 'var(--c-capability-tint)',
+  infrastructure: 'var(--c-infrastructure-tint)',
+  victim: 'var(--c-victim-tint)',
 };
 export const TYPE_GLYPH: Record<string, string> = {
   question: 'Q',
   claim: 'C',
   assumption: 'A',
   evidence: 'E',
+  incident: '◆',
+  diamond_event: 'D',
+  adversary: 'Ad',
+  capability: 'Cp',
+  infrastructure: 'In',
+  victim: 'Vi',
 };

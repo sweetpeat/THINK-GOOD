@@ -6,20 +6,31 @@ import { useMemo, useState } from 'react';
 import * as repo from '../model/repo';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
-import type { AssumptionNode, ClaimNode, QuestionNode } from '../model/types';
+import type { AssumptionNode, ClaimNode, IncidentNode, QuestionNode } from '../model/types';
 import { staleStateOf } from '../model/types';
 import {
   competingSet,
+  diamondEvents,
+  diamondGaps,
   disconfirmationCoverage,
   isLiveSet,
   liveEdges,
   threadFamily,
+  type GapItem,
 } from '../model/derive';
 import {
   CONFIDENCE_LABELS,
   LIKELIHOOD_LABELS,
+  NODE_TYPE_LABELS,
+  PHASE_LABELS,
   VALIDITY_LABELS,
 } from '../model/labels';
+
+function gapCaption(gap: GapItem): string {
+  return gap.kind === 'missing_vertex'
+    ? `‘${gap.event.text}’ — missing ${NODE_TYPE_LABELS[gap.role].toLowerCase()}`
+    : `‘${gap.node.text}’ — ${NODE_TYPE_LABELS[gap.node.type].toLowerCase()} not fully graded`;
+}
 
 export function CeremonyModal({ claimId }: { claimId: string }) {
   const g = useGraph();
@@ -27,17 +38,23 @@ export function CeremonyModal({ claimId }: { claimId: string }) {
   const claim = g.nodes[claimId] as ClaimNode | undefined;
   const [reasonA, setReasonA] = useState('');
   const [reasonB, setReasonB] = useState('');
+  const [reasonC, setReasonC] = useState('');
 
   const ceremony = useMemo(() => {
     if (!claim) return null;
-    const questions = liveEdges(g)
+    const targets = liveEdges(g)
       .filter((e) => e.type === 'answers' && e.from === claimId)
-      .map((e) => g.nodes[e.to] as QuestionNode)
-      .filter((q) => q?.type === 'question' && !q.deletedAt)
+      .map((e) => g.nodes[e.to])
+      .filter(
+        (t): t is QuestionNode | IncidentNode =>
+          !!t && !t.deletedAt && (t.type === 'question' || t.type === 'incident'),
+      )
       .sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+    const questions = targets.filter((t): t is QuestionNode => t.type === 'question');
+    const incidents = targets.filter((t): t is IncidentNode => t.type === 'incident');
 
     const rivalMap = new Map<string, ClaimNode>();
-    for (const q of questions) {
+    for (const q of targets) {
       for (const c of competingSet(g, q.id)) if (c.id !== claimId) rivalMap.set(c.id, c);
     }
     const rivals = [...rivalMap.values()].map((r) => ({
@@ -68,6 +85,14 @@ export function CeremonyModal({ claimId }: { claimId: string }) {
     const gateA = rivals.filter((r) => r.cov.count < candidateCov.count);
     // Gate B — unsupported linchpin: unsupported OR never-declared validity
     const gateB = assumptions.filter((a) => a.validity === 'unsupported' || a.validity == null);
+    // Gate C — open diamond gaps (diamond spec §3.4.5): missing vertices or
+    // ungraded diamond nodes on any incident this claim assesses.
+    const diamondState = incidents.map((inc) => ({
+      incident: inc,
+      events: diamondEvents(g, inc.id),
+      gaps: diamondGaps(g, inc.id),
+    }));
+    const gateC = diamondState.filter((d) => d.gaps.length > 0);
 
     const meBlock = questions.find(
       (q) =>
@@ -75,11 +100,11 @@ export function CeremonyModal({ claimId }: { claimId: string }) {
         competingSet(g, q.id).some((c) => c.id !== claimId && c.status === 'adopted'),
     );
 
-    return { questions, rivals, candidateCov, assumptions, gaps, gateA, gateB, meBlock };
+    return { questions, incidents, rivals, candidateCov, assumptions, gaps, diamondState, gateA, gateB, gateC, meBlock };
   }, [g, claim, claimId]);
 
   if (!claim || !ceremony) return null;
-  const { rivals, candidateCov, assumptions, gaps, gateA, gateB, meBlock } = ceremony;
+  const { rivals, candidateCov, assumptions, gaps, diamondState, gateA, gateB, gateC, meBlock } = ceremony;
 
   // The Adopt button stays enabled with fired gates (§5.5.5); the required
   // reason is enforced by repo.setClaimStatus, surfaced as a toast.
@@ -114,6 +139,16 @@ export function CeremonyModal({ claimId }: { claimId: string }) {
         gate: 'unsupported_linchpin',
         snapshot: snapshot.linchpins.filter((l) => gateB.some((b) => b.id === l.id)),
         reason: reasonB,
+      });
+    }
+    if (gateC.length) {
+      overrides.push({
+        gate: 'diamond_gaps',
+        snapshot: gateC.map((d) => ({
+          incidentId: d.incident.id,
+          gaps: d.gaps.map(gapCaption),
+        })),
+        reason: reasonC,
       });
     }
     try {
@@ -217,19 +252,46 @@ export function CeremonyModal({ claimId }: { claimId: string }) {
           <p style={{ color: 'var(--muted)', margin: 0 }}>None linked (rests-on edges).</p>
         )}
 
-        <h3>Open gaps bearing on this set</h3>
-        {gaps.length ? (
-          <ul style={{ margin: 0, paddingLeft: 18 }}>
-            {gaps.map((q) => (
-              <li key={q.id}>
-                {q.text}
-                {q.priority ? ` — priority ${q.priority}` : ''}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p style={{ color: 'var(--muted)', margin: 0 }}>None.</p>
+        {diamondState.length === 0 && (
+          <>
+            <h3>Open gaps bearing on this set</h3>
+            {gaps.length ? (
+              <ul style={{ margin: 0, paddingLeft: 18 }}>
+                {gaps.map((q) => (
+                  <li key={q.id}>
+                    {q.text}
+                    {q.priority ? ` — priority ${q.priority}` : ''}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p style={{ color: 'var(--muted)', margin: 0 }}>None.</p>
+            )}
+          </>
         )}
+
+        {diamondState.map((d) => (
+          <div key={d.incident.id}>
+            <h3>The diamond map — ‘{d.incident.text}’</h3>
+            <p style={{ margin: '0 0 4px', fontSize: 12.5 }}>
+              {d.events.length} event{d.events.length === 1 ? '' : 's'}
+              {d.events.length
+                ? `: ${d.events
+                    .map((e) => (e.phase ? PHASE_LABELS[e.phase] : 'unphased'))
+                    .join(' → ')}`
+                : ' recorded'}
+            </p>
+            {d.gaps.length ? (
+              <ul style={{ margin: 0, paddingLeft: 18 }}>
+                {d.gaps.map((gap, i) => (
+                  <li key={i} style={{ color: 'var(--danger)' }}>{gapCaption(gap)}</li>
+                ))}
+              </ul>
+            ) : (
+              <p style={{ color: 'var(--muted)', margin: 0 }}>No open intelligence gaps.</p>
+            )}
+          </div>
+        ))}
 
         {gateA.length > 0 && (
           <div className="gate">
@@ -264,6 +326,26 @@ export function CeremonyModal({ claimId }: { claimId: string }) {
               placeholder="Required: why adopt despite this assumption?"
               value={reasonB}
               onChange={(e) => setReasonB(e.target.value)}
+            />
+          </div>
+        )}
+
+        {gateC.length > 0 && (
+          <div className="gate">
+            <div className="gate-title">Gate — open diamond gaps</div>
+            <div style={{ fontSize: 12.5 }}>
+              {gateC.map((d) => (
+                <div key={d.incident.id}>
+                  ‘{d.incident.text}’ still has {d.gaps.length} intelligence gap
+                  {d.gaps.length === 1 ? '' : 's'} (listed above). A gap clears only by
+                  filling the missing vertex or declaring the missing judgement.
+                </div>
+              ))}
+            </div>
+            <textarea
+              placeholder="Required: why assess now, with these gaps open?"
+              value={reasonC}
+              onChange={(e) => setReasonC(e.target.value)}
             />
           </div>
         )}

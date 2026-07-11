@@ -6,13 +6,25 @@ import type {
   AnyNode,
   AssumptionNode,
   ClaimNode,
+  DiamondEventNode,
   Edge,
   EvidenceNode,
+  IncidentNode,
+  KillChainPhase,
   LogEvent,
   QuestionNode,
   StaleState,
+  VertexNode,
+  VertexType,
 } from './types';
-import { declaredJudgements, staleStateOf } from './types';
+import {
+  declaredJudgements,
+  isFullyGraded,
+  isVertexType,
+  KILL_CHAIN_ORDER,
+  staleStateOf,
+  VERTEX_TYPES,
+} from './types';
 import { admiraltyGrade } from './labels';
 import type { Graph } from './graphStore';
 
@@ -57,6 +69,17 @@ export function rootQuestions(g: Graph): QuestionNode[] {
     .sort((a, b) => a.createdAt.localeCompare(b.createdAt));
 }
 
+export function rootIncidents(g: Graph): IncidentNode[] {
+  return liveNodes(g)
+    .filter((n): n is IncidentNode => n.type === 'incident')
+    .sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+}
+
+/** Which workflow a thread belongs to (diamond spec §2.1): keyed off its anchor. */
+export function threadWorkflow(g: Graph, threadId: string): 'ach' | 'diamond' {
+  return g.nodes[threadId]?.type === 'incident' ? 'diamond' : 'ach';
+}
+
 /** A root thread id plus all descendant sub-thread ids, depth-first, root first. */
 export function threadFamily(g: Graph, rootThreadId: string): string[] {
   const out: string[] = [];
@@ -70,10 +93,13 @@ export function threadFamily(g: Graph, rootThreadId: string): string[] {
   return out;
 }
 
-/** Breadcrumb chain from the root thread down to `threadId`. */
-export function threadAncestry(g: Graph, threadId: string): QuestionNode[] {
+/** Breadcrumb chain from the root thread down to `threadId`. An incident is
+    always its own (single-link) chain — no sub-threads in diamond v1. */
+export function threadAncestry(g: Graph, threadId: string): (QuestionNode | IncidentNode)[] {
+  const anchor = g.nodes[threadId];
+  if (anchor?.type === 'incident') return [anchor as IncidentNode];
   const chain: QuestionNode[] = [];
-  let cur = g.nodes[threadId] as QuestionNode | undefined;
+  let cur = anchor as QuestionNode | undefined;
   while (cur && cur.type === 'question') {
     chain.unshift(cur);
     cur = cur.parentThreadId ? (g.nodes[cur.parentThreadId] as QuestionNode) : undefined;
@@ -98,18 +124,30 @@ export function dependentsAdjacency(g: Graph): Map<string, string[]> {
     list.push(b);
     adj.set(a, list);
   };
+  // Assessment claims (answers → incident) depend on every live diamond_event
+  // in that incident's thread (diamond spec §1.3): the assessment summarizes
+  // the diamond map, so any staling change to the map undermines it.
+  const assessorsByIncident = new Map<string, string[]>();
   for (const e of Object.values(g.edges)) {
     if (e.type === 'consistent_with' || e.type === 'inconsistent_with') {
-      push(e.from, e.to); // claim depends on evidence
+      push(e.from, e.to); // claim/vertex depends on evidence
     } else if (e.type === 'rests_on') {
       push(e.to, e.from); // claim depends on assumption
     } else if (e.type === 'answers') {
       const claim = g.nodes[e.from] as ClaimNode | undefined;
-      if (claim?.type === 'claim' && claim.status === 'adopted') push(e.from, e.to); // question depends on adopted answer
+      if (claim?.type === 'claim' && claim.status === 'adopted') push(e.from, e.to); // question/incident depends on adopted answer
+      if (g.nodes[e.to]?.type === 'incident' && claim?.type === 'claim') {
+        assessorsByIncident.set(e.to, [...(assessorsByIncident.get(e.to) ?? []), e.from]);
+      }
+    } else if (e.type === 'characterizes') {
+      push(e.from, e.to); // diamond_event depends on its vertices
     }
   }
   for (const n of liveNodes(g)) {
     if (n.derivedFrom) push(n.derivedFrom, n.id); // promoted node depends on its source claim
+    if (n.type === 'diamond_event') {
+      for (const claimId of assessorsByIncident.get(n.threadId) ?? []) push(n.id, claimId);
+    }
   }
   adjCache.set(g.nodes, adj);
   return adj;
@@ -150,6 +188,96 @@ export function questionsWithLiveSets(g: Graph, rootThreadId: string): QuestionN
   return threadFamily(g, rootThreadId)
     .map((tid) => g.nodes[tid] as QuestionNode)
     .filter((q) => q?.type === 'question' && isLive(q) && isLiveSet(competingSet(g, q.id)));
+}
+
+// ---------------------------------------------------------------------------
+// Diamond workflow derivations (diamond spec §2). Orderings, gap lists, and
+// lane assembly only — never judgement values.
+// ---------------------------------------------------------------------------
+
+const phaseRank = (p?: KillChainPhase): number =>
+  p == null ? KILL_CHAIN_ORDER.length : KILL_CHAIN_ORDER.indexOf(p);
+
+/** Event order (diamond spec §2.2): phase → occurredAt (missing last) → createdAt. */
+export function eventOrder(a: DiamondEventNode, b: DiamondEventNode): number {
+  const pr = phaseRank(a.phase) - phaseRank(b.phase);
+  if (pr !== 0) return pr;
+  const ao = a.occurredAt ?? '￿';
+  const bo = b.occurredAt ?? '￿';
+  return ao.localeCompare(bo) || a.createdAt.localeCompare(b.createdAt);
+}
+
+export function diamondEvents(g: Graph, incidentId: string): DiamondEventNode[] {
+  return liveNodes(g)
+    .filter((n): n is DiamondEventNode => n.type === 'diamond_event' && n.threadId === incidentId)
+    .sort(eventOrder);
+}
+
+/** The vertices characterizing an event, grouped by role. A role with an empty
+    list is a gap. Multiple per role are legal (rival identifications). */
+export function verticesOf(g: Graph, eventId: string): Record<VertexType, VertexNode[]> {
+  const out: Record<VertexType, VertexNode[]> = {
+    adversary: [], capability: [], infrastructure: [], victim: [],
+  };
+  for (const e of liveEdges(g)) {
+    if (e.type !== 'characterizes' || e.to !== eventId) continue;
+    const v = g.nodes[e.from];
+    if (v && isVertexType(v.type)) out[v.type].push(v as VertexNode);
+  }
+  for (const role of VERTEX_TYPES) out[role].sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+  return out;
+}
+
+/** Pivot list (diamond spec §2.4): the events a vertex characterizes. */
+export function eventsCharacterizedBy(g: Graph, vertexId: string): DiamondEventNode[] {
+  return liveEdges(g)
+    .filter((e) => e.type === 'characterizes' && e.from === vertexId)
+    .map((e) => g.nodes[e.to] as DiamondEventNode)
+    .filter((n) => n?.type === 'diamond_event')
+    .sort(eventOrder);
+}
+
+export function missingRoles(g: Graph, eventId: string): VertexType[] {
+  const present = verticesOf(g, eventId);
+  return VERTEX_TYPES.filter((r) => present[r].length === 0);
+}
+
+/** An intelligence gap clears only by creating the missing vertex or declaring
+    the missing judgement — never by affirmation (diamond spec §2.5). */
+export type GapItem =
+  | { kind: 'missing_vertex'; event: DiamondEventNode; role: VertexType }
+  | { kind: 'ungraded'; node: AnyNode };
+
+export function diamondGaps(g: Graph, incidentId: string): GapItem[] {
+  const gaps: GapItem[] = [];
+  for (const ev of diamondEvents(g, incidentId)) {
+    for (const role of missingRoles(g, ev.id)) gaps.push({ kind: 'missing_vertex', event: ev, role });
+  }
+  const diamondNodes = liveNodes(g).filter(
+    (n) => n.threadId === incidentId && (n.type === 'diamond_event' || isVertexType(n.type)),
+  );
+  for (const n of diamondNodes.sort((a, b) => a.createdAt.localeCompare(b.createdAt))) {
+    if (!isFullyGraded(n)) gaps.push({ kind: 'ungraded', node: n });
+  }
+  return gaps;
+}
+
+export interface KillChainLane {
+  phase: KillChainPhase | null; // null = the "unphased" lane
+  events: DiamondEventNode[];
+}
+
+/** The seven phases in order, each with its events; an "unphased" lane appears
+    last only when needed. Empty lanes render — an empty lane is information. */
+export function killChain(g: Graph, incidentId: string): KillChainLane[] {
+  const events = diamondEvents(g, incidentId);
+  const lanes: KillChainLane[] = KILL_CHAIN_ORDER.map((phase) => ({
+    phase,
+    events: events.filter((e) => e.phase === phase),
+  }));
+  const unphased = events.filter((e) => e.phase == null);
+  if (unphased.length) lanes.push({ phase: null, events: unphased });
+  return lanes;
 }
 
 // ---------------------------------------------------------------------------
@@ -379,7 +507,10 @@ export function stats(g: Graph): Stats {
 
   const q = queue(g);
   const oldest = q[0];
-  const nodeCounts: Record<string, number> = { question: 0, claim: 0, assumption: 0, evidence: 0 };
+  const nodeCounts: Record<string, number> = {
+    question: 0, claim: 0, assumption: 0, evidence: 0,
+    incident: 0, diamond_event: 0, adversary: 0, capability: 0, infrastructure: 0, victim: 0,
+  };
   for (const n of liveNodes(g)) nodeCounts[n.type]++;
 
   return {

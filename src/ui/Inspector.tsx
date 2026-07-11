@@ -6,18 +6,40 @@ import { useEffect, useState } from 'react';
 import * as repo from '../model/repo';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
-import type { AnyNode, AssumptionNode, ClaimNode, NodeType, QuestionNode } from '../model/types';
-import { staleStateOf } from '../model/types';
+import type {
+  AnyNode,
+  AssumptionNode,
+  ClaimNode,
+  DiamondEventNode,
+  EvidenceNode,
+  IncidentNode,
+  NodeType,
+  QuestionNode,
+} from '../model/types';
+import { isVertexType, staleStateOf, VERTEX_TYPES } from '../model/types';
 import {
+  admiraltyGrade,
   CONFIDENCE_LABELS,
   CREDIBILITY_LABELS,
+  DIRECTION_LABELS,
   LIKELIHOOD_LABELS,
   NODE_TYPE_LABELS,
+  PHASE_LABELS,
   PRIORITY_LABELS,
   RELIABILITY_LABELS,
+  RESULT_LABELS,
   VALIDITY_LABELS,
 } from '../model/labels';
-import { competingSet, typeHistory } from '../model/derive';
+import {
+  competingSet,
+  diamondGaps,
+  eventsCharacterizedBy,
+  liveEdges,
+  threadWorkflow,
+  typeHistory,
+  verticesOf,
+} from '../model/derive';
+import { retypeOptions } from './palette';
 import { eventText, timeAgo } from './eventText';
 
 function JudgementSelect({
@@ -192,6 +214,97 @@ export function Inspector({ threadId }: { threadId: string }) {
         </>
       )}
 
+      {node.type === 'diamond_event' && (
+        <>
+          <JudgementSelect node={node} field="phase" label="Kill-chain phase" options={Object.entries(PHASE_LABELS)} />
+          <JudgementSelect node={node} field="result" label="Result" options={Object.entries(RESULT_LABELS)} />
+          <JudgementSelect node={node} field="direction" label="Direction" options={Object.entries(DIRECTION_LABELS)} />
+          <label className="field">
+            <span>Occurred (date — orders the kill-chain lane)</span>
+            <input
+              type="date"
+              className="judgement"
+              value={(node as DiamondEventNode).occurredAt ?? ''}
+              onChange={(e) =>
+                void repo
+                  .declareJudgement(node.id, 'occurredAt', e.target.value || null)
+                  .catch((err) => useUI.getState().showToast({ text: String(err.message ?? err) }))
+              }
+            />
+          </label>
+          <div className="field">
+            <span>Vertices</span>
+            {VERTEX_TYPES.map((role) => {
+              const present = verticesOf(g, node.id)[role];
+              return (
+                <div key={role} style={{ marginTop: 3 }}>
+                  <span className={`chip ${role}`}>{NODE_TYPE_LABELS[role]}</span>{' '}
+                  {present.length ? (
+                    present.map((v) => (
+                      <button key={v.id} className="btn small" onClick={() => select(v.id)}>
+                        ‘{v.text.slice(0, 26)}’
+                      </button>
+                    ))
+                  ) : (
+                    <span style={{ color: 'var(--danger)', fontSize: 12 }}>
+                      gap — no vertex linked
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
+
+      {isVertexType(node.type) && (
+        <>
+          <JudgementSelect
+            node={node}
+            field="confidence"
+            label="Confidence in this identification"
+            options={Object.entries(CONFIDENCE_LABELS)}
+          />
+          <div className="field">
+            <span>Characterizes {eventsCharacterizedBy(g, node.id).length || 'no'} event(s) — the pivot list</span>
+            {eventsCharacterizedBy(g, node.id).map((ev) => (
+              <button key={ev.id} className="btn small" style={{ marginTop: 3 }} onClick={() => select(ev.id)}>
+                ‘{ev.text.slice(0, 30)}’{ev.phase ? ` · ${PHASE_LABELS[ev.phase]}` : ''}
+              </button>
+            ))}
+          </div>
+          <VertexEvidence vertexId={node.id} onSelect={select} />
+        </>
+      )}
+
+      {node.type === 'incident' && (
+        <>
+          <div className="field">
+            <span>Status: {(node as IncidentNode).status}</span>
+          </div>
+          <div className="field">
+            <span>Assessments (claims answering this incident)</span>
+            {competingSet(g, node.id).length ? (
+              competingSet(g, node.id).map((c) => (
+                <button key={c.id} className="btn small" style={{ marginTop: 3 }} onClick={() => select(c.id)}>
+                  {c.status === 'adopted' ? '● ' : '○ '}‘{c.text.slice(0, 32)}’
+                </button>
+              ))
+            ) : (
+              <span style={{ color: 'var(--muted)', fontSize: 12 }}>
+                None yet — press <kbd>S</kbd> on the canvas to draft one, then link it here
+                with <em>answers</em>.
+              </span>
+            )}
+          </div>
+          <div className="field">
+            <span>
+              Intelligence gaps: {diamondGaps(g, node.id).length} (see the Queue panel)
+            </span>
+          </div>
+        </>
+      )}
+
       {node.type === 'question' && (
         <>
           <div className="field">
@@ -267,7 +380,32 @@ export function Inspector({ threadId }: { threadId: string }) {
   );
 }
 
+/** The evidence supporting/contradicting a vertex identification (diamond spec §3.3). */
+function VertexEvidence({ vertexId, onSelect }: { vertexId: string; onSelect: (id: string) => void }) {
+  const g = useGraph();
+  const rows = liveEdges(g)
+    .filter((e) => (e.type === 'consistent_with' || e.type === 'inconsistent_with') && e.to === vertexId)
+    .map((e) => ({ edge: e, ev: g.nodes[e.from] as EvidenceNode }))
+    .filter((r) => r.ev?.type === 'evidence');
+  if (!rows.length) return null;
+  return (
+    <div className="field">
+      <span>Evidence on this identification</span>
+      {rows.map(({ edge, ev }) => (
+        <button key={edge.id} className="btn small" style={{ marginTop: 3 }} onClick={() => onSelect(ev.id)}>
+          {edge.type === 'inconsistent_with' ? '✕ ' : '✓ '}‘{ev.text.slice(0, 26)}’ [
+          {admiraltyGrade(ev.sourceReliability, ev.infoCredibility)}]
+        </button>
+      ))}
+    </div>
+  );
+}
+
 function RetypeControl({ node }: { node: AnyNode }) {
+  const g = useGraph();
+  if (node.type === 'incident') return null; // anchors the canvas; not retypeable
+  const workflow = threadWorkflow(g, node.threadId);
+  const options = retypeOptions(workflow, node.type);
   return (
     <select
       className="judgement"
@@ -280,7 +418,8 @@ function RetypeControl({ node }: { node: AnyNode }) {
           .catch((err) => useUI.getState().showToast({ text: String(err.message ?? err) }));
       }}
     >
-      {(['question', 'claim', 'assumption', 'evidence'] as const).map((t) => (
+      <option value={node.type}>{NODE_TYPE_LABELS[node.type]}</option>
+      {options.map((t) => (
         <option key={t} value={t}>
           {NODE_TYPE_LABELS[t]}
         </option>

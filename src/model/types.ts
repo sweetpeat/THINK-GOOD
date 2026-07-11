@@ -1,7 +1,23 @@
-// Data model per spec §2–§3. Closed enums, open text: every field the machine
-// consumes is a closed enum; free-text fields never affect computation.
+// Data model per spec §2–§3 and diamond-model spec §1. Closed enums, open
+// text: every field the machine consumes is a closed enum; free-text fields
+// never affect computation. (occurredAt is structured ISO-8601 — machine-
+// sortable but never free text.)
 
-export type NodeType = 'question' | 'claim' | 'assumption' | 'evidence';
+export type VertexType = 'adversary' | 'capability' | 'infrastructure' | 'victim';
+
+export type NodeType =
+  | 'question'
+  | 'claim'
+  | 'assumption'
+  | 'evidence'
+  | 'incident'
+  | 'diamond_event'
+  | VertexType;
+
+export const VERTEX_TYPES: VertexType[] = ['adversary', 'capability', 'infrastructure', 'victim'];
+
+export const isVertexType = (t: NodeType): t is VertexType =>
+  (VERTEX_TYPES as NodeType[]).includes(t);
 
 export type Likelihood =
   | 'remote_chance'
@@ -17,6 +33,38 @@ export type Validity = 'supported' | 'caveated' | 'unsupported';
 export type SourceReliability = 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 export type InfoCredibility = 1 | 2 | 3 | 4 | 5 | 6;
 export type Priority = 'low' | 'moderate' | 'high';
+
+// Diamond workflow enums (diamond spec §1.1). Declared 'unknown' (the analyst
+// looked and cannot tell) is distinct from undeclared null (never judged).
+export type KillChainPhase =
+  | 'reconnaissance'
+  | 'weaponization'
+  | 'delivery'
+  | 'exploitation'
+  | 'installation'
+  | 'command_and_control'
+  | 'actions_on_objectives';
+
+export const KILL_CHAIN_ORDER: KillChainPhase[] = [
+  'reconnaissance',
+  'weaponization',
+  'delivery',
+  'exploitation',
+  'installation',
+  'command_and_control',
+  'actions_on_objectives',
+];
+
+export type EventResult = 'success' | 'failure' | 'unknown';
+
+export type EventDirection =
+  | 'adversary_to_infrastructure'
+  | 'infrastructure_to_adversary'
+  | 'infrastructure_to_victim'
+  | 'victim_to_infrastructure'
+  | 'infrastructure_to_infrastructure'
+  | 'bidirectional'
+  | 'unknown';
 
 // 'never_declared' is derived on the fly from null judgement fields and is
 // never stored; only 'fresh' | 'undermined' persist on the node (§2.7).
@@ -68,9 +116,41 @@ export interface EvidenceNode extends BaseNode {
   sourceNote?: string; // free text; never machine-read
 }
 
-export type AnyNode = QuestionNode | ClaimNode | AssumptionNode | EvidenceNode;
+export interface IncidentNode extends BaseNode {
+  type: 'incident';
+  // threadId === id: an incident anchors its own thread, like a root question.
+  // No judgement fields: like questions, incidents are never stale.
+  status: 'open' | 'assessed';
+}
 
-export type EdgeType = 'consistent_with' | 'inconsistent_with' | 'rests_on' | 'answers';
+export interface DiamondEventNode extends BaseNode {
+  type: 'diamond_event';
+  phase?: KillChainPhase;
+  result?: EventResult;
+  direction?: EventDirection;
+  occurredAt?: string; // ISO-8601 date; declarable annotation, sorts the lane
+}
+
+export interface VertexNode extends BaseNode {
+  type: VertexType; // the role a vertex plays IS its node type
+  confidence?: Confidence; // how sure is the identification
+}
+
+export type AnyNode =
+  | QuestionNode
+  | ClaimNode
+  | AssumptionNode
+  | EvidenceNode
+  | IncidentNode
+  | DiamondEventNode
+  | VertexNode;
+
+export type EdgeType =
+  | 'consistent_with'
+  | 'inconsistent_with'
+  | 'rests_on'
+  | 'answers'
+  | 'characterizes';
 
 export interface Edge {
   id: string;
@@ -93,6 +173,7 @@ export type EventType =
   | 'gate_overridden'
   | 'node_promoted'
   | 'question_status_changed'
+  | 'incident_status_changed'
   | 'store_imported'
   | 'thread_created';
 
@@ -114,17 +195,28 @@ export interface StoreSnapshot {
   events: LogEvent[];
 }
 
-// Edge validity matrix (§2.3). The only (type, from-type, to-type) triples that exist.
-export const EDGE_VALIDITY: Record<EdgeType, { from: NodeType; to: NodeType }> = {
-  consistent_with: { from: 'evidence', to: 'claim' },
-  inconsistent_with: { from: 'evidence', to: 'claim' },
-  rests_on: { from: 'claim', to: 'assumption' },
-  answers: { from: 'claim', to: 'question' },
+// Edge validity matrix (§2.3, diamond spec §1.2). The only (type, from-type,
+// to-type) triples that exist — each edge type lists its valid endpoint pairs.
+export const EDGE_VALIDITY: Record<EdgeType, { from: NodeType; to: NodeType }[]> = {
+  consistent_with: [
+    { from: 'evidence', to: 'claim' },
+    ...VERTEX_TYPES.map((v) => ({ from: 'evidence' as NodeType, to: v as NodeType })),
+  ],
+  inconsistent_with: [
+    { from: 'evidence', to: 'claim' },
+    ...VERTEX_TYPES.map((v) => ({ from: 'evidence' as NodeType, to: v as NodeType })),
+  ],
+  rests_on: [{ from: 'claim', to: 'assumption' }],
+  answers: [
+    { from: 'claim', to: 'question' },
+    { from: 'claim', to: 'incident' },
+  ],
+  characterizes: VERTEX_TYPES.map((v) => ({ from: v as NodeType, to: 'diamond_event' as NodeType })),
 };
 
 export function validEdgeTypes(fromType: NodeType, toType: NodeType): EdgeType[] {
-  return (Object.keys(EDGE_VALIDITY) as EdgeType[]).filter(
-    (t) => EDGE_VALIDITY[t].from === fromType && EDGE_VALIDITY[t].to === toType,
+  return (Object.keys(EDGE_VALIDITY) as EdgeType[]).filter((t) =>
+    EDGE_VALIDITY[t].some((p) => p.from === fromType && p.to === toType),
   );
 }
 
@@ -133,7 +225,7 @@ export function validEdgeTypes(fromType: NodeType, toType: NodeType): EdgeType[]
 export function edgeTargetsFrom(fromType: NodeType): NodeType[] {
   const targets = new Set<NodeType>();
   for (const t of Object.keys(EDGE_VALIDITY) as EdgeType[]) {
-    if (EDGE_VALIDITY[t].from === fromType) targets.add(EDGE_VALIDITY[t].to);
+    for (const p of EDGE_VALIDITY[t]) if (p.from === fromType) targets.add(p.to);
   }
   return [...targets];
 }
@@ -145,6 +237,12 @@ export const JUDGEMENT_FIELDS: Record<NodeType, string[]> = {
   claim: ['likelihood', 'confidence'],
   assumption: ['validity'],
   evidence: ['sourceReliability', 'infoCredibility'],
+  incident: [],
+  diamond_event: ['phase', 'result', 'direction'], // occurredAt is an annotation, not a grade
+  adversary: ['confidence'],
+  capability: ['confidence'],
+  infrastructure: ['confidence'],
+  victim: ['confidence'],
 };
 
 export function declaredJudgements(node: AnyNode): Record<string, unknown> {

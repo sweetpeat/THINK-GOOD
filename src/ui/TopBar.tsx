@@ -5,17 +5,26 @@ import { useEffect, useRef, useState } from 'react';
 import * as repo from '../model/repo';
 import { useGraph } from './useGraph';
 import { useUI, type ViewId } from './uiStore';
-import { queue, threadAncestry } from '../model/derive';
+import { queue, threadAncestry, threadWorkflow } from '../model/derive';
 import { LENSES } from './lenses';
 import { buildShareHtml } from '../export/shareFile';
 import { download, slugify } from '../export/download';
 
-const VIEWS: { id: ViewId; label: string }[] = [
-  { id: 'canvas', label: 'Canvas' },
-  { id: 'stratified', label: 'Stratified' },
-  { id: 'matrix', label: 'Matrix' },
-  { id: 'audit', label: 'Audit' },
-];
+// Per-workflow view switchers (diamond spec §3.1): the stratified/matrix/lens
+// surfaces are ACH instruments; incidents get the kill-chain lens instead.
+const VIEWS: Record<'ach' | 'diamond', { id: ViewId; label: string }[]> = {
+  ach: [
+    { id: 'canvas', label: 'Canvas' },
+    { id: 'stratified', label: 'Stratified' },
+    { id: 'matrix', label: 'Matrix' },
+    { id: 'audit', label: 'Audit' },
+  ],
+  diamond: [
+    { id: 'canvas', label: 'Canvas' },
+    { id: 'killchain', label: 'Kill chain' },
+    { id: 'audit', label: 'Audit' },
+  ],
+};
 
 function useClickAway(onAway: () => void) {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,6 +53,7 @@ export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
   const crumbs = threadAncestry(g, threadId);
   const rootId = crumbs[0]?.id ?? threadId;
   const qItems = queue(g, rootId);
+  const workflow = threadWorkflow(g, rootId);
 
   return (
     <header className="topbar">
@@ -62,7 +72,7 @@ export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
       </nav>
 
       <div className="view-switch" role="tablist">
-        {VIEWS.map((v) => (
+        {VIEWS[workflow].map((v) => (
           <button
             key={v.id}
             role="tab"
@@ -85,6 +95,8 @@ export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
           Queue <span className="count">{qItems.length}</span>
         </button>
 
+        {workflow === 'ach' && (
+        <>
         <button
           className={`btn review-btn${reviewIndex != null ? ' active-review' : ''}`}
           onClick={beginReview}
@@ -120,6 +132,8 @@ export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
             </div>
           )}
         </div>
+        </>
+        )}
 
         <div className="menu-wrap">
           <button className="btn export-btn" onClick={() => setOpenMenu(openMenu === 'export' ? null : 'export')}>
@@ -127,6 +141,8 @@ export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
           </button>
           {openMenu === 'export' && (
             <div className="menu">
+              {workflow === 'ach' && (
+                <>
               <button
                 onClick={() => {
                   go({ screen: 'wordpicture', rootId });
@@ -144,6 +160,8 @@ export function TopBar({ threadId, view }: { threadId: string; view: ViewId }) {
               >
                 Share file (.html)
               </button>
+                </>
+              )}
               <button
                 onClick={() => {
                   download(

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { LensId } from './lenses';
 
-export type ViewId = 'canvas' | 'stratified' | 'matrix' | 'audit';
+export type ViewId = 'canvas' | 'stratified' | 'matrix' | 'audit' | 'killchain';
 
 export type Route =
   | { screen: 'home' }

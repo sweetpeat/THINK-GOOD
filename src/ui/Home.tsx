@@ -1,11 +1,20 @@
-// Home (§2.6): the list of root threads. New question, load example, import.
+// Home (§2.6, diamond spec §3.0): the workflow chooser and the list of root
+// threads. Two named entry points — ACH (question) and Diamond Model
+// (incident) — plus load example, import, export.
 
 import { useEffect, useRef, useState } from 'react';
 import * as repo from '../model/repo';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
 import type { StoreSnapshot } from '../model/types';
-import { ownNodes, rootQuestions, subQuestionsOf } from '../model/derive';
+import {
+  diamondEvents,
+  diamondGaps,
+  ownNodes,
+  rootIncidents,
+  rootQuestions,
+  subQuestionsOf,
+} from '../model/derive';
 import { timeAgo } from './eventText';
 import { tutorialDone } from './Tutorial';
 import exampleFixture from '../../fixtures/example.rcanvas.json';
@@ -13,28 +22,44 @@ import exampleFixture from '../../fixtures/example.rcanvas.json';
 export function Home() {
   const g = useGraph();
   const { openThread, go, showToast } = useUI();
-  const [text, setText] = useState('');
+  const [questionText, setQuestionText] = useState('');
+  const [incidentText, setIncidentText] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
-  const roots = rootQuestions(g);
+  const roots = [...rootQuestions(g), ...rootIncidents(g)].sort((a, b) =>
+    a.createdAt.localeCompare(b.createdAt),
+  );
 
   // First visit with an empty store: offer the walkthrough (friend feedback #1).
   useEffect(() => {
-    if (!tutorialDone() && rootQuestions(g).length === 0 && useUI.getState().tutorialStep == null) {
+    if (!tutorialDone() && roots.length === 0 && useUI.getState().tutorialStep == null) {
       useUI.getState().setTutorialStep(0);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const createThread = async () => {
-    if (!text.trim()) return;
+  const createQuestion = async () => {
+    if (!questionText.trim()) return;
     const node = await repo.createNode({
       threadId: '',
       type: 'question',
-      text,
+      text: questionText,
       x: 320,
       y: 90,
     });
-    setText('');
+    setQuestionText('');
+    openThread(node.id);
+  };
+
+  const createIncident = async () => {
+    if (!incidentText.trim()) return;
+    const node = await repo.createNode({
+      threadId: '',
+      type: 'incident',
+      text: incidentText,
+      x: 320,
+      y: 90,
+    });
+    setIncidentText('');
     openThread(node.id);
   };
 
@@ -65,38 +90,88 @@ export function Home() {
         on the record.
       </div>
 
-      <div className="new-row">
-        <input
-          type="text"
-          placeholder="What question are you working? (Enter to open a thread)"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && void createThread()}
-        />
-        <button className="btn primary" onClick={() => void createThread()}>
-          New question
-        </button>
+      <div className="workflow-row">
+        <div className="workflow-card">
+          <div className="wf-name">Analysis of Competing Hypotheses</div>
+          <div className="wf-desc">
+            Line up rival explanations of a question and let disconfirming evidence do the
+            judging.
+          </div>
+          <div className="new-row">
+            <input
+              type="text"
+              placeholder="What question are you working?"
+              value={questionText}
+              onChange={(e) => setQuestionText(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && void createQuestion()}
+            />
+            <button className="btn primary" onClick={() => void createQuestion()}>
+              New question
+            </button>
+          </div>
+        </div>
+
+        <div className="workflow-card">
+          <div className="wf-name">Diamond Model of Intrusion Analysis</div>
+          <div className="wf-desc">
+            Decompose an intrusion into events — adversary, capability, infrastructure,
+            victim — threaded along the kill chain.
+          </div>
+          <div className="new-row">
+            <input
+              type="text"
+              placeholder="Name the incident under investigation"
+              value={incidentText}
+              onChange={(e) => setIncidentText(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && void createIncident()}
+            />
+            <button className="btn primary" onClick={() => void createIncident()}>
+              New incident
+            </button>
+          </div>
+        </div>
       </div>
 
       {roots.length === 0 ? (
         <div className="empty">
-          <p>No threads yet. Every canvas is anchored by a root question.</p>
+          <p>No threads yet. Every canvas is anchored by a root question or an incident.</p>
           <button className="btn" onClick={() => void loadExample()}>
-            Load example — “Is APT-Q responsible for the intrusion at ACME?”
+            Load example — an ACH attribution question and a Diamond incident thread
           </button>
         </div>
       ) : (
-        roots.map((q) => {
-          const nodes = ownNodes(g, q.id);
-          const subs = subQuestionsOf(g, q.id);
-          const lastEvent = [...g.events].reverse().find((e) => e.threadId === q.id);
+        roots.map((root) => {
+          const isIncident = root.type === 'incident';
+          const nodes = ownNodes(g, root.id);
+          const subs = isIncident ? [] : subQuestionsOf(g, root.id);
+          const lastEvent = [...g.events].reverse().find((e) => e.threadId === root.id);
+          const events = isIncident ? diamondEvents(g, root.id) : [];
+          const gapCount = isIncident ? diamondGaps(g, root.id).length : 0;
           return (
-            <button key={q.id} className="thread-card" onClick={() => openThread(q.id)}>
-              <div className="title">{q.text}</div>
+            <button key={root.id} className="thread-card" onClick={() => openThread(root.id)}>
+              <div className="title">{root.text}</div>
               <div className="meta">
-                <span>{q.status === 'answered' ? 'answered' : 'open'}</span>
-                <span>{nodes.length - 1} nodes</span>
-                {subs.length > 0 && <span>{subs.length} sub-question{subs.length === 1 ? '' : 's'}</span>}
+                <span className={`chip ${isIncident ? 'incident' : 'question'}`}>
+                  {isIncident ? 'Diamond' : 'ACH'}
+                </span>
+                <span>
+                  {isIncident
+                    ? root.status === 'assessed' ? 'assessed' : 'open'
+                    : root.status === 'answered' ? 'answered' : 'open'}
+                </span>
+                {isIncident ? (
+                  <>
+                    <span>{events.length} event{events.length === 1 ? '' : 's'}</span>
+                    {gapCount > 0 && <span>{gapCount} gap{gapCount === 1 ? '' : 's'}</span>}
+                  </>
+                ) : (
+                  <>
+                    <span>{nodes.length - 1} nodes</span>
+                    {subs.length > 0 && (
+                      <span>{subs.length} sub-question{subs.length === 1 ? '' : 's'}</span>
+                    )}
+                  </>
+                )}
                 {lastEvent && <span>active {timeAgo(lastEvent.at)}</span>}
               </div>
             </button>

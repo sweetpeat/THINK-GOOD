@@ -18,6 +18,7 @@ export function eventText(g: Graph, e: LogEvent): string {
   const p = (e.payload ?? {}) as Record<string, unknown>;
   switch (e.type) {
     case 'thread_created':
+      if (p.workflow === 'diamond') return 'Incident thread opened';
       return p.parentThreadId
         ? `Sub-question thread opened under ${nodeName(g, p.parentThreadId as string)}`
         : 'Thread created';
@@ -56,13 +57,20 @@ export function eventText(g: Graph, e: LogEvent): string {
         ? `Adopted as judgement: ${nodeName(g, e.nodeId)}`
         : `Adoption reverted on ${nodeName(g, e.nodeId)}`;
     case 'gate_overridden': {
-      const gate = p.gate === 'rival_stronger' ? 'Rival stronger' : 'Unsupported linchpin';
+      const gate =
+        p.gate === 'rival_stronger'
+          ? 'Rival stronger'
+          : p.gate === 'diamond_gaps'
+            ? 'Open diamond gaps'
+            : 'Unsupported linchpin';
       return `Gate overridden (${gate}) on ${nodeName(g, e.nodeId)} — reason: “${e.reason}”`;
     }
     case 'node_promoted':
       return `Answer promoted into parent as ${String(p.asType)}: ${nodeName(g, e.nodeId)}`;
     case 'question_status_changed':
       return `Question ${p.after === 'answered' ? 'answered' : 'reopened'}: ${nodeName(g, e.nodeId)}`;
+    case 'incident_status_changed':
+      return `Incident ${p.after === 'assessed' ? 'assessed' : 'reopened'}: ${nodeName(g, e.nodeId)}`;
     case 'store_imported':
       return `Store imported (${String(p.nodeCount)} nodes, ${String(p.edgeCount)} edges, ${String(p.eventCount)} events)`;
   }
