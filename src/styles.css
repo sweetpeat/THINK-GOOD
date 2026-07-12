@@ -13,7 +13,7 @@
   --line-strong: #cfc9be;
   --hover: #f1efe9;
 
-  /* the four node-type hues — the only saturation in the app */
+  /* the node-type hues — the only saturation in the app */
   --c-question: #6d4fc4;
   --c-claim: #1e66c7;
   --c-assumption: #b3620e;
@@ -22,6 +22,20 @@
   --c-claim-tint: #e9f1fb;
   --c-assumption-tint: #faf0e3;
   --c-evidence-tint: #e6f4f2;
+
+  /* diamond workflow hues (diamond spec §3.1) */
+  --c-incident: #7a2258;
+  --c-event: #46525c;
+  --c-adversary: #b0263c;
+  --c-capability: #9c33a8;
+  --c-infrastructure: #4e7d1e;
+  --c-victim: #8a6d10;
+  --c-incident-tint: #f7ebf2;
+  --c-event-tint: #eceff1;
+  --c-adversary-tint: #f9eaec;
+  --c-capability-tint: #f6ecf8;
+  --c-infrastructure-tint: #eef4e4;
+  --c-victim-tint: #f6f0dc;
 
   /* signal (kept desaturated — stale hatching is a neutral device) */
   --stale: #8a8378;
@@ -97,6 +111,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .chip.claim { color: var(--c-claim); background: var(--c-claim-tint); }
 .chip.assumption { color: var(--c-assumption); background: var(--c-assumption-tint); }
 .chip.evidence { color: var(--c-evidence); background: var(--c-evidence-tint); }
+.chip.incident { color: var(--c-incident); background: var(--c-incident-tint); }
+.chip.diamond_event { color: var(--c-event); background: var(--c-event-tint); }
+.chip.adversary { color: var(--c-adversary); background: var(--c-adversary-tint); }
+.chip.capability { color: var(--c-capability); background: var(--c-capability-tint); }
+.chip.infrastructure { color: var(--c-infrastructure); background: var(--c-infrastructure-tint); }
+.chip.victim { color: var(--c-victim); background: var(--c-victim-tint); }
 .chip.plain { color: var(--muted); background: var(--hover); }
 
 .grade {
@@ -640,14 +660,32 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
 /* ---------- home ---------- */
 
 .home {
-  max-width: 720px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 48px 24px;
   width: 100%;
+  overflow-y: auto;
 }
 .home h1 { font-size: 20px; font-weight: 650; margin: 0 0 2px; }
 .home .sub { color: var(--muted); margin-bottom: 24px; }
-.home .new-row { display: flex; gap: 8px; margin-bottom: 24px; }
+.home .new-row { display: flex; gap: 8px; }
+
+/* the workflow chooser (diamond spec §3.0) */
+.workflow-row { display: flex; gap: 12px; margin-bottom: 24px; }
+.workflow-card {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.workflow-card .wf-name { font-size: 13.5px; font-weight: 650; }
+.workflow-card .wf-desc { color: var(--muted); font-size: 12px; flex: 1; }
+@media (max-width: 760px) { .workflow-row { flex-direction: column; } }
 .home .new-row input {
   flex: 1;
   border: 1px solid var(--line-strong);
@@ -677,6 +715,27 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
   text-align: center;
   color: var(--muted);
 }
+
+/* ---------- kill-chain view (diamond spec §3.2) ---------- */
+
+.killchain-wrap { flex: 1; overflow: auto; padding: 16px; position: relative; }
+.killchain-svg { display: block; }
+.lane-rule { stroke: var(--line); stroke-width: 1; }
+.lane-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  fill: var(--muted);
+}
+.lane-empty { font-size: 11px; fill: var(--faint); font-style: italic; }
+.diamond-caption { font-size: 11.5px; fill: var(--ink); }
+.diamond-meta { font-family: var(--mono); font-size: 10.5px; fill: var(--muted); }
+
+/* canvas diamond glyph (diamond spec §3.1) */
+.corner-label { font-size: 10.5px; font-weight: 550; }
+.node-g.selected .sel-ring-diamond { stroke: var(--c-claim); }
+.sel-ring-diamond { stroke: none; }
 
 /* ---------- modal (ceremony, confirm) ---------- */
 

@@ -4,7 +4,15 @@
 import { useMemo } from 'react';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
-import { latestSessionEvents, queue, spine, threadEvents } from '../model/derive';
+import {
+  competingSet,
+  diamondGaps,
+  latestSessionEvents,
+  queue,
+  spine,
+  threadEvents,
+  threadWorkflow,
+} from '../model/derive';
 import { CONFIDENCE_LABELS, LIKELIHOOD_LABELS, NODE_TYPE_LABELS } from '../model/labels';
 import { eventText, timeAgo } from './eventText';
 
@@ -12,39 +20,77 @@ export function Briefing({ rootThreadId }: { rootThreadId: string }) {
   const g = useGraph();
   const { dismissBriefing, toggleQueue } = useUI();
 
+  const workflow = threadWorkflow(g, rootThreadId);
+
   const data = useMemo(() => {
     const events = threadEvents(g, rootThreadId);
     const q = queue(g, rootThreadId);
     const changed = latestSessionEvents(events).slice(-14).reverse();
-    return { spine: spine(g, rootThreadId), queue: q.slice(0, 8), queueTotal: q.length, changed };
-  }, [g, rootThreadId]);
+    const assessments =
+      workflow === 'diamond'
+        ? competingSet(g, rootThreadId).filter((c) => c.status === 'adopted')
+        : [];
+    const gapCount = workflow === 'diamond' ? diamondGaps(g, rootThreadId).length : 0;
+    return {
+      spine: workflow === 'ach' ? spine(g, rootThreadId) : [],
+      assessments,
+      gapCount,
+      queue: q.slice(0, 8),
+      queueTotal: q.length,
+      changed,
+    };
+  }, [g, rootThreadId, workflow]);
 
   return (
     <div className="briefing">
       <div className="inner">
         <h2>Re-entry briefing — ‘{g.nodes[rootThreadId]?.text}’</h2>
 
-        <section>
-          <h3>Current spine</h3>
-          {data.spine.length ? (
-            <ul>
-              {data.spine.map((entry) => (
-                <li key={entry.question.id} style={{ marginLeft: entry.depth * 16 }}>
-                  {entry.question.text} →{' '}
-                  {entry.claims.map((c) => (
-                    <span key={c.id}>
-                      <strong>{c.text}</strong>
-                      {c.likelihood ? ` — ${LIKELIHOOD_LABELS[c.likelihood]}` : ''}
-                      {c.confidence ? `, ${CONFIDENCE_LABELS[c.confidence]} confidence` : ''}
-                    </span>
-                  ))}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p style={{ color: 'var(--muted)', margin: 0 }}>No adopted judgements yet.</p>
-          )}
-        </section>
+        {workflow === 'ach' ? (
+          <section>
+            <h3>Current spine</h3>
+            {data.spine.length ? (
+              <ul>
+                {data.spine.map((entry) => (
+                  <li key={entry.question.id} style={{ marginLeft: entry.depth * 16 }}>
+                    {entry.question.text} →{' '}
+                    {entry.claims.map((c) => (
+                      <span key={c.id}>
+                        <strong>{c.text}</strong>
+                        {c.likelihood ? ` — ${LIKELIHOOD_LABELS[c.likelihood]}` : ''}
+                        {c.confidence ? `, ${CONFIDENCE_LABELS[c.confidence]} confidence` : ''}
+                      </span>
+                    ))}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p style={{ color: 'var(--muted)', margin: 0 }}>No adopted judgements yet.</p>
+            )}
+          </section>
+        ) : (
+          <section>
+            <h3>Current assessment</h3>
+            {data.assessments.length ? (
+              <ul>
+                {data.assessments.map((c) => (
+                  <li key={c.id}>
+                    <strong>{c.text}</strong>
+                    {c.likelihood ? ` — ${LIKELIHOOD_LABELS[c.likelihood]}` : ''}
+                    {c.confidence ? `, ${CONFIDENCE_LABELS[c.confidence]} confidence` : ''}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p style={{ color: 'var(--muted)', margin: 0 }}>
+                No adopted assessment yet
+                {data.gapCount
+                  ? ` — ${data.gapCount} intelligence gap${data.gapCount === 1 ? '' : 's'} open.`
+                  : '.'}
+              </p>
+            )}
+          </section>
+        )}
 
         <section>
           <h3>What changed last session</h3>

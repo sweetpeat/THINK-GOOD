@@ -3,7 +3,10 @@
 import type {
   Confidence,
   EdgeType,
+  EventDirection,
+  EventResult,
   InfoCredibility,
+  KillChainPhase,
   Likelihood,
   NodeType,
   Priority,
@@ -57,11 +60,56 @@ export const PRIORITY_LABELS: Record<Priority, string> = {
   high: 'High',
 };
 
+export const PHASE_LABELS: Record<KillChainPhase, string> = {
+  reconnaissance: 'Reconnaissance',
+  weaponization: 'Weaponization',
+  delivery: 'Delivery',
+  exploitation: 'Exploitation',
+  installation: 'Installation',
+  command_and_control: 'Command & control',
+  actions_on_objectives: 'Actions on objectives',
+};
+
+export const RESULT_LABELS: Record<EventResult, string> = {
+  success: 'Success',
+  failure: 'Failure',
+  unknown: 'Unknown',
+};
+
+export const DIRECTION_LABELS: Record<EventDirection, string> = {
+  adversary_to_infrastructure: 'Adversary → infrastructure',
+  infrastructure_to_adversary: 'Infrastructure → adversary',
+  infrastructure_to_victim: 'Infrastructure → victim',
+  victim_to_infrastructure: 'Victim → infrastructure',
+  infrastructure_to_infrastructure: 'Infrastructure → infrastructure',
+  bidirectional: 'Bidirectional',
+  unknown: 'Unknown',
+};
+
 export const NODE_TYPE_LABELS: Record<NodeType, string> = {
   question: 'Question',
   claim: 'Claim',
   assumption: 'Assumption',
   evidence: 'Evidence',
+  incident: 'Incident',
+  diamond_event: 'Event',
+  adversary: 'Adversary',
+  capability: 'Capability',
+  infrastructure: 'Infrastructure',
+  victim: 'Victim',
+};
+
+export const NODE_TYPE_PLURALS: Record<NodeType, string> = {
+  question: 'questions',
+  claim: 'claims',
+  assumption: 'assumptions',
+  evidence: 'evidence',
+  incident: 'incidents',
+  diamond_event: 'events',
+  adversary: 'adversaries',
+  capability: 'capabilities',
+  infrastructure: 'infrastructure',
+  victim: 'victims',
 };
 
 export const EDGE_TYPE_LABELS: Record<EdgeType, string> = {
@@ -69,6 +117,7 @@ export const EDGE_TYPE_LABELS: Record<EdgeType, string> = {
   inconsistent_with: 'inconsistent with',
   rests_on: 'rests on',
   answers: 'answers',
+  characterizes: 'characterizes',
 };
 
 // Admiralty grade as data, e.g. "B2"; either half may be ungraded.
@@ -86,11 +135,21 @@ export const FIELD_LABELS: Record<string, string> = {
   linchpin: 'Linchpin',
   priority: 'Priority',
   mutuallyExclusive: 'Mutually exclusive',
+  phase: 'Kill-chain phase',
+  result: 'Result',
+  direction: 'Direction',
+  occurredAt: 'Occurred',
 };
 
 export function judgementValueLabel(field: string, value: unknown): string {
   if (value == null) return 'undeclared';
   switch (field) {
+    case 'phase':
+      return PHASE_LABELS[value as KillChainPhase] ?? String(value);
+    case 'result':
+      return RESULT_LABELS[value as EventResult] ?? String(value);
+    case 'direction':
+      return DIRECTION_LABELS[value as EventDirection] ?? String(value);
     case 'likelihood':
       return LIKELIHOOD_LABELS[value as Likelihood] ?? String(value);
     case 'confidence':

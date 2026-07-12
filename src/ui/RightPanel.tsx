@@ -10,7 +10,7 @@ export function RightPanel({ threadId }: { threadId: string }) {
       <div className="inspector-slot">
         <Inspector threadId={threadId} />
       </div>
-      <HowTo />
+      <HowTo threadId={threadId} />
     </aside>
   );
 }

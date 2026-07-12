@@ -1,1059 +1,1354 @@
 {
   "nodes": [
     {
-      "id": "w0E-Nv7YbhhSW_UJgLLEb",
+      "id": "25MbrMKvX91hR1UUQdQ1j",
       "text": "Is APT-Q responsible for the intrusion at ACME?",
       "x": 420,
       "y": 40,
-      "createdAt": "2026-07-01T21:39:07.231Z",
+      "createdAt": "2026-07-08T04:36:01.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "question",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "status": "open",
       "mutuallyExclusive": true
     },
     {
-      "id": "-H2sO0k9LYQbZ47t_M012",
-      "text": "A criminal affiliate reused APT-Q tooling",
-      "x": 430,
-      "y": 230,
-      "createdAt": "2026-07-01T21:43:02.231Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "claim",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
-      "status": "open",
-      "likelihood": "realistic_possibility",
-      "confidence": "low"
-    },
-    {
-      "id": "NEsvEWUm_upFgyuo1nraC",
+      "id": "VTG2ZUvZKLWdx88jCWAT2",
       "text": "APT-Q conducted the intrusion",
       "x": 140,
       "y": 230,
-      "createdAt": "2026-07-01T21:40:41.231Z",
+      "createdAt": "2026-07-08T04:37:35.626Z",
       "stale": {
         "kind": "undermined",
-        "causeEventId": "gAFDepDEFXmbRhqb31yFu"
+        "causeEventId": "2SOI79kqDkAMzFm3XYD_W"
       },
       "type": "claim",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "status": "open",
       "likelihood": "likely",
       "confidence": "moderate"
     },
     {
-      "id": "YONR-N7nu7n5sbiASNQLb",
+      "id": "Hcw3Hedkq4xwO18hY07Zp",
       "text": "An insider staged the intrusion to look external",
       "x": 720,
       "y": 230,
-      "createdAt": "2026-07-01T21:45:23.231Z",
+      "createdAt": "2026-07-08T04:42:17.626Z",
       "stale": {
         "kind": "undermined",
-        "causeEventId": "gAFDepDEFXmbRhqb31yFu"
+        "causeEventId": "2SOI79kqDkAMzFm3XYD_W"
       },
       "type": "claim",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "status": "open",
       "likelihood": "unlikely",
       "confidence": "low"
     },
     {
-      "id": "FX68DnseeA3IcKsI4BpGD",
+      "id": "WVqcf4DfJeSnvVOOJzN6o",
+      "text": "A criminal affiliate reused APT-Q tooling",
+      "x": 430,
+      "y": 230,
+      "createdAt": "2026-07-08T04:39:56.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "claim",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "status": "open",
+      "likelihood": "realistic_possibility",
+      "confidence": "low"
+    },
+    {
+      "id": "S3nwvBJyya8NE-Aruj9N5",
       "text": "Code overlap implies common authorship",
       "x": 60,
       "y": 430,
-      "createdAt": "2026-07-03T21:40:41.231Z",
+      "createdAt": "2026-07-10T04:37:35.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "assumption",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "linchpin": true,
       "validity": "caveated",
       "abandonTrigger": "KESTREL source or builder leaks publicly"
     },
     {
-      "id": "pGqhnVlVYWvTzQ17O293W",
+      "id": "OhiSoh7GuTlvfLeEgTG-c",
       "text": "APT-Q does not share infrastructure with affiliates",
       "x": 300,
       "y": 430,
-      "createdAt": "2026-07-03T21:47:44.231Z",
+      "createdAt": "2026-07-10T04:44:38.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "assumption",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "linchpin": false,
       "validity": "caveated"
     },
     {
-      "id": "SUyDko3GeuRUTZZg9vzDF",
+      "id": "TutiMqe8-ncmcza2LKUKz",
       "text": "ACME's VPN logs are complete and untampered",
       "x": 640,
       "y": 430,
-      "createdAt": "2026-07-03T21:43:49.231Z",
+      "createdAt": "2026-07-10T04:40:43.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "assumption",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "linchpin": false,
       "validity": "supported"
     },
     {
-      "id": "WAvGAxEV3YQvMyqB-tNKL",
+      "id": "YIeY4oSxMXW1mHdAnqZko",
       "text": "Access implies intent",
       "x": 880,
       "y": 430,
-      "createdAt": "2026-07-03T21:45:23.231Z",
+      "createdAt": "2026-07-10T04:42:17.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "assumption",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "linchpin": true,
       "validity": "unsupported"
     },
     {
-      "id": "ZvVB7n126yAerDeR3noBB",
+      "id": "bL8p1PPQc_j1i4aqEdoSO",
       "text": "Loader shares code with APT-Q's KESTREL implant",
       "x": 80,
       "y": 640,
-      "createdAt": "2026-07-03T21:52:26.231Z",
+      "createdAt": "2026-07-10T04:49:20.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "B",
       "infoCredibility": 3
     },
     {
-      "id": "0-gjWgagkFa_iuhw8811p",
-      "text": "C2 infrastructure overlaps a 2024 APT-Q campaign",
-      "x": 320,
-      "y": 640,
-      "createdAt": "2026-07-03T21:55:34.231Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "evidence",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
-      "sourceReliability": "B",
-      "infoCredibility": 3
-    },
-    {
-      "id": "C0ld47SwAqCHYrRJoWtnp",
-      "text": "Commodity credential-dumping tools used throughout",
-      "x": 560,
-      "y": 640,
-      "createdAt": "2026-07-03T21:57:55.231Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "evidence",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
-      "sourceReliability": "C",
-      "infoCredibility": 3
-    },
-    {
-      "id": "uVxu3esYQN3E8S6I_Li1Z",
+      "id": "-rf5iY5JDtsKz6YGfXhI4",
       "text": "VPN logs show access from inside the HQ subnet",
       "x": 800,
       "y": 640,
-      "createdAt": "2026-07-03T22:00:16.231Z",
+      "createdAt": "2026-07-10T04:57:10.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "D",
       "infoCredibility": 4
     },
     {
-      "id": "curNkp7RSWP4g9UJNhafs",
-      "text": "Forum chatter claims an insider sold ACME access",
-      "x": 720,
-      "y": 800,
-      "createdAt": "2026-07-03T22:09:40.231Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "evidence",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
-      "sourceNote": "Single dark-web forum post, unverified"
-    },
-    {
-      "id": "jRRqchkFF5wEHaqXXYefz",
-      "text": "Ransom note demands payment in Monero",
-      "x": 460,
-      "y": 800,
-      "createdAt": "2026-07-03T22:07:19.231Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "evidence",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
-      "sourceReliability": "C",
-      "infoCredibility": 2
-    },
-    {
-      "id": "KEsduuN59RxFGVYe73jdh",
-      "text": "Phishing lure written in fluent corporate English",
-      "x": 1040,
+      "id": "kqGel2n_IuoK5ZbTe_AX0",
+      "text": "Commodity credential-dumping tools used throughout",
+      "x": 560,
       "y": 640,
-      "createdAt": "2026-07-03T22:02:37.231Z",
+      "createdAt": "2026-07-10T04:54:49.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "C",
       "infoCredibility": 3
     },
     {
-      "id": "tslV3ZhEK9WBGMFwoE54I",
-      "text": "APT-Q is known to sell tooling to affiliates",
-      "x": 200,
-      "y": 800,
-      "createdAt": "2026-07-03T22:04:58.231Z",
+      "id": "O3CmdAkTtwLfiIncc_pli",
+      "text": "C2 infrastructure overlaps a 2024 APT-Q campaign",
+      "x": 320,
+      "y": 640,
+      "createdAt": "2026-07-10T04:52:28.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "sourceReliability": "B",
+      "infoCredibility": 3
+    },
+    {
+      "id": "QT7jCb9STuDIRYhtFR8xV",
+      "text": "Phishing lure written in fluent corporate English",
+      "x": 1040,
+      "y": 640,
+      "createdAt": "2026-07-10T04:59:31.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "sourceReliability": "C",
+      "infoCredibility": 3
+    },
+    {
+      "id": "4RgQMpRDYqVYEvIJLv3Vd",
+      "text": "Ransom note demands payment in Monero",
+      "x": 460,
+      "y": 800,
+      "createdAt": "2026-07-10T05:04:13.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "sourceReliability": "C",
+      "infoCredibility": 2
+    },
+    {
+      "id": "gLGt3PIDVstG4bIocmG1L",
+      "text": "APT-Q is known to sell tooling to affiliates",
+      "x": 200,
+      "y": 800,
+      "createdAt": "2026-07-10T05:01:52.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "B",
       "infoCredibility": 2
     },
     {
-      "id": "AgiC183wRVrNgRR4CxKBi",
+      "id": "IwnVv79OJgrZXvhJ2UJcH",
+      "text": "Forum chatter claims an insider sold ACME access",
+      "x": 720,
+      "y": 800,
+      "createdAt": "2026-07-10T05:06:34.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "sourceNote": "Single dark-web forum post, unverified"
+    },
+    {
+      "id": "_j4GtLrRCNAc8GOY6hgS9",
       "text": "The loader was custom-built for this intrusion",
       "x": 160,
       "y": 240,
-      "createdAt": "2026-07-03T22:26:54.231Z",
+      "createdAt": "2026-07-10T05:23:48.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "claim",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF",
+      "threadId": "kMSJvkjBX8TQje4_i-km1",
       "status": "adopted",
       "likelihood": "likely",
       "confidence": "high"
     },
     {
-      "id": "DvqkkyQMlE5TTB3nb-rmF",
+      "id": "kMSJvkjBX8TQje4_i-km1",
       "text": "Was the loader custom-built?",
       "x": 60,
       "y": 60,
-      "createdAt": "2026-07-03T22:26:07.231Z",
+      "createdAt": "2026-07-10T05:23:01.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "question",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF",
+      "threadId": "kMSJvkjBX8TQje4_i-km1",
       "status": "answered",
       "mutuallyExclusive": false,
-      "parentThreadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "LQqCRxdFjhA2p377ZCuHm",
+      "id": "b0EuV9RgMrlnwNNFJ_qJe",
       "text": "The loader was assembled from a leaked builder",
       "x": 460,
       "y": 240,
-      "createdAt": "2026-07-03T22:29:15.231Z",
+      "createdAt": "2026-07-10T05:26:09.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "claim",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF",
+      "threadId": "kMSJvkjBX8TQje4_i-km1",
       "status": "open",
       "likelihood": "unlikely",
       "confidence": "low"
     },
     {
-      "id": "nd_MDefNMefddrruuVfeg",
+      "id": "n2Akqqohywclc_U9aeUfj",
       "text": "No builder artifacts for this loader found in the wild",
       "x": 300,
       "y": 480,
-      "createdAt": "2026-07-03T22:33:10.231Z",
+      "createdAt": "2026-07-10T05:30:04.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF",
+      "threadId": "kMSJvkjBX8TQje4_i-km1",
       "sourceReliability": "C",
       "infoCredibility": 2
     },
     {
-      "id": "TVm0qNv872czOqcniRZAR",
+      "id": "KlaamwcnFO0Emf3r2x3Kp",
       "text": "The loader was custom-built for this intrusion",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "x": 90,
       "y": 980,
-      "createdAt": "2026-07-03T22:39:26.231Z",
-      "derivedFrom": "AgiC183wRVrNgRR4CxKBi",
+      "createdAt": "2026-07-10T05:36:20.626Z",
+      "derivedFrom": "_j4GtLrRCNAc8GOY6hgS9",
       "stale": {
         "kind": "undermined",
-        "causeEventId": "Ah1S5eZvC6SUi2A0_e8kW"
+        "causeEventId": "pLHJhkSqlTHt67yEPOXrg"
       },
       "type": "evidence",
       "sourceReliability": "B",
       "infoCredibility": 3
     },
     {
-      "id": "7lhSzplytxrOrGTct_7Lm",
+      "id": "8sSk0QFascc0Gu4B9C_6D",
       "text": "Who had physical access to the build server?",
       "x": 1040,
       "y": 60,
-      "createdAt": "2026-07-03T22:44:08.231Z",
+      "createdAt": "2026-07-10T05:41:02.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "question",
-      "threadId": "7lhSzplytxrOrGTct_7Lm",
+      "threadId": "8sSk0QFascc0Gu4B9C_6D",
       "status": "open",
       "mutuallyExclusive": false,
-      "parentThreadId": "w0E-Nv7YbhhSW_UJgLLEb",
+      "parentThreadId": "25MbrMKvX91hR1UUQdQ1j",
       "priority": "high"
+    },
+    {
+      "id": "dqVLj2I5qL7_IIiAGRQ89",
+      "text": "Intrusion at ACME — June 2026",
+      "x": 420,
+      "y": 40,
+      "createdAt": "2026-07-10T05:43:23.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "incident",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "status": "open"
+    },
+    {
+      "id": "-5D29BPXmSXtqnHZAdb0Z",
+      "text": "KESTREL loader executed on FIN-WS-041",
+      "x": 540,
+      "y": 260,
+      "createdAt": "2026-07-10T05:48:05.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "diamond_event",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "phase": "exploitation",
+      "result": "success",
+      "direction": "infrastructure_to_victim",
+      "occurredAt": "2026-06-09"
+    },
+    {
+      "id": "1whp2JER_DxRfLFhMilHo",
+      "text": "Staged archive exfiltrated over HTTPS",
+      "x": 1460,
+      "y": 260,
+      "createdAt": "2026-07-10T05:55:55.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "diamond_event",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "phase": "actions_on_objectives",
+      "result": "success",
+      "direction": "victim_to_infrastructure",
+      "occurredAt": "2026-06-11"
+    },
+    {
+      "id": "4G25jhKQRgts2IqTR4bh4",
+      "text": "Finance-themed phishing lure delivered to 41 staff",
+      "x": 80,
+      "y": 260,
+      "createdAt": "2026-07-10T05:44:10.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "diamond_event",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "phase": "delivery",
+      "result": "success",
+      "direction": "infrastructure_to_victim",
+      "occurredAt": "2026-06-09"
+    },
+    {
+      "id": "bTzRZlNsZooInNkc2ZB3e",
+      "text": "Beaconing to bulletproof host 45.155.87.12",
+      "x": 1000,
+      "y": 260,
+      "createdAt": "2026-07-10T05:52:00.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "diamond_event",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "phase": "command_and_control",
+      "result": "success",
+      "direction": "bidirectional",
+      "occurredAt": "2026-06-10"
+    },
+    {
+      "id": "154HdobIcA8tcLkANl55B",
+      "text": "Unattributed — tracked as UNC-ACME",
+      "x": 1010,
+      "y": 40,
+      "createdAt": "2026-07-10T06:00:37.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "adversary",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "low"
+    },
+    {
+      "id": "2P2dViG4I2UMp4g-kz5GG",
+      "text": "ACME finance workstation FIN-WS-041",
+      "x": 760,
+      "y": 700,
+      "createdAt": "2026-07-10T06:06:53.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "victim",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "high"
+    },
+    {
+      "id": "7CjSlcnnKwFNY0qW-1U2l",
+      "text": "RDP login from dormant service account",
+      "x": 1920,
+      "y": 260,
+      "createdAt": "2026-07-10T05:59:50.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "diamond_event",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "B47_Afm-n85oljyZBNZcQ",
+      "text": "Spear-phish lure, finance theme",
+      "x": 40,
+      "y": 540,
+      "createdAt": "2026-07-10T06:03:45.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "capability",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "moderate"
+    },
+    {
+      "id": "snQnngRkdaNwStrfshXdQ",
+      "text": "KESTREL loader (custom build)",
+      "x": 470,
+      "y": 540,
+      "createdAt": "2026-07-10T06:02:11.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "capability",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "moderate"
+    },
+    {
+      "id": "WinCazO9X_IeeLuyo91CA",
+      "text": "Bulletproof host 45.155.87.12 (C2)",
+      "x": 1220,
+      "y": 540,
+      "createdAt": "2026-07-10T06:05:19.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "infrastructure",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "high"
+    },
+    {
+      "id": "-NVWAmUusUlWSMW_zlmUI",
+      "text": "Mail gateway logs: 41 lure deliveries, 3 clicks",
+      "x": 40,
+      "y": 880,
+      "createdAt": "2026-07-10T06:14:43.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "sourceReliability": "B",
+      "infoCredibility": 2
+    },
+    {
+      "id": "hEk7_XPngbzqa0DfbVJ2G",
+      "text": "Passive DNS ties 45.155.87.12 to a 2024 APT-Q campaign",
+      "x": 1220,
+      "y": 880,
+      "createdAt": "2026-07-10T06:17:04.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "sourceReliability": "C",
+      "infoCredibility": 3
+    },
+    {
+      "id": "XCoPkZz6UWrwHibScVnCT",
+      "text": "Host serves dozens of unrelated bulletproof clients",
+      "x": 1400,
+      "y": 40,
+      "createdAt": "2026-07-10T06:19:25.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "sourceReliability": "C",
+      "infoCredibility": 3
+    },
+    {
+      "id": "Yjr0Y_2bTcjjK8o5RJANj",
+      "text": "Initial access was via the finance-themed phishing wave",
+      "x": 1920,
+      "y": 700,
+      "createdAt": "2026-07-10T06:24:07.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "claim",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "status": "open",
+      "likelihood": "likely",
+      "confidence": "moderate"
     }
   ],
   "edges": [
     {
-      "id": "ibqHeiUd_cpBgSE4d5xzu",
+      "id": "9UcJsVM2Jzr-XUkyEDLmu",
       "type": "answers",
-      "from": "NEsvEWUm_upFgyuo1nraC",
-      "to": "w0E-Nv7YbhhSW_UJgLLEb",
-      "createdAt": "2026-07-03T21:38:20.231Z"
+      "from": "WVqcf4DfJeSnvVOOJzN6o",
+      "to": "25MbrMKvX91hR1UUQdQ1j",
+      "createdAt": "2026-07-10T04:36:01.626Z"
     },
     {
-      "id": "OlX9NcifW_7A8mplPUrtt",
+      "id": "JBs4wYix14jMJI6L81FVG",
       "type": "answers",
-      "from": "YONR-N7nu7n5sbiASNQLb",
-      "to": "w0E-Nv7YbhhSW_UJgLLEb",
-      "createdAt": "2026-07-03T21:39:54.231Z"
+      "from": "VTG2ZUvZKLWdx88jCWAT2",
+      "to": "25MbrMKvX91hR1UUQdQ1j",
+      "createdAt": "2026-07-10T04:35:14.626Z"
     },
     {
-      "id": "YUP9PkTXoTegixacO4Kuh",
+      "id": "YMp0w9ulTRIeiNRLYW5te",
       "type": "answers",
-      "from": "-H2sO0k9LYQbZ47t_M012",
-      "to": "w0E-Nv7YbhhSW_UJgLLEb",
-      "createdAt": "2026-07-03T21:39:07.231Z"
+      "from": "Hcw3Hedkq4xwO18hY07Zp",
+      "to": "25MbrMKvX91hR1UUQdQ1j",
+      "createdAt": "2026-07-10T04:36:48.626Z"
     },
     {
-      "id": "E0j30n4686g1VLJaKymtU",
+      "id": "-cLSiYRqaUDtAVbd_JOKn",
       "type": "rests_on",
-      "from": "NEsvEWUm_upFgyuo1nraC",
-      "to": "pGqhnVlVYWvTzQ17O293W",
-      "createdAt": "2026-07-03T21:50:05.231Z"
+      "from": "VTG2ZUvZKLWdx88jCWAT2",
+      "to": "S3nwvBJyya8NE-Aruj9N5",
+      "createdAt": "2026-07-10T04:46:12.626Z"
     },
     {
-      "id": "n0zZ9RMzmUFmld-EYXF7C",
+      "id": "uE03BLzlDIjoFeeTDAO9l",
       "type": "rests_on",
-      "from": "NEsvEWUm_upFgyuo1nraC",
-      "to": "FX68DnseeA3IcKsI4BpGD",
-      "createdAt": "2026-07-03T21:49:18.231Z"
+      "from": "VTG2ZUvZKLWdx88jCWAT2",
+      "to": "OhiSoh7GuTlvfLeEgTG-c",
+      "createdAt": "2026-07-10T04:46:59.626Z"
     },
     {
-      "id": "0TEIUm9zCwBmHOsmSLA_f",
+      "id": "mmZ_PWvP-Cqt44GHhK3il",
       "type": "rests_on",
-      "from": "YONR-N7nu7n5sbiASNQLb",
-      "to": "WAvGAxEV3YQvMyqB-tNKL",
-      "createdAt": "2026-07-03T21:51:39.231Z"
+      "from": "Hcw3Hedkq4xwO18hY07Zp",
+      "to": "YIeY4oSxMXW1mHdAnqZko",
+      "createdAt": "2026-07-10T04:48:33.626Z"
     },
     {
-      "id": "PBGxacuo4Yo_UXpAYsux0",
+      "id": "TPs3OzShSOLeimWV2TnWT",
       "type": "rests_on",
-      "from": "YONR-N7nu7n5sbiASNQLb",
-      "to": "SUyDko3GeuRUTZZg9vzDF",
-      "createdAt": "2026-07-03T21:50:52.231Z"
+      "from": "Hcw3Hedkq4xwO18hY07Zp",
+      "to": "TutiMqe8-ncmcza2LKUKz",
+      "createdAt": "2026-07-10T04:47:46.626Z"
     },
     {
-      "id": "2qoidMmwWAHYsgifjSw2q",
-      "type": "consistent_with",
-      "from": "ZvVB7n126yAerDeR3noBB",
-      "to": "-H2sO0k9LYQbZ47t_M012",
-      "createdAt": "2026-07-03T22:12:01.231Z"
-    },
-    {
-      "id": "aHdTnaOUygiJYXGFtrzY1",
-      "type": "consistent_with",
-      "from": "C0ld47SwAqCHYrRJoWtnp",
-      "to": "NEsvEWUm_upFgyuo1nraC",
-      "createdAt": "2026-07-03T22:15:09.231Z"
-    },
-    {
-      "id": "cQbpNSf1ec5M4RXY1r38Q",
-      "type": "consistent_with",
-      "from": "0-gjWgagkFa_iuhw8811p",
-      "to": "NEsvEWUm_upFgyuo1nraC",
-      "createdAt": "2026-07-03T22:13:35.231Z"
-    },
-    {
-      "id": "ctJyctcoJwMr35I2Wvp3W",
-      "type": "consistent_with",
-      "from": "ZvVB7n126yAerDeR3noBB",
-      "to": "NEsvEWUm_upFgyuo1nraC",
-      "createdAt": "2026-07-03T22:11:14.231Z"
-    },
-    {
-      "id": "n-NZGaKANmyQWtPqviYBh",
+      "id": "9LUM1yHKgxGatHSvJp51a",
       "type": "inconsistent_with",
-      "from": "0-gjWgagkFa_iuhw8811p",
-      "to": "YONR-N7nu7n5sbiASNQLb",
-      "createdAt": "2026-07-03T22:14:22.231Z"
+      "from": "bL8p1PPQc_j1i4aqEdoSO",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:09:42.626Z"
     },
     {
-      "id": "oZ6VLc1LWQW4MG5m1teSp",
+      "id": "ElK23SHeZkpMVnS_M6U6z",
+      "type": "consistent_with",
+      "from": "kqGel2n_IuoK5ZbTe_AX0",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:12:03.626Z"
+    },
+    {
+      "id": "fqkNHewjr5J3NASYnXfTr",
+      "type": "consistent_with",
+      "from": "bL8p1PPQc_j1i4aqEdoSO",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:08:55.626Z"
+    },
+    {
+      "id": "WecIY4s9p4CcfX01yEYJd",
+      "type": "consistent_with",
+      "from": "O3CmdAkTtwLfiIncc_pli",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:10:29.626Z"
+    },
+    {
+      "id": "x7XfCISlWdjqn3zjg2b3K",
+      "type": "consistent_with",
+      "from": "bL8p1PPQc_j1i4aqEdoSO",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:08:08.626Z"
+    },
+    {
+      "id": "XfiB5a3Ed_rPcalrFRYoc",
       "type": "inconsistent_with",
-      "from": "ZvVB7n126yAerDeR3noBB",
-      "to": "YONR-N7nu7n5sbiASNQLb",
-      "createdAt": "2026-07-03T22:12:48.231Z"
+      "from": "O3CmdAkTtwLfiIncc_pli",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:11:16.626Z"
     },
     {
-      "id": "65RH1wCc5ZVE9DWHkc1E-",
+      "id": "NASzUcjjd-Tkbw9WTdoVV",
+      "type": "consistent_with",
+      "from": "kqGel2n_IuoK5ZbTe_AX0",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:12:50.626Z"
+    },
+    {
+      "id": "TVwiC8NvPFFaXSNyU87Yq",
+      "type": "consistent_with",
+      "from": "kqGel2n_IuoK5ZbTe_AX0",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:13:37.626Z"
+    },
+    {
+      "id": "Wt_2JmwGAhC6X5nm89-1j",
+      "type": "consistent_with",
+      "from": "-rf5iY5JDtsKz6YGfXhI4",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:14:24.626Z"
+    },
+    {
+      "id": "JfTb8-iv7bjc7Oap30sxv",
       "type": "inconsistent_with",
-      "from": "uVxu3esYQN3E8S6I_Li1Z",
-      "to": "NEsvEWUm_upFgyuo1nraC",
-      "createdAt": "2026-07-03T22:18:17.231Z"
+      "from": "-rf5iY5JDtsKz6YGfXhI4",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:15:11.626Z"
     },
     {
-      "id": "8DhpbRoh34Aw3j-IFgnJ7",
+      "id": "pawMHNBLw1DN_xjdJMh8F",
       "type": "consistent_with",
-      "from": "KEsduuN59RxFGVYe73jdh",
-      "to": "YONR-N7nu7n5sbiASNQLb",
-      "createdAt": "2026-07-03T22:19:04.231Z"
+      "from": "QT7jCb9STuDIRYhtFR8xV",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:16:45.626Z"
     },
     {
-      "id": "FUCGOpKESKPOEnPKLT5Kn",
+      "id": "rm4C_5pWDLyKi0n_1jUUM",
       "type": "consistent_with",
-      "from": "KEsduuN59RxFGVYe73jdh",
-      "to": "-H2sO0k9LYQbZ47t_M012",
-      "createdAt": "2026-07-03T22:19:51.231Z"
+      "from": "QT7jCb9STuDIRYhtFR8xV",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:15:58.626Z"
     },
     {
-      "id": "NRIJQ4SmknK0w0uPANf3l",
+      "id": "vUMQKH2-d9KPp9-1t1EIz",
       "type": "consistent_with",
-      "from": "C0ld47SwAqCHYrRJoWtnp",
-      "to": "-H2sO0k9LYQbZ47t_M012",
-      "createdAt": "2026-07-03T22:15:56.231Z"
+      "from": "gLGt3PIDVstG4bIocmG1L",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:17:32.626Z"
     },
     {
-      "id": "RD_BPjetA1YzGob2FtyHz",
-      "type": "consistent_with",
-      "from": "C0ld47SwAqCHYrRJoWtnp",
-      "to": "YONR-N7nu7n5sbiASNQLb",
-      "createdAt": "2026-07-03T22:16:43.231Z"
-    },
-    {
-      "id": "roslm2ed1kFM-pOvQ5-yq",
-      "type": "consistent_with",
-      "from": "tslV3ZhEK9WBGMFwoE54I",
-      "to": "-H2sO0k9LYQbZ47t_M012",
-      "createdAt": "2026-07-03T22:20:38.231Z"
-    },
-    {
-      "id": "woFBbso8YpBSAvz9XrmNh",
-      "type": "consistent_with",
-      "from": "jRRqchkFF5wEHaqXXYefz",
-      "to": "-H2sO0k9LYQbZ47t_M012",
-      "createdAt": "2026-07-03T22:21:25.231Z"
-    },
-    {
-      "id": "YVgmv1xrpr_Kew37pO8Sp",
-      "type": "consistent_with",
-      "from": "uVxu3esYQN3E8S6I_Li1Z",
-      "to": "YONR-N7nu7n5sbiASNQLb",
-      "createdAt": "2026-07-03T22:17:30.231Z"
-    },
-    {
-      "id": "A_y9N1tn8Ed2tQQf99Ibw",
-      "type": "consistent_with",
-      "from": "curNkp7RSWP4g9UJNhafs",
-      "to": "YONR-N7nu7n5sbiASNQLb",
-      "createdAt": "2026-07-03T22:22:59.231Z"
-    },
-    {
-      "id": "ATGnZyRFQKLNbIErHOLLM",
+      "id": "kkPC41aizDeR7aLSnNjN8",
       "type": "inconsistent_with",
-      "from": "jRRqchkFF5wEHaqXXYefz",
-      "to": "NEsvEWUm_upFgyuo1nraC",
-      "createdAt": "2026-07-03T22:22:12.231Z"
+      "from": "4RgQMpRDYqVYEvIJLv3Vd",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:19:06.626Z"
     },
     {
-      "id": "_X9AafsJvpVTQlH1k07as",
+      "id": "RkcEnZ-kC4oC0nWpDwxJ5",
+      "type": "consistent_with",
+      "from": "4RgQMpRDYqVYEvIJLv3Vd",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:18:19.626Z"
+    },
+    {
+      "id": "y9Enxvrg8z0LPxqVurl62",
+      "type": "consistent_with",
+      "from": "IwnVv79OJgrZXvhJ2UJcH",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:19:53.626Z"
+    },
+    {
+      "id": "akPAVJpACe8BdKckTJ_eo",
+      "type": "inconsistent_with",
+      "from": "n2Akqqohywclc_U9aeUfj",
+      "to": "b0EuV9RgMrlnwNNFJ_qJe",
+      "createdAt": "2026-07-10T05:33:12.626Z"
+    },
+    {
+      "id": "IRYdRI0-F02URq8m5nZWy",
+      "type": "consistent_with",
+      "from": "n2Akqqohywclc_U9aeUfj",
+      "to": "_j4GtLrRCNAc8GOY6hgS9",
+      "createdAt": "2026-07-10T05:32:25.626Z"
+    },
+    {
+      "id": "oSnRO5_Z9xtyT0i6pxu72",
       "type": "answers",
-      "from": "LQqCRxdFjhA2p377ZCuHm",
-      "to": "DvqkkyQMlE5TTB3nb-rmF",
-      "createdAt": "2026-07-03T22:32:23.231Z"
+      "from": "_j4GtLrRCNAc8GOY6hgS9",
+      "to": "kMSJvkjBX8TQje4_i-km1",
+      "createdAt": "2026-07-10T05:28:30.626Z"
     },
     {
-      "id": "7yabzsTJ2MNm9RiLVjSqW",
-      "type": "inconsistent_with",
-      "from": "nd_MDefNMefddrruuVfeg",
-      "to": "LQqCRxdFjhA2p377ZCuHm",
-      "createdAt": "2026-07-03T22:36:18.231Z"
-    },
-    {
-      "id": "qYdhoyyCWiU4FxTypU8xx",
-      "type": "consistent_with",
-      "from": "nd_MDefNMefddrruuVfeg",
-      "to": "AgiC183wRVrNgRR4CxKBi",
-      "createdAt": "2026-07-03T22:35:31.231Z"
-    },
-    {
-      "id": "R21-dLzyZgAR3bc-8YBUX",
+      "id": "S-moiJ3dEZqh0eePnT_Jx",
       "type": "answers",
-      "from": "AgiC183wRVrNgRR4CxKBi",
-      "to": "DvqkkyQMlE5TTB3nb-rmF",
-      "createdAt": "2026-07-03T22:31:36.231Z"
+      "from": "b0EuV9RgMrlnwNNFJ_qJe",
+      "to": "kMSJvkjBX8TQje4_i-km1",
+      "createdAt": "2026-07-10T05:29:17.626Z"
     },
     {
-      "id": "gZhingcQcvow3YzjTO3tH",
+      "id": "TN_qaZMe7Cw9cs--QJagS",
       "type": "consistent_with",
-      "from": "TVm0qNv872czOqcniRZAR",
-      "to": "NEsvEWUm_upFgyuo1nraC",
-      "createdAt": "2026-07-03T22:41:47.231Z"
+      "from": "KlaamwcnFO0Emf3r2x3Kp",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:38:41.626Z"
+    },
+    {
+      "id": "ara7-pgSQrRNe6iSb3CFw",
+      "type": "characterizes",
+      "from": "B47_Afm-n85oljyZBNZcQ",
+      "to": "4G25jhKQRgts2IqTR4bh4",
+      "createdAt": "2026-07-10T06:08:27.626Z"
+    },
+    {
+      "id": "299gWDQGb-NJcyHlM63lE",
+      "type": "characterizes",
+      "from": "2P2dViG4I2UMp4g-kz5GG",
+      "to": "-5D29BPXmSXtqnHZAdb0Z",
+      "createdAt": "2026-07-10T06:10:48.626Z"
+    },
+    {
+      "id": "aDdCxMlrcf313RFiTGma_",
+      "type": "characterizes",
+      "from": "154HdobIcA8tcLkANl55B",
+      "to": "bTzRZlNsZooInNkc2ZB3e",
+      "createdAt": "2026-07-10T06:11:35.626Z"
+    },
+    {
+      "id": "bFb5iZiJ5cYDeYtUHFoKW",
+      "type": "characterizes",
+      "from": "2P2dViG4I2UMp4g-kz5GG",
+      "to": "4G25jhKQRgts2IqTR4bh4",
+      "createdAt": "2026-07-10T06:09:14.626Z"
+    },
+    {
+      "id": "mgyU4HTTDu42S_aXjQZTy",
+      "type": "characterizes",
+      "from": "WinCazO9X_IeeLuyo91CA",
+      "to": "bTzRZlNsZooInNkc2ZB3e",
+      "createdAt": "2026-07-10T06:12:22.626Z"
+    },
+    {
+      "id": "n5vu-5DjySwcnDBTrw14i",
+      "type": "characterizes",
+      "from": "WinCazO9X_IeeLuyo91CA",
+      "to": "1whp2JER_DxRfLFhMilHo",
+      "createdAt": "2026-07-10T06:13:09.626Z"
+    },
+    {
+      "id": "Rw1PxE_EHV_jxAK5Wqoic",
+      "type": "characterizes",
+      "from": "snQnngRkdaNwStrfshXdQ",
+      "to": "-5D29BPXmSXtqnHZAdb0Z",
+      "createdAt": "2026-07-10T06:10:01.626Z"
+    },
+    {
+      "id": "f-JfWaXusWSAanfWLHVul",
+      "type": "characterizes",
+      "from": "2P2dViG4I2UMp4g-kz5GG",
+      "to": "1whp2JER_DxRfLFhMilHo",
+      "createdAt": "2026-07-10T06:13:56.626Z"
+    },
+    {
+      "id": "uoSE-vs5_jJP-KTcLAKW4",
+      "type": "consistent_with",
+      "from": "-NVWAmUusUlWSMW_zlmUI",
+      "to": "B47_Afm-n85oljyZBNZcQ",
+      "createdAt": "2026-07-10T06:21:46.626Z"
+    },
+    {
+      "id": "HvQcTHp_TJPDuVoXc5Hsj",
+      "type": "inconsistent_with",
+      "from": "XCoPkZz6UWrwHibScVnCT",
+      "to": "154HdobIcA8tcLkANl55B",
+      "createdAt": "2026-07-10T06:23:20.626Z"
+    },
+    {
+      "id": "u_5ykKgAqEpp7DbCzEU7f",
+      "type": "answers",
+      "from": "Yjr0Y_2bTcjjK8o5RJANj",
+      "to": "dqVLj2I5qL7_IIiAGRQ89",
+      "createdAt": "2026-07-10T06:26:28.626Z"
+    },
+    {
+      "id": "YAd8pUDMjOQUX_1g2oqNs",
+      "type": "consistent_with",
+      "from": "hEk7_XPngbzqa0DfbVJ2G",
+      "to": "WinCazO9X_IeeLuyo91CA",
+      "createdAt": "2026-07-10T06:22:33.626Z"
     }
   ],
   "events": [
     {
-      "id": "vvA4rsk9XuqrDepXSUirz",
+      "id": "GfazZGVYTuJCXdHyGyxVU",
       "seq": 0,
-      "at": "2026-07-01T21:38:20.231Z",
+      "at": "2026-07-08T04:35:14.626Z",
       "type": "thread_created",
       "payload": {
-        "rootQuestionId": "w0E-Nv7YbhhSW_UJgLLEb",
+        "rootQuestionId": "25MbrMKvX91hR1UUQdQ1j",
         "parentThreadId": null
       },
-      "nodeId": "w0E-Nv7YbhhSW_UJgLLEb",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "25MbrMKvX91hR1UUQdQ1j",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "EC4tmebdYvh3zRuYQgc9I",
+      "id": "K5Y1G1L_4pWEnIR3OCyLN",
       "seq": 1,
-      "at": "2026-07-01T21:39:07.231Z",
+      "at": "2026-07-08T04:36:01.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "w0E-Nv7YbhhSW_UJgLLEb",
+          "id": "25MbrMKvX91hR1UUQdQ1j",
           "text": "Is APT-Q responsible for the intrusion at ACME?",
           "x": 420,
           "y": 40,
-          "createdAt": "2026-07-01T21:39:07.231Z",
+          "createdAt": "2026-07-08T04:36:01.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "question",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open",
           "mutuallyExclusive": false
         },
         "captureMs": 7000
       },
-      "nodeId": "w0E-Nv7YbhhSW_UJgLLEb",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "25MbrMKvX91hR1UUQdQ1j",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "qR5-upNdcw6DGf9mvKZVJ",
+      "id": "2HAN2zNrD4IKkJ03HGM37",
       "seq": 2,
-      "at": "2026-07-01T21:39:54.231Z",
+      "at": "2026-07-08T04:36:48.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "mutuallyExclusive",
         "before": false,
         "after": true
       },
-      "nodeId": "w0E-Nv7YbhhSW_UJgLLEb",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "25MbrMKvX91hR1UUQdQ1j",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "D-FhY45i0CNU7SqYBImJy",
+      "id": "iFqOjoHJgIVmLD_efVy0Y",
       "seq": 3,
-      "at": "2026-07-01T21:40:41.231Z",
+      "at": "2026-07-08T04:37:35.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "NEsvEWUm_upFgyuo1nraC",
+          "id": "VTG2ZUvZKLWdx88jCWAT2",
           "text": "APT-Q conducted the intrusion",
           "x": 140,
           "y": 230,
-          "createdAt": "2026-07-01T21:40:41.231Z",
+          "createdAt": "2026-07-08T04:37:35.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open"
         },
         "captureMs": 5000
       },
-      "nodeId": "NEsvEWUm_upFgyuo1nraC",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "VTG2ZUvZKLWdx88jCWAT2",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "DrMueryLx0RIF4QLHMwf-",
+      "id": "FYKw7b4otVGECZxXl7WqH",
       "seq": 4,
-      "at": "2026-07-01T21:41:28.231Z",
+      "at": "2026-07-08T04:38:22.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "likely"
       },
-      "nodeId": "NEsvEWUm_upFgyuo1nraC",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "VTG2ZUvZKLWdx88jCWAT2",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "fR8e28aBDpNUEUNPMw0VY",
+      "id": "HMrYhS0XQswa7YXiqJVie",
       "seq": 5,
-      "at": "2026-07-01T21:42:15.231Z",
+      "at": "2026-07-08T04:39:09.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "moderate"
       },
-      "nodeId": "NEsvEWUm_upFgyuo1nraC",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "VTG2ZUvZKLWdx88jCWAT2",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "zbPWcjIzPJUzlaGiAVMHm",
+      "id": "QZVvHAad9z5QKbQ_xDTSg",
       "seq": 6,
-      "at": "2026-07-01T21:43:02.231Z",
+      "at": "2026-07-08T04:39:56.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "-H2sO0k9LYQbZ47t_M012",
+          "id": "WVqcf4DfJeSnvVOOJzN6o",
           "text": "A criminal affiliate reused APT-Q tooling",
           "x": 430,
           "y": 230,
-          "createdAt": "2026-07-01T21:43:02.231Z",
+          "createdAt": "2026-07-08T04:39:56.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open"
         },
         "captureMs": 6000
       },
-      "nodeId": "-H2sO0k9LYQbZ47t_M012",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "oc2LFwftOj4gGRzGGOU23",
+      "id": "JCYB710A7Oi0CxZLGVkBe",
       "seq": 7,
-      "at": "2026-07-01T21:43:49.231Z",
+      "at": "2026-07-08T04:40:43.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "realistic_possibility"
       },
-      "nodeId": "-H2sO0k9LYQbZ47t_M012",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "hlFbwvi-xsyTuxLtFfKmT",
+      "id": "JphQlEz1O-TDdHpFIAhJe",
       "seq": 8,
-      "at": "2026-07-01T21:44:36.231Z",
+      "at": "2026-07-08T04:41:30.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "low"
       },
-      "nodeId": "-H2sO0k9LYQbZ47t_M012",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "wmkRM7cM8YNkdU3GtNrXC",
+      "id": "9WFjB67LeQFy0LtSTVJpR",
       "seq": 9,
-      "at": "2026-07-01T21:45:23.231Z",
+      "at": "2026-07-08T04:42:17.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "YONR-N7nu7n5sbiASNQLb",
+          "id": "Hcw3Hedkq4xwO18hY07Zp",
           "text": "An insider staged the intrusion to look external",
           "x": 720,
           "y": 230,
-          "createdAt": "2026-07-01T21:45:23.231Z",
+          "createdAt": "2026-07-08T04:42:17.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open"
         },
         "captureMs": 7000
       },
-      "nodeId": "YONR-N7nu7n5sbiASNQLb",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "Hcw3Hedkq4xwO18hY07Zp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "p_-LmP0IZ3QkpFjz9P-5o",
+      "id": "UqIiyz6g8sa6D_al8PYw-",
       "seq": 10,
-      "at": "2026-07-01T21:46:10.231Z",
+      "at": "2026-07-08T04:43:04.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "unlikely"
       },
-      "nodeId": "YONR-N7nu7n5sbiASNQLb",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "Hcw3Hedkq4xwO18hY07Zp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "vK_DLwXDN0qvL00Jk4AqE",
+      "id": "f6Dn4B_U8ogKCJ7XUgyiI",
       "seq": 11,
-      "at": "2026-07-01T21:46:57.231Z",
+      "at": "2026-07-08T04:43:51.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "low"
       },
-      "nodeId": "YONR-N7nu7n5sbiASNQLb",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "Hcw3Hedkq4xwO18hY07Zp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "FgeBimfe5l51LkhtYMF9l",
+      "id": "YF-qgnPJRzwOiWkqnTG7X",
       "seq": 12,
-      "at": "2026-07-03T21:38:20.231Z",
+      "at": "2026-07-10T04:35:14.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "ibqHeiUd_cpBgSE4d5xzu",
+          "id": "JBs4wYix14jMJI6L81FVG",
           "type": "answers",
-          "from": "NEsvEWUm_upFgyuo1nraC",
-          "to": "w0E-Nv7YbhhSW_UJgLLEb",
-          "createdAt": "2026-07-03T21:38:20.231Z"
+          "from": "VTG2ZUvZKLWdx88jCWAT2",
+          "to": "25MbrMKvX91hR1UUQdQ1j",
+          "createdAt": "2026-07-10T04:35:14.626Z"
         }
       },
-      "edgeId": "ibqHeiUd_cpBgSE4d5xzu",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "JBs4wYix14jMJI6L81FVG",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "EkYkfHRKsCdMIoQakXlGU",
+      "id": "eWDiqAyfqQM2600UPBrDQ",
       "seq": 13,
-      "at": "2026-07-03T21:39:07.231Z",
+      "at": "2026-07-10T04:36:01.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "YUP9PkTXoTegixacO4Kuh",
+          "id": "9UcJsVM2Jzr-XUkyEDLmu",
           "type": "answers",
-          "from": "-H2sO0k9LYQbZ47t_M012",
-          "to": "w0E-Nv7YbhhSW_UJgLLEb",
-          "createdAt": "2026-07-03T21:39:07.231Z"
+          "from": "WVqcf4DfJeSnvVOOJzN6o",
+          "to": "25MbrMKvX91hR1UUQdQ1j",
+          "createdAt": "2026-07-10T04:36:01.626Z"
         }
       },
-      "edgeId": "YUP9PkTXoTegixacO4Kuh",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "9UcJsVM2Jzr-XUkyEDLmu",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "v_-mr-XUIqB1ZdvMLnl6F",
+      "id": "WSQtvL2lWBSExz0-8eNTw",
       "seq": 14,
-      "at": "2026-07-03T21:39:54.231Z",
+      "at": "2026-07-10T04:36:48.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "OlX9NcifW_7A8mplPUrtt",
+          "id": "YMp0w9ulTRIeiNRLYW5te",
           "type": "answers",
-          "from": "YONR-N7nu7n5sbiASNQLb",
-          "to": "w0E-Nv7YbhhSW_UJgLLEb",
-          "createdAt": "2026-07-03T21:39:54.231Z"
+          "from": "Hcw3Hedkq4xwO18hY07Zp",
+          "to": "25MbrMKvX91hR1UUQdQ1j",
+          "createdAt": "2026-07-10T04:36:48.626Z"
         }
       },
-      "edgeId": "OlX9NcifW_7A8mplPUrtt",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "YMp0w9ulTRIeiNRLYW5te",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "H8YdUbuSkX3djehz-KtzD",
+      "id": "DcKK_S4IGEBO390qsKuNH",
       "seq": 15,
-      "at": "2026-07-03T21:40:41.231Z",
+      "at": "2026-07-10T04:37:35.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "FX68DnseeA3IcKsI4BpGD",
+          "id": "S3nwvBJyya8NE-Aruj9N5",
           "text": "Code overlap implies common authorship",
           "x": 60,
           "y": 430,
-          "createdAt": "2026-07-03T21:40:41.231Z",
+          "createdAt": "2026-07-10T04:37:35.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "assumption",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "linchpin": false
         },
         "captureMs": 3000
       },
-      "nodeId": "FX68DnseeA3IcKsI4BpGD",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "S3nwvBJyya8NE-Aruj9N5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "1dp6i4uc-JViJ8hhvBOrI",
+      "id": "ybhK56eaiI-8PLeTrwyA8",
       "seq": 16,
-      "at": "2026-07-03T21:41:28.231Z",
+      "at": "2026-07-10T04:38:22.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "validity",
         "before": null,
         "after": "caveated"
       },
-      "nodeId": "FX68DnseeA3IcKsI4BpGD",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "S3nwvBJyya8NE-Aruj9N5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "DaP5VTKsHoCB-d5uP5v4u",
+      "id": "AZhPeobev60bdcHWBYiNk",
       "seq": 17,
-      "at": "2026-07-03T21:42:15.231Z",
+      "at": "2026-07-10T04:39:09.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "linchpin",
         "before": false,
         "after": true
       },
-      "nodeId": "FX68DnseeA3IcKsI4BpGD",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "S3nwvBJyya8NE-Aruj9N5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "u7iwBy9fv4YLAR4bJ2Sqf",
+      "id": "V3rNkQbbLIGBW8BqggoyN",
       "seq": 18,
-      "at": "2026-07-03T21:43:02.231Z",
+      "at": "2026-07-10T04:39:56.626Z",
       "type": "node_text_edited",
       "payload": {
         "field": "abandonTrigger",
         "before": null,
         "after": "KESTREL source or builder leaks publicly"
       },
-      "nodeId": "FX68DnseeA3IcKsI4BpGD",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "S3nwvBJyya8NE-Aruj9N5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "ST2mqyF3u6odX-dHQXWUG",
+      "id": "FOaU3sziBo3Rs8JPdAboF",
       "seq": 19,
-      "at": "2026-07-03T21:43:49.231Z",
+      "at": "2026-07-10T04:40:43.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "SUyDko3GeuRUTZZg9vzDF",
+          "id": "TutiMqe8-ncmcza2LKUKz",
           "text": "ACME's VPN logs are complete and untampered",
           "x": 640,
           "y": 430,
-          "createdAt": "2026-07-03T21:43:49.231Z",
+          "createdAt": "2026-07-10T04:40:43.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "assumption",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "linchpin": false
         },
         "captureMs": 5000
       },
-      "nodeId": "SUyDko3GeuRUTZZg9vzDF",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "TutiMqe8-ncmcza2LKUKz",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "edEwiJope-14oo2EviIuP",
+      "id": "lsZNjFHeWv3o9njRfd-tx",
       "seq": 20,
-      "at": "2026-07-03T21:44:36.231Z",
+      "at": "2026-07-10T04:41:30.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "validity",
         "before": null,
         "after": "supported"
       },
-      "nodeId": "SUyDko3GeuRUTZZg9vzDF",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "TutiMqe8-ncmcza2LKUKz",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "SxWgjNhjnwnsTSmIq93l-",
+      "id": "5VUH9xr2-5aGxGRjKDV6u",
       "seq": 21,
-      "at": "2026-07-03T21:45:23.231Z",
+      "at": "2026-07-10T04:42:17.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "WAvGAxEV3YQvMyqB-tNKL",
+          "id": "YIeY4oSxMXW1mHdAnqZko",
           "text": "Access implies intent",
           "x": 880,
           "y": 430,
-          "createdAt": "2026-07-03T21:45:23.231Z",
+          "createdAt": "2026-07-10T04:42:17.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "assumption",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "linchpin": false
         },
         "captureMs": 8000
       },
-      "nodeId": "WAvGAxEV3YQvMyqB-tNKL",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "YIeY4oSxMXW1mHdAnqZko",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "xHi1VDmfh-5BzuVleS1qF",
+      "id": "AjI14dLvZTkSMeZ12iylU",
       "seq": 22,
-      "at": "2026-07-03T21:46:10.231Z",
+      "at": "2026-07-10T04:43:04.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "validity",
         "before": null,
         "after": "unsupported"
       },
-      "nodeId": "WAvGAxEV3YQvMyqB-tNKL",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "YIeY4oSxMXW1mHdAnqZko",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "pLiUU42bRYmj1-SqlTeb0",
+      "id": "yJiqtm44Az5hzE4NzXxAp",
       "seq": 23,
-      "at": "2026-07-03T21:46:57.231Z",
+      "at": "2026-07-10T04:43:51.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "linchpin",
         "before": false,
         "after": true
       },
-      "nodeId": "WAvGAxEV3YQvMyqB-tNKL",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "YIeY4oSxMXW1mHdAnqZko",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "1Bt6hspBzQxCnA8T6pNta",
+      "id": "3RGlok7WoQxeOmfKsX0Js",
       "seq": 24,
-      "at": "2026-07-03T21:47:44.231Z",
+      "at": "2026-07-10T04:44:38.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "pGqhnVlVYWvTzQ17O293W",
+          "id": "OhiSoh7GuTlvfLeEgTG-c",
           "text": "APT-Q does not share infrastructure with affiliates",
           "x": 300,
           "y": 430,
-          "createdAt": "2026-07-03T21:47:44.231Z",
+          "createdAt": "2026-07-10T04:44:38.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "assumption",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "linchpin": false
         },
         "captureMs": 6000
       },
-      "nodeId": "pGqhnVlVYWvTzQ17O293W",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "OhiSoh7GuTlvfLeEgTG-c",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "jDNSCbJhQJ3u36wvRgWu7",
+      "id": "6JApYax79fijmGUgnSNic",
       "seq": 25,
-      "at": "2026-07-03T21:48:31.231Z",
+      "at": "2026-07-10T04:45:25.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "validity",
         "before": null,
         "after": "caveated"
       },
-      "nodeId": "pGqhnVlVYWvTzQ17O293W",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "OhiSoh7GuTlvfLeEgTG-c",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "ntTOU6BWCZKTp3m_GwLuB",
+      "id": "gO7m06Z4OcMBi8EutSPtD",
       "seq": 26,
-      "at": "2026-07-03T21:49:18.231Z",
+      "at": "2026-07-10T04:46:12.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "n0zZ9RMzmUFmld-EYXF7C",
+          "id": "-cLSiYRqaUDtAVbd_JOKn",
           "type": "rests_on",
-          "from": "NEsvEWUm_upFgyuo1nraC",
-          "to": "FX68DnseeA3IcKsI4BpGD",
-          "createdAt": "2026-07-03T21:49:18.231Z"
+          "from": "VTG2ZUvZKLWdx88jCWAT2",
+          "to": "S3nwvBJyya8NE-Aruj9N5",
+          "createdAt": "2026-07-10T04:46:12.626Z"
         }
       },
-      "edgeId": "n0zZ9RMzmUFmld-EYXF7C",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "-cLSiYRqaUDtAVbd_JOKn",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "WmC5xTd2-Ww8n0oX4eVjf",
+      "id": "HpL5QDzBvMur0_fwqrNvY",
       "seq": 27,
-      "at": "2026-07-03T21:50:05.231Z",
+      "at": "2026-07-10T04:46:59.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "E0j30n4686g1VLJaKymtU",
+          "id": "uE03BLzlDIjoFeeTDAO9l",
           "type": "rests_on",
-          "from": "NEsvEWUm_upFgyuo1nraC",
-          "to": "pGqhnVlVYWvTzQ17O293W",
-          "createdAt": "2026-07-03T21:50:05.231Z"
+          "from": "VTG2ZUvZKLWdx88jCWAT2",
+          "to": "OhiSoh7GuTlvfLeEgTG-c",
+          "createdAt": "2026-07-10T04:46:59.626Z"
         }
       },
-      "edgeId": "E0j30n4686g1VLJaKymtU",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "uE03BLzlDIjoFeeTDAO9l",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "1127lT74xx8EVH5ZjyXuG",
+      "id": "70-2NYvIh8X3hdkXgtB_3",
       "seq": 28,
-      "at": "2026-07-03T21:50:52.231Z",
+      "at": "2026-07-10T04:47:46.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "PBGxacuo4Yo_UXpAYsux0",
+          "id": "TPs3OzShSOLeimWV2TnWT",
           "type": "rests_on",
-          "from": "YONR-N7nu7n5sbiASNQLb",
-          "to": "SUyDko3GeuRUTZZg9vzDF",
-          "createdAt": "2026-07-03T21:50:52.231Z"
+          "from": "Hcw3Hedkq4xwO18hY07Zp",
+          "to": "TutiMqe8-ncmcza2LKUKz",
+          "createdAt": "2026-07-10T04:47:46.626Z"
         }
       },
-      "edgeId": "PBGxacuo4Yo_UXpAYsux0",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "TPs3OzShSOLeimWV2TnWT",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "s48ahgSRneub98C1BH2YW",
+      "id": "vZLcBlpgae-u-W0TTuGIq",
       "seq": 29,
-      "at": "2026-07-03T21:51:39.231Z",
+      "at": "2026-07-10T04:48:33.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "0TEIUm9zCwBmHOsmSLA_f",
+          "id": "mmZ_PWvP-Cqt44GHhK3il",
           "type": "rests_on",
-          "from": "YONR-N7nu7n5sbiASNQLb",
-          "to": "WAvGAxEV3YQvMyqB-tNKL",
-          "createdAt": "2026-07-03T21:51:39.231Z"
+          "from": "Hcw3Hedkq4xwO18hY07Zp",
+          "to": "YIeY4oSxMXW1mHdAnqZko",
+          "createdAt": "2026-07-10T04:48:33.626Z"
         }
       },
-      "edgeId": "0TEIUm9zCwBmHOsmSLA_f",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "mmZ_PWvP-Cqt44GHhK3il",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "8jYIdar9b8fVZ0j9ur38a",
+      "id": "2GdJ7H5i70NaqUHZXnXR_",
       "seq": 30,
-      "at": "2026-07-03T21:52:26.231Z",
+      "at": "2026-07-10T04:49:20.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "ZvVB7n126yAerDeR3noBB",
+          "id": "bL8p1PPQc_j1i4aqEdoSO",
           "text": "Loader shares code with APT-Q's KESTREL implant",
           "x": 80,
           "y": 640,
-          "createdAt": "2026-07-03T21:52:26.231Z",
+          "createdAt": "2026-07-10T04:49:20.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open"
         },
         "captureMs": 5000
       },
-      "nodeId": "ZvVB7n126yAerDeR3noBB",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "PNsWkNZ3zIb49XVLWWqTi",
+      "id": "F-jpo9215ZGzGiCA5UgQz",
       "seq": 31,
-      "at": "2026-07-03T21:53:13.231Z",
+      "at": "2026-07-10T04:50:07.626Z",
       "type": "node_retyped",
       "payload": {
         "before": {
@@ -1066,641 +1361,641 @@
           "type": "evidence"
         }
       },
-      "nodeId": "ZvVB7n126yAerDeR3noBB",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "FG-pg_2Bfb2Hzejd6M-lI",
+      "id": "-83T0wgSCVRxwzgyo_ds5",
       "seq": 32,
-      "at": "2026-07-03T21:54:00.231Z",
+      "at": "2026-07-10T04:50:54.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "ZvVB7n126yAerDeR3noBB",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "M95b8IO8PBdVAJHrVLldf",
+      "id": "mGi7kpfl6NSDXaRZTiLjx",
       "seq": 33,
-      "at": "2026-07-03T21:54:47.231Z",
+      "at": "2026-07-10T04:51:41.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "ZvVB7n126yAerDeR3noBB",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "fSAaVmXrZMY0_ltHUp_31",
+      "id": "0-1Rces_DzRJv37HnROP1",
       "seq": 34,
-      "at": "2026-07-03T21:55:34.231Z",
+      "at": "2026-07-10T04:52:28.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "0-gjWgagkFa_iuhw8811p",
+          "id": "O3CmdAkTtwLfiIncc_pli",
           "text": "C2 infrastructure overlaps a 2024 APT-Q campaign",
           "x": 320,
           "y": 640,
-          "createdAt": "2026-07-03T21:55:34.231Z",
+          "createdAt": "2026-07-10T04:52:28.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 8000
       },
-      "nodeId": "0-gjWgagkFa_iuhw8811p",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "O3CmdAkTtwLfiIncc_pli",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Z5Sz0i50nofm9UYxal91m",
+      "id": "PeF9Bi_SdULE4SDv4g3--",
       "seq": 35,
-      "at": "2026-07-03T21:56:21.231Z",
+      "at": "2026-07-10T04:53:15.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "0-gjWgagkFa_iuhw8811p",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "O3CmdAkTtwLfiIncc_pli",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "J1qj0t8ZvtgvN_EVm6Z5i",
+      "id": "fag7e3BOcWNAstFCAI7YG",
       "seq": 36,
-      "at": "2026-07-03T21:57:08.231Z",
+      "at": "2026-07-10T04:54:02.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "0-gjWgagkFa_iuhw8811p",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "O3CmdAkTtwLfiIncc_pli",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "AvimE3KY0kzWiaUeetr6I",
+      "id": "NFAH3Tbd5Ek9PMbqhzajL",
       "seq": 37,
-      "at": "2026-07-03T21:57:55.231Z",
+      "at": "2026-07-10T04:54:49.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "C0ld47SwAqCHYrRJoWtnp",
+          "id": "kqGel2n_IuoK5ZbTe_AX0",
           "text": "Commodity credential-dumping tools used throughout",
           "x": 560,
           "y": 640,
-          "createdAt": "2026-07-03T21:57:55.231Z",
+          "createdAt": "2026-07-10T04:54:49.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 4000
       },
-      "nodeId": "C0ld47SwAqCHYrRJoWtnp",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "kqGel2n_IuoK5ZbTe_AX0",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "mpnr0miuKCGunGi29sUc5",
+      "id": "CQYEkvQ1G9voBjH-Vj1mE",
       "seq": 38,
-      "at": "2026-07-03T21:58:42.231Z",
+      "at": "2026-07-10T04:55:36.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "C0ld47SwAqCHYrRJoWtnp",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "kqGel2n_IuoK5ZbTe_AX0",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "NvbOg71oXADgqihJ5LWyT",
+      "id": "U0ivgif4y_eu57Q5mnrW_",
       "seq": 39,
-      "at": "2026-07-03T21:59:29.231Z",
+      "at": "2026-07-10T04:56:23.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "C0ld47SwAqCHYrRJoWtnp",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "kqGel2n_IuoK5ZbTe_AX0",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "nA6LS9e28qFEL3AX8cuXj",
+      "id": "E3-L2PZb1MognAIJKsmu0",
       "seq": 40,
-      "at": "2026-07-03T22:00:16.231Z",
+      "at": "2026-07-10T04:57:10.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "uVxu3esYQN3E8S6I_Li1Z",
+          "id": "-rf5iY5JDtsKz6YGfXhI4",
           "text": "VPN logs show access from inside the HQ subnet",
           "x": 800,
           "y": 640,
-          "createdAt": "2026-07-03T22:00:16.231Z",
+          "createdAt": "2026-07-10T04:57:10.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 7000
       },
-      "nodeId": "uVxu3esYQN3E8S6I_Li1Z",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "-rf5iY5JDtsKz6YGfXhI4",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Gv75_eQYPVvhtbOp4jbjN",
+      "id": "gcuF8XTGwzPKv-FSHtHM0",
       "seq": 41,
-      "at": "2026-07-03T22:01:03.231Z",
+      "at": "2026-07-10T04:57:57.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "D"
       },
-      "nodeId": "uVxu3esYQN3E8S6I_Li1Z",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "-rf5iY5JDtsKz6YGfXhI4",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "W9AygaoWakeWJqvz9bWRu",
+      "id": "wmgJ0vvAhwbT77vjm90fW",
       "seq": 42,
-      "at": "2026-07-03T22:01:50.231Z",
+      "at": "2026-07-10T04:58:44.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 4
       },
-      "nodeId": "uVxu3esYQN3E8S6I_Li1Z",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "-rf5iY5JDtsKz6YGfXhI4",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "GRHbcCRoKyK3jcP4WIhT-",
+      "id": "2-HfdH93WeErZdKGYmmhY",
       "seq": 43,
-      "at": "2026-07-03T22:02:37.231Z",
+      "at": "2026-07-10T04:59:31.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "KEsduuN59RxFGVYe73jdh",
+          "id": "QT7jCb9STuDIRYhtFR8xV",
           "text": "Phishing lure written in fluent corporate English",
           "x": 1040,
           "y": 640,
-          "createdAt": "2026-07-03T22:02:37.231Z",
+          "createdAt": "2026-07-10T04:59:31.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 3000
       },
-      "nodeId": "KEsduuN59RxFGVYe73jdh",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "QT7jCb9STuDIRYhtFR8xV",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "DiqcTUjF62rnG3fO5QP40",
+      "id": "jr_pU5KsioTWWPQA1YB94",
       "seq": 44,
-      "at": "2026-07-03T22:03:24.231Z",
+      "at": "2026-07-10T05:00:18.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "KEsduuN59RxFGVYe73jdh",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "QT7jCb9STuDIRYhtFR8xV",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Q3hKS3oF4Jj8D_zVCGeJq",
+      "id": "-lBvLtqukVVO8lO3oCmu5",
       "seq": 45,
-      "at": "2026-07-03T22:04:11.231Z",
+      "at": "2026-07-10T05:01:05.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "KEsduuN59RxFGVYe73jdh",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "QT7jCb9STuDIRYhtFR8xV",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "EFI9ryUTWgCpCRBkpoji4",
+      "id": "titgeURckrZiFUj999t0W",
       "seq": 46,
-      "at": "2026-07-03T22:04:58.231Z",
+      "at": "2026-07-10T05:01:52.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "tslV3ZhEK9WBGMFwoE54I",
+          "id": "gLGt3PIDVstG4bIocmG1L",
           "text": "APT-Q is known to sell tooling to affiliates",
           "x": 200,
           "y": 800,
-          "createdAt": "2026-07-03T22:04:58.231Z",
+          "createdAt": "2026-07-10T05:01:52.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 5000
       },
-      "nodeId": "tslV3ZhEK9WBGMFwoE54I",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "gLGt3PIDVstG4bIocmG1L",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "ZHxxC9OTVq5Ix3POlfEUm",
+      "id": "bgMczKTywYRoEfQazDkz1",
       "seq": 47,
-      "at": "2026-07-03T22:05:45.231Z",
+      "at": "2026-07-10T05:02:39.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "tslV3ZhEK9WBGMFwoE54I",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "gLGt3PIDVstG4bIocmG1L",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Nte_VbopkTxusakPwbodV",
+      "id": "Pa9Nin5WUywr6AjxcdtQU",
       "seq": 48,
-      "at": "2026-07-03T22:06:32.231Z",
+      "at": "2026-07-10T05:03:26.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "tslV3ZhEK9WBGMFwoE54I",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "gLGt3PIDVstG4bIocmG1L",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "qyQPvSSgYfJ8VyQXCTNIg",
+      "id": "Gkw98VazVLl4qsmvrRmRb",
       "seq": 49,
-      "at": "2026-07-03T22:07:19.231Z",
+      "at": "2026-07-10T05:04:13.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "jRRqchkFF5wEHaqXXYefz",
+          "id": "4RgQMpRDYqVYEvIJLv3Vd",
           "text": "Ransom note demands payment in Monero",
           "x": 460,
           "y": 800,
-          "createdAt": "2026-07-03T22:07:19.231Z",
+          "createdAt": "2026-07-10T05:04:13.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 3000
       },
-      "nodeId": "jRRqchkFF5wEHaqXXYefz",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "4RgQMpRDYqVYEvIJLv3Vd",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "zBtEUU8UfgVCOmL1SI6Fd",
+      "id": "PoVWjvGyDKUQBqGDhumRG",
       "seq": 50,
-      "at": "2026-07-03T22:08:06.231Z",
+      "at": "2026-07-10T05:05:00.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "jRRqchkFF5wEHaqXXYefz",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "4RgQMpRDYqVYEvIJLv3Vd",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "hkyqIDaNMP2Zh3A14Mywi",
+      "id": "ZUyoNl6DUblJJKZVS9mr7",
       "seq": 51,
-      "at": "2026-07-03T22:08:53.231Z",
+      "at": "2026-07-10T05:05:47.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "jRRqchkFF5wEHaqXXYefz",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "4RgQMpRDYqVYEvIJLv3Vd",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "BtL4BrgtEg-wsoEFG5Ocn",
+      "id": "CIyQahh_L2gwV9H-PhEeD",
       "seq": 52,
-      "at": "2026-07-03T22:09:40.231Z",
+      "at": "2026-07-10T05:06:34.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "curNkp7RSWP4g9UJNhafs",
+          "id": "IwnVv79OJgrZXvhJ2UJcH",
           "text": "Forum chatter claims an insider sold ACME access",
           "x": 720,
           "y": 800,
-          "createdAt": "2026-07-03T22:09:40.231Z",
+          "createdAt": "2026-07-10T05:06:34.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 8000
       },
-      "nodeId": "curNkp7RSWP4g9UJNhafs",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "IwnVv79OJgrZXvhJ2UJcH",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Xeo_j84Nspayw7dRqaQk7",
+      "id": "ehmDWFFRCnkTfSMIgUB-q",
       "seq": 53,
-      "at": "2026-07-03T22:10:27.231Z",
+      "at": "2026-07-10T05:07:21.626Z",
       "type": "node_text_edited",
       "payload": {
         "field": "sourceNote",
         "before": null,
         "after": "Single dark-web forum post, unverified"
       },
-      "nodeId": "curNkp7RSWP4g9UJNhafs",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "IwnVv79OJgrZXvhJ2UJcH",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "8GqDmr8eH6gyenmT8vYQA",
+      "id": "CTtQ8bLzZ9W-CEgKx-fUy",
       "seq": 54,
-      "at": "2026-07-03T22:11:14.231Z",
+      "at": "2026-07-10T05:08:08.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "ctJyctcoJwMr35I2Wvp3W",
+          "id": "x7XfCISlWdjqn3zjg2b3K",
           "type": "consistent_with",
-          "from": "ZvVB7n126yAerDeR3noBB",
-          "to": "NEsvEWUm_upFgyuo1nraC",
-          "createdAt": "2026-07-03T22:11:14.231Z"
+          "from": "bL8p1PPQc_j1i4aqEdoSO",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:08:08.626Z"
         }
       },
-      "edgeId": "ctJyctcoJwMr35I2Wvp3W",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "x7XfCISlWdjqn3zjg2b3K",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "XMbxXULl8jn8KEDYq5RSe",
+      "id": "MSJbT5QauQSVskK62RWsB",
       "seq": 55,
-      "at": "2026-07-03T22:12:01.231Z",
+      "at": "2026-07-10T05:08:55.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "2qoidMmwWAHYsgifjSw2q",
+          "id": "fqkNHewjr5J3NASYnXfTr",
           "type": "consistent_with",
-          "from": "ZvVB7n126yAerDeR3noBB",
-          "to": "-H2sO0k9LYQbZ47t_M012",
-          "createdAt": "2026-07-03T22:12:01.231Z"
+          "from": "bL8p1PPQc_j1i4aqEdoSO",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:08:55.626Z"
         }
       },
-      "edgeId": "2qoidMmwWAHYsgifjSw2q",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "fqkNHewjr5J3NASYnXfTr",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "eOlSCiOtt1msu4dfi6Oek",
+      "id": "RYc4xSw2z7oTWsBsOnQjm",
       "seq": 56,
-      "at": "2026-07-03T22:12:48.231Z",
+      "at": "2026-07-10T05:09:42.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "oZ6VLc1LWQW4MG5m1teSp",
+          "id": "9LUM1yHKgxGatHSvJp51a",
           "type": "inconsistent_with",
-          "from": "ZvVB7n126yAerDeR3noBB",
-          "to": "YONR-N7nu7n5sbiASNQLb",
-          "createdAt": "2026-07-03T22:12:48.231Z"
+          "from": "bL8p1PPQc_j1i4aqEdoSO",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:09:42.626Z"
         }
       },
-      "edgeId": "oZ6VLc1LWQW4MG5m1teSp",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "9LUM1yHKgxGatHSvJp51a",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "HdhGjkgBk5ypiR2zXKLdq",
+      "id": "_PrwCjZic7TEq9gLoBmka",
       "seq": 57,
-      "at": "2026-07-03T22:13:35.231Z",
+      "at": "2026-07-10T05:10:29.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "cQbpNSf1ec5M4RXY1r38Q",
+          "id": "WecIY4s9p4CcfX01yEYJd",
           "type": "consistent_with",
-          "from": "0-gjWgagkFa_iuhw8811p",
-          "to": "NEsvEWUm_upFgyuo1nraC",
-          "createdAt": "2026-07-03T22:13:35.231Z"
+          "from": "O3CmdAkTtwLfiIncc_pli",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:10:29.626Z"
         }
       },
-      "edgeId": "cQbpNSf1ec5M4RXY1r38Q",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "WecIY4s9p4CcfX01yEYJd",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "gR53SkiiyRGKsH-m6lauC",
+      "id": "XcJ6D-vNQ09EKMt6ZxO0W",
       "seq": 58,
-      "at": "2026-07-03T22:14:22.231Z",
+      "at": "2026-07-10T05:11:16.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "n-NZGaKANmyQWtPqviYBh",
+          "id": "XfiB5a3Ed_rPcalrFRYoc",
           "type": "inconsistent_with",
-          "from": "0-gjWgagkFa_iuhw8811p",
-          "to": "YONR-N7nu7n5sbiASNQLb",
-          "createdAt": "2026-07-03T22:14:22.231Z"
+          "from": "O3CmdAkTtwLfiIncc_pli",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:11:16.626Z"
         }
       },
-      "edgeId": "n-NZGaKANmyQWtPqviYBh",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "XfiB5a3Ed_rPcalrFRYoc",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "_ExyiQH95mtaGrxleAg7g",
+      "id": "ushxVcu5bWtaUdEfFz0VE",
       "seq": 59,
-      "at": "2026-07-03T22:15:09.231Z",
+      "at": "2026-07-10T05:12:03.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "aHdTnaOUygiJYXGFtrzY1",
+          "id": "ElK23SHeZkpMVnS_M6U6z",
           "type": "consistent_with",
-          "from": "C0ld47SwAqCHYrRJoWtnp",
-          "to": "NEsvEWUm_upFgyuo1nraC",
-          "createdAt": "2026-07-03T22:15:09.231Z"
+          "from": "kqGel2n_IuoK5ZbTe_AX0",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:12:03.626Z"
         }
       },
-      "edgeId": "aHdTnaOUygiJYXGFtrzY1",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "ElK23SHeZkpMVnS_M6U6z",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Flq75Xr686SNhoCDb48oq",
+      "id": "5ILcXtEcaWy2YgDhRi-ef",
       "seq": 60,
-      "at": "2026-07-03T22:15:56.231Z",
+      "at": "2026-07-10T05:12:50.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "NRIJQ4SmknK0w0uPANf3l",
+          "id": "NASzUcjjd-Tkbw9WTdoVV",
           "type": "consistent_with",
-          "from": "C0ld47SwAqCHYrRJoWtnp",
-          "to": "-H2sO0k9LYQbZ47t_M012",
-          "createdAt": "2026-07-03T22:15:56.231Z"
+          "from": "kqGel2n_IuoK5ZbTe_AX0",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:12:50.626Z"
         }
       },
-      "edgeId": "NRIJQ4SmknK0w0uPANf3l",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "NASzUcjjd-Tkbw9WTdoVV",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "0nRFbV0bQb2Kn6VY5Vd3U",
+      "id": "tsfQN8-3cZpxNxELfaUpg",
       "seq": 61,
-      "at": "2026-07-03T22:16:43.231Z",
+      "at": "2026-07-10T05:13:37.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "RD_BPjetA1YzGob2FtyHz",
+          "id": "TVwiC8NvPFFaXSNyU87Yq",
           "type": "consistent_with",
-          "from": "C0ld47SwAqCHYrRJoWtnp",
-          "to": "YONR-N7nu7n5sbiASNQLb",
-          "createdAt": "2026-07-03T22:16:43.231Z"
+          "from": "kqGel2n_IuoK5ZbTe_AX0",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:13:37.626Z"
         }
       },
-      "edgeId": "RD_BPjetA1YzGob2FtyHz",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "TVwiC8NvPFFaXSNyU87Yq",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "DzT4JHFcAPhe7nrgD_inL",
+      "id": "bG9WPBDE34wmLsG8kun9g",
       "seq": 62,
-      "at": "2026-07-03T22:17:30.231Z",
+      "at": "2026-07-10T05:14:24.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "YVgmv1xrpr_Kew37pO8Sp",
+          "id": "Wt_2JmwGAhC6X5nm89-1j",
           "type": "consistent_with",
-          "from": "uVxu3esYQN3E8S6I_Li1Z",
-          "to": "YONR-N7nu7n5sbiASNQLb",
-          "createdAt": "2026-07-03T22:17:30.231Z"
+          "from": "-rf5iY5JDtsKz6YGfXhI4",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:14:24.626Z"
         }
       },
-      "edgeId": "YVgmv1xrpr_Kew37pO8Sp",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "Wt_2JmwGAhC6X5nm89-1j",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "0TTwi-OusUhlbv_RKwRAq",
+      "id": "rwakBaxFiCqO5jhv5Y_Yu",
       "seq": 63,
-      "at": "2026-07-03T22:18:17.231Z",
+      "at": "2026-07-10T05:15:11.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "65RH1wCc5ZVE9DWHkc1E-",
+          "id": "JfTb8-iv7bjc7Oap30sxv",
           "type": "inconsistent_with",
-          "from": "uVxu3esYQN3E8S6I_Li1Z",
-          "to": "NEsvEWUm_upFgyuo1nraC",
-          "createdAt": "2026-07-03T22:18:17.231Z"
+          "from": "-rf5iY5JDtsKz6YGfXhI4",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:15:11.626Z"
         }
       },
-      "edgeId": "65RH1wCc5ZVE9DWHkc1E-",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "JfTb8-iv7bjc7Oap30sxv",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "GIhVzzaSecRQvlyG94-Ep",
+      "id": "M1Y1MJZM3APT6RGJ_K5ek",
       "seq": 64,
-      "at": "2026-07-03T22:19:04.231Z",
+      "at": "2026-07-10T05:15:58.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "8DhpbRoh34Aw3j-IFgnJ7",
+          "id": "rm4C_5pWDLyKi0n_1jUUM",
           "type": "consistent_with",
-          "from": "KEsduuN59RxFGVYe73jdh",
-          "to": "YONR-N7nu7n5sbiASNQLb",
-          "createdAt": "2026-07-03T22:19:04.231Z"
+          "from": "QT7jCb9STuDIRYhtFR8xV",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:15:58.626Z"
         }
       },
-      "edgeId": "8DhpbRoh34Aw3j-IFgnJ7",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "rm4C_5pWDLyKi0n_1jUUM",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "t7LRzcPMUfePgtiLLC7t5",
+      "id": "t8PP6uLJ7jp2kzodCFHGW",
       "seq": 65,
-      "at": "2026-07-03T22:19:51.231Z",
+      "at": "2026-07-10T05:16:45.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "FUCGOpKESKPOEnPKLT5Kn",
+          "id": "pawMHNBLw1DN_xjdJMh8F",
           "type": "consistent_with",
-          "from": "KEsduuN59RxFGVYe73jdh",
-          "to": "-H2sO0k9LYQbZ47t_M012",
-          "createdAt": "2026-07-03T22:19:51.231Z"
+          "from": "QT7jCb9STuDIRYhtFR8xV",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:16:45.626Z"
         }
       },
-      "edgeId": "FUCGOpKESKPOEnPKLT5Kn",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "pawMHNBLw1DN_xjdJMh8F",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Y_ThtY4beButQ0RAgoUbN",
+      "id": "Ep0lUBV-ebK9PKym8jYxV",
       "seq": 66,
-      "at": "2026-07-03T22:20:38.231Z",
+      "at": "2026-07-10T05:17:32.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "roslm2ed1kFM-pOvQ5-yq",
+          "id": "vUMQKH2-d9KPp9-1t1EIz",
           "type": "consistent_with",
-          "from": "tslV3ZhEK9WBGMFwoE54I",
-          "to": "-H2sO0k9LYQbZ47t_M012",
-          "createdAt": "2026-07-03T22:20:38.231Z"
+          "from": "gLGt3PIDVstG4bIocmG1L",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:17:32.626Z"
         }
       },
-      "edgeId": "roslm2ed1kFM-pOvQ5-yq",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "vUMQKH2-d9KPp9-1t1EIz",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "M1NlxI-Trp_L-JLPZb17m",
+      "id": "sT3AsvZdkHQjhYnmUdMKs",
       "seq": 67,
-      "at": "2026-07-03T22:21:25.231Z",
+      "at": "2026-07-10T05:18:19.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "woFBbso8YpBSAvz9XrmNh",
+          "id": "RkcEnZ-kC4oC0nWpDwxJ5",
           "type": "consistent_with",
-          "from": "jRRqchkFF5wEHaqXXYefz",
-          "to": "-H2sO0k9LYQbZ47t_M012",
-          "createdAt": "2026-07-03T22:21:25.231Z"
+          "from": "4RgQMpRDYqVYEvIJLv3Vd",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:18:19.626Z"
         }
       },
-      "edgeId": "woFBbso8YpBSAvz9XrmNh",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "RkcEnZ-kC4oC0nWpDwxJ5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "4AzMV8-4WBauaicpaOVtw",
+      "id": "SNK0485EF6JsT0xwkvxdK",
       "seq": 68,
-      "at": "2026-07-03T22:22:12.231Z",
+      "at": "2026-07-10T05:19:06.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "ATGnZyRFQKLNbIErHOLLM",
+          "id": "kkPC41aizDeR7aLSnNjN8",
           "type": "inconsistent_with",
-          "from": "jRRqchkFF5wEHaqXXYefz",
-          "to": "NEsvEWUm_upFgyuo1nraC",
-          "createdAt": "2026-07-03T22:22:12.231Z"
+          "from": "4RgQMpRDYqVYEvIJLv3Vd",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:19:06.626Z"
         }
       },
-      "edgeId": "ATGnZyRFQKLNbIErHOLLM",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "kkPC41aizDeR7aLSnNjN8",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "0LEC_69o6MfYDgz9PGOlv",
+      "id": "5YxiGq-lF1CFXnbmoz1x1",
       "seq": 69,
-      "at": "2026-07-03T22:22:59.231Z",
+      "at": "2026-07-10T05:19:53.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "A_y9N1tn8Ed2tQQf99Ibw",
+          "id": "y9Enxvrg8z0LPxqVurl62",
           "type": "consistent_with",
-          "from": "curNkp7RSWP4g9UJNhafs",
-          "to": "YONR-N7nu7n5sbiASNQLb",
-          "createdAt": "2026-07-03T22:22:59.231Z"
+          "from": "IwnVv79OJgrZXvhJ2UJcH",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:19:53.626Z"
         }
       },
-      "edgeId": "A_y9N1tn8Ed2tQQf99Ibw",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "y9Enxvrg8z0LPxqVurl62",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "V3hob88AmdP4YVVilYeXk",
+      "id": "d5EqqZzGipt4JCfSDG1gI",
       "seq": 70,
-      "at": "2026-07-03T22:23:46.231Z",
+      "at": "2026-07-10T05:20:40.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -1708,13 +2003,13 @@
           "confidence": "low"
         }
       },
-      "nodeId": "-H2sO0k9LYQbZ47t_M012",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "We2kTPKo_n-QGNTckJztE",
+      "id": "vWQqFdYOvW_R73ntRvY42",
       "seq": 71,
-      "at": "2026-07-03T22:24:33.231Z",
+      "at": "2026-07-10T05:21:27.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -1722,268 +2017,268 @@
           "confidence": "low"
         }
       },
-      "nodeId": "YONR-N7nu7n5sbiASNQLb",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "Hcw3Hedkq4xwO18hY07Zp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "pkoArvZNKOuoov77nzhvi",
+      "id": "qNIkeHan1Oj3AWYQhivnY",
       "seq": 72,
-      "at": "2026-07-03T22:25:20.231Z",
+      "at": "2026-07-10T05:22:14.626Z",
       "type": "thread_created",
       "payload": {
-        "rootQuestionId": "DvqkkyQMlE5TTB3nb-rmF",
-        "parentThreadId": "w0E-Nv7YbhhSW_UJgLLEb"
+        "rootQuestionId": "kMSJvkjBX8TQje4_i-km1",
+        "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
       },
-      "nodeId": "DvqkkyQMlE5TTB3nb-rmF",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "kMSJvkjBX8TQje4_i-km1",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "BDAiUNwoMmX50_Kvk0QrX",
+      "id": "VdLNAIK5RsFvgGdoEEHLx",
       "seq": 73,
-      "at": "2026-07-03T22:26:07.231Z",
+      "at": "2026-07-10T05:23:01.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "DvqkkyQMlE5TTB3nb-rmF",
+          "id": "kMSJvkjBX8TQje4_i-km1",
           "text": "Was the loader custom-built?",
           "x": 60,
           "y": 60,
-          "createdAt": "2026-07-03T22:26:07.231Z",
+          "createdAt": "2026-07-10T05:23:01.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "question",
-          "threadId": "DvqkkyQMlE5TTB3nb-rmF",
+          "threadId": "kMSJvkjBX8TQje4_i-km1",
           "status": "open",
           "mutuallyExclusive": false,
-          "parentThreadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 8000
       },
-      "nodeId": "DvqkkyQMlE5TTB3nb-rmF",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "kMSJvkjBX8TQje4_i-km1",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "LVYXehEEOAsirIWLDIBlr",
+      "id": "O4vUZpYCDzBzRCf44pP37",
       "seq": 74,
-      "at": "2026-07-03T22:26:54.231Z",
+      "at": "2026-07-10T05:23:48.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "AgiC183wRVrNgRR4CxKBi",
+          "id": "_j4GtLrRCNAc8GOY6hgS9",
           "text": "The loader was custom-built for this intrusion",
           "x": 160,
           "y": 240,
-          "createdAt": "2026-07-03T22:26:54.231Z",
+          "createdAt": "2026-07-10T05:23:48.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "DvqkkyQMlE5TTB3nb-rmF",
+          "threadId": "kMSJvkjBX8TQje4_i-km1",
           "status": "open"
         },
         "captureMs": 8000
       },
-      "nodeId": "AgiC183wRVrNgRR4CxKBi",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "eWZHiO6Cga5-EPNdAQX-A",
+      "id": "OsfG_Nw4nWKj3xS7g1MRc",
       "seq": 75,
-      "at": "2026-07-03T22:27:41.231Z",
+      "at": "2026-07-10T05:24:35.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "likely"
       },
-      "nodeId": "AgiC183wRVrNgRR4CxKBi",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "FtuIYnVaFGafFlytTvOTH",
+      "id": "JW5e2X6-pb_oYQXcPkbvB",
       "seq": 76,
-      "at": "2026-07-03T22:28:28.231Z",
+      "at": "2026-07-10T05:25:22.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "moderate"
       },
-      "nodeId": "AgiC183wRVrNgRR4CxKBi",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "Js_F01ImynZVPVEaYwMek",
+      "id": "qd57qHVDzze51sMW4mJLY",
       "seq": 77,
-      "at": "2026-07-03T22:29:15.231Z",
+      "at": "2026-07-10T05:26:09.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "LQqCRxdFjhA2p377ZCuHm",
+          "id": "b0EuV9RgMrlnwNNFJ_qJe",
           "text": "The loader was assembled from a leaked builder",
           "x": 460,
           "y": 240,
-          "createdAt": "2026-07-03T22:29:15.231Z",
+          "createdAt": "2026-07-10T05:26:09.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "DvqkkyQMlE5TTB3nb-rmF",
+          "threadId": "kMSJvkjBX8TQje4_i-km1",
           "status": "open"
         },
         "captureMs": 3000
       },
-      "nodeId": "LQqCRxdFjhA2p377ZCuHm",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "b0EuV9RgMrlnwNNFJ_qJe",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "27jhnKVinQnOy5HXKkHuE",
+      "id": "y0QOJ6Cw-y94Cdm8HYqnt",
       "seq": 78,
-      "at": "2026-07-03T22:30:02.231Z",
+      "at": "2026-07-10T05:26:56.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "unlikely"
       },
-      "nodeId": "LQqCRxdFjhA2p377ZCuHm",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "b0EuV9RgMrlnwNNFJ_qJe",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "Zf6WlGojLjy_8caZPuuIc",
+      "id": "tmgBeW5U3zOfTerg5kL3Y",
       "seq": 79,
-      "at": "2026-07-03T22:30:49.231Z",
+      "at": "2026-07-10T05:27:43.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "low"
       },
-      "nodeId": "LQqCRxdFjhA2p377ZCuHm",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "b0EuV9RgMrlnwNNFJ_qJe",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "wIJFZKGX06e7JiGDLmJA2",
+      "id": "c0uvMsM-vrW2NyBo2rsVP",
       "seq": 80,
-      "at": "2026-07-03T22:31:36.231Z",
+      "at": "2026-07-10T05:28:30.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "R21-dLzyZgAR3bc-8YBUX",
+          "id": "oSnRO5_Z9xtyT0i6pxu72",
           "type": "answers",
-          "from": "AgiC183wRVrNgRR4CxKBi",
-          "to": "DvqkkyQMlE5TTB3nb-rmF",
-          "createdAt": "2026-07-03T22:31:36.231Z"
+          "from": "_j4GtLrRCNAc8GOY6hgS9",
+          "to": "kMSJvkjBX8TQje4_i-km1",
+          "createdAt": "2026-07-10T05:28:30.626Z"
         }
       },
-      "edgeId": "R21-dLzyZgAR3bc-8YBUX",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "edgeId": "oSnRO5_Z9xtyT0i6pxu72",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "fWEd6oHfpgtnbguarPmm-",
+      "id": "Ra65ZBiw27olmHBAYnuP6",
       "seq": 81,
-      "at": "2026-07-03T22:32:23.231Z",
+      "at": "2026-07-10T05:29:17.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "_X9AafsJvpVTQlH1k07as",
+          "id": "S-moiJ3dEZqh0eePnT_Jx",
           "type": "answers",
-          "from": "LQqCRxdFjhA2p377ZCuHm",
-          "to": "DvqkkyQMlE5TTB3nb-rmF",
-          "createdAt": "2026-07-03T22:32:23.231Z"
+          "from": "b0EuV9RgMrlnwNNFJ_qJe",
+          "to": "kMSJvkjBX8TQje4_i-km1",
+          "createdAt": "2026-07-10T05:29:17.626Z"
         }
       },
-      "edgeId": "_X9AafsJvpVTQlH1k07as",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "edgeId": "S-moiJ3dEZqh0eePnT_Jx",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "iPEHksNPcWTBMyNcWugsG",
+      "id": "lY7Y0nAhVOQCu1iEKvcAQ",
       "seq": 82,
-      "at": "2026-07-03T22:33:10.231Z",
+      "at": "2026-07-10T05:30:04.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "nd_MDefNMefddrruuVfeg",
+          "id": "n2Akqqohywclc_U9aeUfj",
           "text": "No builder artifacts for this loader found in the wild",
           "x": 300,
           "y": 480,
-          "createdAt": "2026-07-03T22:33:10.231Z",
+          "createdAt": "2026-07-10T05:30:04.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+          "threadId": "kMSJvkjBX8TQje4_i-km1"
         },
         "captureMs": 4000
       },
-      "nodeId": "nd_MDefNMefddrruuVfeg",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "n2Akqqohywclc_U9aeUfj",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "b7zplaBFmh4HzRjG71i96",
+      "id": "C5b6R5iQyGB6-m_zWraqK",
       "seq": 83,
-      "at": "2026-07-03T22:33:57.231Z",
+      "at": "2026-07-10T05:30:51.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "nd_MDefNMefddrruuVfeg",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "n2Akqqohywclc_U9aeUfj",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "iz7-hE2VUVPIiAml6fPjM",
+      "id": "T9oRogtfx_OL-CykKLnaF",
       "seq": 84,
-      "at": "2026-07-03T22:34:44.231Z",
+      "at": "2026-07-10T05:31:38.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "nd_MDefNMefddrruuVfeg",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "n2Akqqohywclc_U9aeUfj",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "DnfYu-aY2xBhPGc0FVt5K",
+      "id": "9aEwUWnkFRtuSIjbPz_sW",
       "seq": 85,
-      "at": "2026-07-03T22:35:31.231Z",
+      "at": "2026-07-10T05:32:25.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "qYdhoyyCWiU4FxTypU8xx",
+          "id": "IRYdRI0-F02URq8m5nZWy",
           "type": "consistent_with",
-          "from": "nd_MDefNMefddrruuVfeg",
-          "to": "AgiC183wRVrNgRR4CxKBi",
-          "createdAt": "2026-07-03T22:35:31.231Z"
+          "from": "n2Akqqohywclc_U9aeUfj",
+          "to": "_j4GtLrRCNAc8GOY6hgS9",
+          "createdAt": "2026-07-10T05:32:25.626Z"
         }
       },
-      "edgeId": "qYdhoyyCWiU4FxTypU8xx",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "edgeId": "IRYdRI0-F02URq8m5nZWy",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "ET_NW4K4QjrLN7Fd07XNS",
+      "id": "t7Itiiis4bvBVN3e9QpkV",
       "seq": 86,
-      "at": "2026-07-03T22:36:18.231Z",
+      "at": "2026-07-10T05:33:12.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "7yabzsTJ2MNm9RiLVjSqW",
+          "id": "akPAVJpACe8BdKckTJ_eo",
           "type": "inconsistent_with",
-          "from": "nd_MDefNMefddrruuVfeg",
-          "to": "LQqCRxdFjhA2p377ZCuHm",
-          "createdAt": "2026-07-03T22:36:18.231Z"
+          "from": "n2Akqqohywclc_U9aeUfj",
+          "to": "b0EuV9RgMrlnwNNFJ_qJe",
+          "createdAt": "2026-07-10T05:33:12.626Z"
         }
       },
-      "edgeId": "7yabzsTJ2MNm9RiLVjSqW",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "edgeId": "akPAVJpACe8BdKckTJ_eo",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "0mcuUFGYvW5uzh9KvU1-0",
+      "id": "Y0DsOiN-dtxJOpJntCCiR",
       "seq": 87,
-      "at": "2026-07-03T22:37:05.231Z",
+      "at": "2026-07-10T05:33:59.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -1991,27 +2286,27 @@
           "confidence": "low"
         }
       },
-      "nodeId": "LQqCRxdFjhA2p377ZCuHm",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "b0EuV9RgMrlnwNNFJ_qJe",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "MPxFBlOnRbv7zNnMKQYBI",
+      "id": "esAEsQHvLv7eX8_R9amfm",
       "seq": 88,
-      "at": "2026-07-03T22:37:52.231Z",
+      "at": "2026-07-10T05:34:46.626Z",
       "type": "claim_status_changed",
       "payload": {
         "before": "open",
         "after": "adopted",
         "ceremony": {
-          "at": "2026-07-05T21:38:20.224Z",
+          "at": "2026-07-12T04:35:14.612Z",
           "candidate": {
-            "id": "AgiC183wRVrNgRR4CxKBi",
+            "id": "_j4GtLrRCNAc8GOY6hgS9",
             "text": "The loader was custom-built for this intrusion",
             "iCount": 0
           },
           "rivals": [
             {
-              "id": "LQqCRxdFjhA2p377ZCuHm",
+              "id": "b0EuV9RgMrlnwNNFJ_qJe",
               "text": "The loader was assembled from a leaked builder",
               "status": "open",
               "iCount": 1,
@@ -2021,94 +2316,94 @@
           "linchpins": []
         }
       },
-      "nodeId": "AgiC183wRVrNgRR4CxKBi",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "TT18ZPGJy3EKBBYkTND4k",
+      "id": "lP0qbGRs0tFsmzO0QkXR4",
       "seq": 89,
-      "at": "2026-07-03T22:38:39.231Z",
+      "at": "2026-07-10T05:35:33.626Z",
       "type": "question_status_changed",
       "payload": {
         "before": "open",
         "after": "answered",
-        "byClaim": "AgiC183wRVrNgRR4CxKBi"
+        "byClaim": "_j4GtLrRCNAc8GOY6hgS9"
       },
-      "nodeId": "DvqkkyQMlE5TTB3nb-rmF",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "kMSJvkjBX8TQje4_i-km1",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "ySLQuczPABMc_vfm3pkRJ",
+      "id": "u5XsQGRXkPm1YGLazCiYg",
       "seq": 90,
-      "at": "2026-07-03T22:39:26.231Z",
+      "at": "2026-07-10T05:36:20.626Z",
       "type": "node_promoted",
       "payload": {
-        "sourceClaimId": "AgiC183wRVrNgRR4CxKBi",
+        "sourceClaimId": "_j4GtLrRCNAc8GOY6hgS9",
         "asType": "evidence",
         "node": {
-          "id": "TVm0qNv872czOqcniRZAR",
+          "id": "KlaamwcnFO0Emf3r2x3Kp",
           "text": "The loader was custom-built for this intrusion",
-          "threadId": "w0E-Nv7YbhhSW_UJgLLEb",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "x": 90,
           "y": 980,
-          "createdAt": "2026-07-03T22:39:26.231Z",
-          "derivedFrom": "AgiC183wRVrNgRR4CxKBi",
+          "createdAt": "2026-07-10T05:36:20.626Z",
+          "derivedFrom": "_j4GtLrRCNAc8GOY6hgS9",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence"
         }
       },
-      "nodeId": "TVm0qNv872czOqcniRZAR",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "KlaamwcnFO0Emf3r2x3Kp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "A702wvmgqelygqhmE2aoA",
+      "id": "DG3VQZTP2DTv9leZvuRjd",
       "seq": 91,
-      "at": "2026-07-03T22:40:13.231Z",
+      "at": "2026-07-10T05:37:07.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "TVm0qNv872czOqcniRZAR",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "KlaamwcnFO0Emf3r2x3Kp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "zBme5pIi_l7dYb9LQ3VUa",
+      "id": "i5koJQKqdBtmYDMujyOXP",
       "seq": 92,
-      "at": "2026-07-03T22:41:00.231Z",
+      "at": "2026-07-10T05:37:54.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "TVm0qNv872czOqcniRZAR",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "KlaamwcnFO0Emf3r2x3Kp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "5QjEAt864k3wgil5mhKkr",
+      "id": "RL8jiM8TJCPntVGmZywxF",
       "seq": 93,
-      "at": "2026-07-03T22:41:47.231Z",
+      "at": "2026-07-10T05:38:41.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "gZhingcQcvow3YzjTO3tH",
+          "id": "TN_qaZMe7Cw9cs--QJagS",
           "type": "consistent_with",
-          "from": "TVm0qNv872czOqcniRZAR",
-          "to": "NEsvEWUm_upFgyuo1nraC",
-          "createdAt": "2026-07-03T22:41:47.231Z"
+          "from": "KlaamwcnFO0Emf3r2x3Kp",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:38:41.626Z"
         }
       },
-      "edgeId": "gZhingcQcvow3YzjTO3tH",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "edgeId": "TN_qaZMe7Cw9cs--QJagS",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "zLR9673RAJ-QTuuUwDYeG",
+      "id": "BMDhU4pJ07Hzx4zbpr7FC",
       "seq": 94,
-      "at": "2026-07-03T22:42:34.231Z",
+      "at": "2026-07-10T05:39:28.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -2116,77 +2411,1155 @@
           "confidence": "moderate"
         }
       },
-      "nodeId": "NEsvEWUm_upFgyuo1nraC",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "VTG2ZUvZKLWdx88jCWAT2",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "jk_yuW3cEdcdO7p5kGWtJ",
+      "id": "f8Oatba-htlYiCdKOpC-a",
       "seq": 95,
-      "at": "2026-07-03T22:43:21.231Z",
+      "at": "2026-07-10T05:40:15.626Z",
       "type": "thread_created",
       "payload": {
-        "rootQuestionId": "7lhSzplytxrOrGTct_7Lm",
-        "parentThreadId": "w0E-Nv7YbhhSW_UJgLLEb"
+        "rootQuestionId": "8sSk0QFascc0Gu4B9C_6D",
+        "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
       },
-      "nodeId": "7lhSzplytxrOrGTct_7Lm",
-      "threadId": "7lhSzplytxrOrGTct_7Lm"
+      "nodeId": "8sSk0QFascc0Gu4B9C_6D",
+      "threadId": "8sSk0QFascc0Gu4B9C_6D"
     },
     {
-      "id": "_h4HtbWg4e_T7RbVY-dFF",
+      "id": "HqlcZ1_GX2jQ6Qe7rllqj",
       "seq": 96,
-      "at": "2026-07-03T22:44:08.231Z",
+      "at": "2026-07-10T05:41:02.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "7lhSzplytxrOrGTct_7Lm",
+          "id": "8sSk0QFascc0Gu4B9C_6D",
           "text": "Who had physical access to the build server?",
           "x": 1040,
           "y": 60,
-          "createdAt": "2026-07-03T22:44:08.231Z",
+          "createdAt": "2026-07-10T05:41:02.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "question",
-          "threadId": "7lhSzplytxrOrGTct_7Lm",
+          "threadId": "8sSk0QFascc0Gu4B9C_6D",
           "status": "open",
           "mutuallyExclusive": false,
-          "parentThreadId": "w0E-Nv7YbhhSW_UJgLLEb"
+          "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 8000
       },
-      "nodeId": "7lhSzplytxrOrGTct_7Lm",
-      "threadId": "7lhSzplytxrOrGTct_7Lm"
+      "nodeId": "8sSk0QFascc0Gu4B9C_6D",
+      "threadId": "8sSk0QFascc0Gu4B9C_6D"
     },
     {
-      "id": "h3Dq9g33Bs6673lGtSPlb",
+      "id": "hYI5EWbziqxeBYh1DUQS7",
       "seq": 97,
-      "at": "2026-07-03T22:44:55.231Z",
+      "at": "2026-07-10T05:41:49.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "priority",
         "before": null,
         "after": "high"
       },
-      "nodeId": "7lhSzplytxrOrGTct_7Lm",
-      "threadId": "7lhSzplytxrOrGTct_7Lm"
+      "nodeId": "8sSk0QFascc0Gu4B9C_6D",
+      "threadId": "8sSk0QFascc0Gu4B9C_6D"
     },
     {
-      "id": "gAFDepDEFXmbRhqb31yFu",
+      "id": "REdvyGas8uCEvuwIMT8Qz",
       "seq": 98,
-      "at": "2026-07-05T11:38:20.231Z",
+      "at": "2026-07-10T05:42:36.626Z",
+      "type": "thread_created",
+      "payload": {
+        "rootIncidentId": "dqVLj2I5qL7_IIiAGRQ89",
+        "workflow": "diamond"
+      },
+      "nodeId": "dqVLj2I5qL7_IIiAGRQ89",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "tZ6nz1FkbZ-zQBi_XCIB5",
+      "seq": 99,
+      "at": "2026-07-10T05:43:23.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "dqVLj2I5qL7_IIiAGRQ89",
+          "text": "Intrusion at ACME — June 2026",
+          "x": 420,
+          "y": 40,
+          "createdAt": "2026-07-10T05:43:23.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "incident",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+          "status": "open"
+        }
+      },
+      "nodeId": "dqVLj2I5qL7_IIiAGRQ89",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "MEI3UmJ0wUWimIiWTqVXi",
+      "seq": 100,
+      "at": "2026-07-10T05:44:10.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "4G25jhKQRgts2IqTR4bh4",
+          "text": "Finance-themed phishing lure delivered to 41 staff",
+          "x": 80,
+          "y": 260,
+          "createdAt": "2026-07-10T05:44:10.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "diamond_event",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 9000
+      },
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "vLSJbR7QPqIOlX3fN77mr",
+      "seq": 101,
+      "at": "2026-07-10T05:44:57.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "phase",
+        "before": null,
+        "after": "delivery"
+      },
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "c-OwVek14xSgm_WXAzq7z",
+      "seq": 102,
+      "at": "2026-07-10T05:45:44.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "result",
+        "before": null,
+        "after": "success"
+      },
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "tVP9EYSfUZExmonI4FKNf",
+      "seq": 103,
+      "at": "2026-07-10T05:46:31.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "direction",
+        "before": null,
+        "after": "infrastructure_to_victim"
+      },
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "t1vkBgia58fBhLyOdmMNM",
+      "seq": 104,
+      "at": "2026-07-10T05:47:18.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "occurredAt",
+        "before": null,
+        "after": "2026-06-09"
+      },
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "o1ewdvZN7f0wYzUJlscKt",
+      "seq": 105,
+      "at": "2026-07-10T05:48:05.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "-5D29BPXmSXtqnHZAdb0Z",
+          "text": "KESTREL loader executed on FIN-WS-041",
+          "x": 540,
+          "y": 260,
+          "createdAt": "2026-07-10T05:48:05.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "diamond_event",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 6000
+      },
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "UQocfDGy70ViSu0hbppFJ",
+      "seq": 106,
+      "at": "2026-07-10T05:48:52.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "phase",
+        "before": null,
+        "after": "exploitation"
+      },
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "7gm0G-1G5jQ3ktgo4NAYl",
+      "seq": 107,
+      "at": "2026-07-10T05:49:39.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "result",
+        "before": null,
+        "after": "success"
+      },
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "MUkbbXdcVwR2tUe7ez20t",
+      "seq": 108,
+      "at": "2026-07-10T05:50:26.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "direction",
+        "before": null,
+        "after": "infrastructure_to_victim"
+      },
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "vuND129hS8Lf76m2Dwn2Y",
+      "seq": 109,
+      "at": "2026-07-10T05:51:13.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "occurredAt",
+        "before": null,
+        "after": "2026-06-09"
+      },
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "IKPhtN5IpGZm3vglo0Emk",
+      "seq": 110,
+      "at": "2026-07-10T05:52:00.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "bTzRZlNsZooInNkc2ZB3e",
+          "text": "Beaconing to bulletproof host 45.155.87.12",
+          "x": 1000,
+          "y": 260,
+          "createdAt": "2026-07-10T05:52:00.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "diamond_event",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 3000
+      },
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "kqDDvaEqhH_MKQ6UeNIza",
+      "seq": 111,
+      "at": "2026-07-10T05:52:47.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "phase",
+        "before": null,
+        "after": "command_and_control"
+      },
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "396B2E5Tsgd4Jnqt5Z7NI",
+      "seq": 112,
+      "at": "2026-07-10T05:53:34.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "result",
+        "before": null,
+        "after": "success"
+      },
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "gXALj8cYA8jdnOK2eEIwP",
+      "seq": 113,
+      "at": "2026-07-10T05:54:21.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "direction",
+        "before": null,
+        "after": "bidirectional"
+      },
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "BOlpgQAHUUKYzX3i3o3cr",
+      "seq": 114,
+      "at": "2026-07-10T05:55:08.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "occurredAt",
+        "before": null,
+        "after": "2026-06-10"
+      },
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "o3OxF9objT2Sq5AjBwpOy",
+      "seq": 115,
+      "at": "2026-07-10T05:55:55.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "1whp2JER_DxRfLFhMilHo",
+          "text": "Staged archive exfiltrated over HTTPS",
+          "x": 1460,
+          "y": 260,
+          "createdAt": "2026-07-10T05:55:55.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "diamond_event",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 7000
+      },
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "acNNHElWfpNtgSGg6qZhi",
+      "seq": 116,
+      "at": "2026-07-10T05:56:42.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "phase",
+        "before": null,
+        "after": "actions_on_objectives"
+      },
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "TCZmjgkTYO5-bL-TTECMR",
+      "seq": 117,
+      "at": "2026-07-10T05:57:29.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "result",
+        "before": null,
+        "after": "success"
+      },
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "39QTJlnnVVU19nN_9ddO1",
+      "seq": 118,
+      "at": "2026-07-10T05:58:16.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "direction",
+        "before": null,
+        "after": "victim_to_infrastructure"
+      },
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "vutK0wP0pe-qL5oJP1_WL",
+      "seq": 119,
+      "at": "2026-07-10T05:59:03.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "occurredAt",
+        "before": null,
+        "after": "2026-06-11"
+      },
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "gccmeVw-BhV32H8_N_Cri",
+      "seq": 120,
+      "at": "2026-07-10T05:59:50.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "7CjSlcnnKwFNY0qW-1U2l",
+          "text": "RDP login from dormant service account",
+          "x": 1920,
+          "y": 260,
+          "createdAt": "2026-07-10T05:59:50.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "diamond_event",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 4000
+      },
+      "nodeId": "7CjSlcnnKwFNY0qW-1U2l",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "o-CFKsK5H5uxAZSE4Qnmy",
+      "seq": 121,
+      "at": "2026-07-10T06:00:37.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "154HdobIcA8tcLkANl55B",
+          "text": "Unattributed — tracked as UNC-ACME",
+          "x": 1010,
+          "y": 40,
+          "createdAt": "2026-07-10T06:00:37.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "adversary",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 3000
+      },
+      "nodeId": "154HdobIcA8tcLkANl55B",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "72FolTz9Gshqp220bTG6O",
+      "seq": 122,
+      "at": "2026-07-10T06:01:24.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "confidence",
+        "before": null,
+        "after": "low"
+      },
+      "nodeId": "154HdobIcA8tcLkANl55B",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "o347MM9slIfHp06xGiQZE",
+      "seq": 123,
+      "at": "2026-07-10T06:02:11.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "snQnngRkdaNwStrfshXdQ",
+          "text": "KESTREL loader (custom build)",
+          "x": 470,
+          "y": 540,
+          "createdAt": "2026-07-10T06:02:11.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "capability",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 6000
+      },
+      "nodeId": "snQnngRkdaNwStrfshXdQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "AQgFRDJRHWHQhkexfOkYc",
+      "seq": 124,
+      "at": "2026-07-10T06:02:58.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "confidence",
+        "before": null,
+        "after": "moderate"
+      },
+      "nodeId": "snQnngRkdaNwStrfshXdQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "qDw6jnztEezPuya-FbG9V",
+      "seq": 125,
+      "at": "2026-07-10T06:03:45.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "B47_Afm-n85oljyZBNZcQ",
+          "text": "Spear-phish lure, finance theme",
+          "x": 40,
+          "y": 540,
+          "createdAt": "2026-07-10T06:03:45.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "capability",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 5000
+      },
+      "nodeId": "B47_Afm-n85oljyZBNZcQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "GDE_up3NE7ydhSuFZvzf5",
+      "seq": 126,
+      "at": "2026-07-10T06:04:32.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "confidence",
+        "before": null,
+        "after": "moderate"
+      },
+      "nodeId": "B47_Afm-n85oljyZBNZcQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "2ZmL59z8Sj5pVzAb8ypWg",
+      "seq": 127,
+      "at": "2026-07-10T06:05:19.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "WinCazO9X_IeeLuyo91CA",
+          "text": "Bulletproof host 45.155.87.12 (C2)",
+          "x": 1220,
+          "y": 540,
+          "createdAt": "2026-07-10T06:05:19.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "infrastructure",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 4000
+      },
+      "nodeId": "WinCazO9X_IeeLuyo91CA",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "UmVRbLfsVdVfiD84LS52-",
+      "seq": 128,
+      "at": "2026-07-10T06:06:06.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "confidence",
+        "before": null,
+        "after": "high"
+      },
+      "nodeId": "WinCazO9X_IeeLuyo91CA",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "5YQ3kdigoCtGGB-P63okF",
+      "seq": 129,
+      "at": "2026-07-10T06:06:53.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "2P2dViG4I2UMp4g-kz5GG",
+          "text": "ACME finance workstation FIN-WS-041",
+          "x": 760,
+          "y": 700,
+          "createdAt": "2026-07-10T06:06:53.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "victim",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 9000
+      },
+      "nodeId": "2P2dViG4I2UMp4g-kz5GG",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "Db_jl3h3UE-CnP4eSoxdA",
+      "seq": 130,
+      "at": "2026-07-10T06:07:40.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "confidence",
+        "before": null,
+        "after": "high"
+      },
+      "nodeId": "2P2dViG4I2UMp4g-kz5GG",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "aehOkfEMgRI-QTJB1Wgtu",
+      "seq": 131,
+      "at": "2026-07-10T06:08:27.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "ara7-pgSQrRNe6iSb3CFw",
+          "type": "characterizes",
+          "from": "B47_Afm-n85oljyZBNZcQ",
+          "to": "4G25jhKQRgts2IqTR4bh4",
+          "createdAt": "2026-07-10T06:08:27.626Z"
+        }
+      },
+      "edgeId": "ara7-pgSQrRNe6iSb3CFw",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "8FAxjiIQbtibEsqVWWpPm",
+      "seq": 132,
+      "at": "2026-07-10T06:09:14.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "bFb5iZiJ5cYDeYtUHFoKW",
+          "type": "characterizes",
+          "from": "2P2dViG4I2UMp4g-kz5GG",
+          "to": "4G25jhKQRgts2IqTR4bh4",
+          "createdAt": "2026-07-10T06:09:14.626Z"
+        }
+      },
+      "edgeId": "bFb5iZiJ5cYDeYtUHFoKW",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "dW_cTYj83R5Os-uXyeSpV",
+      "seq": 133,
+      "at": "2026-07-10T06:10:01.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "Rw1PxE_EHV_jxAK5Wqoic",
+          "type": "characterizes",
+          "from": "snQnngRkdaNwStrfshXdQ",
+          "to": "-5D29BPXmSXtqnHZAdb0Z",
+          "createdAt": "2026-07-10T06:10:01.626Z"
+        }
+      },
+      "edgeId": "Rw1PxE_EHV_jxAK5Wqoic",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "PNseXJQKpQxj9vhgB5nJ6",
+      "seq": 134,
+      "at": "2026-07-10T06:10:48.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "299gWDQGb-NJcyHlM63lE",
+          "type": "characterizes",
+          "from": "2P2dViG4I2UMp4g-kz5GG",
+          "to": "-5D29BPXmSXtqnHZAdb0Z",
+          "createdAt": "2026-07-10T06:10:48.626Z"
+        }
+      },
+      "edgeId": "299gWDQGb-NJcyHlM63lE",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "XY2QJ3XbWxOzVyoYARK-O",
+      "seq": 135,
+      "at": "2026-07-10T06:11:35.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "aDdCxMlrcf313RFiTGma_",
+          "type": "characterizes",
+          "from": "154HdobIcA8tcLkANl55B",
+          "to": "bTzRZlNsZooInNkc2ZB3e",
+          "createdAt": "2026-07-10T06:11:35.626Z"
+        }
+      },
+      "edgeId": "aDdCxMlrcf313RFiTGma_",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "Z14EZAJh3xMHp5gAVQ5O1",
+      "seq": 136,
+      "at": "2026-07-10T06:12:22.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "mgyU4HTTDu42S_aXjQZTy",
+          "type": "characterizes",
+          "from": "WinCazO9X_IeeLuyo91CA",
+          "to": "bTzRZlNsZooInNkc2ZB3e",
+          "createdAt": "2026-07-10T06:12:22.626Z"
+        }
+      },
+      "edgeId": "mgyU4HTTDu42S_aXjQZTy",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "M5zO3Yu1GFQ0eEloqp2BA",
+      "seq": 137,
+      "at": "2026-07-10T06:13:09.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "n5vu-5DjySwcnDBTrw14i",
+          "type": "characterizes",
+          "from": "WinCazO9X_IeeLuyo91CA",
+          "to": "1whp2JER_DxRfLFhMilHo",
+          "createdAt": "2026-07-10T06:13:09.626Z"
+        }
+      },
+      "edgeId": "n5vu-5DjySwcnDBTrw14i",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "NZR9jE2A_zW71SsyQmWaG",
+      "seq": 138,
+      "at": "2026-07-10T06:13:56.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "f-JfWaXusWSAanfWLHVul",
+          "type": "characterizes",
+          "from": "2P2dViG4I2UMp4g-kz5GG",
+          "to": "1whp2JER_DxRfLFhMilHo",
+          "createdAt": "2026-07-10T06:13:56.626Z"
+        }
+      },
+      "edgeId": "f-JfWaXusWSAanfWLHVul",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "lHGT0DSxcuIl1MuK6P7Au",
+      "seq": 139,
+      "at": "2026-07-10T06:14:43.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "-NVWAmUusUlWSMW_zlmUI",
+          "text": "Mail gateway logs: 41 lure deliveries, 3 clicks",
+          "x": 40,
+          "y": 880,
+          "createdAt": "2026-07-10T06:14:43.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "evidence",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 4000
+      },
+      "nodeId": "-NVWAmUusUlWSMW_zlmUI",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "fdBRO0PCjSsC2LzNIdnWi",
+      "seq": 140,
+      "at": "2026-07-10T06:15:30.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "sourceReliability",
+        "before": null,
+        "after": "B"
+      },
+      "nodeId": "-NVWAmUusUlWSMW_zlmUI",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "EfhdsTODBZhe4CF7sn1iV",
+      "seq": 141,
+      "at": "2026-07-10T06:16:17.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "infoCredibility",
+        "before": null,
+        "after": 2
+      },
+      "nodeId": "-NVWAmUusUlWSMW_zlmUI",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "wJoO7zAsS7YVr73VI0DQE",
+      "seq": 142,
+      "at": "2026-07-10T06:17:04.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "hEk7_XPngbzqa0DfbVJ2G",
+          "text": "Passive DNS ties 45.155.87.12 to a 2024 APT-Q campaign",
+          "x": 1220,
+          "y": 880,
+          "createdAt": "2026-07-10T06:17:04.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "evidence",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 3000
+      },
+      "nodeId": "hEk7_XPngbzqa0DfbVJ2G",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "7RzhxGzzkil3Zotl6Rrf7",
+      "seq": 143,
+      "at": "2026-07-10T06:17:51.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "sourceReliability",
+        "before": null,
+        "after": "C"
+      },
+      "nodeId": "hEk7_XPngbzqa0DfbVJ2G",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "IFCfVzwttL3wSEA-p-jfk",
+      "seq": 144,
+      "at": "2026-07-10T06:18:38.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "infoCredibility",
+        "before": null,
+        "after": 3
+      },
+      "nodeId": "hEk7_XPngbzqa0DfbVJ2G",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "bPqaPXbOp0D0bl7J9WSry",
+      "seq": 145,
+      "at": "2026-07-10T06:19:25.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "XCoPkZz6UWrwHibScVnCT",
+          "text": "Host serves dozens of unrelated bulletproof clients",
+          "x": 1400,
+          "y": 40,
+          "createdAt": "2026-07-10T06:19:25.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "evidence",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 7000
+      },
+      "nodeId": "XCoPkZz6UWrwHibScVnCT",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "-_64OYkJlh6_xwYetv6hu",
+      "seq": 146,
+      "at": "2026-07-10T06:20:12.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "sourceReliability",
+        "before": null,
+        "after": "C"
+      },
+      "nodeId": "XCoPkZz6UWrwHibScVnCT",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "QjL6KOZbD0cnqDe_EKnXW",
+      "seq": 147,
+      "at": "2026-07-10T06:20:59.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "infoCredibility",
+        "before": null,
+        "after": 3
+      },
+      "nodeId": "XCoPkZz6UWrwHibScVnCT",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "JyIoluydROsFPNfl_zbVB",
+      "seq": 148,
+      "at": "2026-07-10T06:21:46.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "uoSE-vs5_jJP-KTcLAKW4",
+          "type": "consistent_with",
+          "from": "-NVWAmUusUlWSMW_zlmUI",
+          "to": "B47_Afm-n85oljyZBNZcQ",
+          "createdAt": "2026-07-10T06:21:46.626Z"
+        }
+      },
+      "edgeId": "uoSE-vs5_jJP-KTcLAKW4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "ERVTYiMvFS45Ls3ctqokn",
+      "seq": 149,
+      "at": "2026-07-10T06:22:33.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "YAd8pUDMjOQUX_1g2oqNs",
+          "type": "consistent_with",
+          "from": "hEk7_XPngbzqa0DfbVJ2G",
+          "to": "WinCazO9X_IeeLuyo91CA",
+          "createdAt": "2026-07-10T06:22:33.626Z"
+        }
+      },
+      "edgeId": "YAd8pUDMjOQUX_1g2oqNs",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "4_RCS5xoohBXv7gp06qgL",
+      "seq": 150,
+      "at": "2026-07-10T06:23:20.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "HvQcTHp_TJPDuVoXc5Hsj",
+          "type": "inconsistent_with",
+          "from": "XCoPkZz6UWrwHibScVnCT",
+          "to": "154HdobIcA8tcLkANl55B",
+          "createdAt": "2026-07-10T06:23:20.626Z"
+        }
+      },
+      "edgeId": "HvQcTHp_TJPDuVoXc5Hsj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "x7Zk-C1bAfhhqnWVG-2AM",
+      "seq": 151,
+      "at": "2026-07-10T06:24:07.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "Yjr0Y_2bTcjjK8o5RJANj",
+          "text": "Initial access was via the finance-themed phishing wave",
+          "x": 1920,
+          "y": 700,
+          "createdAt": "2026-07-10T06:24:07.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "claim",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+          "status": "open"
+        },
+        "captureMs": 6000
+      },
+      "nodeId": "Yjr0Y_2bTcjjK8o5RJANj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "W7Pac8t91lUJgA3sgtEZu",
+      "seq": 152,
+      "at": "2026-07-10T06:24:54.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "likelihood",
+        "before": null,
+        "after": "likely"
+      },
+      "nodeId": "Yjr0Y_2bTcjjK8o5RJANj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "tFJ4RvHSx2ZfLBY5kAdEm",
+      "seq": 153,
+      "at": "2026-07-10T06:25:41.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "confidence",
+        "before": null,
+        "after": "moderate"
+      },
+      "nodeId": "Yjr0Y_2bTcjjK8o5RJANj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "5BNL16x076G1JmTz9hzqd",
+      "seq": 154,
+      "at": "2026-07-10T06:26:28.626Z",
+      "type": "edge_created",
+      "payload": {
+        "edge": {
+          "id": "u_5ykKgAqEpp7DbCzEU7f",
+          "type": "answers",
+          "from": "Yjr0Y_2bTcjjK8o5RJANj",
+          "to": "dqVLj2I5qL7_IIiAGRQ89",
+          "createdAt": "2026-07-10T06:26:28.626Z"
+        }
+      },
+      "edgeId": "u_5ykKgAqEpp7DbCzEU7f",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "8z2dxPimB3OZ50ngP95Cf",
+      "seq": 155,
+      "at": "2026-07-10T06:27:15.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "phase": "delivery",
+          "result": "success",
+          "direction": "infrastructure_to_victim"
+        }
+      },
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "zfdHCcM013v671g7yHpo2",
+      "seq": 156,
+      "at": "2026-07-10T06:28:02.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "phase": "exploitation",
+          "result": "success",
+          "direction": "infrastructure_to_victim"
+        }
+      },
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "JaYlySrLfN11-k6jLaotd",
+      "seq": 157,
+      "at": "2026-07-10T06:28:49.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "phase": "command_and_control",
+          "result": "success",
+          "direction": "bidirectional"
+        }
+      },
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "hqAVGsqucByvsotz8yBH9",
+      "seq": 158,
+      "at": "2026-07-10T06:29:36.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "phase": "actions_on_objectives",
+          "result": "success",
+          "direction": "victim_to_infrastructure"
+        }
+      },
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "aIikAYm9xH-hn7aDRZsil",
+      "seq": 159,
+      "at": "2026-07-10T06:30:23.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "confidence": "low"
+        }
+      },
+      "nodeId": "154HdobIcA8tcLkANl55B",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "unh7vG_6GWqGILa3W5i37",
+      "seq": 160,
+      "at": "2026-07-10T06:31:10.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "confidence": "moderate"
+        }
+      },
+      "nodeId": "snQnngRkdaNwStrfshXdQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "sB798BD2ZIK_5frn6Pbgi",
+      "seq": 161,
+      "at": "2026-07-10T06:31:57.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "confidence": "moderate"
+        }
+      },
+      "nodeId": "B47_Afm-n85oljyZBNZcQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "OpDTyRfav__hGEdRQdfK9",
+      "seq": 162,
+      "at": "2026-07-10T06:32:44.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "confidence": "high"
+        }
+      },
+      "nodeId": "WinCazO9X_IeeLuyo91CA",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "6Zy_rGnkdyLVwqj95yo9x",
+      "seq": 163,
+      "at": "2026-07-10T06:33:31.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "confidence": "high"
+        }
+      },
+      "nodeId": "2P2dViG4I2UMp4g-kz5GG",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "LJnZs6NpgZzkgYM0a_mls",
+      "seq": 164,
+      "at": "2026-07-10T06:34:18.626Z",
+      "type": "judgement_affirmed",
+      "payload": {
+        "fields": {
+          "likelihood": "likely",
+          "confidence": "moderate"
+        }
+      },
+      "nodeId": "Yjr0Y_2bTcjjK8o5RJANj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "2SOI79kqDkAMzFm3XYD_W",
+      "seq": 165,
+      "at": "2026-07-11T18:35:14.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": 2,
         "after": 3
       },
-      "nodeId": "ZvVB7n126yAerDeR3noBB",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "4gC7Co9XZ2GfaWIog-e8_",
-      "seq": 99,
-      "at": "2026-07-05T11:39:07.231Z",
+      "id": "R9PmF56FBmuiH7oZ6nYTD",
+      "seq": 166,
+      "at": "2026-07-11T18:36:01.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -2194,21 +3567,21 @@
           "confidence": "low"
         }
       },
-      "nodeId": "-H2sO0k9LYQbZ47t_M012",
-      "threadId": "w0E-Nv7YbhhSW_UJgLLEb"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Ah1S5eZvC6SUi2A0_e8kW",
-      "seq": 100,
-      "at": "2026-07-05T11:39:54.231Z",
+      "id": "pLHJhkSqlTHt67yEPOXrg",
+      "seq": 167,
+      "at": "2026-07-11T18:36:48.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": "moderate",
         "after": "high"
       },
-      "nodeId": "AgiC183wRVrNgRR4CxKBi",
-      "threadId": "DvqkkyQMlE5TTB3nb-rmF"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     }
   ]
 }

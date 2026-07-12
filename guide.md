@@ -25,11 +25,13 @@ leaves your machine; there is no server and no network traffic. Different
 browsers (or profiles) have separate stores — use **Export ▾ → JSON backup**
 to move work between them.
 
-**First run:** a guided tour offers itself automatically — it loads the worked
-example and walks the intended workflow (capture → link → matrix → review →
-export) in ten spotlight steps. Rerun it any time from the **Tutorial** button —
-on the home screen, or in the "How to" panel header inside any thread. Or skip
-it and click **Load example** to explore the intrusion-attribution demo yourself.
+**First run:** a short intro card explains what the tool is and its two
+workflows. The full spotlight walkthroughs run on first contact with each
+tool: open any ACH thread and the ACH tour starts; open any Diamond incident
+and the Diamond tour starts — each over the thread you actually opened.
+Rerun the intro from the home screen's **Tutorial** button, and either
+walkthrough from the "How to" panel header inside a thread. **Load example**
+gives you a worked ACH question and a Diamond incident to explore.
 
 ---
 
@@ -212,13 +214,43 @@ Reopen a thread after 8+ hours (or with a non-empty queue) and a **re-entry
 briefing** greets you: current spine, what changed last session, and the top
 of the queue — with a "Start with the queue" shortcut.
 
+## 11. The Diamond Model workflow
+
+The home screen offers a second workflow beside ACH: the **Diamond Model of
+Intrusion Analysis** (Caltagirone, Pendergast & Betz, 2013). Name the
+**incident** under investigation and decompose it into **events** — each
+characterized by up to four **vertices**: Adversary, Capability,
+Infrastructure, Victim.
+
+- **Capture** on the same freeform canvas with a per-workflow palette:
+  `D` event · `A` adversary · `C` capability · `I` infrastructure · `V` victim
+  · `E` evidence · `S` assessment (claim).
+- **Vertices are shared nodes**: the same C2 host can *characterize* several
+  events — that reuse is the model's pivot move, and the Inspector lists every
+  event a vertex appears in.
+- **Grade everything**: events carry kill-chain phase, result, and direction
+  (plus an optional occurred-on date that orders the lane); vertices carry your
+  confidence in the identification; evidence attaches to vertices with the
+  usual Admiralty grades. Staleness flows evidence → vertex → event →
+  assessment, exactly like the rest of the app.
+- **The Kill chain view** (the incident thread's peer of the Matrix) threads
+  events into lanes along Lockheed Martin's seven phases. Hollow diamond
+  corners are **intelligence gaps**; the Queue lists them, and they clear only
+  by filling the missing vertex — never by affirmation.
+- **Close the incident** by adopting an assessment claim through the usual
+  ceremony. Adopting with open gaps fires a gate that demands a stated reason,
+  logged verbatim.
+
+Full specification: `diamond-model-v1-spec.md`.
+
 ---
 
 ## Keyboard reference
 
 | Key | Where | Action |
 |-----|-------|--------|
-| `Q` `C` `A` `E` | canvas | create node at cursor |
+| `Q` `C` `A` `E` | canvas (question thread) | create node at cursor |
+| `D` `A` `C` `I` `V` `E` `S` | canvas (incident thread) | create node at cursor |
 | `Enter` / `Tab` / `Esc` | create form | commit / grade inline / cancel |
 | `L` | node selected | start a link (click target) |
 | `T` | node selected | retype |

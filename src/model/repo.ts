@@ -15,12 +15,14 @@ import {
   type Edge,
   type EdgeType,
   type EventType,
+  type IncidentNode,
   type LogEvent,
   type NodeType,
   type QuestionNode,
   type StoreSnapshot,
   JUDGEMENT_FIELDS,
   declaredJudgements,
+  isVertexType,
   validEdgeTypes,
 } from './types';
 import { competingSet, dependencyCone, isLive } from './derive';
@@ -135,6 +137,10 @@ export interface CreateNodeInput {
   judgements?: Record<string, unknown>;
 }
 
+/** Is `threadId` anchored by an incident (diamond workflow)? */
+const isIncidentThread = (g: Graph, threadId: string): boolean =>
+  g.nodes[threadId]?.type === 'incident';
+
 export async function createNode(input: CreateNodeInput): Promise<AnyNode> {
   const text = input.text.trim();
   if (!text) throw new Error('node text is required');
@@ -153,6 +159,10 @@ export async function createNode(input: CreateNodeInput): Promise<AnyNode> {
 
   if (input.type === 'question') {
     // Every question anchors its own thread (§2.6); created inside a thread ⇒ sub-question.
+    // Sub-questions inside incident threads are deferred (diamond spec §0).
+    if (input.threadId && isIncidentThread(state(), input.threadId)) {
+      throw new Error('sub-questions inside incident threads are not supported yet');
+    }
     node = {
       ...base,
       type: 'question',
@@ -168,6 +178,26 @@ export async function createNode(input: CreateNodeInput): Promise<AnyNode> {
         payload: { rootQuestionId: id, parentThreadId: input.threadId || null },
       }),
     );
+  } else if (input.type === 'incident') {
+    // Incidents are root-only (diamond spec §1.1): they anchor their own thread.
+    if (input.threadId) throw new Error('an incident can only be created from the home screen');
+    node = { ...base, type: 'incident', threadId: id, status: 'open' };
+    events.push(
+      mkEvent('thread_created', {
+        nodeId: id,
+        threadId: id,
+        payload: { rootIncidentId: id, workflow: 'diamond' },
+      }),
+    );
+  } else if (input.type === 'diamond_event' || isVertexType(input.type)) {
+    if (!input.threadId) throw new Error('threadId is required');
+    if (!isIncidentThread(state(), input.threadId)) {
+      throw new Error(`a ${input.type === 'diamond_event' ? 'diamond event' : input.type} can only be created inside an incident thread`);
+    }
+    node =
+      input.type === 'diamond_event'
+        ? { ...base, type: 'diamond_event', threadId: input.threadId }
+        : { ...base, type: input.type, threadId: input.threadId };
   } else if (input.type === 'claim') {
     node = { ...base, type: 'claim', threadId: input.threadId, status: 'open' };
   } else if (input.type === 'assumption') {
@@ -175,7 +205,9 @@ export async function createNode(input: CreateNodeInput): Promise<AnyNode> {
   } else {
     node = { ...base, type: 'evidence', threadId: input.threadId };
   }
-  if (input.type !== 'question' && !input.threadId) throw new Error('threadId is required');
+  if (input.type !== 'question' && input.type !== 'incident' && !input.threadId) {
+    throw new Error('threadId is required');
+  }
 
   events.push(
     mkEvent('node_created', {
@@ -213,6 +245,12 @@ const TEXT_FIELDS: Record<NodeType, string[]> = {
   claim: ['text', 'note'],
   assumption: ['text', 'note', 'abandonTrigger'],
   evidence: ['text', 'note', 'sourceNote'],
+  incident: ['text', 'note'],
+  diamond_event: ['text', 'note'],
+  adversary: ['text', 'note'],
+  capability: ['text', 'note'],
+  infrastructure: ['text', 'note'],
+  victim: ['text', 'note'],
 };
 
 export async function editNodeText(
@@ -256,22 +294,46 @@ const ENUM_DOMAINS: Record<string, readonly unknown[]> = {
   priority: ['low', 'moderate', 'high'],
   linchpin: [true, false],
   mutuallyExclusive: [true, false],
+  phase: [
+    'reconnaissance', 'weaponization', 'delivery', 'exploitation',
+    'installation', 'command_and_control', 'actions_on_objectives',
+  ],
+  result: ['success', 'failure', 'unknown'],
+  direction: [
+    'adversary_to_infrastructure', 'infrastructure_to_adversary',
+    'infrastructure_to_victim', 'victim_to_infrastructure',
+    'infrastructure_to_infrastructure', 'bidirectional', 'unknown',
+  ],
 };
 
 // Fields settable per type via declareJudgement. Core judgement fields
-// (JUDGEMENT_FIELDS) clear/stale; the annotation flags only log.
+// (JUDGEMENT_FIELDS) clear/stale; the annotation flags/dates only log.
 const DECLARABLE: Record<NodeType, string[]> = {
   question: ['priority', 'mutuallyExclusive'],
   claim: ['likelihood', 'confidence'],
   assumption: ['validity', 'linchpin'],
   evidence: ['sourceReliability', 'infoCredibility'],
+  incident: [],
+  diamond_event: ['phase', 'result', 'direction', 'occurredAt'],
+  adversary: ['confidence'],
+  capability: ['confidence'],
+  infrastructure: ['confidence'],
+  victim: ['confidence'],
 };
 
 function validateJudgement(type: NodeType, field: string, value: unknown): void {
   if (!DECLARABLE[type].includes(field)) {
     throw new Error(`${field} is not declarable on a ${type}`);
   }
-  if (value !== null && !ENUM_DOMAINS[field].includes(value)) {
+  if (value === null) return;
+  if (field === 'occurredAt') {
+    // Structured ISO-8601 date, never free text (diamond spec §0.5).
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || Number.isNaN(Date.parse(value))) {
+      throw new Error('occurredAt must be an ISO-8601 date (YYYY-MM-DD)');
+    }
+    return;
+  }
+  if (!ENUM_DOMAINS[field].includes(value)) {
     throw new Error(`${String(value)} is not a valid ${field}`);
   }
 }
@@ -329,12 +391,26 @@ const TYPE_SPECIFIC_FIELDS = [
   'likelihood', 'confidence',
   'validity', 'linchpin', 'abandonTrigger',
   'sourceReliability', 'infoCredibility', 'sourceNote',
+  'phase', 'result', 'direction', 'occurredAt',
 ];
 
 export async function retypeNode(nodeId: string, newType: NodeType): Promise<void> {
   const node = requireNode(nodeId);
   if (node.type === newType) return;
   const g = state();
+
+  if (node.type === 'incident') {
+    throw new Error('an incident cannot be retyped — it anchors this canvas');
+  }
+  if (newType === 'incident') {
+    throw new Error('incidents can only be created from the home screen');
+  }
+  if (newType === 'question' && isIncidentThread(g, node.threadId)) {
+    throw new Error('sub-questions inside incident threads are not supported yet');
+  }
+  if ((newType === 'diamond_event' || isVertexType(newType)) && !isIncidentThread(g, node.threadId)) {
+    throw new Error(`a ${newType === 'diamond_event' ? 'diamond event' : newType} only exists inside an incident thread`);
+  }
 
   if (node.type === 'question') {
     const inhabited = Object.values(g.nodes).some(
@@ -383,7 +459,8 @@ export async function retypeNode(nodeId: string, newType: NodeType): Promise<voi
   } else if (newType === 'assumption') {
     retyped = { ...(common as object), type: 'assumption', threadId: homeThread, linchpin: false } as AssumptionNode;
   } else {
-    retyped = { ...(common as object), type: 'evidence', threadId: homeThread } as AnyNode;
+    // evidence, diamond_event, and the four vertex roles share the plain shape
+    retyped = { ...(common as object), type: newType, threadId: homeThread } as AnyNode;
   }
 
   const retypeEv = mkEvent('node_retyped', {
@@ -536,7 +613,7 @@ export async function deleteEdge(edgeId: string): Promise<void> {
 // ---------------------------------------------------------------------------
 
 export interface GateOverride {
-  gate: 'rival_stronger' | 'unsupported_linchpin';
+  gate: 'rival_stronger' | 'unsupported_linchpin' | 'diamond_gaps';
   snapshot: unknown;
   reason: string;
 }
@@ -552,10 +629,15 @@ export async function setClaimStatus(
   if (claim.status === status) return;
   const g = state();
 
-  const answeredQuestions = Object.values(g.edges)
+  // A claim may answer questions and/or incidents (diamond spec §1.2).
+  const answeredTargets = Object.values(g.edges)
     .filter((e) => e.type === 'answers' && e.from === claimId)
-    .map((e) => g.nodes[e.to] as QuestionNode)
-    .filter((q) => isLive(q) && q.type === 'question');
+    .map((e) => g.nodes[e.to])
+    .filter((t): t is QuestionNode | IncidentNode =>
+      isLive(t) && (t.type === 'question' || t.type === 'incident'),
+    );
+  const answeredQuestions = answeredTargets.filter((t): t is QuestionNode => t.type === 'question');
+  const answeredIncidents = answeredTargets.filter((t): t is IncidentNode => t.type === 'incident');
 
   const events: LogEvent[] = [];
   const puts = new Map<string, AnyNode>();
@@ -605,6 +687,19 @@ export async function setClaimStatus(
       );
     }
   }
+  // Incident status follows assessment adoption (diamond spec §3.4.6).
+  for (const inc of answeredIncidents) {
+    if (status === 'adopted' && inc.status !== 'assessed') {
+      puts.set(inc.id, { ...inc, status: 'assessed' });
+      events.push(
+        mkEvent('incident_status_changed', {
+          nodeId: inc.id,
+          threadId: inc.id,
+          payload: { before: inc.status, after: 'assessed', byClaim: claimId },
+        }),
+      );
+    }
+  }
   if (status === 'open') reopenOrphanedQuestions(g, claimId, events, puts);
 
   // Claim status change is a staling event on the claim (§2.7).
@@ -613,28 +708,34 @@ export async function setClaimStatus(
   await commit({ putNodes: [...puts.values()], events });
 }
 
-/** Reopen questions whose only adopted answer was `claimId` (being reverted/removed). */
+/** Reopen questions/incidents whose only adopted answer was `claimId` (being
+    reverted/removed). Reversal reopens the incident (diamond spec §3.4.6). */
 function reopenOrphanedQuestions(
   g: Graph,
   claimId: string,
   events: LogEvent[],
   puts: Map<string, AnyNode>,
 ): void {
-  const answered = Object.values(g.edges)
+  const settled = Object.values(g.edges)
     .filter((e) => e.type === 'answers' && e.from === claimId)
-    .map((e) => g.nodes[e.to] as QuestionNode)
-    .filter((q) => isLive(q) && q.type === 'question' && q.status === 'answered');
-  for (const q of answered) {
-    const remaining = competingSet(g, q.id).some(
+    .map((e) => g.nodes[e.to])
+    .filter(
+      (t): t is QuestionNode | IncidentNode =>
+        isLive(t) &&
+        ((t.type === 'question' && t.status === 'answered') ||
+          (t.type === 'incident' && t.status === 'assessed')),
+    );
+  for (const t of settled) {
+    const remaining = competingSet(g, t.id).some(
       (c) => c.id !== claimId && c.status === 'adopted' && !puts.has(c.id),
     );
     if (remaining) continue;
-    puts.set(q.id, { ...(puts.get(q.id) ?? q), status: 'open' } as QuestionNode);
+    puts.set(t.id, { ...(puts.get(t.id) ?? t), status: 'open' } as AnyNode);
     events.push(
-      mkEvent('question_status_changed', {
-        nodeId: q.id,
-        threadId: q.id,
-        payload: { before: 'answered', after: 'open', byClaim: claimId },
+      mkEvent(t.type === 'question' ? 'question_status_changed' : 'incident_status_changed', {
+        nodeId: t.id,
+        threadId: t.id,
+        payload: { before: t.type === 'question' ? 'answered' : 'assessed', after: 'open', byClaim: claimId },
       }),
     );
   }

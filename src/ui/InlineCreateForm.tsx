@@ -8,9 +8,12 @@ import type { AnyNode, NodeType } from '../model/types';
 import {
   CONFIDENCE_LABELS,
   CREDIBILITY_LABELS,
+  DIRECTION_LABELS,
   LIKELIHOOD_LABELS,
   NODE_TYPE_LABELS,
+  PHASE_LABELS,
   RELIABILITY_LABELS,
+  RESULT_LABELS,
   VALIDITY_LABELS,
 } from '../model/labels';
 import { useUI } from './uiStore';
@@ -21,6 +24,10 @@ export interface CreateFormState {
   svgY: number;
   openedAt: number;
 }
+
+const VERTEX_FIELDS = [
+  { field: 'confidence', label: 'Confidence', options: Object.entries(CONFIDENCE_LABELS) },
+];
 
 const INLINE_FIELDS: Record<NodeType, { field: string; label: string; options: [string, string][] }[]> = {
   question: [],
@@ -39,6 +46,25 @@ const INLINE_FIELDS: Record<NodeType, { field: string; label: string; options: [
       options: Object.entries(CREDIBILITY_LABELS).map(([k, v]) => [k, v] as [string, string]),
     },
   ],
+  incident: [], // created from the home screen, never inline
+  diamond_event: [
+    { field: 'phase', label: 'Kill-chain phase', options: Object.entries(PHASE_LABELS) },
+    { field: 'result', label: 'Result', options: Object.entries(RESULT_LABELS) },
+    { field: 'direction', label: 'Direction', options: Object.entries(DIRECTION_LABELS) },
+  ],
+  adversary: VERTEX_FIELDS,
+  capability: VERTEX_FIELDS,
+  infrastructure: VERTEX_FIELDS,
+  victim: VERTEX_FIELDS,
+};
+
+const PLACEHOLDERS: Partial<Record<NodeType, string>> = {
+  question: 'What needs answering?',
+  diamond_event: 'What happened? (one intrusion event)',
+  adversary: 'Who acted? (actor, persona, alias)',
+  capability: 'What tool or technique?',
+  infrastructure: 'What infrastructure? (host, domain, C2)',
+  victim: 'Who or what was targeted?',
 };
 
 export function InlineCreateForm({
@@ -102,7 +128,7 @@ export function InlineCreateForm({
         <input
           type="text"
           autoFocus
-          placeholder={form.type === 'question' ? 'What needs answering?' : `New ${form.type}…`}
+          placeholder={PLACEHOLDERS[form.type] ?? `New ${NODE_TYPE_LABELS[form.type].toLowerCase()}…`}
           value={text}
           onChange={(e) => setText(e.target.value)}
         />

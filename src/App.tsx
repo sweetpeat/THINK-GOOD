@@ -7,6 +7,7 @@ import { Home } from './ui/Home';
 import { TopBar } from './ui/TopBar';
 import { GraphView } from './ui/GraphView';
 import { MatrixView } from './ui/MatrixView';
+import { KillChainView } from './ui/KillChainView';
 import { AuditView } from './ui/AuditView';
 import { RightPanel } from './ui/RightPanel';
 import { QueuePanel } from './ui/QueuePanel';
@@ -75,6 +76,7 @@ function Shell() {
             <GraphView threadId={threadId} view={view} />
           )}
           {view === 'matrix' && <MatrixView rootThreadId={rootId} />}
+          {view === 'killchain' && <KillChainView incidentId={rootId} />}
           {view === 'audit' && <AuditView rootThreadId={rootId} />}
           <BriefingGate rootId={rootId} threadId={threadId} />
           {queueOpen && <QueuePanel rootThreadId={rootId} />}

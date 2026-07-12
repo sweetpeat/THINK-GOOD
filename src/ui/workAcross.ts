@@ -13,8 +13,9 @@ export function maybeWorkAcrossToast(g: Graph, edge: Edge): void {
   const evidence = g.nodes[edge.from];
   if (!claim || !evidence) return;
 
+  // Question targets only: the matrix (where the toast lands) is an ACH view.
   const questions = liveEdges(g)
-    .filter((e) => e.type === 'answers' && e.from === claim.id)
+    .filter((e) => e.type === 'answers' && e.from === claim.id && g.nodes[e.to]?.type === 'question')
     .map((e) => e.to);
   for (const qId of questions) {
     const set = competingSet(g, qId);
