@@ -25,11 +25,13 @@ leaves your machine; there is no server and no network traffic. Different
 browsers (or profiles) have separate stores — use **Export ▾ → JSON backup**
 to move work between them.
 
-**First run:** a guided tour offers itself automatically — it loads the worked
-example and walks the intended workflow (capture → link → matrix → review →
-export) in ten spotlight steps. Rerun it any time from the **Tutorial** button —
-on the home screen, or in the "How to" panel header inside any thread. Or skip
-it and click **Load example** to explore the intrusion-attribution demo yourself.
+**First run:** a short intro card explains what the tool is and its two
+workflows. The full spotlight walkthroughs run on first contact with each
+tool: open any ACH thread and the ACH tour starts; open any Diamond incident
+and the Diamond tour starts — each over the thread you actually opened.
+Rerun the intro from the home screen's **Tutorial** button, and either
+walkthrough from the "How to" panel header inside a thread. **Load example**
+gives you a worked ACH question and a Diamond incident to explore.
 
 ---
 

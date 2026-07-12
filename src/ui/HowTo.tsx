@@ -1,9 +1,11 @@
 // Permanently-open reference legend, pinned to the bottom of the right panel.
 // Written to be worked from, not just read: the loop first, then the
 // vocabulary, then the tradecraft this tool is built on. The Tutorial button
-// re-runs the first-visit walkthrough from anywhere.
+// re-runs the current thread's workflow walkthrough.
 
 import type { ReactNode } from 'react';
+import { threadAncestry, threadWorkflow } from '../model/derive';
+import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
 
 const NODE_ROWS: { chip: string; cls: string; text: ReactNode }[] = [
@@ -103,16 +105,22 @@ const THEORY_ROWS: { name: string; href: string; text: string }[] = [
   },
 ];
 
-export function HowTo() {
-  const setTutorialStep = useUI((s) => s.setTutorialStep);
+export function HowTo({ threadId }: { threadId: string }) {
+  const g = useGraph();
+  const setTutorial = useUI((s) => s.setTutorial);
+  const workflow = threadWorkflow(g, threadId);
   return (
     <section className="howto" aria-label="How to">
       <div className="howto-titlebar">
         <h2 className="howto-title">How to</h2>
         <button
           className="btn small"
-          onClick={() => setTutorialStep(0)}
-          title="Re-run the guided walkthrough"
+          onClick={() => {
+            const rootId = threadAncestry(g, threadId)[0]?.id ?? threadId;
+            useUI.getState().dismissBriefing(rootId);
+            setTutorial({ kind: workflow, step: 0 });
+          }}
+          title={`Re-run the ${workflow === 'diamond' ? 'Diamond Model' : 'ACH'} walkthrough`}
         >
           Tutorial
         </button>

@@ -3,6 +3,10 @@ import type { LensId } from './lenses';
 
 export type ViewId = 'canvas' | 'stratified' | 'matrix' | 'audit' | 'killchain';
 
+/** 'intro' = the short what-is-this card on Home; 'ach' | 'diamond' = the
+    per-workflow walkthroughs that run on first entry into a thread. */
+export type TourKind = 'intro' | 'ach' | 'diamond';
+
 export type Route =
   | { screen: 'home' }
   | { screen: 'thread'; threadId: string; view: ViewId }
@@ -37,8 +41,8 @@ interface UIState {
   briefingDismissed: Record<string, boolean>;
   /** guided lens walk; index into REVIEW_ORDER, null = off */
   reviewIndex: number | null;
-  /** first-run walkthrough; step index, null = off */
-  tutorialStep: number | null;
+  /** first-run tours: the home intro card, or a per-workflow walkthrough */
+  tutorial: { kind: TourKind; step: number } | null;
 
   go: (route: Route) => void;
   openThread: (threadId: string, view?: ViewId) => void;
@@ -53,7 +57,7 @@ interface UIState {
   startReview: () => void;
   stepReview: (dir: 1 | -1) => void;
   endReview: () => void;
-  setTutorialStep: (step: number | null) => void;
+  setTutorial: (tutorial: UIState['tutorial']) => void;
 }
 
 export const useUI = create<UIState>((set) => ({
@@ -66,7 +70,7 @@ export const useUI = create<UIState>((set) => ({
   matrixFocusEvidenceId: null,
   briefingDismissed: {},
   reviewIndex: null,
-  tutorialStep: null,
+  tutorial: null,
 
   go: (route) => set({ route, selectedId: null, lens: null, toast: null, reviewIndex: null }),
   openThread: (threadId, view = 'canvas') =>
@@ -96,5 +100,5 @@ export const useUI = create<UIState>((set) => ({
     }),
   endReview: () => set({ reviewIndex: null, lens: null }),
 
-  setTutorialStep: (step) => set({ tutorialStep: step }),
+  setTutorial: (tutorial) => set({ tutorial }),
 }));

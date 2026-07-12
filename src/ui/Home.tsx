@@ -16,7 +16,7 @@ import {
   subQuestionsOf,
 } from '../model/derive';
 import { timeAgo } from './eventText';
-import { tutorialDone } from './Tutorial';
+import { tourDone } from './Tutorial';
 import exampleFixture from '../../fixtures/example.rcanvas.json';
 
 export function Home() {
@@ -29,10 +29,11 @@ export function Home() {
     a.createdAt.localeCompare(b.createdAt),
   );
 
-  // First visit with an empty store: offer the walkthrough (friend feedback #1).
+  // First visit: the short what-is-this card (friend feedback #1). The full
+  // walkthroughs run on first entry into an ACH or Diamond thread.
   useEffect(() => {
-    if (!tutorialDone() && roots.length === 0 && useUI.getState().tutorialStep == null) {
-      useUI.getState().setTutorialStep(0);
+    if (!tourDone('intro') && useUI.getState().tutorial == null) {
+      useUI.getState().setTutorial({ kind: 'intro', step: 0 });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -200,7 +201,11 @@ export function Home() {
         <button className="btn small" onClick={() => go({ screen: 'stats' })}>
           Stats
         </button>
-        <button className="btn small" onClick={() => useUI.getState().setTutorialStep(0)}>
+        <button
+          className="btn small"
+          title="The intro card — each workflow runs its own tour when you first open it"
+          onClick={() => useUI.getState().setTutorial({ kind: 'intro', step: 0 })}
+        >
           Tutorial
         </button>
         {roots.length > 0 && (

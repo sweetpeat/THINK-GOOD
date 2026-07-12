@@ -1,21 +1,27 @@
-// First-run walkthrough (friend feedback #1): a spotlight tour over the loaded
-// example, in workflow order — capture → link → views → matrix → queue →
-// review → inspector → export. Greys out everything except the highlighted
-// element; advances with Next/Back; Esc or Skip ends it. Runs once per
-// browser (localStorage flag); re-runnable from the Home screen.
+// First-run tours. Three pieces: a short "what all this is" card on the Home
+// screen (intro), then a spotlight walkthrough per workflow — ACH or Diamond —
+// that starts automatically the first time the analyst opens a thread of that
+// kind, over their own thread (or the example). Each runs once per browser
+// (localStorage flags); the intro re-runs from Home's Tutorial button, the
+// walkthroughs from the How-to panel's Tutorial button inside a thread.
 
 import { useCallback, useEffect, useState } from 'react';
-import * as repo from '../model/repo';
-import type { StoreSnapshot } from '../model/types';
-import { rootQuestions } from '../model/derive';
-import { graphStore } from '../model/graphStore';
+import { threadAncestry, threadWorkflow } from '../model/derive';
 import { useGraph } from './useGraph';
-import { useUI, type ViewId } from './uiStore';
-import exampleFixture from '../../fixtures/example.rcanvas.json';
+import { useUI, type TourKind, type ViewId } from './uiStore';
 
-export const TUTORIAL_DONE_KEY = 'rc-tutorial-done';
-export const markTutorialDone = () => localStorage.setItem(TUTORIAL_DONE_KEY, '1');
-export const tutorialDone = () => !!localStorage.getItem(TUTORIAL_DONE_KEY);
+// Legacy key from the single-tour era: treat it as intro + ACH already seen.
+const LEGACY_DONE_KEY = 'rc-tutorial-done';
+const DONE_KEYS: Record<TourKind, string> = {
+  intro: 'rc-intro-done',
+  ach: 'rc-tour-ach-done',
+  diamond: 'rc-tour-diamond-done',
+};
+
+export const markTourDone = (kind: TourKind) => localStorage.setItem(DONE_KEYS[kind], '1');
+export const tourDone = (kind: TourKind): boolean =>
+  !!localStorage.getItem(DONE_KEYS[kind]) ||
+  (kind !== 'diamond' && !!localStorage.getItem(LEGACY_DONE_KEY));
 
 interface Step {
   target: string | null; // CSS selector; null = centered card
@@ -25,13 +31,16 @@ interface Step {
   placement?: 'auto' | 'left';
 }
 
-const STEPS: Step[] = [
+const INTRO_STEPS: Step[] = [
   {
     target: null,
     title: 'Welcome to Reasoning Canvas',
     body:
-      'This tool makes your analysis an explicit, auditable graph: you declare every judgement, and every act goes on the record. This 60-second tour walks the intended workflow on a worked example — an intrusion investigation.',
+      'This tool makes your analysis an explicit, auditable graph: you declare every judgement yourself, and every act goes on the record. It offers two workflows — Analysis of Competing Hypotheses for weighing rival answers to a question, and the Diamond Model for decomposing an intrusion into events and vertices. Open either (or load the example below) and a short tour of that tool will walk you through it.',
   },
+];
+
+const ACH_STEPS: Step[] = [
   {
     target: '.toolbar',
     view: 'canvas',
@@ -96,51 +105,108 @@ const STEPS: Step[] = [
     target: null,
     title: 'That’s the loop',
     body:
-      'Capture → link → matrix → review → export. Head Home and start your own question — you can rerun this tour any time from the Home screen.',
+      'Capture → link → matrix → review → export. Rerun this tour any time from the Tutorial button in the How-to panel.',
   },
 ];
+
+const DIAMOND_STEPS: Step[] = [
+  {
+    target: '.toolbar',
+    view: 'canvas',
+    title: '1 · Capture the intrusion',
+    body:
+      'An incident thread decomposes an intrusion into events. Press D to capture an event, and A, C, I, V for its four vertices — adversary, capability, infrastructure, victim. E adds evidence, S drafts an assessment claim.',
+  },
+  {
+    target: 'g[data-node-id]',
+    view: 'canvas',
+    title: '2 · Characterize events',
+    body:
+      'Drag a vertex’s ⊕ handle onto an event to link it — the vertex characterizes the event. Vertices are shared nodes: the same C2 host can characterize several events. That reuse is the pivot the Diamond Model is built for.',
+  },
+  {
+    target: 'g[data-node-id]',
+    view: 'canvas',
+    title: '3 · Gaps are information',
+    body:
+      'The four small diamonds on an event’s shoulder are its role slots — filled means that vertex is known, hollow is an intelligence gap. Early diamonds are mostly hollow; that’s normal, and the tool keeps score until you fill them.',
+  },
+  {
+    target: '.killchain-wrap',
+    view: 'killchain',
+    title: '4 · The kill chain',
+    body:
+      'Events threaded into Lockheed Martin’s seven phases, ordered by their occurred-on dates. An empty lane is itself information. Click a diamond to select the event; click a hollow corner to create the missing vertex on the spot.',
+  },
+  {
+    target: '.queue-badge',
+    view: 'canvas',
+    title: '5 · The queue and the gaps',
+    body:
+      'Stale judgements queue here as usual — and incident threads add an intelligence-gaps list: every missing vertex, per event. Gaps never affirm away; they clear only when you identify the missing element.',
+  },
+  {
+    target: '.right-panel',
+    placement: 'left',
+    title: '6 · Grade everything',
+    body:
+      'Events carry kill-chain phase, result, and direction; vertices carry your confidence in the identification; evidence attaches to vertices with Admiralty grades. Staleness flows evidence → vertex → event → assessment, and the system never computes a judgement for you.',
+  },
+  {
+    target: null,
+    title: '7 · Close with an assessment',
+    body:
+      'When the map is good enough to say something, press S to draft an assessment claim, link it to the incident with answers, and adopt it from the Inspector. Adopting with open gaps fires a gate: you state a reason, and it goes on the record verbatim.',
+  },
+  {
+    target: null,
+    title: 'That’s the Diamond loop',
+    body:
+      'Capture events → link vertices → thread the kill chain → close the gaps → adopt an assessment. Rerun this tour any time from the Tutorial button in the How-to panel.',
+  },
+];
+
+const TOURS: Record<TourKind, Step[]> = {
+  intro: INTRO_STEPS,
+  ach: ACH_STEPS,
+  diamond: DIAMOND_STEPS,
+};
 
 const BOX_W = 340;
 
 export function Tutorial() {
   const g = useGraph();
-  const { tutorialStep, setTutorialStep, route, openThread, setView } = useUI();
+  const { tutorial, setTutorial, route, setView, dismissBriefing } = useUI();
   const [rect, setRect] = useState<DOMRect | null>(null);
 
-  const step = tutorialStep != null ? STEPS[tutorialStep] : null;
+  const step = tutorial ? TOURS[tutorial.kind][tutorial.step] : null;
 
   const end = useCallback(() => {
-    markTutorialDone();
-    setTutorialStep(null);
-  }, [setTutorialStep]);
+    const cur = useUI.getState().tutorial;
+    if (cur) markTourDone(cur.kind);
+    setTutorial(null);
+  }, [setTutorial]);
 
-  // Step 0 → 1: make sure there's something to tour. Empty store: load the
-  // example (same import path as the Home button, logged as ever).
-  const begin = async () => {
-    let roots = rootQuestions(graphStore.getState());
-    if (!roots.length) {
-      await repo.importSnapshot(exampleFixture as unknown as StoreSnapshot);
-      roots = rootQuestions(graphStore.getState());
-    }
-    if (!roots.length) return end(); // nothing to tour (import failed?)
-    openThread(roots[0].id);
-    useUI.getState().dismissBriefing(roots[0].id); // the tour replaces the briefing this once
-    setTutorialStep(1);
-  };
+  // Auto-start: first time a thread of a workflow is opened, tour it (the
+  // Home intro auto-offers from Home.tsx). The briefing yields this once.
+  useEffect(() => {
+    if (route.screen !== 'thread' || useUI.getState().tutorial) return;
+    const workflow = threadWorkflow(g, route.threadId);
+    if (tourDone(workflow)) return;
+    const rootId = threadAncestry(g, route.threadId)[0]?.id ?? route.threadId;
+    dismissBriefing(rootId);
+    setTutorial({ kind: workflow, step: 0 });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [route.screen, route.screen === 'thread' ? route.threadId : null]);
 
   // Navigate + measure for the current step.
   useEffect(() => {
-    if (tutorialStep == null || !step) return;
-    if (tutorialStep === 0) return setRect(null);
+    if (!tutorial || !step) return;
+    if (tutorial.kind === 'intro') return setRect(null);
 
     const ui = useUI.getState();
-    if (ui.route.screen !== 'thread') {
-      const roots = rootQuestions(graphStore.getState());
-      if (!roots.length) return end();
-      openThread(roots[0].id, step.view ?? 'canvas');
-    } else if (step.view && ui.route.screen === 'thread' && ui.route.view !== step.view) {
-      setView(step.view);
-    }
+    if (ui.route.screen !== 'thread') return end(); // left the thread mid-tour
+    if (step.view && ui.route.view !== step.view) setView(step.view);
 
     let cancelled = false;
     const measure = () => {
@@ -157,11 +223,11 @@ export function Tutorial() {
       window.removeEventListener('resize', measure);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tutorialStep, route.screen, g.loaded]);
+  }, [tutorial, route.screen, g.loaded]);
 
-  // Esc ends the tour.
+  // Esc ends the tour; arrows/Enter advance.
   useEffect(() => {
-    if (tutorialStep == null) return;
+    if (!tutorial) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') end();
       if (e.key === 'ArrowRight' || e.key === 'Enter') advance(1);
@@ -170,19 +236,18 @@ export function Tutorial() {
     window.addEventListener('keydown', onKey, true);
     return () => window.removeEventListener('keydown', onKey, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tutorialStep]);
+  }, [tutorial]);
 
   const advance = (dir: 1 | -1) => {
-    const cur = useUI.getState().tutorialStep;
-    if (cur == null) return;
-    if (cur === 0 && dir === 1) return void begin();
-    const next = cur + dir;
-    if (next >= STEPS.length) return end();
-    if (next < 1) return;
-    setTutorialStep(next);
+    const cur = useUI.getState().tutorial;
+    if (!cur) return;
+    const next = cur.step + dir;
+    if (next >= TOURS[cur.kind].length) return end();
+    if (next < 0) return;
+    setTutorial({ ...cur, step: next });
   };
 
-  if (tutorialStep == null || !step) return null;
+  if (!tutorial || !step) return null;
 
   const pad = 6;
   const spot = rect
@@ -211,8 +276,9 @@ export function Tutorial() {
     };
   }
 
-  const isWelcome = tutorialStep === 0;
-  const isLast = tutorialStep === STEPS.length - 1;
+  const isIntro = tutorial.kind === 'intro';
+  const len = TOURS[tutorial.kind].length;
+  const isLast = tutorial.step === len - 1;
 
   return (
     <div className="tour">
@@ -226,25 +292,18 @@ export function Tutorial() {
         <h3>{step.title}</h3>
         <p>{step.body}</p>
         <div className="tour-row">
-          <span className="tour-dots">
-            {tutorialStep > 0 ? `${tutorialStep} / ${STEPS.length - 1}` : ''}
-          </span>
+          <span className="tour-dots">{isIntro ? '' : `${tutorial.step + 1} / ${len}`}</span>
           <span className="tour-actions">
-            {isWelcome ? (
-              <>
-                <button className="btn small" onClick={end}>
-                  Skip for now
-                </button>
-                <button className="btn small primary" onClick={() => void begin()}>
-                  Take the tour
-                </button>
-              </>
+            {isIntro ? (
+              <button className="btn small primary" onClick={end}>
+                Got it
+              </button>
             ) : (
               <>
                 <button className="btn small" onClick={end}>
                   Skip
                 </button>
-                {tutorialStep > 1 && (
+                {tutorial.step > 0 && (
                   <button className="btn small" onClick={() => advance(-1)}>
                     Back
                   </button>
