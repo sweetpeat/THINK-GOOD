@@ -732,6 +732,11 @@ select.judgement.undeclared { color: var(--muted); font-style: italic; }
 .diamond-caption { font-size: 11.5px; fill: var(--ink); }
 .diamond-meta { font-family: var(--mono); font-size: 10.5px; fill: var(--muted); }
 
+/* canvas diamond glyph (diamond spec §3.1) */
+.corner-label { font-size: 10.5px; font-weight: 550; }
+.node-g.selected .sel-ring-diamond { stroke: var(--c-claim); }
+.sel-ring-diamond { stroke: none; }
+
 /* ---------- modal (ceremony, confirm) ---------- */
 
 .modal-backdrop {

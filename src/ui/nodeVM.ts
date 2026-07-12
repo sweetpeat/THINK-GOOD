@@ -21,7 +21,7 @@ import {
   diamondEvents,
   diamondGaps,
   eventsCharacterizedBy,
-  missingRoles,
+  verticesOf,
 } from '../model/derive';
 import {
   admiraltyGrade,
@@ -74,13 +74,19 @@ export interface NodeVM {
   answerLines: string[];
   answerMeta: string | null;
   isThreadAnchor: boolean;
-  /** diamond_event only: the four roles, filled or gap (diamond spec §3.1) */
-  roleSlots: { role: VertexType; present: boolean }[] | null;
+  /** diamond_event only: the four corner sections, populated from the
+      characterizes edges (diamond spec §3.1). Empty count = intelligence gap. */
+  roleSlots: { role: VertexType; count: number; label: string | null; firstId: string | null }[] | null;
 }
+
+/** Canvas diamond glyph extents (diamond_event nodes render as true diamonds). */
+export const DIAMOND_W = 224;
+export const DIAMOND_H = 148;
 
 export function buildNodeVM(g: Graph, node: AnyNode, currentThreadId: string): NodeVM {
   const staleKind = staleStateOf(node).kind;
-  const lines = wrapText(node.text);
+  // Diamond glyphs centre their text, so lines wrap narrower than the card width.
+  const lines = node.type === 'diamond_event' ? wrapText(node.text, 3, 21) : wrapText(node.text);
   let meta = '';
   let adopted = false;
   let linchpin = false;
@@ -129,8 +135,13 @@ export function buildNodeVM(g: Graph, node: AnyNode, currentThreadId: string): N
     const ev = node as DiamondEventNode;
     const phase = ev.phase ? PHASE_LABELS[ev.phase] : 'phase undeclared';
     meta = `${phase} · ${ev.result ? RESULT_LABELS[ev.result] : 'result?'}`;
-    const missing = new Set(missingRoles(g, node.id));
-    roleSlots = VERTEX_TYPES.map((role) => ({ role, present: !missing.has(role) }));
+    const byRole = verticesOf(g, node.id);
+    roleSlots = VERTEX_TYPES.map((role) => ({
+      role,
+      count: byRole[role].length,
+      label: byRole[role][0]?.text ?? null,
+      firstId: byRole[role][0]?.id ?? null,
+    }));
   } else if (isVertexType(node.type)) {
     const v = node as VertexNode;
     const conf = v.confidence ? `${CONFIDENCE_LABELS[v.confidence]} confidence` : 'confidence undeclared';
@@ -157,8 +168,8 @@ export function buildNodeVM(g: Graph, node: AnyNode, currentThreadId: string): N
 
   return {
     node,
-    w: NODE_W,
-    h,
+    w: node.type === 'diamond_event' ? DIAMOND_W : NODE_W,
+    h: node.type === 'diamond_event' ? DIAMOND_H : h,
     lines,
     meta,
     adopted,

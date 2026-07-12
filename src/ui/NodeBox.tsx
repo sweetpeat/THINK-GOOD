@@ -1,3 +1,4 @@
+import type { VertexType } from '../model/types';
 import type { NodeVM } from './nodeVM';
 import { TYPE_COLOR, TYPE_GLYPH } from './nodeVM';
 
@@ -45,10 +46,142 @@ export interface NodeBoxProps {
   onPointerDown?: (e: React.PointerEvent) => void;
   onDoubleClick?: (e: React.MouseEvent) => void;
   onLinkStart?: (e: React.PointerEvent) => void;
+  /** diamond_event corners: select the vertex (firstId) or create it (null) */
+  onCornerClick?: (role: VertexType, firstId: string | null) => void;
 }
 
 /** Renders at origin; parent <g> supplies the translate. Pure of all state. */
-export function NodeBox({
+export function NodeBox(props: NodeBoxProps) {
+  if (props.vm.node.type === 'diamond_event') return <DiamondEventBox {...props} />;
+  return <CardBox {...props} />;
+}
+
+/** The classic Diamond Model glyph (diamond spec §3.1): a true diamond with
+    the event's text and grading inside and the four vertex sections at its
+    corners — Adversary top, Capability right, Victim bottom, Infrastructure
+    left. Filled corner = vertex linked (its name alongside); hollow = gap. */
+function DiamondEventBox({
+  vm,
+  selected,
+  dimmed,
+  onPointerDown,
+  onCornerClick,
+}: NodeBoxProps) {
+  const W = vm.w;
+  const H = vm.h;
+  const cx = W / 2;
+  const cy = H / 2;
+  const d = `M ${cx} 0 L ${W} ${cy} L ${cx} ${H} L 0 ${cy} Z`;
+  const stale = vm.staleKind !== 'fresh';
+  const R = 9;
+
+  const CORNERS: Record<
+    VertexType,
+    { x: number; y: number; glyph: string; lx: number; ly: number; anchor: 'start' | 'middle' | 'end' }
+  > = {
+    adversary: { x: cx, y: 0, glyph: 'A', lx: cx, ly: -10, anchor: 'middle' },
+    capability: { x: W, y: cy, glyph: 'C', lx: W + 13, ly: cy + 3.5, anchor: 'start' },
+    victim: { x: cx, y: H, glyph: 'V', lx: cx, ly: H + 17, anchor: 'middle' },
+    infrastructure: { x: 0, y: cy, glyph: 'I', lx: -13, ly: cy + 3.5, anchor: 'end' },
+  };
+
+  // centre the text block (lines + meta) vertically inside the diamond
+  const blockH = vm.lines.length * LINE_H + 16;
+  let ty = cy - blockH / 2 + 11;
+
+  return (
+    <g className={`node-g${selected ? ' selected' : ''}${dimmed ? ' dim' : ''}`}>
+      {selected && (
+        <path
+          className="sel-ring-diamond"
+          d={`M ${cx} ${-8} L ${W + 10} ${cy} L ${cx} ${H + 8} L ${-10} ${cy} Z`}
+          fill="none"
+          strokeWidth={1.5}
+          strokeDasharray="3 3"
+        />
+      )}
+      <g className="body" onPointerDown={onPointerDown}>
+        <path d={d} fill="var(--surface)" stroke="var(--c-event)" strokeWidth={vm.isThreadAnchor ? 2.2 : 1.6} />
+        {/* stale = hatched (§5.1) — same signature device, diamond-shaped */}
+        {stale && <path d={d} fill="url(#stale-hatch)" pointerEvents="none" />}
+        {vm.lines.map((line, i) => (
+          <text key={i} className="node-text" x={cx} y={ty + i * LINE_H} textAnchor="middle">
+            {line}
+          </text>
+        ))}
+        <text
+          className="node-meta"
+          x={cx}
+          y={ty + vm.lines.length * LINE_H + 3}
+          textAnchor="middle"
+        >
+          {vm.meta.length > 30 ? `${vm.meta.slice(0, 29)}…` : vm.meta}
+        </text>
+      </g>
+
+      {vm.roleSlots?.map((slot) => {
+        const c = CORNERS[slot.role];
+        const filled = slot.count > 0;
+        // side labels sit between neighbouring diamonds — keep them tighter
+        const maxLabel = c.anchor === 'middle' ? 24 : 15;
+        const label = slot.label
+          ? `${slot.label.length > maxLabel ? `${slot.label.slice(0, maxLabel - 1)}…` : slot.label}${slot.count > 1 ? ` +${slot.count - 1}` : ''}`
+          : null;
+        return (
+          <g
+            key={slot.role}
+            style={{ cursor: 'pointer' }}
+            onPointerDown={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              onCornerClick?.(slot.role, slot.firstId);
+            }}
+          >
+            <circle
+              cx={c.x}
+              cy={c.y}
+              r={R}
+              fill={filled ? `var(--c-${slot.role})` : 'var(--surface)'}
+              stroke={`var(--c-${slot.role})`}
+              strokeWidth={1.5}
+              strokeDasharray={filled ? undefined : '2.5 2.5'}
+            />
+            <text
+              x={c.x}
+              y={c.y + 3.5}
+              textAnchor="middle"
+              fontSize={10}
+              fontWeight={700}
+              fontFamily="var(--mono)"
+              fill={filled ? '#fff' : `var(--c-${slot.role})`}
+              pointerEvents="none"
+            >
+              {c.glyph}
+            </text>
+            {label && (
+              <text
+                className="corner-label"
+                x={c.lx}
+                y={c.ly}
+                textAnchor={c.anchor}
+                fill={`var(--c-${slot.role})`}
+              >
+                {label}
+              </text>
+            )}
+            <title>
+              {filled
+                ? `${slot.role}: ${slot.label}${slot.count > 1 ? ` (+${slot.count - 1} more)` : ''} — click to select`
+                : `${slot.role}: gap — click to add`}
+            </title>
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+function CardBox({
   vm,
   selected,
   dimmed,
@@ -140,26 +273,6 @@ export function NodeBox({
         >
           {vm.meta.length > 34 ? `${vm.meta.slice(0, 33)}…` : vm.meta}
         </text>
-        {/* diamond_event role slots (diamond spec §3.1): filled = present, hollow = gap */}
-        {vm.roleSlots && (
-          <g transform={`translate(${vm.w - vm.roleSlots.length * 15 - 4}, -5)`}>
-            {vm.roleSlots.map((s, i) => (
-              <g key={s.role} transform={`translate(${i * 15 + 6},0)`}>
-                <rect
-                  x={-4}
-                  y={-4}
-                  width={8}
-                  height={8}
-                  transform="rotate(45)"
-                  fill={s.present ? `var(--c-${s.role})` : 'var(--surface)'}
-                  stroke={`var(--c-${s.role})`}
-                  strokeWidth={1.3}
-                />
-                <title>{`${s.role}: ${s.present ? 'present' : 'gap — no vertex linked'}`}</title>
-              </g>
-            ))}
-          </g>
-        )}
         {vm.linchpin && <Keystone x={vm.w - 22} y={-4} />}
         {vm.derivedBadge !== 'none' && (
           <ChainLink x={vm.w - (vm.linchpin ? 48 : 24)} y={vm.h - 16} changed={vm.derivedBadge === 'source_changed'} />

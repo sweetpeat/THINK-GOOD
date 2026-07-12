@@ -5,16 +5,23 @@ export interface Rect {
   y: number;
   w: number;
   h: number;
+  /** diamond_event nodes render as true diamonds; edges anchor to that border */
+  shape?: 'rect' | 'diamond';
 }
 
 const cx = (r: Rect) => r.x + r.w / 2;
 const cy = (r: Rect) => r.y + r.h / 2;
 
-/** Point where the line from this rect's centre toward (tx,ty) exits the rect. */
+/** Point where the line from this shape's centre toward (tx,ty) exits it. */
 export function anchor(r: Rect, tx: number, ty: number): { x: number; y: number } {
   const dx = tx - cx(r);
   const dy = ty - cy(r);
   if (dx === 0 && dy === 0) return { x: cx(r), y: cy(r) };
+  if (r.shape === 'diamond') {
+    // diamond border: |dx|/(w/2) + |dy|/(h/2) = 1
+    const s = 1 / (Math.abs(dx) / (r.w / 2) + Math.abs(dy) / (r.h / 2));
+    return { x: cx(r) + dx * s, y: cy(r) + dy * s };
+  }
   const sx = dx !== 0 ? r.w / 2 / Math.abs(dx) : Infinity;
   const sy = dy !== 0 ? r.h / 2 / Math.abs(dy) : Infinity;
   const s = Math.min(sx, sy);

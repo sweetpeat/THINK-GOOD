@@ -7,8 +7,9 @@ import * as repo from '../model/repo';
 import { graphStore } from '../model/graphStore';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
-import type { AnyNode, EdgeType, NodeType, QuestionNode } from '../model/types';
+import type { AnyNode, DiamondEventNode, EdgeType, NodeType, QuestionNode } from '../model/types';
 import { edgeTargetsFrom, validEdgeTypes } from '../model/types';
+import { promptCreateVertex } from './diamondActions';
 import { displayedEdges, displayedNodes, threadWorkflow, weakestInput } from '../model/derive';
 import { EDGE_TYPE_LABELS, NODE_TYPE_LABELS, NODE_TYPE_PLURALS } from '../model/labels';
 import { PALETTES, keyFor, retypeOptions, typeForKey, type Workflow } from './palette';
@@ -354,7 +355,13 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
   const rectOf = (id: string): Rect => {
     const p = posOf(id);
     const vm = vms.get(id)!;
-    return { x: p.x, y: p.y, w: vm.w, h: vm.h };
+    return {
+      x: p.x,
+      y: p.y,
+      w: vm.w,
+      h: vm.h,
+      shape: vm.node.type === 'diamond_event' ? 'diamond' : undefined,
+    };
   };
 
   const edgeEls = edges
@@ -414,6 +421,10 @@ export function GraphView({ threadId, view }: { threadId: string; view: 'canvas'
             onPointerDown={onNodePointerDown(n)}
             onDoubleClick={onNodeDoubleClick(n)}
             onLinkStart={startLink(n)}
+            onCornerClick={(role, firstId) => {
+              if (firstId) select(firstId);
+              else void promptCreateVertex(n as DiamondEventNode, role);
+            }}
           />
         </g>
       );

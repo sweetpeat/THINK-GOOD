@@ -125,18 +125,19 @@ async function main() {
   const dmk = (type: 'diamond_event' | 'adversary' | 'capability' | 'infrastructure' | 'victim' | 'evidence' | 'claim', text: string, x: number, y: number, judgements?: Record<string, unknown>) =>
     repo.createNode({ threadId: inc.id, type, text, x, y, judgements, captureMs: 3000 + Math.floor(((x + y) % 70) * 100) });
 
-  const de1 = await dmk('diamond_event', 'Finance-themed phishing lure delivered to 41 staff', 80, 240, { phase: 'delivery', result: 'success', direction: 'infrastructure_to_victim', occurredAt: '2026-06-09' });
-  const de2 = await dmk('diamond_event', 'KESTREL loader executed on FIN-WS-041', 380, 240, { phase: 'exploitation', result: 'success', direction: 'infrastructure_to_victim', occurredAt: '2026-06-09' });
-  const de3 = await dmk('diamond_event', 'Beaconing to bulletproof host 45.155.87.12', 680, 240, { phase: 'command_and_control', result: 'success', direction: 'bidirectional', occurredAt: '2026-06-10' });
-  const de4 = await dmk('diamond_event', 'Staged archive exfiltrated over HTTPS', 980, 240, { phase: 'actions_on_objectives', result: 'success', direction: 'victim_to_infrastructure', occurredAt: '2026-06-11' });
+  // events sit a diamond-and-a-half apart so corner labels have room to breathe
+  const de1 = await dmk('diamond_event', 'Finance-themed phishing lure delivered to 41 staff', 80, 260, { phase: 'delivery', result: 'success', direction: 'infrastructure_to_victim', occurredAt: '2026-06-09' });
+  const de2 = await dmk('diamond_event', 'KESTREL loader executed on FIN-WS-041', 540, 260, { phase: 'exploitation', result: 'success', direction: 'infrastructure_to_victim', occurredAt: '2026-06-09' });
+  const de3 = await dmk('diamond_event', 'Beaconing to bulletproof host 45.155.87.12', 1000, 260, { phase: 'command_and_control', result: 'success', direction: 'bidirectional', occurredAt: '2026-06-10' });
+  const de4 = await dmk('diamond_event', 'Staged archive exfiltrated over HTTPS', 1460, 260, { phase: 'actions_on_objectives', result: 'success', direction: 'victim_to_infrastructure', occurredAt: '2026-06-11' });
   // deliberately unphased + ungraded (and unlinked): shows the Unphased lane and the gaps list
-  await dmk('diamond_event', 'RDP login from dormant service account', 1280, 240);
+  await dmk('diamond_event', 'RDP login from dormant service account', 1920, 260);
 
-  const vAdv = await dmk('adversary', 'Unattributed — tracked as UNC-ACME', 680, 60, { confidence: 'low' });
-  const vCap = await dmk('capability', 'KESTREL loader (custom build)', 300, 460, { confidence: 'moderate' });
-  const vLure = await dmk('capability', 'Spear-phish lure, finance theme', 60, 460, { confidence: 'moderate' });
-  const vInfra = await dmk('infrastructure', 'Bulletproof host 45.155.87.12 (C2)', 760, 460, { confidence: 'high' });
-  const vVic = await dmk('victim', 'ACME finance workstation FIN-WS-041', 500, 620, { confidence: 'high' });
+  const vAdv = await dmk('adversary', 'Unattributed — tracked as UNC-ACME', 1010, 40, { confidence: 'low' });
+  const vCap = await dmk('capability', 'KESTREL loader (custom build)', 470, 540, { confidence: 'moderate' });
+  const vLure = await dmk('capability', 'Spear-phish lure, finance theme', 40, 540, { confidence: 'moderate' });
+  const vInfra = await dmk('infrastructure', 'Bulletproof host 45.155.87.12 (C2)', 1220, 540, { confidence: 'high' });
+  const vVic = await dmk('victim', 'ACME finance workstation FIN-WS-041', 760, 700, { confidence: 'high' });
 
   // the pivot: one infrastructure vertex characterizes two events
   await repo.createEdge('characterizes', vLure.id, de1.id);
@@ -149,15 +150,15 @@ async function main() {
   await repo.createEdge('characterizes', vVic.id, de4.id);
 
   // evidence graded on the Admiralty scale, cited against vertex identifications
-  const dev1 = await dmk('evidence', 'Mail gateway logs: 41 lure deliveries, 3 clicks', 60, 800, { sourceReliability: 'B', infoCredibility: 2 });
-  const dev2 = await dmk('evidence', 'Passive DNS ties 45.155.87.12 to a 2024 APT-Q campaign', 700, 800, { sourceReliability: 'C', infoCredibility: 3 });
-  const dev3 = await dmk('evidence', 'Host serves dozens of unrelated bulletproof clients', 1000, 800, { sourceReliability: 'C', infoCredibility: 3 });
+  const dev1 = await dmk('evidence', 'Mail gateway logs: 41 lure deliveries, 3 clicks', 40, 880, { sourceReliability: 'B', infoCredibility: 2 });
+  const dev2 = await dmk('evidence', 'Passive DNS ties 45.155.87.12 to a 2024 APT-Q campaign', 1220, 880, { sourceReliability: 'C', infoCredibility: 3 });
+  const dev3 = await dmk('evidence', 'Host serves dozens of unrelated bulletproof clients', 1400, 40, { sourceReliability: 'C', infoCredibility: 3 });
   await repo.createEdge('consistent_with', dev1.id, vLure.id);
   await repo.createEdge('consistent_with', dev2.id, vInfra.id);
   await repo.createEdge('inconsistent_with', dev3.id, vAdv.id);
 
   // an open (not adopted) assessment, so Gate C — open diamond gaps — is demoable
-  const assess = await dmk('claim', 'Initial access was via the finance-themed phishing wave', 1280, 620, { likelihood: 'likely', confidence: 'moderate' });
+  const assess = await dmk('claim', 'Initial access was via the finance-themed phishing wave', 1920, 700, { likelihood: 'likely', confidence: 'moderate' });
   await repo.createEdge('answers', assess.id, inc.id);
 
   // the linking staled the graded diamond nodes — affirm back to a clean baseline

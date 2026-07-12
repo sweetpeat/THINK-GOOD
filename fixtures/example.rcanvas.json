@@ -1,1354 +1,1354 @@
 {
   "nodes": [
     {
-      "id": "F4Lo07Ls2uXZHq9pHEH73",
+      "id": "25MbrMKvX91hR1UUQdQ1j",
       "text": "Is APT-Q responsible for the intrusion at ACME?",
       "x": 420,
       "y": 40,
-      "createdAt": "2026-07-06T22:26:04.725Z",
+      "createdAt": "2026-07-08T04:36:01.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "question",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "status": "open",
       "mutuallyExclusive": true
     },
     {
-      "id": "1kMNXyC-mMe4Z_tyEK9hz",
-      "text": "A criminal affiliate reused APT-Q tooling",
-      "x": 430,
-      "y": 230,
-      "createdAt": "2026-07-06T22:29:59.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "claim",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
-      "status": "open",
-      "likelihood": "realistic_possibility",
-      "confidence": "low"
-    },
-    {
-      "id": "J59lyA1PwKWOgP0p9AQc0",
+      "id": "VTG2ZUvZKLWdx88jCWAT2",
       "text": "APT-Q conducted the intrusion",
       "x": 140,
       "y": 230,
-      "createdAt": "2026-07-06T22:27:38.725Z",
+      "createdAt": "2026-07-08T04:37:35.626Z",
       "stale": {
         "kind": "undermined",
-        "causeEventId": "lzV-nzKpz9LaYzvsyPiNA"
+        "causeEventId": "2SOI79kqDkAMzFm3XYD_W"
       },
       "type": "claim",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "status": "open",
       "likelihood": "likely",
       "confidence": "moderate"
     },
     {
-      "id": "JUgKHcme2oRbzU-6FZZe2",
+      "id": "Hcw3Hedkq4xwO18hY07Zp",
       "text": "An insider staged the intrusion to look external",
       "x": 720,
       "y": 230,
-      "createdAt": "2026-07-06T22:32:20.725Z",
+      "createdAt": "2026-07-08T04:42:17.626Z",
       "stale": {
         "kind": "undermined",
-        "causeEventId": "lzV-nzKpz9LaYzvsyPiNA"
+        "causeEventId": "2SOI79kqDkAMzFm3XYD_W"
       },
       "type": "claim",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "status": "open",
       "likelihood": "unlikely",
       "confidence": "low"
     },
     {
-      "id": "GeiY5JM8dUvdaZb8Z6q9r",
-      "text": "ACME's VPN logs are complete and untampered",
-      "x": 640,
-      "y": 430,
-      "createdAt": "2026-07-08T22:30:46.725Z",
+      "id": "WVqcf4DfJeSnvVOOJzN6o",
+      "text": "A criminal affiliate reused APT-Q tooling",
+      "x": 430,
+      "y": 230,
+      "createdAt": "2026-07-08T04:39:56.626Z",
       "stale": {
         "kind": "fresh"
       },
-      "type": "assumption",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
-      "linchpin": false,
-      "validity": "supported"
+      "type": "claim",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "status": "open",
+      "likelihood": "realistic_possibility",
+      "confidence": "low"
     },
     {
-      "id": "Goz2EzUOhdS4E-KfxNRVL",
-      "text": "Access implies intent",
-      "x": 880,
-      "y": 430,
-      "createdAt": "2026-07-08T22:32:20.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "assumption",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
-      "linchpin": true,
-      "validity": "unsupported"
-    },
-    {
-      "id": "Lm-7BtyHi0xd-0byWGxG2",
+      "id": "S3nwvBJyya8NE-Aruj9N5",
       "text": "Code overlap implies common authorship",
       "x": 60,
       "y": 430,
-      "createdAt": "2026-07-08T22:27:38.725Z",
+      "createdAt": "2026-07-10T04:37:35.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "assumption",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "linchpin": true,
       "validity": "caveated",
       "abandonTrigger": "KESTREL source or builder leaks publicly"
     },
     {
-      "id": "QjWh6X0AYPGX8p-I2CgFF",
+      "id": "OhiSoh7GuTlvfLeEgTG-c",
       "text": "APT-Q does not share infrastructure with affiliates",
       "x": 300,
       "y": 430,
-      "createdAt": "2026-07-08T22:34:41.725Z",
+      "createdAt": "2026-07-10T04:44:38.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "assumption",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "linchpin": false,
       "validity": "caveated"
     },
     {
-      "id": "wKdNsTR7D9Nqa3Uj0umEF",
+      "id": "TutiMqe8-ncmcza2LKUKz",
+      "text": "ACME's VPN logs are complete and untampered",
+      "x": 640,
+      "y": 430,
+      "createdAt": "2026-07-10T04:40:43.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "assumption",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "linchpin": false,
+      "validity": "supported"
+    },
+    {
+      "id": "YIeY4oSxMXW1mHdAnqZko",
+      "text": "Access implies intent",
+      "x": 880,
+      "y": 430,
+      "createdAt": "2026-07-10T04:42:17.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "assumption",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "linchpin": true,
+      "validity": "unsupported"
+    },
+    {
+      "id": "bL8p1PPQc_j1i4aqEdoSO",
       "text": "Loader shares code with APT-Q's KESTREL implant",
       "x": 80,
       "y": 640,
-      "createdAt": "2026-07-08T22:39:23.725Z",
+      "createdAt": "2026-07-10T04:49:20.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "B",
       "infoCredibility": 3
     },
     {
-      "id": "cNK0zJjA5FEzGP5fehN0b",
+      "id": "-rf5iY5JDtsKz6YGfXhI4",
       "text": "VPN logs show access from inside the HQ subnet",
       "x": 800,
       "y": 640,
-      "createdAt": "2026-07-08T22:47:13.725Z",
+      "createdAt": "2026-07-10T04:57:10.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "D",
       "infoCredibility": 4
     },
     {
-      "id": "DKKqs5O4yDwEaaS5aNSnY",
-      "text": "C2 infrastructure overlaps a 2024 APT-Q campaign",
-      "x": 320,
-      "y": 640,
-      "createdAt": "2026-07-08T22:42:31.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "evidence",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
-      "sourceReliability": "B",
-      "infoCredibility": 3
-    },
-    {
-      "id": "lOcH6_eyof6KJOU2Wl6xv",
+      "id": "kqGel2n_IuoK5ZbTe_AX0",
       "text": "Commodity credential-dumping tools used throughout",
       "x": 560,
       "y": 640,
-      "createdAt": "2026-07-08T22:44:52.725Z",
+      "createdAt": "2026-07-10T04:54:49.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "C",
       "infoCredibility": 3
     },
     {
-      "id": "6EmdJnCl1l0_vF4SP40IG",
-      "text": "Ransom note demands payment in Monero",
-      "x": 460,
-      "y": 800,
-      "createdAt": "2026-07-08T22:54:16.725Z",
+      "id": "O3CmdAkTtwLfiIncc_pli",
+      "text": "C2 infrastructure overlaps a 2024 APT-Q campaign",
+      "x": 320,
+      "y": 640,
+      "createdAt": "2026-07-10T04:52:28.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "sourceReliability": "B",
+      "infoCredibility": 3
+    },
+    {
+      "id": "QT7jCb9STuDIRYhtFR8xV",
+      "text": "Phishing lure written in fluent corporate English",
+      "x": 1040,
+      "y": 640,
+      "createdAt": "2026-07-10T04:59:31.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
+      "sourceReliability": "C",
+      "infoCredibility": 3
+    },
+    {
+      "id": "4RgQMpRDYqVYEvIJLv3Vd",
+      "text": "Ransom note demands payment in Monero",
+      "x": 460,
+      "y": 800,
+      "createdAt": "2026-07-10T05:04:13.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "C",
       "infoCredibility": 2
     },
     {
-      "id": "BEoS8RZFx2E1I2qk0d5f2",
+      "id": "gLGt3PIDVstG4bIocmG1L",
       "text": "APT-Q is known to sell tooling to affiliates",
       "x": 200,
       "y": 800,
-      "createdAt": "2026-07-08T22:51:55.725Z",
+      "createdAt": "2026-07-10T05:01:52.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceReliability": "B",
       "infoCredibility": 2
     },
     {
-      "id": "jL_3WrN01R7_5DcN2VPGH",
-      "text": "Phishing lure written in fluent corporate English",
-      "x": 1040,
-      "y": 640,
-      "createdAt": "2026-07-08T22:49:34.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "evidence",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
-      "sourceReliability": "C",
-      "infoCredibility": 3
-    },
-    {
-      "id": "iSShZhcofDGMCk7Fm2LQ3",
+      "id": "IwnVv79OJgrZXvhJ2UJcH",
       "text": "Forum chatter claims an insider sold ACME access",
       "x": 720,
       "y": 800,
-      "createdAt": "2026-07-08T22:56:37.725Z",
+      "createdAt": "2026-07-10T05:06:34.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "sourceNote": "Single dark-web forum post, unverified"
     },
     {
-      "id": "edWnPwcXCSAfJnQc_cb6G",
-      "text": "Was the loader custom-built?",
-      "x": 60,
-      "y": 60,
-      "createdAt": "2026-07-08T23:13:04.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "question",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G",
-      "status": "answered",
-      "mutuallyExclusive": false,
-      "parentThreadId": "F4Lo07Ls2uXZHq9pHEH73"
-    },
-    {
-      "id": "kFKpiOCof28uB0RWmoYL3",
-      "text": "The loader was assembled from a leaked builder",
-      "x": 460,
-      "y": 240,
-      "createdAt": "2026-07-08T23:16:12.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "claim",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G",
-      "status": "open",
-      "likelihood": "unlikely",
-      "confidence": "low"
-    },
-    {
-      "id": "O1EZzp-7ROLVuI10h51tp",
+      "id": "_j4GtLrRCNAc8GOY6hgS9",
       "text": "The loader was custom-built for this intrusion",
       "x": 160,
       "y": 240,
-      "createdAt": "2026-07-08T23:13:51.725Z",
+      "createdAt": "2026-07-10T05:23:48.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "claim",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G",
+      "threadId": "kMSJvkjBX8TQje4_i-km1",
       "status": "adopted",
       "likelihood": "likely",
       "confidence": "high"
     },
     {
-      "id": "X6Ws-hHkbBG7POvuE4mEL",
+      "id": "kMSJvkjBX8TQje4_i-km1",
+      "text": "Was the loader custom-built?",
+      "x": 60,
+      "y": 60,
+      "createdAt": "2026-07-10T05:23:01.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "question",
+      "threadId": "kMSJvkjBX8TQje4_i-km1",
+      "status": "answered",
+      "mutuallyExclusive": false,
+      "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
+    },
+    {
+      "id": "b0EuV9RgMrlnwNNFJ_qJe",
+      "text": "The loader was assembled from a leaked builder",
+      "x": 460,
+      "y": 240,
+      "createdAt": "2026-07-10T05:26:09.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "claim",
+      "threadId": "kMSJvkjBX8TQje4_i-km1",
+      "status": "open",
+      "likelihood": "unlikely",
+      "confidence": "low"
+    },
+    {
+      "id": "n2Akqqohywclc_U9aeUfj",
       "text": "No builder artifacts for this loader found in the wild",
       "x": 300,
       "y": 480,
-      "createdAt": "2026-07-08T23:20:07.725Z",
+      "createdAt": "2026-07-10T05:30:04.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G",
+      "threadId": "kMSJvkjBX8TQje4_i-km1",
       "sourceReliability": "C",
       "infoCredibility": 2
     },
     {
-      "id": "FyQcj2ky8tpl1dautOBRY",
+      "id": "KlaamwcnFO0Emf3r2x3Kp",
       "text": "The loader was custom-built for this intrusion",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j",
       "x": 90,
       "y": 980,
-      "createdAt": "2026-07-08T23:26:23.725Z",
-      "derivedFrom": "O1EZzp-7ROLVuI10h51tp",
+      "createdAt": "2026-07-10T05:36:20.626Z",
+      "derivedFrom": "_j4GtLrRCNAc8GOY6hgS9",
       "stale": {
         "kind": "undermined",
-        "causeEventId": "0EIpRV_pN1I_enRyiSfuF"
+        "causeEventId": "pLHJhkSqlTHt67yEPOXrg"
       },
       "type": "evidence",
       "sourceReliability": "B",
       "infoCredibility": 3
     },
     {
-      "id": "OaxvsgY48sfxSCLBHLvwf",
+      "id": "8sSk0QFascc0Gu4B9C_6D",
       "text": "Who had physical access to the build server?",
       "x": 1040,
       "y": 60,
-      "createdAt": "2026-07-08T23:31:05.725Z",
+      "createdAt": "2026-07-10T05:41:02.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "question",
-      "threadId": "OaxvsgY48sfxSCLBHLvwf",
+      "threadId": "8sSk0QFascc0Gu4B9C_6D",
       "status": "open",
       "mutuallyExclusive": false,
-      "parentThreadId": "F4Lo07Ls2uXZHq9pHEH73",
+      "parentThreadId": "25MbrMKvX91hR1UUQdQ1j",
       "priority": "high"
     },
     {
-      "id": "o0V81_wVv3JjXJfyj34re",
+      "id": "dqVLj2I5qL7_IIiAGRQ89",
       "text": "Intrusion at ACME — June 2026",
       "x": 420,
       "y": 40,
-      "createdAt": "2026-07-08T23:33:26.725Z",
+      "createdAt": "2026-07-10T05:43:23.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "incident",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
       "status": "open"
     },
     {
-      "id": "vFw5lYGhOS0vOJsWAG4jZ",
+      "id": "-5D29BPXmSXtqnHZAdb0Z",
       "text": "KESTREL loader executed on FIN-WS-041",
-      "x": 380,
-      "y": 240,
-      "createdAt": "2026-07-08T23:38:08.725Z",
+      "x": 540,
+      "y": 260,
+      "createdAt": "2026-07-10T05:48:05.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "diamond_event",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
       "phase": "exploitation",
       "result": "success",
       "direction": "infrastructure_to_victim",
       "occurredAt": "2026-06-09"
     },
     {
-      "id": "zXQvwOk0uFRmHDPKQcJQu",
-      "text": "Finance-themed phishing lure delivered to 41 staff",
-      "x": 80,
-      "y": 240,
-      "createdAt": "2026-07-08T23:34:13.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "diamond_event",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
-      "phase": "delivery",
-      "result": "success",
-      "direction": "infrastructure_to_victim",
-      "occurredAt": "2026-06-09"
-    },
-    {
-      "id": "_xh2PpXsbBFz5zEu6_rPP",
-      "text": "Unattributed — tracked as UNC-ACME",
-      "x": 680,
-      "y": 60,
-      "createdAt": "2026-07-08T23:50:40.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "adversary",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
-      "confidence": "low"
-    },
-    {
-      "id": "2QGmwgq7dNoofVc9uR5ze",
-      "text": "Beaconing to bulletproof host 45.155.87.12",
-      "x": 680,
-      "y": 240,
-      "createdAt": "2026-07-08T23:42:03.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "diamond_event",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
-      "phase": "command_and_control",
-      "result": "success",
-      "direction": "bidirectional",
-      "occurredAt": "2026-06-10"
-    },
-    {
-      "id": "AvMWn9f1NWbopONzwkucL",
-      "text": "Bulletproof host 45.155.87.12 (C2)",
-      "x": 760,
-      "y": 460,
-      "createdAt": "2026-07-08T23:55:22.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "infrastructure",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
-      "confidence": "high"
-    },
-    {
-      "id": "JZCFeln-RZWg65zNpA8d6",
-      "text": "KESTREL loader (custom build)",
-      "x": 300,
-      "y": 460,
-      "createdAt": "2026-07-08T23:52:14.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "capability",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
-      "confidence": "moderate"
-    },
-    {
-      "id": "MSVV96HWDyZKFGz_pQyu5",
+      "id": "1whp2JER_DxRfLFhMilHo",
       "text": "Staged archive exfiltrated over HTTPS",
-      "x": 980,
-      "y": 240,
-      "createdAt": "2026-07-08T23:45:58.725Z",
+      "x": 1460,
+      "y": 260,
+      "createdAt": "2026-07-10T05:55:55.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "diamond_event",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
       "phase": "actions_on_objectives",
       "result": "success",
       "direction": "victim_to_infrastructure",
       "occurredAt": "2026-06-11"
     },
     {
-      "id": "XhJVHGWTcSHZYdLOsqPtb",
-      "text": "Spear-phish lure, finance theme",
-      "x": 60,
-      "y": 460,
-      "createdAt": "2026-07-08T23:53:48.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "capability",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
-      "confidence": "moderate"
-    },
-    {
-      "id": "YD-1w7WZ5XduZIk8lYmtS",
-      "text": "RDP login from dormant service account",
-      "x": 1280,
-      "y": 240,
-      "createdAt": "2026-07-08T23:49:53.725Z",
+      "id": "4G25jhKQRgts2IqTR4bh4",
+      "text": "Finance-themed phishing lure delivered to 41 staff",
+      "x": 80,
+      "y": 260,
+      "createdAt": "2026-07-10T05:44:10.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "diamond_event",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "phase": "delivery",
+      "result": "success",
+      "direction": "infrastructure_to_victim",
+      "occurredAt": "2026-06-09"
     },
     {
-      "id": "A93mgK01wEWMR_dKhC2Ya",
+      "id": "bTzRZlNsZooInNkc2ZB3e",
+      "text": "Beaconing to bulletproof host 45.155.87.12",
+      "x": 1000,
+      "y": 260,
+      "createdAt": "2026-07-10T05:52:00.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "diamond_event",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "phase": "command_and_control",
+      "result": "success",
+      "direction": "bidirectional",
+      "occurredAt": "2026-06-10"
+    },
+    {
+      "id": "154HdobIcA8tcLkANl55B",
+      "text": "Unattributed — tracked as UNC-ACME",
+      "x": 1010,
+      "y": 40,
+      "createdAt": "2026-07-10T06:00:37.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "adversary",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "low"
+    },
+    {
+      "id": "2P2dViG4I2UMp4g-kz5GG",
       "text": "ACME finance workstation FIN-WS-041",
-      "x": 500,
-      "y": 620,
-      "createdAt": "2026-07-08T23:56:56.725Z",
+      "x": 760,
+      "y": 700,
+      "createdAt": "2026-07-10T06:06:53.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "victim",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
       "confidence": "high"
     },
     {
-      "id": "SuvFj9DYwiRofOoIVN9LZ",
-      "text": "Passive DNS ties 45.155.87.12 to a 2024 APT-Q campaign",
-      "x": 700,
-      "y": 800,
-      "createdAt": "2026-07-09T00:07:07.725Z",
+      "id": "7CjSlcnnKwFNY0qW-1U2l",
+      "text": "RDP login from dormant service account",
+      "x": 1920,
+      "y": 260,
+      "createdAt": "2026-07-10T05:59:50.626Z",
       "stale": {
         "kind": "fresh"
       },
-      "type": "evidence",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
-      "sourceReliability": "C",
-      "infoCredibility": 3
+      "type": "diamond_event",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "TKS4wNrTpCWKTqM8PzbV5",
+      "id": "B47_Afm-n85oljyZBNZcQ",
+      "text": "Spear-phish lure, finance theme",
+      "x": 40,
+      "y": 540,
+      "createdAt": "2026-07-10T06:03:45.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "capability",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "moderate"
+    },
+    {
+      "id": "snQnngRkdaNwStrfshXdQ",
+      "text": "KESTREL loader (custom build)",
+      "x": 470,
+      "y": 540,
+      "createdAt": "2026-07-10T06:02:11.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "capability",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "moderate"
+    },
+    {
+      "id": "WinCazO9X_IeeLuyo91CA",
+      "text": "Bulletproof host 45.155.87.12 (C2)",
+      "x": 1220,
+      "y": 540,
+      "createdAt": "2026-07-10T06:05:19.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "infrastructure",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "confidence": "high"
+    },
+    {
+      "id": "-NVWAmUusUlWSMW_zlmUI",
       "text": "Mail gateway logs: 41 lure deliveries, 3 clicks",
-      "x": 60,
-      "y": 800,
-      "createdAt": "2026-07-09T00:04:46.725Z",
+      "x": 40,
+      "y": 880,
+      "createdAt": "2026-07-10T06:14:43.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
       "sourceReliability": "B",
       "infoCredibility": 2
     },
     {
-      "id": "4SKTl_F8rO43KM2f-ekhG",
-      "text": "Initial access was via the finance-themed phishing wave",
-      "x": 1280,
-      "y": 620,
-      "createdAt": "2026-07-09T00:14:10.725Z",
-      "stale": {
-        "kind": "fresh"
-      },
-      "type": "claim",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
-      "status": "open",
-      "likelihood": "likely",
-      "confidence": "moderate"
-    },
-    {
-      "id": "TNfNsv_AzGq-_SRR1lY5M",
-      "text": "Host serves dozens of unrelated bulletproof clients",
-      "x": 1000,
-      "y": 800,
-      "createdAt": "2026-07-09T00:09:28.725Z",
+      "id": "hEk7_XPngbzqa0DfbVJ2G",
+      "text": "Passive DNS ties 45.155.87.12 to a 2024 APT-Q campaign",
+      "x": 1220,
+      "y": 880,
+      "createdAt": "2026-07-10T06:17:04.626Z",
       "stale": {
         "kind": "fresh"
       },
       "type": "evidence",
-      "threadId": "o0V81_wVv3JjXJfyj34re",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
       "sourceReliability": "C",
       "infoCredibility": 3
+    },
+    {
+      "id": "XCoPkZz6UWrwHibScVnCT",
+      "text": "Host serves dozens of unrelated bulletproof clients",
+      "x": 1400,
+      "y": 40,
+      "createdAt": "2026-07-10T06:19:25.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "evidence",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "sourceReliability": "C",
+      "infoCredibility": 3
+    },
+    {
+      "id": "Yjr0Y_2bTcjjK8o5RJANj",
+      "text": "Initial access was via the finance-themed phishing wave",
+      "x": 1920,
+      "y": 700,
+      "createdAt": "2026-07-10T06:24:07.626Z",
+      "stale": {
+        "kind": "fresh"
+      },
+      "type": "claim",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89",
+      "status": "open",
+      "likelihood": "likely",
+      "confidence": "moderate"
     }
   ],
   "edges": [
     {
-      "id": "2AGX6yzu5Bny-o8lm-U_w",
+      "id": "9UcJsVM2Jzr-XUkyEDLmu",
       "type": "answers",
-      "from": "JUgKHcme2oRbzU-6FZZe2",
-      "to": "F4Lo07Ls2uXZHq9pHEH73",
-      "createdAt": "2026-07-08T22:26:51.725Z"
+      "from": "WVqcf4DfJeSnvVOOJzN6o",
+      "to": "25MbrMKvX91hR1UUQdQ1j",
+      "createdAt": "2026-07-10T04:36:01.626Z"
     },
     {
-      "id": "Js7MrHGR240gbWOHyGj8D",
+      "id": "JBs4wYix14jMJI6L81FVG",
       "type": "answers",
-      "from": "J59lyA1PwKWOgP0p9AQc0",
-      "to": "F4Lo07Ls2uXZHq9pHEH73",
-      "createdAt": "2026-07-08T22:25:17.725Z"
+      "from": "VTG2ZUvZKLWdx88jCWAT2",
+      "to": "25MbrMKvX91hR1UUQdQ1j",
+      "createdAt": "2026-07-10T04:35:14.626Z"
     },
     {
-      "id": "KoKLtQ8Hs3ONX6XEKgrWX",
+      "id": "YMp0w9ulTRIeiNRLYW5te",
       "type": "answers",
-      "from": "1kMNXyC-mMe4Z_tyEK9hz",
-      "to": "F4Lo07Ls2uXZHq9pHEH73",
-      "createdAt": "2026-07-08T22:26:04.725Z"
+      "from": "Hcw3Hedkq4xwO18hY07Zp",
+      "to": "25MbrMKvX91hR1UUQdQ1j",
+      "createdAt": "2026-07-10T04:36:48.626Z"
     },
     {
-      "id": "gn1gGBMyC6yytu_FBztp3",
+      "id": "-cLSiYRqaUDtAVbd_JOKn",
       "type": "rests_on",
-      "from": "J59lyA1PwKWOgP0p9AQc0",
-      "to": "QjWh6X0AYPGX8p-I2CgFF",
-      "createdAt": "2026-07-08T22:37:02.725Z"
+      "from": "VTG2ZUvZKLWdx88jCWAT2",
+      "to": "S3nwvBJyya8NE-Aruj9N5",
+      "createdAt": "2026-07-10T04:46:12.626Z"
     },
     {
-      "id": "qps-b4rEal5yPSO_o2qpk",
+      "id": "uE03BLzlDIjoFeeTDAO9l",
       "type": "rests_on",
-      "from": "J59lyA1PwKWOgP0p9AQc0",
-      "to": "Lm-7BtyHi0xd-0byWGxG2",
-      "createdAt": "2026-07-08T22:36:15.725Z"
+      "from": "VTG2ZUvZKLWdx88jCWAT2",
+      "to": "OhiSoh7GuTlvfLeEgTG-c",
+      "createdAt": "2026-07-10T04:46:59.626Z"
     },
     {
-      "id": "i-9u5T4B-fc63QirbgqtZ",
+      "id": "mmZ_PWvP-Cqt44GHhK3il",
       "type": "rests_on",
-      "from": "JUgKHcme2oRbzU-6FZZe2",
-      "to": "GeiY5JM8dUvdaZb8Z6q9r",
-      "createdAt": "2026-07-08T22:37:49.725Z"
+      "from": "Hcw3Hedkq4xwO18hY07Zp",
+      "to": "YIeY4oSxMXW1mHdAnqZko",
+      "createdAt": "2026-07-10T04:48:33.626Z"
     },
     {
-      "id": "jqmjXC_rRnf9lTM3qEfum",
+      "id": "TPs3OzShSOLeimWV2TnWT",
       "type": "rests_on",
-      "from": "JUgKHcme2oRbzU-6FZZe2",
-      "to": "Goz2EzUOhdS4E-KfxNRVL",
-      "createdAt": "2026-07-08T22:38:36.725Z"
+      "from": "Hcw3Hedkq4xwO18hY07Zp",
+      "to": "TutiMqe8-ncmcza2LKUKz",
+      "createdAt": "2026-07-10T04:47:46.626Z"
     },
     {
-      "id": "MbQyx8x-uJjqUYrgbsGCU",
-      "type": "consistent_with",
-      "from": "wKdNsTR7D9Nqa3Uj0umEF",
-      "to": "J59lyA1PwKWOgP0p9AQc0",
-      "createdAt": "2026-07-08T22:58:11.725Z"
-    },
-    {
-      "id": "fivKqBST17wgrkATGIR1u",
-      "type": "consistent_with",
-      "from": "lOcH6_eyof6KJOU2Wl6xv",
-      "to": "JUgKHcme2oRbzU-6FZZe2",
-      "createdAt": "2026-07-08T23:03:40.725Z"
-    },
-    {
-      "id": "lgxfC9n6y-rUqJuhdcpZQ",
-      "type": "consistent_with",
-      "from": "DKKqs5O4yDwEaaS5aNSnY",
-      "to": "J59lyA1PwKWOgP0p9AQc0",
-      "createdAt": "2026-07-08T23:00:32.725Z"
-    },
-    {
-      "id": "m-rXCK6wbyCE5cYMgAhy8",
+      "id": "9LUM1yHKgxGatHSvJp51a",
       "type": "inconsistent_with",
-      "from": "DKKqs5O4yDwEaaS5aNSnY",
-      "to": "JUgKHcme2oRbzU-6FZZe2",
-      "createdAt": "2026-07-08T23:01:19.725Z"
+      "from": "bL8p1PPQc_j1i4aqEdoSO",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:09:42.626Z"
     },
     {
-      "id": "N3iC34Kb9R77mly7UccTD",
+      "id": "ElK23SHeZkpMVnS_M6U6z",
+      "type": "consistent_with",
+      "from": "kqGel2n_IuoK5ZbTe_AX0",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:12:03.626Z"
+    },
+    {
+      "id": "fqkNHewjr5J3NASYnXfTr",
+      "type": "consistent_with",
+      "from": "bL8p1PPQc_j1i4aqEdoSO",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:08:55.626Z"
+    },
+    {
+      "id": "WecIY4s9p4CcfX01yEYJd",
+      "type": "consistent_with",
+      "from": "O3CmdAkTtwLfiIncc_pli",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:10:29.626Z"
+    },
+    {
+      "id": "x7XfCISlWdjqn3zjg2b3K",
+      "type": "consistent_with",
+      "from": "bL8p1PPQc_j1i4aqEdoSO",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:08:08.626Z"
+    },
+    {
+      "id": "XfiB5a3Ed_rPcalrFRYoc",
       "type": "inconsistent_with",
-      "from": "wKdNsTR7D9Nqa3Uj0umEF",
-      "to": "JUgKHcme2oRbzU-6FZZe2",
-      "createdAt": "2026-07-08T22:59:45.725Z"
+      "from": "O3CmdAkTtwLfiIncc_pli",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:11:16.626Z"
     },
     {
-      "id": "o8ex-f6A3VFCZdxxsQHrK",
+      "id": "NASzUcjjd-Tkbw9WTdoVV",
       "type": "consistent_with",
-      "from": "wKdNsTR7D9Nqa3Uj0umEF",
-      "to": "1kMNXyC-mMe4Z_tyEK9hz",
-      "createdAt": "2026-07-08T22:58:58.725Z"
+      "from": "kqGel2n_IuoK5ZbTe_AX0",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:12:50.626Z"
     },
     {
-      "id": "Ou-dWe6TX-bH2n_P48l22",
+      "id": "TVwiC8NvPFFaXSNyU87Yq",
       "type": "consistent_with",
-      "from": "lOcH6_eyof6KJOU2Wl6xv",
-      "to": "J59lyA1PwKWOgP0p9AQc0",
-      "createdAt": "2026-07-08T23:02:06.725Z"
+      "from": "kqGel2n_IuoK5ZbTe_AX0",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:13:37.626Z"
     },
     {
-      "id": "UpEKFhn1RpcT4eDcaSKQe",
+      "id": "Wt_2JmwGAhC6X5nm89-1j",
       "type": "consistent_with",
-      "from": "lOcH6_eyof6KJOU2Wl6xv",
-      "to": "1kMNXyC-mMe4Z_tyEK9hz",
-      "createdAt": "2026-07-08T23:02:53.725Z"
+      "from": "-rf5iY5JDtsKz6YGfXhI4",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:14:24.626Z"
     },
     {
-      "id": "cbwJDcRqsTSQ3V_sEYuBB",
-      "type": "consistent_with",
-      "from": "cNK0zJjA5FEzGP5fehN0b",
-      "to": "JUgKHcme2oRbzU-6FZZe2",
-      "createdAt": "2026-07-08T23:04:27.725Z"
-    },
-    {
-      "id": "dHybtbANCeS9IycYb8jtC",
-      "type": "consistent_with",
-      "from": "iSShZhcofDGMCk7Fm2LQ3",
-      "to": "JUgKHcme2oRbzU-6FZZe2",
-      "createdAt": "2026-07-08T23:09:56.725Z"
-    },
-    {
-      "id": "GxdnPdoYuRvG8j251vwwn",
-      "type": "consistent_with",
-      "from": "jL_3WrN01R7_5DcN2VPGH",
-      "to": "JUgKHcme2oRbzU-6FZZe2",
-      "createdAt": "2026-07-08T23:06:01.725Z"
-    },
-    {
-      "id": "rkN3e62KJAXhB80GX6BUT",
-      "type": "consistent_with",
-      "from": "BEoS8RZFx2E1I2qk0d5f2",
-      "to": "1kMNXyC-mMe4Z_tyEK9hz",
-      "createdAt": "2026-07-08T23:07:35.725Z"
-    },
-    {
-      "id": "T_jy3-adCAiYj9pXU-dEl",
-      "type": "consistent_with",
-      "from": "jL_3WrN01R7_5DcN2VPGH",
-      "to": "1kMNXyC-mMe4Z_tyEK9hz",
-      "createdAt": "2026-07-08T23:06:48.725Z"
-    },
-    {
-      "id": "VcCg3ZhAmCroaUh1Hm8G3",
-      "type": "consistent_with",
-      "from": "6EmdJnCl1l0_vF4SP40IG",
-      "to": "1kMNXyC-mMe4Z_tyEK9hz",
-      "createdAt": "2026-07-08T23:08:22.725Z"
-    },
-    {
-      "id": "YC74rl1Gn7wD0mtCZoYLt",
+      "id": "JfTb8-iv7bjc7Oap30sxv",
       "type": "inconsistent_with",
-      "from": "6EmdJnCl1l0_vF4SP40IG",
-      "to": "J59lyA1PwKWOgP0p9AQc0",
-      "createdAt": "2026-07-08T23:09:09.725Z"
+      "from": "-rf5iY5JDtsKz6YGfXhI4",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:15:11.626Z"
     },
     {
-      "id": "ZuBzrlqvkCL9ulheLBgtf",
+      "id": "pawMHNBLw1DN_xjdJMh8F",
+      "type": "consistent_with",
+      "from": "QT7jCb9STuDIRYhtFR8xV",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:16:45.626Z"
+    },
+    {
+      "id": "rm4C_5pWDLyKi0n_1jUUM",
+      "type": "consistent_with",
+      "from": "QT7jCb9STuDIRYhtFR8xV",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:15:58.626Z"
+    },
+    {
+      "id": "vUMQKH2-d9KPp9-1t1EIz",
+      "type": "consistent_with",
+      "from": "gLGt3PIDVstG4bIocmG1L",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:17:32.626Z"
+    },
+    {
+      "id": "kkPC41aizDeR7aLSnNjN8",
       "type": "inconsistent_with",
-      "from": "cNK0zJjA5FEzGP5fehN0b",
-      "to": "J59lyA1PwKWOgP0p9AQc0",
-      "createdAt": "2026-07-08T23:05:14.725Z"
+      "from": "4RgQMpRDYqVYEvIJLv3Vd",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:19:06.626Z"
     },
     {
-      "id": "WtlGViGp79DcWLhbvfZGo",
+      "id": "RkcEnZ-kC4oC0nWpDwxJ5",
+      "type": "consistent_with",
+      "from": "4RgQMpRDYqVYEvIJLv3Vd",
+      "to": "WVqcf4DfJeSnvVOOJzN6o",
+      "createdAt": "2026-07-10T05:18:19.626Z"
+    },
+    {
+      "id": "y9Enxvrg8z0LPxqVurl62",
+      "type": "consistent_with",
+      "from": "IwnVv79OJgrZXvhJ2UJcH",
+      "to": "Hcw3Hedkq4xwO18hY07Zp",
+      "createdAt": "2026-07-10T05:19:53.626Z"
+    },
+    {
+      "id": "akPAVJpACe8BdKckTJ_eo",
+      "type": "inconsistent_with",
+      "from": "n2Akqqohywclc_U9aeUfj",
+      "to": "b0EuV9RgMrlnwNNFJ_qJe",
+      "createdAt": "2026-07-10T05:33:12.626Z"
+    },
+    {
+      "id": "IRYdRI0-F02URq8m5nZWy",
+      "type": "consistent_with",
+      "from": "n2Akqqohywclc_U9aeUfj",
+      "to": "_j4GtLrRCNAc8GOY6hgS9",
+      "createdAt": "2026-07-10T05:32:25.626Z"
+    },
+    {
+      "id": "oSnRO5_Z9xtyT0i6pxu72",
       "type": "answers",
-      "from": "O1EZzp-7ROLVuI10h51tp",
-      "to": "edWnPwcXCSAfJnQc_cb6G",
-      "createdAt": "2026-07-08T23:18:33.725Z"
+      "from": "_j4GtLrRCNAc8GOY6hgS9",
+      "to": "kMSJvkjBX8TQje4_i-km1",
+      "createdAt": "2026-07-10T05:28:30.626Z"
     },
     {
-      "id": "8xukSGrlZf1pW_lCbDlWO",
+      "id": "S-moiJ3dEZqh0eePnT_Jx",
       "type": "answers",
-      "from": "kFKpiOCof28uB0RWmoYL3",
-      "to": "edWnPwcXCSAfJnQc_cb6G",
-      "createdAt": "2026-07-08T23:19:20.725Z"
+      "from": "b0EuV9RgMrlnwNNFJ_qJe",
+      "to": "kMSJvkjBX8TQje4_i-km1",
+      "createdAt": "2026-07-10T05:29:17.626Z"
     },
     {
-      "id": "BJWp1REnhV8Actu4xwkDi",
+      "id": "TN_qaZMe7Cw9cs--QJagS",
       "type": "consistent_with",
-      "from": "X6Ws-hHkbBG7POvuE4mEL",
-      "to": "O1EZzp-7ROLVuI10h51tp",
-      "createdAt": "2026-07-08T23:22:28.725Z"
+      "from": "KlaamwcnFO0Emf3r2x3Kp",
+      "to": "VTG2ZUvZKLWdx88jCWAT2",
+      "createdAt": "2026-07-10T05:38:41.626Z"
     },
     {
-      "id": "Cw5bHlRARlf7TK-PdVmBm",
+      "id": "ara7-pgSQrRNe6iSb3CFw",
+      "type": "characterizes",
+      "from": "B47_Afm-n85oljyZBNZcQ",
+      "to": "4G25jhKQRgts2IqTR4bh4",
+      "createdAt": "2026-07-10T06:08:27.626Z"
+    },
+    {
+      "id": "299gWDQGb-NJcyHlM63lE",
+      "type": "characterizes",
+      "from": "2P2dViG4I2UMp4g-kz5GG",
+      "to": "-5D29BPXmSXtqnHZAdb0Z",
+      "createdAt": "2026-07-10T06:10:48.626Z"
+    },
+    {
+      "id": "aDdCxMlrcf313RFiTGma_",
+      "type": "characterizes",
+      "from": "154HdobIcA8tcLkANl55B",
+      "to": "bTzRZlNsZooInNkc2ZB3e",
+      "createdAt": "2026-07-10T06:11:35.626Z"
+    },
+    {
+      "id": "bFb5iZiJ5cYDeYtUHFoKW",
+      "type": "characterizes",
+      "from": "2P2dViG4I2UMp4g-kz5GG",
+      "to": "4G25jhKQRgts2IqTR4bh4",
+      "createdAt": "2026-07-10T06:09:14.626Z"
+    },
+    {
+      "id": "mgyU4HTTDu42S_aXjQZTy",
+      "type": "characterizes",
+      "from": "WinCazO9X_IeeLuyo91CA",
+      "to": "bTzRZlNsZooInNkc2ZB3e",
+      "createdAt": "2026-07-10T06:12:22.626Z"
+    },
+    {
+      "id": "n5vu-5DjySwcnDBTrw14i",
+      "type": "characterizes",
+      "from": "WinCazO9X_IeeLuyo91CA",
+      "to": "1whp2JER_DxRfLFhMilHo",
+      "createdAt": "2026-07-10T06:13:09.626Z"
+    },
+    {
+      "id": "Rw1PxE_EHV_jxAK5Wqoic",
+      "type": "characterizes",
+      "from": "snQnngRkdaNwStrfshXdQ",
+      "to": "-5D29BPXmSXtqnHZAdb0Z",
+      "createdAt": "2026-07-10T06:10:01.626Z"
+    },
+    {
+      "id": "f-JfWaXusWSAanfWLHVul",
+      "type": "characterizes",
+      "from": "2P2dViG4I2UMp4g-kz5GG",
+      "to": "1whp2JER_DxRfLFhMilHo",
+      "createdAt": "2026-07-10T06:13:56.626Z"
+    },
+    {
+      "id": "uoSE-vs5_jJP-KTcLAKW4",
+      "type": "consistent_with",
+      "from": "-NVWAmUusUlWSMW_zlmUI",
+      "to": "B47_Afm-n85oljyZBNZcQ",
+      "createdAt": "2026-07-10T06:21:46.626Z"
+    },
+    {
+      "id": "HvQcTHp_TJPDuVoXc5Hsj",
       "type": "inconsistent_with",
-      "from": "X6Ws-hHkbBG7POvuE4mEL",
-      "to": "kFKpiOCof28uB0RWmoYL3",
-      "createdAt": "2026-07-08T23:23:15.725Z"
+      "from": "XCoPkZz6UWrwHibScVnCT",
+      "to": "154HdobIcA8tcLkANl55B",
+      "createdAt": "2026-07-10T06:23:20.626Z"
     },
     {
-      "id": "OBji7M3OiGq5G7bZf4WuT",
-      "type": "consistent_with",
-      "from": "FyQcj2ky8tpl1dautOBRY",
-      "to": "J59lyA1PwKWOgP0p9AQc0",
-      "createdAt": "2026-07-08T23:28:44.725Z"
-    },
-    {
-      "id": "_IS6bhk-mny78LrTNp0g6",
-      "type": "characterizes",
-      "from": "A93mgK01wEWMR_dKhC2Ya",
-      "to": "zXQvwOk0uFRmHDPKQcJQu",
-      "createdAt": "2026-07-08T23:59:17.725Z"
-    },
-    {
-      "id": "-b9yjmwG9mdHR8ahI9OU5",
-      "type": "characterizes",
-      "from": "JZCFeln-RZWg65zNpA8d6",
-      "to": "vFw5lYGhOS0vOJsWAG4jZ",
-      "createdAt": "2026-07-09T00:00:04.725Z"
-    },
-    {
-      "id": "k1FcjCzksqI1xqAKxqnjk",
-      "type": "characterizes",
-      "from": "XhJVHGWTcSHZYdLOsqPtb",
-      "to": "zXQvwOk0uFRmHDPKQcJQu",
-      "createdAt": "2026-07-08T23:58:30.725Z"
-    },
-    {
-      "id": "2MbK0XhzX2S22oq4PfU3R",
-      "type": "characterizes",
-      "from": "_xh2PpXsbBFz5zEu6_rPP",
-      "to": "2QGmwgq7dNoofVc9uR5ze",
-      "createdAt": "2026-07-09T00:01:38.725Z"
-    },
-    {
-      "id": "97huz7CRVDWA8rgnnxqsz",
-      "type": "characterizes",
-      "from": "AvMWn9f1NWbopONzwkucL",
-      "to": "2QGmwgq7dNoofVc9uR5ze",
-      "createdAt": "2026-07-09T00:02:25.725Z"
-    },
-    {
-      "id": "dOXWXf4kca0A2mtmnFYYC",
-      "type": "characterizes",
-      "from": "AvMWn9f1NWbopONzwkucL",
-      "to": "MSVV96HWDyZKFGz_pQyu5",
-      "createdAt": "2026-07-09T00:03:12.725Z"
-    },
-    {
-      "id": "Gt0vI0-zPMUwShdQQT4vR",
-      "type": "characterizes",
-      "from": "A93mgK01wEWMR_dKhC2Ya",
-      "to": "vFw5lYGhOS0vOJsWAG4jZ",
-      "createdAt": "2026-07-09T00:00:51.725Z"
-    },
-    {
-      "id": "smZPjHRqMujBTxIbOdlSN",
-      "type": "characterizes",
-      "from": "A93mgK01wEWMR_dKhC2Ya",
-      "to": "MSVV96HWDyZKFGz_pQyu5",
-      "createdAt": "2026-07-09T00:03:59.725Z"
-    },
-    {
-      "id": "_VHZteb0-OBq0pEx1Kazz",
-      "type": "consistent_with",
-      "from": "TKS4wNrTpCWKTqM8PzbV5",
-      "to": "XhJVHGWTcSHZYdLOsqPtb",
-      "createdAt": "2026-07-09T00:11:49.725Z"
-    },
-    {
-      "id": "3n2CpdsEXcMOR_Ss_GOW7",
+      "id": "u_5ykKgAqEpp7DbCzEU7f",
       "type": "answers",
-      "from": "4SKTl_F8rO43KM2f-ekhG",
-      "to": "o0V81_wVv3JjXJfyj34re",
-      "createdAt": "2026-07-09T00:16:31.725Z"
+      "from": "Yjr0Y_2bTcjjK8o5RJANj",
+      "to": "dqVLj2I5qL7_IIiAGRQ89",
+      "createdAt": "2026-07-10T06:26:28.626Z"
     },
     {
-      "id": "Q_SRnbdvNBViLtBxzYzVs",
-      "type": "inconsistent_with",
-      "from": "TNfNsv_AzGq-_SRR1lY5M",
-      "to": "_xh2PpXsbBFz5zEu6_rPP",
-      "createdAt": "2026-07-09T00:13:23.725Z"
-    },
-    {
-      "id": "TcWweRiFwDYmbvT05_V8K",
+      "id": "YAd8pUDMjOQUX_1g2oqNs",
       "type": "consistent_with",
-      "from": "SuvFj9DYwiRofOoIVN9LZ",
-      "to": "AvMWn9f1NWbopONzwkucL",
-      "createdAt": "2026-07-09T00:12:36.725Z"
+      "from": "hEk7_XPngbzqa0DfbVJ2G",
+      "to": "WinCazO9X_IeeLuyo91CA",
+      "createdAt": "2026-07-10T06:22:33.626Z"
     }
   ],
   "events": [
     {
-      "id": "EROYOLuJB5iMr9A58n9Br",
+      "id": "GfazZGVYTuJCXdHyGyxVU",
       "seq": 0,
-      "at": "2026-07-06T22:25:17.725Z",
+      "at": "2026-07-08T04:35:14.626Z",
       "type": "thread_created",
       "payload": {
-        "rootQuestionId": "F4Lo07Ls2uXZHq9pHEH73",
+        "rootQuestionId": "25MbrMKvX91hR1UUQdQ1j",
         "parentThreadId": null
       },
-      "nodeId": "F4Lo07Ls2uXZHq9pHEH73",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "25MbrMKvX91hR1UUQdQ1j",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "8HgAr9U8dvYEZUZPoVRSb",
+      "id": "K5Y1G1L_4pWEnIR3OCyLN",
       "seq": 1,
-      "at": "2026-07-06T22:26:04.725Z",
+      "at": "2026-07-08T04:36:01.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "F4Lo07Ls2uXZHq9pHEH73",
+          "id": "25MbrMKvX91hR1UUQdQ1j",
           "text": "Is APT-Q responsible for the intrusion at ACME?",
           "x": 420,
           "y": 40,
-          "createdAt": "2026-07-06T22:26:04.725Z",
+          "createdAt": "2026-07-08T04:36:01.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "question",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open",
           "mutuallyExclusive": false
         },
         "captureMs": 7000
       },
-      "nodeId": "F4Lo07Ls2uXZHq9pHEH73",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "25MbrMKvX91hR1UUQdQ1j",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "hZ_bL2PHX54wt3Ysrx9UO",
+      "id": "2HAN2zNrD4IKkJ03HGM37",
       "seq": 2,
-      "at": "2026-07-06T22:26:51.725Z",
+      "at": "2026-07-08T04:36:48.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "mutuallyExclusive",
         "before": false,
         "after": true
       },
-      "nodeId": "F4Lo07Ls2uXZHq9pHEH73",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "25MbrMKvX91hR1UUQdQ1j",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "RI047i89oL5bq9k2-n2I5",
+      "id": "iFqOjoHJgIVmLD_efVy0Y",
       "seq": 3,
-      "at": "2026-07-06T22:27:38.725Z",
+      "at": "2026-07-08T04:37:35.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "J59lyA1PwKWOgP0p9AQc0",
+          "id": "VTG2ZUvZKLWdx88jCWAT2",
           "text": "APT-Q conducted the intrusion",
           "x": 140,
           "y": 230,
-          "createdAt": "2026-07-06T22:27:38.725Z",
+          "createdAt": "2026-07-08T04:37:35.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open"
         },
         "captureMs": 5000
       },
-      "nodeId": "J59lyA1PwKWOgP0p9AQc0",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "VTG2ZUvZKLWdx88jCWAT2",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "H0TTnpn5JxSBZKTv8EL9A",
+      "id": "FYKw7b4otVGECZxXl7WqH",
       "seq": 4,
-      "at": "2026-07-06T22:28:25.725Z",
+      "at": "2026-07-08T04:38:22.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "likely"
       },
-      "nodeId": "J59lyA1PwKWOgP0p9AQc0",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "VTG2ZUvZKLWdx88jCWAT2",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "eA0guwIINo-Pe1zBihZ6b",
+      "id": "HMrYhS0XQswa7YXiqJVie",
       "seq": 5,
-      "at": "2026-07-06T22:29:12.725Z",
+      "at": "2026-07-08T04:39:09.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "moderate"
       },
-      "nodeId": "J59lyA1PwKWOgP0p9AQc0",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "VTG2ZUvZKLWdx88jCWAT2",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "C8c9NT5mjD90YT05bmgxl",
+      "id": "QZVvHAad9z5QKbQ_xDTSg",
       "seq": 6,
-      "at": "2026-07-06T22:29:59.725Z",
+      "at": "2026-07-08T04:39:56.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "1kMNXyC-mMe4Z_tyEK9hz",
+          "id": "WVqcf4DfJeSnvVOOJzN6o",
           "text": "A criminal affiliate reused APT-Q tooling",
           "x": 430,
           "y": 230,
-          "createdAt": "2026-07-06T22:29:59.725Z",
+          "createdAt": "2026-07-08T04:39:56.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open"
         },
         "captureMs": 6000
       },
-      "nodeId": "1kMNXyC-mMe4Z_tyEK9hz",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "zO-B2Wmlb2zQjth3RtrYs",
+      "id": "JCYB710A7Oi0CxZLGVkBe",
       "seq": 7,
-      "at": "2026-07-06T22:30:46.725Z",
+      "at": "2026-07-08T04:40:43.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "realistic_possibility"
       },
-      "nodeId": "1kMNXyC-mMe4Z_tyEK9hz",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "5UjIjWxYrPNinblB0UgUl",
+      "id": "JphQlEz1O-TDdHpFIAhJe",
       "seq": 8,
-      "at": "2026-07-06T22:31:33.725Z",
+      "at": "2026-07-08T04:41:30.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "low"
       },
-      "nodeId": "1kMNXyC-mMe4Z_tyEK9hz",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "UnnP4StzixbtJojoGc0rj",
+      "id": "9WFjB67LeQFy0LtSTVJpR",
       "seq": 9,
-      "at": "2026-07-06T22:32:20.725Z",
+      "at": "2026-07-08T04:42:17.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "JUgKHcme2oRbzU-6FZZe2",
+          "id": "Hcw3Hedkq4xwO18hY07Zp",
           "text": "An insider staged the intrusion to look external",
           "x": 720,
           "y": 230,
-          "createdAt": "2026-07-06T22:32:20.725Z",
+          "createdAt": "2026-07-08T04:42:17.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open"
         },
         "captureMs": 7000
       },
-      "nodeId": "JUgKHcme2oRbzU-6FZZe2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "Hcw3Hedkq4xwO18hY07Zp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "a-ZstJaGbREcwakk64GLP",
+      "id": "UqIiyz6g8sa6D_al8PYw-",
       "seq": 10,
-      "at": "2026-07-06T22:33:07.725Z",
+      "at": "2026-07-08T04:43:04.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "unlikely"
       },
-      "nodeId": "JUgKHcme2oRbzU-6FZZe2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "Hcw3Hedkq4xwO18hY07Zp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "rl8YpUV5Dl6u-sPtUE6pb",
+      "id": "f6Dn4B_U8ogKCJ7XUgyiI",
       "seq": 11,
-      "at": "2026-07-06T22:33:54.725Z",
+      "at": "2026-07-08T04:43:51.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "low"
       },
-      "nodeId": "JUgKHcme2oRbzU-6FZZe2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "Hcw3Hedkq4xwO18hY07Zp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "29gGzwP3CO7GNk9G586zz",
+      "id": "YF-qgnPJRzwOiWkqnTG7X",
       "seq": 12,
-      "at": "2026-07-08T22:25:17.725Z",
+      "at": "2026-07-10T04:35:14.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "Js7MrHGR240gbWOHyGj8D",
+          "id": "JBs4wYix14jMJI6L81FVG",
           "type": "answers",
-          "from": "J59lyA1PwKWOgP0p9AQc0",
-          "to": "F4Lo07Ls2uXZHq9pHEH73",
-          "createdAt": "2026-07-08T22:25:17.725Z"
+          "from": "VTG2ZUvZKLWdx88jCWAT2",
+          "to": "25MbrMKvX91hR1UUQdQ1j",
+          "createdAt": "2026-07-10T04:35:14.626Z"
         }
       },
-      "edgeId": "Js7MrHGR240gbWOHyGj8D",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "JBs4wYix14jMJI6L81FVG",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "lvkr-scSfgA2Kn51Wq4Ke",
+      "id": "eWDiqAyfqQM2600UPBrDQ",
       "seq": 13,
-      "at": "2026-07-08T22:26:04.725Z",
+      "at": "2026-07-10T04:36:01.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "KoKLtQ8Hs3ONX6XEKgrWX",
+          "id": "9UcJsVM2Jzr-XUkyEDLmu",
           "type": "answers",
-          "from": "1kMNXyC-mMe4Z_tyEK9hz",
-          "to": "F4Lo07Ls2uXZHq9pHEH73",
-          "createdAt": "2026-07-08T22:26:04.725Z"
+          "from": "WVqcf4DfJeSnvVOOJzN6o",
+          "to": "25MbrMKvX91hR1UUQdQ1j",
+          "createdAt": "2026-07-10T04:36:01.626Z"
         }
       },
-      "edgeId": "KoKLtQ8Hs3ONX6XEKgrWX",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "9UcJsVM2Jzr-XUkyEDLmu",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "G4OZ0kuiJcnnoa3Hrx-6C",
+      "id": "WSQtvL2lWBSExz0-8eNTw",
       "seq": 14,
-      "at": "2026-07-08T22:26:51.725Z",
+      "at": "2026-07-10T04:36:48.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "2AGX6yzu5Bny-o8lm-U_w",
+          "id": "YMp0w9ulTRIeiNRLYW5te",
           "type": "answers",
-          "from": "JUgKHcme2oRbzU-6FZZe2",
-          "to": "F4Lo07Ls2uXZHq9pHEH73",
-          "createdAt": "2026-07-08T22:26:51.725Z"
+          "from": "Hcw3Hedkq4xwO18hY07Zp",
+          "to": "25MbrMKvX91hR1UUQdQ1j",
+          "createdAt": "2026-07-10T04:36:48.626Z"
         }
       },
-      "edgeId": "2AGX6yzu5Bny-o8lm-U_w",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "YMp0w9ulTRIeiNRLYW5te",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "EpqJSpnqbnYF1LRrtKdGQ",
+      "id": "DcKK_S4IGEBO390qsKuNH",
       "seq": 15,
-      "at": "2026-07-08T22:27:38.725Z",
+      "at": "2026-07-10T04:37:35.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "Lm-7BtyHi0xd-0byWGxG2",
+          "id": "S3nwvBJyya8NE-Aruj9N5",
           "text": "Code overlap implies common authorship",
           "x": 60,
           "y": 430,
-          "createdAt": "2026-07-08T22:27:38.725Z",
+          "createdAt": "2026-07-10T04:37:35.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "assumption",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "linchpin": false
         },
         "captureMs": 3000
       },
-      "nodeId": "Lm-7BtyHi0xd-0byWGxG2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "S3nwvBJyya8NE-Aruj9N5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "7j1pXg5Dn9DpWdayjZ9m5",
+      "id": "ybhK56eaiI-8PLeTrwyA8",
       "seq": 16,
-      "at": "2026-07-08T22:28:25.725Z",
+      "at": "2026-07-10T04:38:22.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "validity",
         "before": null,
         "after": "caveated"
       },
-      "nodeId": "Lm-7BtyHi0xd-0byWGxG2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "S3nwvBJyya8NE-Aruj9N5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "LSNz2oVRkf12gJRBxnirq",
+      "id": "AZhPeobev60bdcHWBYiNk",
       "seq": 17,
-      "at": "2026-07-08T22:29:12.725Z",
+      "at": "2026-07-10T04:39:09.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "linchpin",
         "before": false,
         "after": true
       },
-      "nodeId": "Lm-7BtyHi0xd-0byWGxG2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "S3nwvBJyya8NE-Aruj9N5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "L-c73pbjp1qKR9O0QjLvD",
+      "id": "V3rNkQbbLIGBW8BqggoyN",
       "seq": 18,
-      "at": "2026-07-08T22:29:59.725Z",
+      "at": "2026-07-10T04:39:56.626Z",
       "type": "node_text_edited",
       "payload": {
         "field": "abandonTrigger",
         "before": null,
         "after": "KESTREL source or builder leaks publicly"
       },
-      "nodeId": "Lm-7BtyHi0xd-0byWGxG2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "S3nwvBJyya8NE-Aruj9N5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Zup7Z7VAfXJgR47PHXWLO",
+      "id": "FOaU3sziBo3Rs8JPdAboF",
       "seq": 19,
-      "at": "2026-07-08T22:30:46.725Z",
+      "at": "2026-07-10T04:40:43.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "GeiY5JM8dUvdaZb8Z6q9r",
+          "id": "TutiMqe8-ncmcza2LKUKz",
           "text": "ACME's VPN logs are complete and untampered",
           "x": 640,
           "y": 430,
-          "createdAt": "2026-07-08T22:30:46.725Z",
+          "createdAt": "2026-07-10T04:40:43.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "assumption",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "linchpin": false
         },
         "captureMs": 5000
       },
-      "nodeId": "GeiY5JM8dUvdaZb8Z6q9r",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "TutiMqe8-ncmcza2LKUKz",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "TUzoC9nKKzX4j495qouPu",
+      "id": "lsZNjFHeWv3o9njRfd-tx",
       "seq": 20,
-      "at": "2026-07-08T22:31:33.725Z",
+      "at": "2026-07-10T04:41:30.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "validity",
         "before": null,
         "after": "supported"
       },
-      "nodeId": "GeiY5JM8dUvdaZb8Z6q9r",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "TutiMqe8-ncmcza2LKUKz",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "uR5bZWYQtIwedulmcakns",
+      "id": "5VUH9xr2-5aGxGRjKDV6u",
       "seq": 21,
-      "at": "2026-07-08T22:32:20.725Z",
+      "at": "2026-07-10T04:42:17.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "Goz2EzUOhdS4E-KfxNRVL",
+          "id": "YIeY4oSxMXW1mHdAnqZko",
           "text": "Access implies intent",
           "x": 880,
           "y": 430,
-          "createdAt": "2026-07-08T22:32:20.725Z",
+          "createdAt": "2026-07-10T04:42:17.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "assumption",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "linchpin": false
         },
         "captureMs": 8000
       },
-      "nodeId": "Goz2EzUOhdS4E-KfxNRVL",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "YIeY4oSxMXW1mHdAnqZko",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Q4EZi2RBQm8Tc1uxmll0E",
+      "id": "AjI14dLvZTkSMeZ12iylU",
       "seq": 22,
-      "at": "2026-07-08T22:33:07.725Z",
+      "at": "2026-07-10T04:43:04.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "validity",
         "before": null,
         "after": "unsupported"
       },
-      "nodeId": "Goz2EzUOhdS4E-KfxNRVL",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "YIeY4oSxMXW1mHdAnqZko",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "wGfZaA5g7D_IJmOUekocC",
+      "id": "yJiqtm44Az5hzE4NzXxAp",
       "seq": 23,
-      "at": "2026-07-08T22:33:54.725Z",
+      "at": "2026-07-10T04:43:51.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "linchpin",
         "before": false,
         "after": true
       },
-      "nodeId": "Goz2EzUOhdS4E-KfxNRVL",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "YIeY4oSxMXW1mHdAnqZko",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "-BbVoEboDapzyBUOmF6hm",
+      "id": "3RGlok7WoQxeOmfKsX0Js",
       "seq": 24,
-      "at": "2026-07-08T22:34:41.725Z",
+      "at": "2026-07-10T04:44:38.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "QjWh6X0AYPGX8p-I2CgFF",
+          "id": "OhiSoh7GuTlvfLeEgTG-c",
           "text": "APT-Q does not share infrastructure with affiliates",
           "x": 300,
           "y": 430,
-          "createdAt": "2026-07-08T22:34:41.725Z",
+          "createdAt": "2026-07-10T04:44:38.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "assumption",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "linchpin": false
         },
         "captureMs": 6000
       },
-      "nodeId": "QjWh6X0AYPGX8p-I2CgFF",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "OhiSoh7GuTlvfLeEgTG-c",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "72vVhbPqQ-pxLBX9NZiwo",
+      "id": "6JApYax79fijmGUgnSNic",
       "seq": 25,
-      "at": "2026-07-08T22:35:28.725Z",
+      "at": "2026-07-10T04:45:25.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "validity",
         "before": null,
         "after": "caveated"
       },
-      "nodeId": "QjWh6X0AYPGX8p-I2CgFF",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "OhiSoh7GuTlvfLeEgTG-c",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "QmWt3utPervR9MOUdtiak",
+      "id": "gO7m06Z4OcMBi8EutSPtD",
       "seq": 26,
-      "at": "2026-07-08T22:36:15.725Z",
+      "at": "2026-07-10T04:46:12.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "qps-b4rEal5yPSO_o2qpk",
+          "id": "-cLSiYRqaUDtAVbd_JOKn",
           "type": "rests_on",
-          "from": "J59lyA1PwKWOgP0p9AQc0",
-          "to": "Lm-7BtyHi0xd-0byWGxG2",
-          "createdAt": "2026-07-08T22:36:15.725Z"
+          "from": "VTG2ZUvZKLWdx88jCWAT2",
+          "to": "S3nwvBJyya8NE-Aruj9N5",
+          "createdAt": "2026-07-10T04:46:12.626Z"
         }
       },
-      "edgeId": "qps-b4rEal5yPSO_o2qpk",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "-cLSiYRqaUDtAVbd_JOKn",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "T15mpBKCpXhdv3eeAfcf3",
+      "id": "HpL5QDzBvMur0_fwqrNvY",
       "seq": 27,
-      "at": "2026-07-08T22:37:02.725Z",
+      "at": "2026-07-10T04:46:59.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "gn1gGBMyC6yytu_FBztp3",
+          "id": "uE03BLzlDIjoFeeTDAO9l",
           "type": "rests_on",
-          "from": "J59lyA1PwKWOgP0p9AQc0",
-          "to": "QjWh6X0AYPGX8p-I2CgFF",
-          "createdAt": "2026-07-08T22:37:02.725Z"
+          "from": "VTG2ZUvZKLWdx88jCWAT2",
+          "to": "OhiSoh7GuTlvfLeEgTG-c",
+          "createdAt": "2026-07-10T04:46:59.626Z"
         }
       },
-      "edgeId": "gn1gGBMyC6yytu_FBztp3",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "uE03BLzlDIjoFeeTDAO9l",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "NLp02_yh958BdMCi8R5vU",
+      "id": "70-2NYvIh8X3hdkXgtB_3",
       "seq": 28,
-      "at": "2026-07-08T22:37:49.725Z",
+      "at": "2026-07-10T04:47:46.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "i-9u5T4B-fc63QirbgqtZ",
+          "id": "TPs3OzShSOLeimWV2TnWT",
           "type": "rests_on",
-          "from": "JUgKHcme2oRbzU-6FZZe2",
-          "to": "GeiY5JM8dUvdaZb8Z6q9r",
-          "createdAt": "2026-07-08T22:37:49.725Z"
+          "from": "Hcw3Hedkq4xwO18hY07Zp",
+          "to": "TutiMqe8-ncmcza2LKUKz",
+          "createdAt": "2026-07-10T04:47:46.626Z"
         }
       },
-      "edgeId": "i-9u5T4B-fc63QirbgqtZ",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "TPs3OzShSOLeimWV2TnWT",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "s6P-VbS6VxPzeFjApud4W",
+      "id": "vZLcBlpgae-u-W0TTuGIq",
       "seq": 29,
-      "at": "2026-07-08T22:38:36.725Z",
+      "at": "2026-07-10T04:48:33.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "jqmjXC_rRnf9lTM3qEfum",
+          "id": "mmZ_PWvP-Cqt44GHhK3il",
           "type": "rests_on",
-          "from": "JUgKHcme2oRbzU-6FZZe2",
-          "to": "Goz2EzUOhdS4E-KfxNRVL",
-          "createdAt": "2026-07-08T22:38:36.725Z"
+          "from": "Hcw3Hedkq4xwO18hY07Zp",
+          "to": "YIeY4oSxMXW1mHdAnqZko",
+          "createdAt": "2026-07-10T04:48:33.626Z"
         }
       },
-      "edgeId": "jqmjXC_rRnf9lTM3qEfum",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "mmZ_PWvP-Cqt44GHhK3il",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "J-JBshAwNBvBUkZZeJOs6",
+      "id": "2GdJ7H5i70NaqUHZXnXR_",
       "seq": 30,
-      "at": "2026-07-08T22:39:23.725Z",
+      "at": "2026-07-10T04:49:20.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "wKdNsTR7D9Nqa3Uj0umEF",
+          "id": "bL8p1PPQc_j1i4aqEdoSO",
           "text": "Loader shares code with APT-Q's KESTREL implant",
           "x": 80,
           "y": 640,
-          "createdAt": "2026-07-08T22:39:23.725Z",
+          "createdAt": "2026-07-10T04:49:20.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "status": "open"
         },
         "captureMs": 5000
       },
-      "nodeId": "wKdNsTR7D9Nqa3Uj0umEF",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "PysJsECFBIziKcx1Vfd6a",
+      "id": "F-jpo9215ZGzGiCA5UgQz",
       "seq": 31,
-      "at": "2026-07-08T22:40:10.725Z",
+      "at": "2026-07-10T04:50:07.626Z",
       "type": "node_retyped",
       "payload": {
         "before": {
@@ -1361,641 +1361,641 @@
           "type": "evidence"
         }
       },
-      "nodeId": "wKdNsTR7D9Nqa3Uj0umEF",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "NimA2UNK1aV06QEHTiEpz",
+      "id": "-83T0wgSCVRxwzgyo_ds5",
       "seq": 32,
-      "at": "2026-07-08T22:40:57.725Z",
+      "at": "2026-07-10T04:50:54.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "wKdNsTR7D9Nqa3Uj0umEF",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "mxaa_ZNfI6BBUTnpqOmyF",
+      "id": "mGi7kpfl6NSDXaRZTiLjx",
       "seq": 33,
-      "at": "2026-07-08T22:41:44.725Z",
+      "at": "2026-07-10T04:51:41.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "wKdNsTR7D9Nqa3Uj0umEF",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "sElNGLFbs05JQtE8N82jq",
+      "id": "0-1Rces_DzRJv37HnROP1",
       "seq": 34,
-      "at": "2026-07-08T22:42:31.725Z",
+      "at": "2026-07-10T04:52:28.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "DKKqs5O4yDwEaaS5aNSnY",
+          "id": "O3CmdAkTtwLfiIncc_pli",
           "text": "C2 infrastructure overlaps a 2024 APT-Q campaign",
           "x": 320,
           "y": 640,
-          "createdAt": "2026-07-08T22:42:31.725Z",
+          "createdAt": "2026-07-10T04:52:28.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 8000
       },
-      "nodeId": "DKKqs5O4yDwEaaS5aNSnY",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "O3CmdAkTtwLfiIncc_pli",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "QBhAooRVYQN4G7nzVSa2H",
+      "id": "PeF9Bi_SdULE4SDv4g3--",
       "seq": 35,
-      "at": "2026-07-08T22:43:18.725Z",
+      "at": "2026-07-10T04:53:15.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "DKKqs5O4yDwEaaS5aNSnY",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "O3CmdAkTtwLfiIncc_pli",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "wJOthdT7nmJfmHvjH54GX",
+      "id": "fag7e3BOcWNAstFCAI7YG",
       "seq": 36,
-      "at": "2026-07-08T22:44:05.725Z",
+      "at": "2026-07-10T04:54:02.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "DKKqs5O4yDwEaaS5aNSnY",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "O3CmdAkTtwLfiIncc_pli",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "8lolvII8eyFlkHBbncrd2",
+      "id": "NFAH3Tbd5Ek9PMbqhzajL",
       "seq": 37,
-      "at": "2026-07-08T22:44:52.725Z",
+      "at": "2026-07-10T04:54:49.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "lOcH6_eyof6KJOU2Wl6xv",
+          "id": "kqGel2n_IuoK5ZbTe_AX0",
           "text": "Commodity credential-dumping tools used throughout",
           "x": 560,
           "y": 640,
-          "createdAt": "2026-07-08T22:44:52.725Z",
+          "createdAt": "2026-07-10T04:54:49.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 4000
       },
-      "nodeId": "lOcH6_eyof6KJOU2Wl6xv",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "kqGel2n_IuoK5ZbTe_AX0",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "rCp0qmWRLCt6DRUx76qc2",
+      "id": "CQYEkvQ1G9voBjH-Vj1mE",
       "seq": 38,
-      "at": "2026-07-08T22:45:39.725Z",
+      "at": "2026-07-10T04:55:36.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "lOcH6_eyof6KJOU2Wl6xv",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "kqGel2n_IuoK5ZbTe_AX0",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "4sCeU7Ch6c45x2U7E6zmk",
+      "id": "U0ivgif4y_eu57Q5mnrW_",
       "seq": 39,
-      "at": "2026-07-08T22:46:26.725Z",
+      "at": "2026-07-10T04:56:23.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "lOcH6_eyof6KJOU2Wl6xv",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "kqGel2n_IuoK5ZbTe_AX0",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "ySHrsm9nIQqmu0oYKksdF",
+      "id": "E3-L2PZb1MognAIJKsmu0",
       "seq": 40,
-      "at": "2026-07-08T22:47:13.725Z",
+      "at": "2026-07-10T04:57:10.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "cNK0zJjA5FEzGP5fehN0b",
+          "id": "-rf5iY5JDtsKz6YGfXhI4",
           "text": "VPN logs show access from inside the HQ subnet",
           "x": 800,
           "y": 640,
-          "createdAt": "2026-07-08T22:47:13.725Z",
+          "createdAt": "2026-07-10T04:57:10.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 7000
       },
-      "nodeId": "cNK0zJjA5FEzGP5fehN0b",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "-rf5iY5JDtsKz6YGfXhI4",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "fodfO3GJlgv2RPoK-BrQR",
+      "id": "gcuF8XTGwzPKv-FSHtHM0",
       "seq": 41,
-      "at": "2026-07-08T22:48:00.725Z",
+      "at": "2026-07-10T04:57:57.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "D"
       },
-      "nodeId": "cNK0zJjA5FEzGP5fehN0b",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "-rf5iY5JDtsKz6YGfXhI4",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "ojAvt1zWtx2ksl9RSxbEo",
+      "id": "wmgJ0vvAhwbT77vjm90fW",
       "seq": 42,
-      "at": "2026-07-08T22:48:47.725Z",
+      "at": "2026-07-10T04:58:44.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 4
       },
-      "nodeId": "cNK0zJjA5FEzGP5fehN0b",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "-rf5iY5JDtsKz6YGfXhI4",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "P_7kcGQD6o0bUlxnUj41y",
+      "id": "2-HfdH93WeErZdKGYmmhY",
       "seq": 43,
-      "at": "2026-07-08T22:49:34.725Z",
+      "at": "2026-07-10T04:59:31.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "jL_3WrN01R7_5DcN2VPGH",
+          "id": "QT7jCb9STuDIRYhtFR8xV",
           "text": "Phishing lure written in fluent corporate English",
           "x": 1040,
           "y": 640,
-          "createdAt": "2026-07-08T22:49:34.725Z",
+          "createdAt": "2026-07-10T04:59:31.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 3000
       },
-      "nodeId": "jL_3WrN01R7_5DcN2VPGH",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "QT7jCb9STuDIRYhtFR8xV",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "3y96N-UvVtcuRQxniB4eC",
+      "id": "jr_pU5KsioTWWPQA1YB94",
       "seq": 44,
-      "at": "2026-07-08T22:50:21.725Z",
+      "at": "2026-07-10T05:00:18.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "jL_3WrN01R7_5DcN2VPGH",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "QT7jCb9STuDIRYhtFR8xV",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Di_JUWhkln-6BBBYESUt9",
+      "id": "-lBvLtqukVVO8lO3oCmu5",
       "seq": 45,
-      "at": "2026-07-08T22:51:08.725Z",
+      "at": "2026-07-10T05:01:05.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "jL_3WrN01R7_5DcN2VPGH",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "QT7jCb9STuDIRYhtFR8xV",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "VmfuC3aUsH_ueW28W74xR",
+      "id": "titgeURckrZiFUj999t0W",
       "seq": 46,
-      "at": "2026-07-08T22:51:55.725Z",
+      "at": "2026-07-10T05:01:52.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "BEoS8RZFx2E1I2qk0d5f2",
+          "id": "gLGt3PIDVstG4bIocmG1L",
           "text": "APT-Q is known to sell tooling to affiliates",
           "x": 200,
           "y": 800,
-          "createdAt": "2026-07-08T22:51:55.725Z",
+          "createdAt": "2026-07-10T05:01:52.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 5000
       },
-      "nodeId": "BEoS8RZFx2E1I2qk0d5f2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "gLGt3PIDVstG4bIocmG1L",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "UYBaOQ74Ogn0shioJ2i77",
+      "id": "bgMczKTywYRoEfQazDkz1",
       "seq": 47,
-      "at": "2026-07-08T22:52:42.725Z",
+      "at": "2026-07-10T05:02:39.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "BEoS8RZFx2E1I2qk0d5f2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "gLGt3PIDVstG4bIocmG1L",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Tp_erhlUV6kSdix9naCy2",
+      "id": "Pa9Nin5WUywr6AjxcdtQU",
       "seq": 48,
-      "at": "2026-07-08T22:53:29.725Z",
+      "at": "2026-07-10T05:03:26.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "BEoS8RZFx2E1I2qk0d5f2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "gLGt3PIDVstG4bIocmG1L",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "mCIMrg0ITkY41b2EEf-8z",
+      "id": "Gkw98VazVLl4qsmvrRmRb",
       "seq": 49,
-      "at": "2026-07-08T22:54:16.725Z",
+      "at": "2026-07-10T05:04:13.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "6EmdJnCl1l0_vF4SP40IG",
+          "id": "4RgQMpRDYqVYEvIJLv3Vd",
           "text": "Ransom note demands payment in Monero",
           "x": 460,
           "y": 800,
-          "createdAt": "2026-07-08T22:54:16.725Z",
+          "createdAt": "2026-07-10T05:04:13.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 3000
       },
-      "nodeId": "6EmdJnCl1l0_vF4SP40IG",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "4RgQMpRDYqVYEvIJLv3Vd",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "ghXbz_KqP-TI1yn43Lbd1",
+      "id": "PoVWjvGyDKUQBqGDhumRG",
       "seq": 50,
-      "at": "2026-07-08T22:55:03.725Z",
+      "at": "2026-07-10T05:05:00.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "6EmdJnCl1l0_vF4SP40IG",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "4RgQMpRDYqVYEvIJLv3Vd",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Gl5oRHeXQlrsjmzPuZbT4",
+      "id": "ZUyoNl6DUblJJKZVS9mr7",
       "seq": 51,
-      "at": "2026-07-08T22:55:50.725Z",
+      "at": "2026-07-10T05:05:47.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "6EmdJnCl1l0_vF4SP40IG",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "4RgQMpRDYqVYEvIJLv3Vd",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "SR_yZJ7CbfiX4srSpXPsD",
+      "id": "CIyQahh_L2gwV9H-PhEeD",
       "seq": 52,
-      "at": "2026-07-08T22:56:37.725Z",
+      "at": "2026-07-10T05:06:34.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "iSShZhcofDGMCk7Fm2LQ3",
+          "id": "IwnVv79OJgrZXvhJ2UJcH",
           "text": "Forum chatter claims an insider sold ACME access",
           "x": 720,
           "y": 800,
-          "createdAt": "2026-07-08T22:56:37.725Z",
+          "createdAt": "2026-07-10T05:06:34.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "threadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 8000
       },
-      "nodeId": "iSShZhcofDGMCk7Fm2LQ3",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "IwnVv79OJgrZXvhJ2UJcH",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "d97jw_JVjnU42zuPdLfO8",
+      "id": "ehmDWFFRCnkTfSMIgUB-q",
       "seq": 53,
-      "at": "2026-07-08T22:57:24.725Z",
+      "at": "2026-07-10T05:07:21.626Z",
       "type": "node_text_edited",
       "payload": {
         "field": "sourceNote",
         "before": null,
         "after": "Single dark-web forum post, unverified"
       },
-      "nodeId": "iSShZhcofDGMCk7Fm2LQ3",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "IwnVv79OJgrZXvhJ2UJcH",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "lTml_se2w-hhDzUvz7k5S",
+      "id": "CTtQ8bLzZ9W-CEgKx-fUy",
       "seq": 54,
-      "at": "2026-07-08T22:58:11.725Z",
+      "at": "2026-07-10T05:08:08.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "MbQyx8x-uJjqUYrgbsGCU",
+          "id": "x7XfCISlWdjqn3zjg2b3K",
           "type": "consistent_with",
-          "from": "wKdNsTR7D9Nqa3Uj0umEF",
-          "to": "J59lyA1PwKWOgP0p9AQc0",
-          "createdAt": "2026-07-08T22:58:11.725Z"
+          "from": "bL8p1PPQc_j1i4aqEdoSO",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:08:08.626Z"
         }
       },
-      "edgeId": "MbQyx8x-uJjqUYrgbsGCU",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "x7XfCISlWdjqn3zjg2b3K",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "qau-EdrJCGflkb-izeAoz",
+      "id": "MSJbT5QauQSVskK62RWsB",
       "seq": 55,
-      "at": "2026-07-08T22:58:58.725Z",
+      "at": "2026-07-10T05:08:55.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "o8ex-f6A3VFCZdxxsQHrK",
+          "id": "fqkNHewjr5J3NASYnXfTr",
           "type": "consistent_with",
-          "from": "wKdNsTR7D9Nqa3Uj0umEF",
-          "to": "1kMNXyC-mMe4Z_tyEK9hz",
-          "createdAt": "2026-07-08T22:58:58.725Z"
+          "from": "bL8p1PPQc_j1i4aqEdoSO",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:08:55.626Z"
         }
       },
-      "edgeId": "o8ex-f6A3VFCZdxxsQHrK",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "fqkNHewjr5J3NASYnXfTr",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "2HvKgCGR5R1ieNmdRYjN4",
+      "id": "RYc4xSw2z7oTWsBsOnQjm",
       "seq": 56,
-      "at": "2026-07-08T22:59:45.725Z",
+      "at": "2026-07-10T05:09:42.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "N3iC34Kb9R77mly7UccTD",
+          "id": "9LUM1yHKgxGatHSvJp51a",
           "type": "inconsistent_with",
-          "from": "wKdNsTR7D9Nqa3Uj0umEF",
-          "to": "JUgKHcme2oRbzU-6FZZe2",
-          "createdAt": "2026-07-08T22:59:45.725Z"
+          "from": "bL8p1PPQc_j1i4aqEdoSO",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:09:42.626Z"
         }
       },
-      "edgeId": "N3iC34Kb9R77mly7UccTD",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "9LUM1yHKgxGatHSvJp51a",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "hpHOq_j3fAK3U1b_W26MZ",
+      "id": "_PrwCjZic7TEq9gLoBmka",
       "seq": 57,
-      "at": "2026-07-08T23:00:32.725Z",
+      "at": "2026-07-10T05:10:29.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "lgxfC9n6y-rUqJuhdcpZQ",
+          "id": "WecIY4s9p4CcfX01yEYJd",
           "type": "consistent_with",
-          "from": "DKKqs5O4yDwEaaS5aNSnY",
-          "to": "J59lyA1PwKWOgP0p9AQc0",
-          "createdAt": "2026-07-08T23:00:32.725Z"
+          "from": "O3CmdAkTtwLfiIncc_pli",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:10:29.626Z"
         }
       },
-      "edgeId": "lgxfC9n6y-rUqJuhdcpZQ",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "WecIY4s9p4CcfX01yEYJd",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "dnlU7zTBBXEs0q1aA2mMT",
+      "id": "XcJ6D-vNQ09EKMt6ZxO0W",
       "seq": 58,
-      "at": "2026-07-08T23:01:19.725Z",
+      "at": "2026-07-10T05:11:16.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "m-rXCK6wbyCE5cYMgAhy8",
+          "id": "XfiB5a3Ed_rPcalrFRYoc",
           "type": "inconsistent_with",
-          "from": "DKKqs5O4yDwEaaS5aNSnY",
-          "to": "JUgKHcme2oRbzU-6FZZe2",
-          "createdAt": "2026-07-08T23:01:19.725Z"
+          "from": "O3CmdAkTtwLfiIncc_pli",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:11:16.626Z"
         }
       },
-      "edgeId": "m-rXCK6wbyCE5cYMgAhy8",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "XfiB5a3Ed_rPcalrFRYoc",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "6eAdJ_HA7ut0Q-gqFzNhp",
+      "id": "ushxVcu5bWtaUdEfFz0VE",
       "seq": 59,
-      "at": "2026-07-08T23:02:06.725Z",
+      "at": "2026-07-10T05:12:03.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "Ou-dWe6TX-bH2n_P48l22",
+          "id": "ElK23SHeZkpMVnS_M6U6z",
           "type": "consistent_with",
-          "from": "lOcH6_eyof6KJOU2Wl6xv",
-          "to": "J59lyA1PwKWOgP0p9AQc0",
-          "createdAt": "2026-07-08T23:02:06.725Z"
+          "from": "kqGel2n_IuoK5ZbTe_AX0",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:12:03.626Z"
         }
       },
-      "edgeId": "Ou-dWe6TX-bH2n_P48l22",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "ElK23SHeZkpMVnS_M6U6z",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "D_JYZcghTVQZB21tBt86z",
+      "id": "5ILcXtEcaWy2YgDhRi-ef",
       "seq": 60,
-      "at": "2026-07-08T23:02:53.725Z",
+      "at": "2026-07-10T05:12:50.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "UpEKFhn1RpcT4eDcaSKQe",
+          "id": "NASzUcjjd-Tkbw9WTdoVV",
           "type": "consistent_with",
-          "from": "lOcH6_eyof6KJOU2Wl6xv",
-          "to": "1kMNXyC-mMe4Z_tyEK9hz",
-          "createdAt": "2026-07-08T23:02:53.725Z"
+          "from": "kqGel2n_IuoK5ZbTe_AX0",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:12:50.626Z"
         }
       },
-      "edgeId": "UpEKFhn1RpcT4eDcaSKQe",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "NASzUcjjd-Tkbw9WTdoVV",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "JrN9krClhW_6BCG4L_k1_",
+      "id": "tsfQN8-3cZpxNxELfaUpg",
       "seq": 61,
-      "at": "2026-07-08T23:03:40.725Z",
+      "at": "2026-07-10T05:13:37.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "fivKqBST17wgrkATGIR1u",
+          "id": "TVwiC8NvPFFaXSNyU87Yq",
           "type": "consistent_with",
-          "from": "lOcH6_eyof6KJOU2Wl6xv",
-          "to": "JUgKHcme2oRbzU-6FZZe2",
-          "createdAt": "2026-07-08T23:03:40.725Z"
+          "from": "kqGel2n_IuoK5ZbTe_AX0",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:13:37.626Z"
         }
       },
-      "edgeId": "fivKqBST17wgrkATGIR1u",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "TVwiC8NvPFFaXSNyU87Yq",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "fFJaWIjIbS5z0pppj-Cho",
+      "id": "bG9WPBDE34wmLsG8kun9g",
       "seq": 62,
-      "at": "2026-07-08T23:04:27.725Z",
+      "at": "2026-07-10T05:14:24.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "cbwJDcRqsTSQ3V_sEYuBB",
+          "id": "Wt_2JmwGAhC6X5nm89-1j",
           "type": "consistent_with",
-          "from": "cNK0zJjA5FEzGP5fehN0b",
-          "to": "JUgKHcme2oRbzU-6FZZe2",
-          "createdAt": "2026-07-08T23:04:27.725Z"
+          "from": "-rf5iY5JDtsKz6YGfXhI4",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:14:24.626Z"
         }
       },
-      "edgeId": "cbwJDcRqsTSQ3V_sEYuBB",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "Wt_2JmwGAhC6X5nm89-1j",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "n9kRXUk6NTJXa8JDtOfok",
+      "id": "rwakBaxFiCqO5jhv5Y_Yu",
       "seq": 63,
-      "at": "2026-07-08T23:05:14.725Z",
+      "at": "2026-07-10T05:15:11.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "ZuBzrlqvkCL9ulheLBgtf",
+          "id": "JfTb8-iv7bjc7Oap30sxv",
           "type": "inconsistent_with",
-          "from": "cNK0zJjA5FEzGP5fehN0b",
-          "to": "J59lyA1PwKWOgP0p9AQc0",
-          "createdAt": "2026-07-08T23:05:14.725Z"
+          "from": "-rf5iY5JDtsKz6YGfXhI4",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:15:11.626Z"
         }
       },
-      "edgeId": "ZuBzrlqvkCL9ulheLBgtf",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "JfTb8-iv7bjc7Oap30sxv",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "KU6CPGnRMnVkuUI5hy9OO",
+      "id": "M1Y1MJZM3APT6RGJ_K5ek",
       "seq": 64,
-      "at": "2026-07-08T23:06:01.725Z",
+      "at": "2026-07-10T05:15:58.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "GxdnPdoYuRvG8j251vwwn",
+          "id": "rm4C_5pWDLyKi0n_1jUUM",
           "type": "consistent_with",
-          "from": "jL_3WrN01R7_5DcN2VPGH",
-          "to": "JUgKHcme2oRbzU-6FZZe2",
-          "createdAt": "2026-07-08T23:06:01.725Z"
+          "from": "QT7jCb9STuDIRYhtFR8xV",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:15:58.626Z"
         }
       },
-      "edgeId": "GxdnPdoYuRvG8j251vwwn",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "rm4C_5pWDLyKi0n_1jUUM",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "5zlxR39uqKznO3e77ayTK",
+      "id": "t8PP6uLJ7jp2kzodCFHGW",
       "seq": 65,
-      "at": "2026-07-08T23:06:48.725Z",
+      "at": "2026-07-10T05:16:45.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "T_jy3-adCAiYj9pXU-dEl",
+          "id": "pawMHNBLw1DN_xjdJMh8F",
           "type": "consistent_with",
-          "from": "jL_3WrN01R7_5DcN2VPGH",
-          "to": "1kMNXyC-mMe4Z_tyEK9hz",
-          "createdAt": "2026-07-08T23:06:48.725Z"
+          "from": "QT7jCb9STuDIRYhtFR8xV",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:16:45.626Z"
         }
       },
-      "edgeId": "T_jy3-adCAiYj9pXU-dEl",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "pawMHNBLw1DN_xjdJMh8F",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "O_IKMg7s_Fw57cxixypMo",
+      "id": "Ep0lUBV-ebK9PKym8jYxV",
       "seq": 66,
-      "at": "2026-07-08T23:07:35.725Z",
+      "at": "2026-07-10T05:17:32.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "rkN3e62KJAXhB80GX6BUT",
+          "id": "vUMQKH2-d9KPp9-1t1EIz",
           "type": "consistent_with",
-          "from": "BEoS8RZFx2E1I2qk0d5f2",
-          "to": "1kMNXyC-mMe4Z_tyEK9hz",
-          "createdAt": "2026-07-08T23:07:35.725Z"
+          "from": "gLGt3PIDVstG4bIocmG1L",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:17:32.626Z"
         }
       },
-      "edgeId": "rkN3e62KJAXhB80GX6BUT",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "vUMQKH2-d9KPp9-1t1EIz",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "Cl3mYzTnXWLoqKx8WLRfI",
+      "id": "sT3AsvZdkHQjhYnmUdMKs",
       "seq": 67,
-      "at": "2026-07-08T23:08:22.725Z",
+      "at": "2026-07-10T05:18:19.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "VcCg3ZhAmCroaUh1Hm8G3",
+          "id": "RkcEnZ-kC4oC0nWpDwxJ5",
           "type": "consistent_with",
-          "from": "6EmdJnCl1l0_vF4SP40IG",
-          "to": "1kMNXyC-mMe4Z_tyEK9hz",
-          "createdAt": "2026-07-08T23:08:22.725Z"
+          "from": "4RgQMpRDYqVYEvIJLv3Vd",
+          "to": "WVqcf4DfJeSnvVOOJzN6o",
+          "createdAt": "2026-07-10T05:18:19.626Z"
         }
       },
-      "edgeId": "VcCg3ZhAmCroaUh1Hm8G3",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "RkcEnZ-kC4oC0nWpDwxJ5",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "kZNq1mikr_8xItO923tLh",
+      "id": "SNK0485EF6JsT0xwkvxdK",
       "seq": 68,
-      "at": "2026-07-08T23:09:09.725Z",
+      "at": "2026-07-10T05:19:06.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "YC74rl1Gn7wD0mtCZoYLt",
+          "id": "kkPC41aizDeR7aLSnNjN8",
           "type": "inconsistent_with",
-          "from": "6EmdJnCl1l0_vF4SP40IG",
-          "to": "J59lyA1PwKWOgP0p9AQc0",
-          "createdAt": "2026-07-08T23:09:09.725Z"
+          "from": "4RgQMpRDYqVYEvIJLv3Vd",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:19:06.626Z"
         }
       },
-      "edgeId": "YC74rl1Gn7wD0mtCZoYLt",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "kkPC41aizDeR7aLSnNjN8",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "LBmfuURGPeQJfsuNm5Gcw",
+      "id": "5YxiGq-lF1CFXnbmoz1x1",
       "seq": 69,
-      "at": "2026-07-08T23:09:56.725Z",
+      "at": "2026-07-10T05:19:53.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "dHybtbANCeS9IycYb8jtC",
+          "id": "y9Enxvrg8z0LPxqVurl62",
           "type": "consistent_with",
-          "from": "iSShZhcofDGMCk7Fm2LQ3",
-          "to": "JUgKHcme2oRbzU-6FZZe2",
-          "createdAt": "2026-07-08T23:09:56.725Z"
+          "from": "IwnVv79OJgrZXvhJ2UJcH",
+          "to": "Hcw3Hedkq4xwO18hY07Zp",
+          "createdAt": "2026-07-10T05:19:53.626Z"
         }
       },
-      "edgeId": "dHybtbANCeS9IycYb8jtC",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "y9Enxvrg8z0LPxqVurl62",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "I1Hbk_pzvlje4U-_XnOat",
+      "id": "d5EqqZzGipt4JCfSDG1gI",
       "seq": 70,
-      "at": "2026-07-08T23:10:43.725Z",
+      "at": "2026-07-10T05:20:40.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -2003,13 +2003,13 @@
           "confidence": "low"
         }
       },
-      "nodeId": "1kMNXyC-mMe4Z_tyEK9hz",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "_amY9nTTDVRFlY20VMrhS",
+      "id": "vWQqFdYOvW_R73ntRvY42",
       "seq": 71,
-      "at": "2026-07-08T23:11:30.725Z",
+      "at": "2026-07-10T05:21:27.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -2017,268 +2017,268 @@
           "confidence": "low"
         }
       },
-      "nodeId": "JUgKHcme2oRbzU-6FZZe2",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "Hcw3Hedkq4xwO18hY07Zp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "omUyhAhU13Jd25eNq-x0I",
+      "id": "qNIkeHan1Oj3AWYQhivnY",
       "seq": 72,
-      "at": "2026-07-08T23:12:17.725Z",
+      "at": "2026-07-10T05:22:14.626Z",
       "type": "thread_created",
       "payload": {
-        "rootQuestionId": "edWnPwcXCSAfJnQc_cb6G",
-        "parentThreadId": "F4Lo07Ls2uXZHq9pHEH73"
+        "rootQuestionId": "kMSJvkjBX8TQje4_i-km1",
+        "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
       },
-      "nodeId": "edWnPwcXCSAfJnQc_cb6G",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "kMSJvkjBX8TQje4_i-km1",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "KPIlmI5_n8lXERiCCgAtD",
+      "id": "VdLNAIK5RsFvgGdoEEHLx",
       "seq": 73,
-      "at": "2026-07-08T23:13:04.725Z",
+      "at": "2026-07-10T05:23:01.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "edWnPwcXCSAfJnQc_cb6G",
+          "id": "kMSJvkjBX8TQje4_i-km1",
           "text": "Was the loader custom-built?",
           "x": 60,
           "y": 60,
-          "createdAt": "2026-07-08T23:13:04.725Z",
+          "createdAt": "2026-07-10T05:23:01.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "question",
-          "threadId": "edWnPwcXCSAfJnQc_cb6G",
+          "threadId": "kMSJvkjBX8TQje4_i-km1",
           "status": "open",
           "mutuallyExclusive": false,
-          "parentThreadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 8000
       },
-      "nodeId": "edWnPwcXCSAfJnQc_cb6G",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "kMSJvkjBX8TQje4_i-km1",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "pRI9IryTQHnr3NxqCImte",
+      "id": "O4vUZpYCDzBzRCf44pP37",
       "seq": 74,
-      "at": "2026-07-08T23:13:51.725Z",
+      "at": "2026-07-10T05:23:48.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "O1EZzp-7ROLVuI10h51tp",
+          "id": "_j4GtLrRCNAc8GOY6hgS9",
           "text": "The loader was custom-built for this intrusion",
           "x": 160,
           "y": 240,
-          "createdAt": "2026-07-08T23:13:51.725Z",
+          "createdAt": "2026-07-10T05:23:48.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "edWnPwcXCSAfJnQc_cb6G",
+          "threadId": "kMSJvkjBX8TQje4_i-km1",
           "status": "open"
         },
         "captureMs": 8000
       },
-      "nodeId": "O1EZzp-7ROLVuI10h51tp",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "DoO8UZ6Xyk7gZipVEC7VO",
+      "id": "OsfG_Nw4nWKj3xS7g1MRc",
       "seq": 75,
-      "at": "2026-07-08T23:14:38.725Z",
+      "at": "2026-07-10T05:24:35.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "likely"
       },
-      "nodeId": "O1EZzp-7ROLVuI10h51tp",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "QuUMyHnnE03PdvY9EqqB3",
+      "id": "JW5e2X6-pb_oYQXcPkbvB",
       "seq": 76,
-      "at": "2026-07-08T23:15:25.725Z",
+      "at": "2026-07-10T05:25:22.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "moderate"
       },
-      "nodeId": "O1EZzp-7ROLVuI10h51tp",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "m69R2klgOv7_m9hZH3r9H",
+      "id": "qd57qHVDzze51sMW4mJLY",
       "seq": 77,
-      "at": "2026-07-08T23:16:12.725Z",
+      "at": "2026-07-10T05:26:09.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "kFKpiOCof28uB0RWmoYL3",
+          "id": "b0EuV9RgMrlnwNNFJ_qJe",
           "text": "The loader was assembled from a leaked builder",
           "x": 460,
           "y": 240,
-          "createdAt": "2026-07-08T23:16:12.725Z",
+          "createdAt": "2026-07-10T05:26:09.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "edWnPwcXCSAfJnQc_cb6G",
+          "threadId": "kMSJvkjBX8TQje4_i-km1",
           "status": "open"
         },
         "captureMs": 3000
       },
-      "nodeId": "kFKpiOCof28uB0RWmoYL3",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "b0EuV9RgMrlnwNNFJ_qJe",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "-jsKT_EAUZU_2FW_OWjMK",
+      "id": "y0QOJ6Cw-y94Cdm8HYqnt",
       "seq": 78,
-      "at": "2026-07-08T23:16:59.725Z",
+      "at": "2026-07-10T05:26:56.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "unlikely"
       },
-      "nodeId": "kFKpiOCof28uB0RWmoYL3",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "b0EuV9RgMrlnwNNFJ_qJe",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "b9IPx-H0aVUQsRZsb5Ih7",
+      "id": "tmgBeW5U3zOfTerg5kL3Y",
       "seq": 79,
-      "at": "2026-07-08T23:17:46.725Z",
+      "at": "2026-07-10T05:27:43.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "low"
       },
-      "nodeId": "kFKpiOCof28uB0RWmoYL3",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "b0EuV9RgMrlnwNNFJ_qJe",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "Qh5MqUC1i0qKN8FtlOlnY",
+      "id": "c0uvMsM-vrW2NyBo2rsVP",
       "seq": 80,
-      "at": "2026-07-08T23:18:33.725Z",
+      "at": "2026-07-10T05:28:30.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "WtlGViGp79DcWLhbvfZGo",
+          "id": "oSnRO5_Z9xtyT0i6pxu72",
           "type": "answers",
-          "from": "O1EZzp-7ROLVuI10h51tp",
-          "to": "edWnPwcXCSAfJnQc_cb6G",
-          "createdAt": "2026-07-08T23:18:33.725Z"
+          "from": "_j4GtLrRCNAc8GOY6hgS9",
+          "to": "kMSJvkjBX8TQje4_i-km1",
+          "createdAt": "2026-07-10T05:28:30.626Z"
         }
       },
-      "edgeId": "WtlGViGp79DcWLhbvfZGo",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "edgeId": "oSnRO5_Z9xtyT0i6pxu72",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "EuwHxVuQ7nnOl1zFc4Y2e",
+      "id": "Ra65ZBiw27olmHBAYnuP6",
       "seq": 81,
-      "at": "2026-07-08T23:19:20.725Z",
+      "at": "2026-07-10T05:29:17.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "8xukSGrlZf1pW_lCbDlWO",
+          "id": "S-moiJ3dEZqh0eePnT_Jx",
           "type": "answers",
-          "from": "kFKpiOCof28uB0RWmoYL3",
-          "to": "edWnPwcXCSAfJnQc_cb6G",
-          "createdAt": "2026-07-08T23:19:20.725Z"
+          "from": "b0EuV9RgMrlnwNNFJ_qJe",
+          "to": "kMSJvkjBX8TQje4_i-km1",
+          "createdAt": "2026-07-10T05:29:17.626Z"
         }
       },
-      "edgeId": "8xukSGrlZf1pW_lCbDlWO",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "edgeId": "S-moiJ3dEZqh0eePnT_Jx",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "yARSipOhqliM4l_ZJFwMV",
+      "id": "lY7Y0nAhVOQCu1iEKvcAQ",
       "seq": 82,
-      "at": "2026-07-08T23:20:07.725Z",
+      "at": "2026-07-10T05:30:04.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "X6Ws-hHkbBG7POvuE4mEL",
+          "id": "n2Akqqohywclc_U9aeUfj",
           "text": "No builder artifacts for this loader found in the wild",
           "x": 300,
           "y": 480,
-          "createdAt": "2026-07-08T23:20:07.725Z",
+          "createdAt": "2026-07-10T05:30:04.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "edWnPwcXCSAfJnQc_cb6G"
+          "threadId": "kMSJvkjBX8TQje4_i-km1"
         },
         "captureMs": 4000
       },
-      "nodeId": "X6Ws-hHkbBG7POvuE4mEL",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "n2Akqqohywclc_U9aeUfj",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "d3RQwQ0Pd1n8BcGjbiUXU",
+      "id": "C5b6R5iQyGB6-m_zWraqK",
       "seq": 83,
-      "at": "2026-07-08T23:20:54.725Z",
+      "at": "2026-07-10T05:30:51.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "X6Ws-hHkbBG7POvuE4mEL",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "n2Akqqohywclc_U9aeUfj",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "glmJ1pbXwa32BBR0pVUnd",
+      "id": "T9oRogtfx_OL-CykKLnaF",
       "seq": 84,
-      "at": "2026-07-08T23:21:41.725Z",
+      "at": "2026-07-10T05:31:38.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "X6Ws-hHkbBG7POvuE4mEL",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "n2Akqqohywclc_U9aeUfj",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "dDfAz-aGz_PTBnPNVbjUD",
+      "id": "9aEwUWnkFRtuSIjbPz_sW",
       "seq": 85,
-      "at": "2026-07-08T23:22:28.725Z",
+      "at": "2026-07-10T05:32:25.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "BJWp1REnhV8Actu4xwkDi",
+          "id": "IRYdRI0-F02URq8m5nZWy",
           "type": "consistent_with",
-          "from": "X6Ws-hHkbBG7POvuE4mEL",
-          "to": "O1EZzp-7ROLVuI10h51tp",
-          "createdAt": "2026-07-08T23:22:28.725Z"
+          "from": "n2Akqqohywclc_U9aeUfj",
+          "to": "_j4GtLrRCNAc8GOY6hgS9",
+          "createdAt": "2026-07-10T05:32:25.626Z"
         }
       },
-      "edgeId": "BJWp1REnhV8Actu4xwkDi",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "edgeId": "IRYdRI0-F02URq8m5nZWy",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "0yhUKu9rW_lfKzrAjn1cO",
+      "id": "t7Itiiis4bvBVN3e9QpkV",
       "seq": 86,
-      "at": "2026-07-08T23:23:15.725Z",
+      "at": "2026-07-10T05:33:12.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "Cw5bHlRARlf7TK-PdVmBm",
+          "id": "akPAVJpACe8BdKckTJ_eo",
           "type": "inconsistent_with",
-          "from": "X6Ws-hHkbBG7POvuE4mEL",
-          "to": "kFKpiOCof28uB0RWmoYL3",
-          "createdAt": "2026-07-08T23:23:15.725Z"
+          "from": "n2Akqqohywclc_U9aeUfj",
+          "to": "b0EuV9RgMrlnwNNFJ_qJe",
+          "createdAt": "2026-07-10T05:33:12.626Z"
         }
       },
-      "edgeId": "Cw5bHlRARlf7TK-PdVmBm",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "edgeId": "akPAVJpACe8BdKckTJ_eo",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "nSdV6q7RmDQ_1_mvXPh0z",
+      "id": "Y0DsOiN-dtxJOpJntCCiR",
       "seq": 87,
-      "at": "2026-07-08T23:24:02.725Z",
+      "at": "2026-07-10T05:33:59.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -2286,27 +2286,27 @@
           "confidence": "low"
         }
       },
-      "nodeId": "kFKpiOCof28uB0RWmoYL3",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "b0EuV9RgMrlnwNNFJ_qJe",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "q5qj19jSFEPYzIePCLssV",
+      "id": "esAEsQHvLv7eX8_R9amfm",
       "seq": 88,
-      "at": "2026-07-08T23:24:49.725Z",
+      "at": "2026-07-10T05:34:46.626Z",
       "type": "claim_status_changed",
       "payload": {
         "before": "open",
         "after": "adopted",
         "ceremony": {
-          "at": "2026-07-10T22:25:17.711Z",
+          "at": "2026-07-12T04:35:14.612Z",
           "candidate": {
-            "id": "O1EZzp-7ROLVuI10h51tp",
+            "id": "_j4GtLrRCNAc8GOY6hgS9",
             "text": "The loader was custom-built for this intrusion",
             "iCount": 0
           },
           "rivals": [
             {
-              "id": "kFKpiOCof28uB0RWmoYL3",
+              "id": "b0EuV9RgMrlnwNNFJ_qJe",
               "text": "The loader was assembled from a leaked builder",
               "status": "open",
               "iCount": 1,
@@ -2316,94 +2316,94 @@
           "linchpins": []
         }
       },
-      "nodeId": "O1EZzp-7ROLVuI10h51tp",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "RvJkpx3DYO6QyUcjgFayz",
+      "id": "lP0qbGRs0tFsmzO0QkXR4",
       "seq": 89,
-      "at": "2026-07-08T23:25:36.725Z",
+      "at": "2026-07-10T05:35:33.626Z",
       "type": "question_status_changed",
       "payload": {
         "before": "open",
         "after": "answered",
-        "byClaim": "O1EZzp-7ROLVuI10h51tp"
+        "byClaim": "_j4GtLrRCNAc8GOY6hgS9"
       },
-      "nodeId": "edWnPwcXCSAfJnQc_cb6G",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "kMSJvkjBX8TQje4_i-km1",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     },
     {
-      "id": "AgAwP-VWXqqv0eMQh790-",
+      "id": "u5XsQGRXkPm1YGLazCiYg",
       "seq": 90,
-      "at": "2026-07-08T23:26:23.725Z",
+      "at": "2026-07-10T05:36:20.626Z",
       "type": "node_promoted",
       "payload": {
-        "sourceClaimId": "O1EZzp-7ROLVuI10h51tp",
+        "sourceClaimId": "_j4GtLrRCNAc8GOY6hgS9",
         "asType": "evidence",
         "node": {
-          "id": "FyQcj2ky8tpl1dautOBRY",
+          "id": "KlaamwcnFO0Emf3r2x3Kp",
           "text": "The loader was custom-built for this intrusion",
-          "threadId": "F4Lo07Ls2uXZHq9pHEH73",
+          "threadId": "25MbrMKvX91hR1UUQdQ1j",
           "x": 90,
           "y": 980,
-          "createdAt": "2026-07-08T23:26:23.725Z",
-          "derivedFrom": "O1EZzp-7ROLVuI10h51tp",
+          "createdAt": "2026-07-10T05:36:20.626Z",
+          "derivedFrom": "_j4GtLrRCNAc8GOY6hgS9",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence"
         }
       },
-      "nodeId": "FyQcj2ky8tpl1dautOBRY",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "KlaamwcnFO0Emf3r2x3Kp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "IJ8YpVDHYMnjvcApy7Lzz",
+      "id": "DG3VQZTP2DTv9leZvuRjd",
       "seq": 91,
-      "at": "2026-07-08T23:27:10.725Z",
+      "at": "2026-07-10T05:37:07.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "FyQcj2ky8tpl1dautOBRY",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "KlaamwcnFO0Emf3r2x3Kp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "gg0O5m7uVbO-84nNUQ97c",
+      "id": "i5koJQKqdBtmYDMujyOXP",
       "seq": 92,
-      "at": "2026-07-08T23:27:57.725Z",
+      "at": "2026-07-10T05:37:54.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "FyQcj2ky8tpl1dautOBRY",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "KlaamwcnFO0Emf3r2x3Kp",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "99hse1BCz0BVuaXabHLGT",
+      "id": "RL8jiM8TJCPntVGmZywxF",
       "seq": 93,
-      "at": "2026-07-08T23:28:44.725Z",
+      "at": "2026-07-10T05:38:41.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "OBji7M3OiGq5G7bZf4WuT",
+          "id": "TN_qaZMe7Cw9cs--QJagS",
           "type": "consistent_with",
-          "from": "FyQcj2ky8tpl1dautOBRY",
-          "to": "J59lyA1PwKWOgP0p9AQc0",
-          "createdAt": "2026-07-08T23:28:44.725Z"
+          "from": "KlaamwcnFO0Emf3r2x3Kp",
+          "to": "VTG2ZUvZKLWdx88jCWAT2",
+          "createdAt": "2026-07-10T05:38:41.626Z"
         }
       },
-      "edgeId": "OBji7M3OiGq5G7bZf4WuT",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "edgeId": "TN_qaZMe7Cw9cs--QJagS",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "YFXOY9c3dpG8-YdFEcAs_",
+      "id": "BMDhU4pJ07Hzx4zbpr7FC",
       "seq": 94,
-      "at": "2026-07-08T23:29:31.725Z",
+      "at": "2026-07-10T05:39:28.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -2411,1003 +2411,1003 @@
           "confidence": "moderate"
         }
       },
-      "nodeId": "J59lyA1PwKWOgP0p9AQc0",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "VTG2ZUvZKLWdx88jCWAT2",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "v0NJStcNp-pb-lt6t_05y",
+      "id": "f8Oatba-htlYiCdKOpC-a",
       "seq": 95,
-      "at": "2026-07-08T23:30:18.725Z",
+      "at": "2026-07-10T05:40:15.626Z",
       "type": "thread_created",
       "payload": {
-        "rootQuestionId": "OaxvsgY48sfxSCLBHLvwf",
-        "parentThreadId": "F4Lo07Ls2uXZHq9pHEH73"
+        "rootQuestionId": "8sSk0QFascc0Gu4B9C_6D",
+        "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
       },
-      "nodeId": "OaxvsgY48sfxSCLBHLvwf",
-      "threadId": "OaxvsgY48sfxSCLBHLvwf"
+      "nodeId": "8sSk0QFascc0Gu4B9C_6D",
+      "threadId": "8sSk0QFascc0Gu4B9C_6D"
     },
     {
-      "id": "nLIpJUXfpX-bicrC1_YYC",
+      "id": "HqlcZ1_GX2jQ6Qe7rllqj",
       "seq": 96,
-      "at": "2026-07-08T23:31:05.725Z",
+      "at": "2026-07-10T05:41:02.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "OaxvsgY48sfxSCLBHLvwf",
+          "id": "8sSk0QFascc0Gu4B9C_6D",
           "text": "Who had physical access to the build server?",
           "x": 1040,
           "y": 60,
-          "createdAt": "2026-07-08T23:31:05.725Z",
+          "createdAt": "2026-07-10T05:41:02.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "question",
-          "threadId": "OaxvsgY48sfxSCLBHLvwf",
+          "threadId": "8sSk0QFascc0Gu4B9C_6D",
           "status": "open",
           "mutuallyExclusive": false,
-          "parentThreadId": "F4Lo07Ls2uXZHq9pHEH73"
+          "parentThreadId": "25MbrMKvX91hR1UUQdQ1j"
         },
         "captureMs": 8000
       },
-      "nodeId": "OaxvsgY48sfxSCLBHLvwf",
-      "threadId": "OaxvsgY48sfxSCLBHLvwf"
+      "nodeId": "8sSk0QFascc0Gu4B9C_6D",
+      "threadId": "8sSk0QFascc0Gu4B9C_6D"
     },
     {
-      "id": "RmRZNBqK_G6NIiqxlnwQR",
+      "id": "hYI5EWbziqxeBYh1DUQS7",
       "seq": 97,
-      "at": "2026-07-08T23:31:52.725Z",
+      "at": "2026-07-10T05:41:49.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "priority",
         "before": null,
         "after": "high"
       },
-      "nodeId": "OaxvsgY48sfxSCLBHLvwf",
-      "threadId": "OaxvsgY48sfxSCLBHLvwf"
+      "nodeId": "8sSk0QFascc0Gu4B9C_6D",
+      "threadId": "8sSk0QFascc0Gu4B9C_6D"
     },
     {
-      "id": "dhnoW05hqzY7hWgM8GIiB",
+      "id": "REdvyGas8uCEvuwIMT8Qz",
       "seq": 98,
-      "at": "2026-07-08T23:32:39.725Z",
+      "at": "2026-07-10T05:42:36.626Z",
       "type": "thread_created",
       "payload": {
-        "rootIncidentId": "o0V81_wVv3JjXJfyj34re",
+        "rootIncidentId": "dqVLj2I5qL7_IIiAGRQ89",
         "workflow": "diamond"
       },
-      "nodeId": "o0V81_wVv3JjXJfyj34re",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "dqVLj2I5qL7_IIiAGRQ89",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "-o5enh-NpWcNUkgg0rjLg",
+      "id": "tZ6nz1FkbZ-zQBi_XCIB5",
       "seq": 99,
-      "at": "2026-07-08T23:33:26.725Z",
+      "at": "2026-07-10T05:43:23.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "o0V81_wVv3JjXJfyj34re",
+          "id": "dqVLj2I5qL7_IIiAGRQ89",
           "text": "Intrusion at ACME — June 2026",
           "x": 420,
           "y": 40,
-          "createdAt": "2026-07-08T23:33:26.725Z",
+          "createdAt": "2026-07-10T05:43:23.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "incident",
-          "threadId": "o0V81_wVv3JjXJfyj34re",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89",
           "status": "open"
         }
       },
-      "nodeId": "o0V81_wVv3JjXJfyj34re",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "dqVLj2I5qL7_IIiAGRQ89",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "RQUHOuQaI6a2jouqk2sHE",
+      "id": "MEI3UmJ0wUWimIiWTqVXi",
       "seq": 100,
-      "at": "2026-07-08T23:34:13.725Z",
+      "at": "2026-07-10T05:44:10.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "zXQvwOk0uFRmHDPKQcJQu",
+          "id": "4G25jhKQRgts2IqTR4bh4",
           "text": "Finance-themed phishing lure delivered to 41 staff",
           "x": 80,
-          "y": 240,
-          "createdAt": "2026-07-08T23:34:13.725Z",
+          "y": 260,
+          "createdAt": "2026-07-10T05:44:10.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "diamond_event",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 7000
+        "captureMs": 9000
       },
-      "nodeId": "zXQvwOk0uFRmHDPKQcJQu",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "EPng_RRsLgBOc5MLg1KJa",
+      "id": "vLSJbR7QPqIOlX3fN77mr",
       "seq": 101,
-      "at": "2026-07-08T23:35:00.725Z",
+      "at": "2026-07-10T05:44:57.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "phase",
         "before": null,
         "after": "delivery"
       },
-      "nodeId": "zXQvwOk0uFRmHDPKQcJQu",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "t28UIm7hyPVNC7jpRz8AH",
+      "id": "c-OwVek14xSgm_WXAzq7z",
       "seq": 102,
-      "at": "2026-07-08T23:35:47.725Z",
+      "at": "2026-07-10T05:45:44.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "result",
         "before": null,
         "after": "success"
       },
-      "nodeId": "zXQvwOk0uFRmHDPKQcJQu",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "PsDnDX-KnkEuYfLnN6z2a",
+      "id": "tVP9EYSfUZExmonI4FKNf",
       "seq": 103,
-      "at": "2026-07-08T23:36:34.725Z",
+      "at": "2026-07-10T05:46:31.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "direction",
         "before": null,
         "after": "infrastructure_to_victim"
       },
-      "nodeId": "zXQvwOk0uFRmHDPKQcJQu",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "kFdVOIHPAb-oTIDV2SBNn",
+      "id": "t1vkBgia58fBhLyOdmMNM",
       "seq": 104,
-      "at": "2026-07-08T23:37:21.725Z",
+      "at": "2026-07-10T05:47:18.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "occurredAt",
         "before": null,
         "after": "2026-06-09"
       },
-      "nodeId": "zXQvwOk0uFRmHDPKQcJQu",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "FsaCi2XzMuaNz_40laGCC",
+      "id": "o1ewdvZN7f0wYzUJlscKt",
       "seq": 105,
-      "at": "2026-07-08T23:38:08.725Z",
+      "at": "2026-07-10T05:48:05.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "vFw5lYGhOS0vOJsWAG4jZ",
+          "id": "-5D29BPXmSXtqnHZAdb0Z",
           "text": "KESTREL loader executed on FIN-WS-041",
-          "x": 380,
-          "y": 240,
-          "createdAt": "2026-07-08T23:38:08.725Z",
+          "x": 540,
+          "y": 260,
+          "createdAt": "2026-07-10T05:48:05.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "diamond_event",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 9000
+        "captureMs": 6000
       },
-      "nodeId": "vFw5lYGhOS0vOJsWAG4jZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "bpGWTyvJK6exveiiwtGI7",
+      "id": "UQocfDGy70ViSu0hbppFJ",
       "seq": 106,
-      "at": "2026-07-08T23:38:55.725Z",
+      "at": "2026-07-10T05:48:52.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "phase",
         "before": null,
         "after": "exploitation"
       },
-      "nodeId": "vFw5lYGhOS0vOJsWAG4jZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "7hD8WSTEVr2GsE7AlBOBY",
+      "id": "7gm0G-1G5jQ3ktgo4NAYl",
       "seq": 107,
-      "at": "2026-07-08T23:39:42.725Z",
+      "at": "2026-07-10T05:49:39.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "result",
         "before": null,
         "after": "success"
       },
-      "nodeId": "vFw5lYGhOS0vOJsWAG4jZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "dF5pBTskEIWZjmx_1I2ZS",
+      "id": "MUkbbXdcVwR2tUe7ez20t",
       "seq": 108,
-      "at": "2026-07-08T23:40:29.725Z",
+      "at": "2026-07-10T05:50:26.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "direction",
         "before": null,
         "after": "infrastructure_to_victim"
       },
-      "nodeId": "vFw5lYGhOS0vOJsWAG4jZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "hJYnvDgL58zHwF3mLz-PW",
+      "id": "vuND129hS8Lf76m2Dwn2Y",
       "seq": 109,
-      "at": "2026-07-08T23:41:16.725Z",
+      "at": "2026-07-10T05:51:13.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "occurredAt",
         "before": null,
         "after": "2026-06-09"
       },
-      "nodeId": "vFw5lYGhOS0vOJsWAG4jZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "SwTL7keYvLxWCN-EoXmr3",
+      "id": "IKPhtN5IpGZm3vglo0Emk",
       "seq": 110,
-      "at": "2026-07-08T23:42:03.725Z",
+      "at": "2026-07-10T05:52:00.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "2QGmwgq7dNoofVc9uR5ze",
+          "id": "bTzRZlNsZooInNkc2ZB3e",
           "text": "Beaconing to bulletproof host 45.155.87.12",
-          "x": 680,
-          "y": 240,
-          "createdAt": "2026-07-08T23:42:03.725Z",
+          "x": 1000,
+          "y": 260,
+          "createdAt": "2026-07-10T05:52:00.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "diamond_event",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 4000
+        "captureMs": 3000
       },
-      "nodeId": "2QGmwgq7dNoofVc9uR5ze",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "FGQQIvzdj-Wb73pyl9qr9",
+      "id": "kqDDvaEqhH_MKQ6UeNIza",
       "seq": 111,
-      "at": "2026-07-08T23:42:50.725Z",
+      "at": "2026-07-10T05:52:47.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "phase",
         "before": null,
         "after": "command_and_control"
       },
-      "nodeId": "2QGmwgq7dNoofVc9uR5ze",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "2HF-9HH_DJA3P3Al5XoyY",
+      "id": "396B2E5Tsgd4Jnqt5Z7NI",
       "seq": 112,
-      "at": "2026-07-08T23:43:37.725Z",
+      "at": "2026-07-10T05:53:34.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "result",
         "before": null,
         "after": "success"
       },
-      "nodeId": "2QGmwgq7dNoofVc9uR5ze",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "WCC6Yo1g8UKkA9hZYZvsZ",
+      "id": "gXALj8cYA8jdnOK2eEIwP",
       "seq": 113,
-      "at": "2026-07-08T23:44:24.725Z",
+      "at": "2026-07-10T05:54:21.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "direction",
         "before": null,
         "after": "bidirectional"
       },
-      "nodeId": "2QGmwgq7dNoofVc9uR5ze",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "jdfqZwIilPY1LP3fDlVbB",
+      "id": "BOlpgQAHUUKYzX3i3o3cr",
       "seq": 114,
-      "at": "2026-07-08T23:45:11.725Z",
+      "at": "2026-07-10T05:55:08.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "occurredAt",
         "before": null,
         "after": "2026-06-10"
       },
-      "nodeId": "2QGmwgq7dNoofVc9uR5ze",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "29Dz5d0wsMyy9Zam65nJ8",
+      "id": "o3OxF9objT2Sq5AjBwpOy",
       "seq": 115,
-      "at": "2026-07-08T23:45:58.725Z",
+      "at": "2026-07-10T05:55:55.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "MSVV96HWDyZKFGz_pQyu5",
+          "id": "1whp2JER_DxRfLFhMilHo",
           "text": "Staged archive exfiltrated over HTTPS",
-          "x": 980,
-          "y": 240,
-          "createdAt": "2026-07-08T23:45:58.725Z",
+          "x": 1460,
+          "y": 260,
+          "createdAt": "2026-07-10T05:55:55.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "diamond_event",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 6000
+        "captureMs": 7000
       },
-      "nodeId": "MSVV96HWDyZKFGz_pQyu5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "0l0DQ0RmAo5B98K76Ijf-",
+      "id": "acNNHElWfpNtgSGg6qZhi",
       "seq": 116,
-      "at": "2026-07-08T23:46:45.725Z",
+      "at": "2026-07-10T05:56:42.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "phase",
         "before": null,
         "after": "actions_on_objectives"
       },
-      "nodeId": "MSVV96HWDyZKFGz_pQyu5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "VVAhQUDG2uneudurTYPF3",
+      "id": "TCZmjgkTYO5-bL-TTECMR",
       "seq": 117,
-      "at": "2026-07-08T23:47:32.725Z",
+      "at": "2026-07-10T05:57:29.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "result",
         "before": null,
         "after": "success"
       },
-      "nodeId": "MSVV96HWDyZKFGz_pQyu5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "5iKoUe2U5P8gZHEd1lWWf",
+      "id": "39QTJlnnVVU19nN_9ddO1",
       "seq": 118,
-      "at": "2026-07-08T23:48:19.725Z",
+      "at": "2026-07-10T05:58:16.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "direction",
         "before": null,
         "after": "victim_to_infrastructure"
       },
-      "nodeId": "MSVV96HWDyZKFGz_pQyu5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "ZUp61LnGqmO67JO89mYHN",
+      "id": "vutK0wP0pe-qL5oJP1_WL",
       "seq": 119,
-      "at": "2026-07-08T23:49:06.725Z",
+      "at": "2026-07-10T05:59:03.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "occurredAt",
         "before": null,
         "after": "2026-06-11"
       },
-      "nodeId": "MSVV96HWDyZKFGz_pQyu5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "yQxvEfzO90AzwvgnUSVWM",
+      "id": "gccmeVw-BhV32H8_N_Cri",
       "seq": 120,
-      "at": "2026-07-08T23:49:53.725Z",
+      "at": "2026-07-10T05:59:50.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "YD-1w7WZ5XduZIk8lYmtS",
+          "id": "7CjSlcnnKwFNY0qW-1U2l",
           "text": "RDP login from dormant service account",
-          "x": 1280,
-          "y": 240,
-          "createdAt": "2026-07-08T23:49:53.725Z",
+          "x": 1920,
+          "y": 260,
+          "createdAt": "2026-07-10T05:59:50.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "diamond_event",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 8000
+        "captureMs": 4000
       },
-      "nodeId": "YD-1w7WZ5XduZIk8lYmtS",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "7CjSlcnnKwFNY0qW-1U2l",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "oGAw0ypZbYSXCXkY4Miq2",
+      "id": "o-CFKsK5H5uxAZSE4Qnmy",
       "seq": 121,
-      "at": "2026-07-08T23:50:40.725Z",
+      "at": "2026-07-10T06:00:37.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "_xh2PpXsbBFz5zEu6_rPP",
+          "id": "154HdobIcA8tcLkANl55B",
           "text": "Unattributed — tracked as UNC-ACME",
-          "x": 680,
-          "y": 60,
-          "createdAt": "2026-07-08T23:50:40.725Z",
+          "x": 1010,
+          "y": 40,
+          "createdAt": "2026-07-10T06:00:37.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "adversary",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 7000
+        "captureMs": 3000
       },
-      "nodeId": "_xh2PpXsbBFz5zEu6_rPP",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "154HdobIcA8tcLkANl55B",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "fOKRnRbX26Rq_uCfVRawh",
+      "id": "72FolTz9Gshqp220bTG6O",
       "seq": 122,
-      "at": "2026-07-08T23:51:27.725Z",
+      "at": "2026-07-10T06:01:24.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "low"
       },
-      "nodeId": "_xh2PpXsbBFz5zEu6_rPP",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "154HdobIcA8tcLkANl55B",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "ahK1SSKIE2fE5cX4yTng-",
+      "id": "o347MM9slIfHp06xGiQZE",
       "seq": 123,
-      "at": "2026-07-08T23:52:14.725Z",
+      "at": "2026-07-10T06:02:11.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "JZCFeln-RZWg65zNpA8d6",
+          "id": "snQnngRkdaNwStrfshXdQ",
           "text": "KESTREL loader (custom build)",
-          "x": 300,
-          "y": 460,
-          "createdAt": "2026-07-08T23:52:14.725Z",
+          "x": 470,
+          "y": 540,
+          "createdAt": "2026-07-10T06:02:11.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "capability",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
-        },
-        "captureMs": 9000
-      },
-      "nodeId": "JZCFeln-RZWg65zNpA8d6",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
-    },
-    {
-      "id": "LyZxFwsvS2jU_iaQIE64U",
-      "seq": 124,
-      "at": "2026-07-08T23:53:01.725Z",
-      "type": "judgement_declared",
-      "payload": {
-        "field": "confidence",
-        "before": null,
-        "after": "moderate"
-      },
-      "nodeId": "JZCFeln-RZWg65zNpA8d6",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
-    },
-    {
-      "id": "UebzZPX7tRmGGUJgvF_Vo",
-      "seq": 125,
-      "at": "2026-07-08T23:53:48.725Z",
-      "type": "node_created",
-      "payload": {
-        "node": {
-          "id": "XhJVHGWTcSHZYdLOsqPtb",
-          "text": "Spear-phish lure, finance theme",
-          "x": 60,
-          "y": 460,
-          "createdAt": "2026-07-08T23:53:48.725Z",
-          "stale": {
-            "kind": "fresh"
-          },
-          "type": "capability",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
         "captureMs": 6000
       },
-      "nodeId": "XhJVHGWTcSHZYdLOsqPtb",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "snQnngRkdaNwStrfshXdQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "YoDuCJx3lq2e2afXrSy5W",
-      "seq": 126,
-      "at": "2026-07-08T23:54:35.725Z",
+      "id": "AQgFRDJRHWHQhkexfOkYc",
+      "seq": 124,
+      "at": "2026-07-10T06:02:58.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "moderate"
       },
-      "nodeId": "XhJVHGWTcSHZYdLOsqPtb",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "snQnngRkdaNwStrfshXdQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "dwqGEpveJj-xQf_13jfQg",
-      "seq": 127,
-      "at": "2026-07-08T23:55:22.725Z",
+      "id": "qDw6jnztEezPuya-FbG9V",
+      "seq": 125,
+      "at": "2026-07-10T06:03:45.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "AvMWn9f1NWbopONzwkucL",
+          "id": "B47_Afm-n85oljyZBNZcQ",
+          "text": "Spear-phish lure, finance theme",
+          "x": 40,
+          "y": 540,
+          "createdAt": "2026-07-10T06:03:45.626Z",
+          "stale": {
+            "kind": "fresh"
+          },
+          "type": "capability",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+        },
+        "captureMs": 5000
+      },
+      "nodeId": "B47_Afm-n85oljyZBNZcQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "GDE_up3NE7ydhSuFZvzf5",
+      "seq": 126,
+      "at": "2026-07-10T06:04:32.626Z",
+      "type": "judgement_declared",
+      "payload": {
+        "field": "confidence",
+        "before": null,
+        "after": "moderate"
+      },
+      "nodeId": "B47_Afm-n85oljyZBNZcQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
+    },
+    {
+      "id": "2ZmL59z8Sj5pVzAb8ypWg",
+      "seq": 127,
+      "at": "2026-07-10T06:05:19.626Z",
+      "type": "node_created",
+      "payload": {
+        "node": {
+          "id": "WinCazO9X_IeeLuyo91CA",
           "text": "Bulletproof host 45.155.87.12 (C2)",
-          "x": 760,
-          "y": 460,
-          "createdAt": "2026-07-08T23:55:22.725Z",
+          "x": 1220,
+          "y": 540,
+          "createdAt": "2026-07-10T06:05:19.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "infrastructure",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 6000
+        "captureMs": 4000
       },
-      "nodeId": "AvMWn9f1NWbopONzwkucL",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "WinCazO9X_IeeLuyo91CA",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "fJ-0peutoOpEv7CHKfoCt",
+      "id": "UmVRbLfsVdVfiD84LS52-",
       "seq": 128,
-      "at": "2026-07-08T23:56:09.725Z",
+      "at": "2026-07-10T06:06:06.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "high"
       },
-      "nodeId": "AvMWn9f1NWbopONzwkucL",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "WinCazO9X_IeeLuyo91CA",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "Rd01IJQ2Sr8AAThiswQtr",
+      "id": "5YQ3kdigoCtGGB-P63okF",
       "seq": 129,
-      "at": "2026-07-08T23:56:56.725Z",
+      "at": "2026-07-10T06:06:53.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "A93mgK01wEWMR_dKhC2Ya",
+          "id": "2P2dViG4I2UMp4g-kz5GG",
           "text": "ACME finance workstation FIN-WS-041",
-          "x": 500,
-          "y": 620,
-          "createdAt": "2026-07-08T23:56:56.725Z",
+          "x": 760,
+          "y": 700,
+          "createdAt": "2026-07-10T06:06:53.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "victim",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 3000
+        "captureMs": 9000
       },
-      "nodeId": "A93mgK01wEWMR_dKhC2Ya",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "2P2dViG4I2UMp4g-kz5GG",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "-7iymGCVKjozmx2vyJP3M",
+      "id": "Db_jl3h3UE-CnP4eSoxdA",
       "seq": 130,
-      "at": "2026-07-08T23:57:43.725Z",
+      "at": "2026-07-10T06:07:40.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "high"
       },
-      "nodeId": "A93mgK01wEWMR_dKhC2Ya",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "2P2dViG4I2UMp4g-kz5GG",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "24Ni_Oi2QOsscp1L2fWUX",
+      "id": "aehOkfEMgRI-QTJB1Wgtu",
       "seq": 131,
-      "at": "2026-07-08T23:58:30.725Z",
+      "at": "2026-07-10T06:08:27.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "k1FcjCzksqI1xqAKxqnjk",
+          "id": "ara7-pgSQrRNe6iSb3CFw",
           "type": "characterizes",
-          "from": "XhJVHGWTcSHZYdLOsqPtb",
-          "to": "zXQvwOk0uFRmHDPKQcJQu",
-          "createdAt": "2026-07-08T23:58:30.725Z"
+          "from": "B47_Afm-n85oljyZBNZcQ",
+          "to": "4G25jhKQRgts2IqTR4bh4",
+          "createdAt": "2026-07-10T06:08:27.626Z"
         }
       },
-      "edgeId": "k1FcjCzksqI1xqAKxqnjk",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "ara7-pgSQrRNe6iSb3CFw",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "e7kEyZg4lqudBPafDYUpr",
+      "id": "8FAxjiIQbtibEsqVWWpPm",
       "seq": 132,
-      "at": "2026-07-08T23:59:17.725Z",
+      "at": "2026-07-10T06:09:14.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "_IS6bhk-mny78LrTNp0g6",
+          "id": "bFb5iZiJ5cYDeYtUHFoKW",
           "type": "characterizes",
-          "from": "A93mgK01wEWMR_dKhC2Ya",
-          "to": "zXQvwOk0uFRmHDPKQcJQu",
-          "createdAt": "2026-07-08T23:59:17.725Z"
+          "from": "2P2dViG4I2UMp4g-kz5GG",
+          "to": "4G25jhKQRgts2IqTR4bh4",
+          "createdAt": "2026-07-10T06:09:14.626Z"
         }
       },
-      "edgeId": "_IS6bhk-mny78LrTNp0g6",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "bFb5iZiJ5cYDeYtUHFoKW",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "LvC9ZrKWGfk3rVbEmAv1r",
+      "id": "dW_cTYj83R5Os-uXyeSpV",
       "seq": 133,
-      "at": "2026-07-09T00:00:04.725Z",
+      "at": "2026-07-10T06:10:01.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "-b9yjmwG9mdHR8ahI9OU5",
+          "id": "Rw1PxE_EHV_jxAK5Wqoic",
           "type": "characterizes",
-          "from": "JZCFeln-RZWg65zNpA8d6",
-          "to": "vFw5lYGhOS0vOJsWAG4jZ",
-          "createdAt": "2026-07-09T00:00:04.725Z"
+          "from": "snQnngRkdaNwStrfshXdQ",
+          "to": "-5D29BPXmSXtqnHZAdb0Z",
+          "createdAt": "2026-07-10T06:10:01.626Z"
         }
       },
-      "edgeId": "-b9yjmwG9mdHR8ahI9OU5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "Rw1PxE_EHV_jxAK5Wqoic",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "86Cj8Rd2-kIwkwApZ76A9",
+      "id": "PNseXJQKpQxj9vhgB5nJ6",
       "seq": 134,
-      "at": "2026-07-09T00:00:51.725Z",
+      "at": "2026-07-10T06:10:48.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "Gt0vI0-zPMUwShdQQT4vR",
+          "id": "299gWDQGb-NJcyHlM63lE",
           "type": "characterizes",
-          "from": "A93mgK01wEWMR_dKhC2Ya",
-          "to": "vFw5lYGhOS0vOJsWAG4jZ",
-          "createdAt": "2026-07-09T00:00:51.725Z"
+          "from": "2P2dViG4I2UMp4g-kz5GG",
+          "to": "-5D29BPXmSXtqnHZAdb0Z",
+          "createdAt": "2026-07-10T06:10:48.626Z"
         }
       },
-      "edgeId": "Gt0vI0-zPMUwShdQQT4vR",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "299gWDQGb-NJcyHlM63lE",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "jM7FxmON0eQYt8xF1v9no",
+      "id": "XY2QJ3XbWxOzVyoYARK-O",
       "seq": 135,
-      "at": "2026-07-09T00:01:38.725Z",
+      "at": "2026-07-10T06:11:35.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "2MbK0XhzX2S22oq4PfU3R",
+          "id": "aDdCxMlrcf313RFiTGma_",
           "type": "characterizes",
-          "from": "_xh2PpXsbBFz5zEu6_rPP",
-          "to": "2QGmwgq7dNoofVc9uR5ze",
-          "createdAt": "2026-07-09T00:01:38.725Z"
+          "from": "154HdobIcA8tcLkANl55B",
+          "to": "bTzRZlNsZooInNkc2ZB3e",
+          "createdAt": "2026-07-10T06:11:35.626Z"
         }
       },
-      "edgeId": "2MbK0XhzX2S22oq4PfU3R",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "aDdCxMlrcf313RFiTGma_",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "UZPAvqbXCD38ipYRzCSTP",
+      "id": "Z14EZAJh3xMHp5gAVQ5O1",
       "seq": 136,
-      "at": "2026-07-09T00:02:25.725Z",
+      "at": "2026-07-10T06:12:22.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "97huz7CRVDWA8rgnnxqsz",
+          "id": "mgyU4HTTDu42S_aXjQZTy",
           "type": "characterizes",
-          "from": "AvMWn9f1NWbopONzwkucL",
-          "to": "2QGmwgq7dNoofVc9uR5ze",
-          "createdAt": "2026-07-09T00:02:25.725Z"
+          "from": "WinCazO9X_IeeLuyo91CA",
+          "to": "bTzRZlNsZooInNkc2ZB3e",
+          "createdAt": "2026-07-10T06:12:22.626Z"
         }
       },
-      "edgeId": "97huz7CRVDWA8rgnnxqsz",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "mgyU4HTTDu42S_aXjQZTy",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "JlIC-uqTQflL5KDSIFSRd",
+      "id": "M5zO3Yu1GFQ0eEloqp2BA",
       "seq": 137,
-      "at": "2026-07-09T00:03:12.725Z",
+      "at": "2026-07-10T06:13:09.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "dOXWXf4kca0A2mtmnFYYC",
+          "id": "n5vu-5DjySwcnDBTrw14i",
           "type": "characterizes",
-          "from": "AvMWn9f1NWbopONzwkucL",
-          "to": "MSVV96HWDyZKFGz_pQyu5",
-          "createdAt": "2026-07-09T00:03:12.725Z"
+          "from": "WinCazO9X_IeeLuyo91CA",
+          "to": "1whp2JER_DxRfLFhMilHo",
+          "createdAt": "2026-07-10T06:13:09.626Z"
         }
       },
-      "edgeId": "dOXWXf4kca0A2mtmnFYYC",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "n5vu-5DjySwcnDBTrw14i",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "vvNHZycEEMtUIVjpALbVi",
+      "id": "NZR9jE2A_zW71SsyQmWaG",
       "seq": 138,
-      "at": "2026-07-09T00:03:59.725Z",
+      "at": "2026-07-10T06:13:56.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "smZPjHRqMujBTxIbOdlSN",
+          "id": "f-JfWaXusWSAanfWLHVul",
           "type": "characterizes",
-          "from": "A93mgK01wEWMR_dKhC2Ya",
-          "to": "MSVV96HWDyZKFGz_pQyu5",
-          "createdAt": "2026-07-09T00:03:59.725Z"
+          "from": "2P2dViG4I2UMp4g-kz5GG",
+          "to": "1whp2JER_DxRfLFhMilHo",
+          "createdAt": "2026-07-10T06:13:56.626Z"
         }
       },
-      "edgeId": "smZPjHRqMujBTxIbOdlSN",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "f-JfWaXusWSAanfWLHVul",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "O-8kydvqdeys_yX6Mi-w7",
+      "id": "lHGT0DSxcuIl1MuK6P7Au",
       "seq": 139,
-      "at": "2026-07-09T00:04:46.725Z",
+      "at": "2026-07-10T06:14:43.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "TKS4wNrTpCWKTqM8PzbV5",
+          "id": "-NVWAmUusUlWSMW_zlmUI",
           "text": "Mail gateway logs: 41 lure deliveries, 3 clicks",
-          "x": 60,
-          "y": 800,
-          "createdAt": "2026-07-09T00:04:46.725Z",
+          "x": 40,
+          "y": 880,
+          "createdAt": "2026-07-10T06:14:43.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 5000
+        "captureMs": 4000
       },
-      "nodeId": "TKS4wNrTpCWKTqM8PzbV5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-NVWAmUusUlWSMW_zlmUI",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "r17Q6QDe6RAkSXa43saEw",
+      "id": "fdBRO0PCjSsC2LzNIdnWi",
       "seq": 140,
-      "at": "2026-07-09T00:05:33.725Z",
+      "at": "2026-07-10T06:15:30.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "B"
       },
-      "nodeId": "TKS4wNrTpCWKTqM8PzbV5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-NVWAmUusUlWSMW_zlmUI",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "OpIDB1QaXpJOL6nN55JbZ",
+      "id": "EfhdsTODBZhe4CF7sn1iV",
       "seq": 141,
-      "at": "2026-07-09T00:06:20.725Z",
+      "at": "2026-07-10T06:16:17.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 2
       },
-      "nodeId": "TKS4wNrTpCWKTqM8PzbV5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-NVWAmUusUlWSMW_zlmUI",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "1f_FlYhnPjdhvZ9BWQ5_1",
+      "id": "wJoO7zAsS7YVr73VI0DQE",
       "seq": 142,
-      "at": "2026-07-09T00:07:07.725Z",
+      "at": "2026-07-10T06:17:04.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "SuvFj9DYwiRofOoIVN9LZ",
+          "id": "hEk7_XPngbzqa0DfbVJ2G",
           "text": "Passive DNS ties 45.155.87.12 to a 2024 APT-Q campaign",
-          "x": 700,
-          "y": 800,
-          "createdAt": "2026-07-09T00:07:07.725Z",
+          "x": 1220,
+          "y": 880,
+          "createdAt": "2026-07-10T06:17:04.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 6000
+        "captureMs": 3000
       },
-      "nodeId": "SuvFj9DYwiRofOoIVN9LZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "hEk7_XPngbzqa0DfbVJ2G",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "1c9s020RgZ844bgrc0IS3",
+      "id": "7RzhxGzzkil3Zotl6Rrf7",
       "seq": 143,
-      "at": "2026-07-09T00:07:54.725Z",
+      "at": "2026-07-10T06:17:51.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "SuvFj9DYwiRofOoIVN9LZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "hEk7_XPngbzqa0DfbVJ2G",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "wQ1If9K-Rrcb8H6WeUYar",
+      "id": "IFCfVzwttL3wSEA-p-jfk",
       "seq": 144,
-      "at": "2026-07-09T00:08:41.725Z",
+      "at": "2026-07-10T06:18:38.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "SuvFj9DYwiRofOoIVN9LZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "hEk7_XPngbzqa0DfbVJ2G",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "-P_bOrPB9u2shJDqijAiW",
+      "id": "bPqaPXbOp0D0bl7J9WSry",
       "seq": 145,
-      "at": "2026-07-09T00:09:28.725Z",
+      "at": "2026-07-10T06:19:25.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "TNfNsv_AzGq-_SRR1lY5M",
+          "id": "XCoPkZz6UWrwHibScVnCT",
           "text": "Host serves dozens of unrelated bulletproof clients",
-          "x": 1000,
-          "y": 800,
-          "createdAt": "2026-07-09T00:09:28.725Z",
+          "x": 1400,
+          "y": 40,
+          "createdAt": "2026-07-10T06:19:25.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "evidence",
-          "threadId": "o0V81_wVv3JjXJfyj34re"
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89"
         },
-        "captureMs": 8000
+        "captureMs": 7000
       },
-      "nodeId": "TNfNsv_AzGq-_SRR1lY5M",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "XCoPkZz6UWrwHibScVnCT",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "sxqxVpWoHOLabH19MxYCc",
+      "id": "-_64OYkJlh6_xwYetv6hu",
       "seq": 146,
-      "at": "2026-07-09T00:10:15.725Z",
+      "at": "2026-07-10T06:20:12.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "sourceReliability",
         "before": null,
         "after": "C"
       },
-      "nodeId": "TNfNsv_AzGq-_SRR1lY5M",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "XCoPkZz6UWrwHibScVnCT",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "57Qm6lDvg90pZflQEBhsB",
+      "id": "QjL6KOZbD0cnqDe_EKnXW",
       "seq": 147,
-      "at": "2026-07-09T00:11:02.725Z",
+      "at": "2026-07-10T06:20:59.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": null,
         "after": 3
       },
-      "nodeId": "TNfNsv_AzGq-_SRR1lY5M",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "XCoPkZz6UWrwHibScVnCT",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "Z7V3CqzNsSgKKsBiwC7mI",
+      "id": "JyIoluydROsFPNfl_zbVB",
       "seq": 148,
-      "at": "2026-07-09T00:11:49.725Z",
+      "at": "2026-07-10T06:21:46.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "_VHZteb0-OBq0pEx1Kazz",
+          "id": "uoSE-vs5_jJP-KTcLAKW4",
           "type": "consistent_with",
-          "from": "TKS4wNrTpCWKTqM8PzbV5",
-          "to": "XhJVHGWTcSHZYdLOsqPtb",
-          "createdAt": "2026-07-09T00:11:49.725Z"
+          "from": "-NVWAmUusUlWSMW_zlmUI",
+          "to": "B47_Afm-n85oljyZBNZcQ",
+          "createdAt": "2026-07-10T06:21:46.626Z"
         }
       },
-      "edgeId": "_VHZteb0-OBq0pEx1Kazz",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "uoSE-vs5_jJP-KTcLAKW4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "9S8yF44_ZatAJGYe-S9sc",
+      "id": "ERVTYiMvFS45Ls3ctqokn",
       "seq": 149,
-      "at": "2026-07-09T00:12:36.725Z",
+      "at": "2026-07-10T06:22:33.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "TcWweRiFwDYmbvT05_V8K",
+          "id": "YAd8pUDMjOQUX_1g2oqNs",
           "type": "consistent_with",
-          "from": "SuvFj9DYwiRofOoIVN9LZ",
-          "to": "AvMWn9f1NWbopONzwkucL",
-          "createdAt": "2026-07-09T00:12:36.725Z"
+          "from": "hEk7_XPngbzqa0DfbVJ2G",
+          "to": "WinCazO9X_IeeLuyo91CA",
+          "createdAt": "2026-07-10T06:22:33.626Z"
         }
       },
-      "edgeId": "TcWweRiFwDYmbvT05_V8K",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "YAd8pUDMjOQUX_1g2oqNs",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "w6lgXYnx5aNBO0pYJM7SC",
+      "id": "4_RCS5xoohBXv7gp06qgL",
       "seq": 150,
-      "at": "2026-07-09T00:13:23.725Z",
+      "at": "2026-07-10T06:23:20.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "Q_SRnbdvNBViLtBxzYzVs",
+          "id": "HvQcTHp_TJPDuVoXc5Hsj",
           "type": "inconsistent_with",
-          "from": "TNfNsv_AzGq-_SRR1lY5M",
-          "to": "_xh2PpXsbBFz5zEu6_rPP",
-          "createdAt": "2026-07-09T00:13:23.725Z"
+          "from": "XCoPkZz6UWrwHibScVnCT",
+          "to": "154HdobIcA8tcLkANl55B",
+          "createdAt": "2026-07-10T06:23:20.626Z"
         }
       },
-      "edgeId": "Q_SRnbdvNBViLtBxzYzVs",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "HvQcTHp_TJPDuVoXc5Hsj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "ejIW2jd72ydP6rEGQiLGQ",
+      "id": "x7Zk-C1bAfhhqnWVG-2AM",
       "seq": 151,
-      "at": "2026-07-09T00:14:10.725Z",
+      "at": "2026-07-10T06:24:07.626Z",
       "type": "node_created",
       "payload": {
         "node": {
-          "id": "4SKTl_F8rO43KM2f-ekhG",
+          "id": "Yjr0Y_2bTcjjK8o5RJANj",
           "text": "Initial access was via the finance-themed phishing wave",
-          "x": 1280,
-          "y": 620,
-          "createdAt": "2026-07-09T00:14:10.725Z",
+          "x": 1920,
+          "y": 700,
+          "createdAt": "2026-07-10T06:24:07.626Z",
           "stale": {
             "kind": "fresh"
           },
           "type": "claim",
-          "threadId": "o0V81_wVv3JjXJfyj34re",
+          "threadId": "dqVLj2I5qL7_IIiAGRQ89",
           "status": "open"
         },
-        "captureMs": 4000
+        "captureMs": 6000
       },
-      "nodeId": "4SKTl_F8rO43KM2f-ekhG",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "Yjr0Y_2bTcjjK8o5RJANj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "s0oK34uPgMOxDC6IXymEy",
+      "id": "W7Pac8t91lUJgA3sgtEZu",
       "seq": 152,
-      "at": "2026-07-09T00:14:57.725Z",
+      "at": "2026-07-10T06:24:54.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "likelihood",
         "before": null,
         "after": "likely"
       },
-      "nodeId": "4SKTl_F8rO43KM2f-ekhG",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "Yjr0Y_2bTcjjK8o5RJANj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "8xkyagqIpQLCy2o4Afk9w",
+      "id": "tFJ4RvHSx2ZfLBY5kAdEm",
       "seq": 153,
-      "at": "2026-07-09T00:15:44.725Z",
+      "at": "2026-07-10T06:25:41.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": null,
         "after": "moderate"
       },
-      "nodeId": "4SKTl_F8rO43KM2f-ekhG",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "Yjr0Y_2bTcjjK8o5RJANj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "TYs9Opvx8WzbqoAk6swoK",
+      "id": "5BNL16x076G1JmTz9hzqd",
       "seq": 154,
-      "at": "2026-07-09T00:16:31.725Z",
+      "at": "2026-07-10T06:26:28.626Z",
       "type": "edge_created",
       "payload": {
         "edge": {
-          "id": "3n2CpdsEXcMOR_Ss_GOW7",
+          "id": "u_5ykKgAqEpp7DbCzEU7f",
           "type": "answers",
-          "from": "4SKTl_F8rO43KM2f-ekhG",
-          "to": "o0V81_wVv3JjXJfyj34re",
-          "createdAt": "2026-07-09T00:16:31.725Z"
+          "from": "Yjr0Y_2bTcjjK8o5RJANj",
+          "to": "dqVLj2I5qL7_IIiAGRQ89",
+          "createdAt": "2026-07-10T06:26:28.626Z"
         }
       },
-      "edgeId": "3n2CpdsEXcMOR_Ss_GOW7",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "edgeId": "u_5ykKgAqEpp7DbCzEU7f",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "lvc6CsJHp7O75SJP1ZWih",
+      "id": "8z2dxPimB3OZ50ngP95Cf",
       "seq": 155,
-      "at": "2026-07-09T00:17:18.725Z",
+      "at": "2026-07-10T06:27:15.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -3416,13 +3416,13 @@
           "direction": "infrastructure_to_victim"
         }
       },
-      "nodeId": "zXQvwOk0uFRmHDPKQcJQu",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "4G25jhKQRgts2IqTR4bh4",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "HTTslQDt_oLvVePqez-dj",
+      "id": "zfdHCcM013v671g7yHpo2",
       "seq": 156,
-      "at": "2026-07-09T00:18:05.725Z",
+      "at": "2026-07-10T06:28:02.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -3431,13 +3431,13 @@
           "direction": "infrastructure_to_victim"
         }
       },
-      "nodeId": "vFw5lYGhOS0vOJsWAG4jZ",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "-5D29BPXmSXtqnHZAdb0Z",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "4id-htWRt19fV874oNrD8",
+      "id": "JaYlySrLfN11-k6jLaotd",
       "seq": 157,
-      "at": "2026-07-09T00:18:52.725Z",
+      "at": "2026-07-10T06:28:49.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -3446,13 +3446,13 @@
           "direction": "bidirectional"
         }
       },
-      "nodeId": "2QGmwgq7dNoofVc9uR5ze",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "bTzRZlNsZooInNkc2ZB3e",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "GeYtn5mLozsibYTWGR9S9",
+      "id": "hqAVGsqucByvsotz8yBH9",
       "seq": 158,
-      "at": "2026-07-09T00:19:39.725Z",
+      "at": "2026-07-10T06:29:36.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -3461,78 +3461,78 @@
           "direction": "victim_to_infrastructure"
         }
       },
-      "nodeId": "MSVV96HWDyZKFGz_pQyu5",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "1whp2JER_DxRfLFhMilHo",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "Ebwz9Gk_Rwlk8yYo3_q22",
+      "id": "aIikAYm9xH-hn7aDRZsil",
       "seq": 159,
-      "at": "2026-07-09T00:20:26.725Z",
+      "at": "2026-07-10T06:30:23.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
           "confidence": "low"
         }
       },
-      "nodeId": "_xh2PpXsbBFz5zEu6_rPP",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "154HdobIcA8tcLkANl55B",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "vmhACzMDhoBaAWf7JL_Ww",
+      "id": "unh7vG_6GWqGILa3W5i37",
       "seq": 160,
-      "at": "2026-07-09T00:21:13.725Z",
+      "at": "2026-07-10T06:31:10.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
           "confidence": "moderate"
         }
       },
-      "nodeId": "JZCFeln-RZWg65zNpA8d6",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "snQnngRkdaNwStrfshXdQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "O9f2NyZpT8Ss2p7clJ4y_",
+      "id": "sB798BD2ZIK_5frn6Pbgi",
       "seq": 161,
-      "at": "2026-07-09T00:22:00.725Z",
+      "at": "2026-07-10T06:31:57.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
           "confidence": "moderate"
         }
       },
-      "nodeId": "XhJVHGWTcSHZYdLOsqPtb",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "B47_Afm-n85oljyZBNZcQ",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "ew6a0a1TFgy2lZc5PBAWu",
+      "id": "OpDTyRfav__hGEdRQdfK9",
       "seq": 162,
-      "at": "2026-07-09T00:22:47.725Z",
+      "at": "2026-07-10T06:32:44.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
           "confidence": "high"
         }
       },
-      "nodeId": "AvMWn9f1NWbopONzwkucL",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "WinCazO9X_IeeLuyo91CA",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "sWFsJGjkSsenlVF368cDH",
+      "id": "6Zy_rGnkdyLVwqj95yo9x",
       "seq": 163,
-      "at": "2026-07-09T00:23:34.725Z",
+      "at": "2026-07-10T06:33:31.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
           "confidence": "high"
         }
       },
-      "nodeId": "A93mgK01wEWMR_dKhC2Ya",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "2P2dViG4I2UMp4g-kz5GG",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "ZHgz2FwH5fSdWM9noeisz",
+      "id": "LJnZs6NpgZzkgYM0a_mls",
       "seq": 164,
-      "at": "2026-07-09T00:24:21.725Z",
+      "at": "2026-07-10T06:34:18.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -3540,26 +3540,26 @@
           "confidence": "moderate"
         }
       },
-      "nodeId": "4SKTl_F8rO43KM2f-ekhG",
-      "threadId": "o0V81_wVv3JjXJfyj34re"
+      "nodeId": "Yjr0Y_2bTcjjK8o5RJANj",
+      "threadId": "dqVLj2I5qL7_IIiAGRQ89"
     },
     {
-      "id": "lzV-nzKpz9LaYzvsyPiNA",
+      "id": "2SOI79kqDkAMzFm3XYD_W",
       "seq": 165,
-      "at": "2026-07-10T12:25:17.725Z",
+      "at": "2026-07-11T18:35:14.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "infoCredibility",
         "before": 2,
         "after": 3
       },
-      "nodeId": "wKdNsTR7D9Nqa3Uj0umEF",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "bL8p1PPQc_j1i4aqEdoSO",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "2VDRCbrpgsH4YAsbJbNlG",
+      "id": "R9PmF56FBmuiH7oZ6nYTD",
       "seq": 166,
-      "at": "2026-07-10T12:26:04.725Z",
+      "at": "2026-07-11T18:36:01.626Z",
       "type": "judgement_affirmed",
       "payload": {
         "fields": {
@@ -3567,21 +3567,21 @@
           "confidence": "low"
         }
       },
-      "nodeId": "1kMNXyC-mMe4Z_tyEK9hz",
-      "threadId": "F4Lo07Ls2uXZHq9pHEH73"
+      "nodeId": "WVqcf4DfJeSnvVOOJzN6o",
+      "threadId": "25MbrMKvX91hR1UUQdQ1j"
     },
     {
-      "id": "0EIpRV_pN1I_enRyiSfuF",
+      "id": "pLHJhkSqlTHt67yEPOXrg",
       "seq": 167,
-      "at": "2026-07-10T12:26:51.725Z",
+      "at": "2026-07-11T18:36:48.626Z",
       "type": "judgement_declared",
       "payload": {
         "field": "confidence",
         "before": "moderate",
         "after": "high"
       },
-      "nodeId": "O1EZzp-7ROLVuI10h51tp",
-      "threadId": "edWnPwcXCSAfJnQc_cb6G"
+      "nodeId": "_j4GtLrRCNAc8GOY6hgS9",
+      "threadId": "kMSJvkjBX8TQje4_i-km1"
     }
   ]
 }

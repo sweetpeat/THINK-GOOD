@@ -6,13 +6,13 @@
 // positions are computed, never stored; the only edits it offers are explicit
 // logged acts (creating a missing vertex + its characterizes edge).
 
-import * as repo from '../model/repo';
 import { useGraph } from './useGraph';
 import { useUI } from './uiStore';
 import type { DiamondEventNode, VertexType } from '../model/types';
 import { staleStateOf, VERTEX_TYPES } from '../model/types';
 import { killChain, verticesOf } from '../model/derive';
 import { NODE_TYPE_LABELS, PHASE_LABELS, RESULT_LABELS } from '../model/labels';
+import { promptCreateVertex } from './diamondActions';
 import { GraphDefs } from './NodeBox';
 import { TYPE_COLOR, wrapText } from './nodeVM';
 
@@ -31,7 +31,7 @@ const CORNER: Record<VertexType, { dx: number; dy: number; glyph: string }> = {
 
 export function KillChainView({ incidentId }: { incidentId: string }) {
   const g = useGraph();
-  const { selectedId, select, showToast } = useUI();
+  const { selectedId, select } = useUI();
   const lanes = killChain(g, incidentId);
   const totalEvents = lanes.reduce((n, l) => n + l.events.length, 0);
 
@@ -55,25 +55,7 @@ export function KillChainView({ incidentId }: { incidentId: string }) {
   const width = GUTTER + maxCount * SLOT_W + 40;
   const height = lanes.length * LANE_H + 20;
 
-  const addVertex = async (role: VertexType, event: DiamondEventNode) => {
-    const text = window.prompt(
-      `Name the ${NODE_TYPE_LABELS[role].toLowerCase()} for ‘${event.text}’ — this creates the vertex and its characterizes link (both logged):`,
-    );
-    if (!text?.trim()) return;
-    try {
-      const v = await repo.createNode({
-        threadId: event.threadId,
-        type: role,
-        text,
-        x: event.x + CORNER[role].dx * 240 + 30,
-        y: event.y + CORNER[role].dy * 140 + 110,
-      });
-      await repo.createEdge('characterizes', v.id, event.id);
-      select(v.id);
-    } catch (err) {
-      showToast({ text: String((err as Error).message ?? err) });
-    }
-  };
+  const addVertex = (role: VertexType, event: DiamondEventNode) => promptCreateVertex(event, role);
 
   return (
     <div className="killchain-wrap">
